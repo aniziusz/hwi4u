@@ -27,7 +27,7 @@ def smoke(output):
         window=Window(store,language='en');window.show();app.processEvents();window.load(window.rows[0])
         window.table.itemDoubleClicked.emit(window.table.item(0,1));editor=next(iter(window.editors.values()));app.processEvents()
         assert editor.isMaximized() and editor.table.isHidden()
-        editor.inputs['name'].setText('Fictional reviewed device');assert editor.save()
+        editor.inputs['name'].setText('Fictional reviewed device');editor.inputs['location'].setText('Földszint / Büro');assert editor.save()
         assert window.inputs['name'].text()=='Fictional reviewed device'
         for code in ('de','hu','en'):window.set_language(code);assert editor.language_actions[code].isChecked()
         assert editor.grab().save(str(output/'device-editor.png'));assert window.grab().save(str(output/'quick-editor.png'))
@@ -36,7 +36,7 @@ def smoke(output):
         # Windows/macOS UTF-8 export must preserve non-ASCII user text.
         import subprocess
         subprocess.run([sys.executable,str(source/'inventory.py'),'--db',str(db),'export','--directory',str(root/'export')],check=True,capture_output=True)
-        assert (root/'export/inventory.json').is_file()
+        assert json.loads((root/'export/inventory.json').read_text(encoding='utf-8'))['devices'][0]['location']=='Földszint / Büro'
         editor.close();window.close();app.processEvents()
     report=dict(system=system,machine=platform.machine(),python=platform.python_version(),qt=PySide6.__version__,qt_platform=app.platformName(),native_ui=(system in ('Windows','Darwin')),expanded_editor=True,quick_refresh=True,workspace_initialization=True,full_restore=True,export=True,data='disposable fictional data only')
     (output/'platform-report.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
