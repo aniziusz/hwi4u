@@ -33,6 +33,8 @@ import platform
 import PySide6
 
 from search_combo import SearchComboBox
+from location_ui import LocationPanel
+from location_store import empty_location,location_summary
 
 class CollapsibleSection(QWidget):
     def __init__(self,title,body):
@@ -351,9 +353,10 @@ class Window(QMainWindow):
         scroll=QScrollArea();scroll.setWidgetResizable(True);panel=QWidget();form=QFormLayout(panel);form.setContentsMargins(20,12,12,12);form.setSpacing(14)
         self.form_title=QLabel('New device');self.form_title.setStyleSheet('font-size:18px;font-weight:600;');form.addRow(self.form_title)
         self.inputs={}
-        for key,label in [('device_id','Device ID *'),('name','Name *'),('location','Location'),('source','Information source / notes')]:
+        for key,label in [('device_id','Device ID *'),('name','Name *'),('location','Location text / additional description'),('source','Information source / notes')]:
             widget=QLineEdit();self.inputs[key]=widget;form.addRow(label,widget)
             if key=='name':self.name_feedback=QLabel();self.name_feedback.setWordWrap(True);form.addRow(self.name_feedback)
+        self.location_panel=LocationPanel(store);form.addRow(self.location_panel)
         sources_group=QGroupBox('Sources and evidence');sources_layout=QVBoxLayout(sources_group)
         self.source_selectors['device']=SourceSelector(self.source_store,OptionalDate);sources_layout.addWidget(self.source_selectors['device']);form.addRow(sources_group)
         self.inputs['device_id'].setPlaceholderText('Generated automatically when saved')
@@ -498,7 +501,7 @@ class Window(QMainWindow):
         if code not in LANGUAGES:raise ValueError('Unsupported interface language')
         install(code)
         for key,action in self.language_actions.items():action.setChecked(key==code)
-        self.refresh_photos();self.refresh_manuals();self.translate_state_cells();self.filter_rows();apply(self)
+        self.refresh_photos();self.refresh_manuals();self.translate_state_cells();self.filter_rows();self.location_panel.refresh_text();apply(self)
         try:write_language(self.store.path.parent,code)
         except OSError as exc:QMessageBox.warning(self,'Could not save language preference',str(exc))
     def translate_state_cells(self):
@@ -551,6 +554,7 @@ class Window(QMainWindow):
             elif key in ('current_state','physical_condition','device_type'):data[key]=w.currentData()
             elif key=='purchase_currency':data[key]=w.currentText().strip() or None
             else:data[key]=w.text().strip() if key in ('device_id','name','source') else (w.text().strip() or None)
+        data['location_details']=self.location_panel.value()
         data['sources']={scope:selector.value() for scope,selector in self.source_selectors.items()}
         data['network']=self.network_panel.value()
         data['software']=self.software_panel.value()
@@ -618,6 +622,7 @@ class Window(QMainWindow):
             else:w.setText(value or '')
         self.inputs['device_id'].setReadOnly(True)
         self.short_id.setText(row.get('short_id','') if row else '')
+        self.location_panel.load(row.get('_location',empty_location()) if row else empty_location())
         self.network_panel.load(row.get('_network',empty_network()) if row else empty_network())
         self.software_panel.load(row.get('_software',empty_software()) if row else empty_software())
         profile=row.get('_connectivity',empty_profile()) if row else empty_profile()
@@ -642,6 +647,7 @@ class Window(QMainWindow):
         group=self.group_filter.currentData();kind=self.type_filter.currentData()
         for n,row in enumerate(self.rows):
             words=[str(row[k] or '') for k in ('device_id','short_id','name','type_group','device_type','current_state','physical_condition','location')]
+            words.append(location_summary(row['_location']))
             words.extend(str(value) for value in row['_software'].values() if value is not None)
             network=row['_network'];words.append(network['hostname'] or '')
             for port in network['interfaces']:words.extend([port['label'],port['mac_address'] or '',*port['addresses']])

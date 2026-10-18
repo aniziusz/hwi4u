@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox
     QComboBox,QLineEdit,QTableWidget,QMenu,QDateEdit,QToolButton)
 
 LANGUAGES={'en':'English','de':'Deutsch','hu':'Magyar'}
-APP_VERSION='0.13.0'
+APP_VERSION='0.14.0'
 RELEASE_DATE='2026-10-18'
 TRANSLATIONS={}
 
@@ -68,6 +68,7 @@ def apply(root):
         if w.toolTip():_text(w,'tip',w.toolTip(),w.setToolTip)
         if isinstance(w,QComboBox) and (not w.isEditable() or w.property('_searchable_choices')):
             for n in range(w.count()):
+                if w.itemData(n,275):continue  # Literal user-entered location paths.
                 # Only fixed UI choices; shared catalogue values remain canonical.
                 source=w.itemData(n,273)
                 last=w.itemData(n,274)
