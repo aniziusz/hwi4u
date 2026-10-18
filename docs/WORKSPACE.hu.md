@@ -1,6 +1,8 @@
 # Eszközlista, szerepkörök és adaptív munkaterület
 
-Document ID: HWI4U-WORKSPACE · Version: 1 · 2026-10-19
+Document ID: HWI4U-WORKSPACE · Version: 2 · 2026-10-19
+
+Oszlopfejléc-szűrés (0.16.1): látható oszlop jobb szélén kis nyíl közvetlenül megnyitja kereshető jelölőnégyzetes szűrőjét. Aktív szűrőnél pont a nyíl mellett és összegzésben is látszik. Gomb logikai oszlopot követi méretezés/áthelyezés/elrejtés/vízszintes görgetés esetén; kattintás nem rendez. Fejlécszöveg továbbra is rendez. Alkalmaz/Mégse, VAGY/ÉS és mentett szűrők maradnak. Eszköztár Szűrők… rejtett oszlopokhoz alternatíva. Lista fejléc közelében képernyőn belül nyílik, magassága elemszámhoz igazodik. 0.16.0-ról nincs sémamigráció/adatátírás.
 
 HWI4U 0.16.0, 23-as séma. FR-030/031/032/033/035 TEST-ben; éles átvétel külön. FR-034 meglévő keresés duplikátuma. Felülírja korábbi egyválasztásos listaszűrőket és egyoszlopos nagy szerkesztőt.
 

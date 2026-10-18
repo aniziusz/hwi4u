@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox
     QComboBox,QLineEdit,QTableWidget,QMenu,QDateEdit,QToolButton)
 
 LANGUAGES={'en':'English','de':'Deutsch','hu':'Magyar'}
-APP_VERSION='0.16.0'
+APP_VERSION='0.16.1'
 RELEASE_DATE='2026-10-19'
 TRANSLATIONS={}
 
@@ -177,4 +177,9 @@ TRANSLATIONS.update({
  'Expand navigation groups. Select a section to find its tile; other sections remain available.':('Navigationsgruppen aufklappen. Bereich wählen, um seine Kachel zu finden; andere Bereiche bleiben verfügbar.','Navigációs csoportok kinyithatók. Szakaszválasztás a csempéhez ugrik; más szakaszok elérhetők maradnak.'),
  'Roles changed outside the form. Cancel and refresh before editing again.':('Rollen wurden außerhalb geändert. Verwerfen und vor weiterer Bearbeitung aktualisieren.','Szerepkörök máshol módosultak. Elvetés és frissítés szükséges.'),
  'Unknown role; refresh the role choices.':('Unbekannte Rolle; Auswahl aktualisieren.','Ismeretlen szerepkör; választék frissítendő.'),
+})
+
+TRANSLATIONS.update({
+ 'Filter column: ':('Spalte filtern: ','Oszlop szűrése: '),
+ 'Filter active':('Filter aktiv','Aktív szűrő'),
 })

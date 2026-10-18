@@ -1,6 +1,8 @@
 # Geräteliste, Rollen und adaptiver Arbeitsbereich
 
-Document ID: HWI4U-WORKSPACE · Version: 1 · 2026-10-19
+Document ID: HWI4U-WORKSPACE · Version: 2 · 2026-10-19
+
+Spaltenkopffilter (0.16.1): kleiner Pfeil rechts im sichtbaren Spaltenkopf öffnet direkt dessen durchsuchbare Checkboxliste. Aktiver Filter erhält Punkt neben Pfeil und bleibt in Übersicht. Knopf folgt logischer Spalte bei Größe, Reihenfolge, Ausblenden und horizontalem Scrollen; Klick sortiert nicht. Kopftext sortiert weiter. Anwenden/Abbrechen, ODER/UND und gespeicherte Filter unverändert. Toolbar Filter… bleibt Alternative für ausgeblendete Spalten. Liste öffnet nahe Kopf innerhalb Bildschirmgrenzen, Höhe nach Optionszahl. Ab 0.16.0 keine Schemamigration oder Datenumschreibung.
 
 HWI4U 0.16.0, Schema 23. FR-030/031/032/033/035 in TEST; Produktivabnahme separat. FR-034 ist Duplikat der vorhandenen Gerätesuche. Ersetzt ältere Einzelfilter und einspaltigen großen Editor.
 

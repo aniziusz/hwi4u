@@ -1,8 +1,8 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 5 · 2026-10-19
+Document ID: HWI4U-README · Version: 6 · 2026-10-19
 
-**Hardware inventory database client** — lokale Python/Qt-Anwendung mit SQLite und EN/DE/HU-Oberfläche. Quellversion **0.16.0**, Schema **23**. Nutzung ohne Cloudkonto.
+**Hardware inventory database client** — lokale Python/Qt-Anwendung mit SQLite und EN/DE/HU-Oberfläche. Quellversion **0.16.1**, Schema **23**. Nutzung ohne Cloudkonto.
 
 Geräte, Unicode-Namen, generierte UUID/Kurzkennungen, Daten/Kauf/Standort, Gruppen/Typen, Lebenszyklus/Zustand, OS/Firmware, Schnittstellen/MAC/IP, Verbindungen und Quellen erfassen. Fotos/PDFs separate verwaltete Dateien. Angaben werden nicht automatisch erkannt/geprüft; Unbekanntes bleibt unbekannt.
 
@@ -35,9 +35,9 @@ Markdown/Python/SQL offline mit normalen Werkzeugen lesbar. Abhängigkeitsinstal
 
 [English](README.en.md) · [Magyar](README.hu.md)
 
-[FR-025 · 0.16.0 · TEST](docs/LOCATIONS.de.md)
+[FR-025 · 0.16.1 · TEST](docs/LOCATIONS.de.md)
 
-[FR-012 / FR-028 / FR-029 · 0.16.0 · TEST](docs/DESKTOP.de.md)
+[FR-012 / FR-028 / FR-029 · 0.16.1 · TEST](docs/DESKTOP.de.md)
 
 
-[FR-030/031/032/033/035 · 0.16.0 · TEST](docs/WORKSPACE.de.md)
+[FR-030/031/032/033/035 · 0.16.1 · TEST](docs/WORKSPACE.de.md)

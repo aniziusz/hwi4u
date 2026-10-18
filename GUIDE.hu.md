@@ -1,8 +1,8 @@
 # Felhasználói útmutató
 
-Document ID: HWI4U-GUIDE · Version: 4 · 2026-10-19
+Document ID: HWI4U-GUIDE · Version: 5 · 2026-10-19
 
-Aktuális 0.16.0 listakezelés, szerepek és nagy elrendezés felülírja alábbi korábbi leírásokat. [Aktuális útmutató](docs/WORKSPACE.hu.md). FR-034 meglévő keresés duplikátuma, nincs külön megvalósítás.
+Aktuális 0.16.1 listakezelés, szerepek és nagy elrendezés felülírja alábbi korábbi leírásokat. [Aktuális útmutató](docs/WORKSPACE.hu.md). FR-034 meglévő keresés duplikátuma, nincs külön megvalósítás.
 
 README után új privát munkaterület inicializálása. Éles: manage.py run, TEST: manage.py test. Külön adatok, nincs automatikus szinkron. manage.py refresh-test tudatos művelet: megerősítés, régebbi másolatok megőrzése. Ugyanazon rekord párhuzamos szerkesztését kerüld; elavult mentést elutasít.
 
@@ -25,4 +25,4 @@ Teljes mentés: ellenőrzött ZIP adatbázissal és hivatkozott képpel/kézikö
 [FR-028 · FR-012 · FR-029](docs/DESKTOP.hu.md)
 
 
-[FR-030/031/032/033/035 · 0.16.0 · TEST](docs/WORKSPACE.hu.md)
+[FR-030/031/032/033/035 · 0.16.1 · TEST](docs/WORKSPACE.hu.md)

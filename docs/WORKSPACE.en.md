@@ -1,6 +1,8 @@
 # Device list, roles and adaptive workspace
 
-Document ID: HWI4U-WORKSPACE · Version: 1 · 2026-10-19
+Document ID: HWI4U-WORKSPACE · Version: 2 · 2026-10-19
+
+Column-header filtering (0.16.1): click the small arrow at the right of any visible column header to open that column’s searchable checkbox filter directly. An active filter displays a dot beside the arrow and remains listed in the active-filter summary. The button follows its logical column through resizing, moving, hiding and horizontal scrolling; clicking it does not sort. Clicking the header label still sorts. Apply/Cancel, OR/AND rules and saved filters are unchanged. The toolbar Filters… remains an alternative for hidden columns. The checklist opens near the clicked header, constrained to the available screen, with height adapted to the option count. No schema migration or data rewrite is needed from 0.16.0.
 
 HWI4U 0.16.0, schema 23. Implements FR-030, FR-031, FR-032, FR-033 and FR-035 in TEST; production acceptance is separate. FR-034 is a duplicate of the already implemented device search. This guide supersedes older single-choice list filters and the original full-width one-column expanded editor.
 

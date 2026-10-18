@@ -1,9 +1,10 @@
 """Device-list presentation; UUIDs never depend on row order or visible columns."""
 import json,itertools
 from pathlib import Path
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt,QPoint
 from PySide6.QtWidgets import (QDialog,QVBoxLayout,QHBoxLayout,QLabel,QComboBox,QLineEdit,QListWidget,QListWidgetItem,QPushButton,QDialogButtonBox,QAbstractItemView)
 from ui_i18n import tr
+from column_header import FilterHeader
 from location_store import location_summary
 from update_runtime import atomic_json
 
@@ -117,7 +118,7 @@ class DeviceListController:
     def __init__(self,window):
         from PySide6.QtWidgets import QInputDialog
         self.w=window;self.path=window.store.path.parent/('client-view-'+__import__('os').environ.get('INVENTORY_CHANNEL','production')+'.json');self.view=read_view(self.path);self.collapsed=set();self.sort_key='name';self.descending=False;self.rendering=False
-        table=window.table;table.setProperty('_managed_columns',True);table.setColumnCount(len(COLUMNS));table.setHorizontalHeaderLabels([tr(v) for _,v in COLUMNS]);header=table.horizontalHeader();header.setSectionsMovable(True);header.setStretchLastSection(False);header.setSortIndicatorShown(True);header.setSortIndicator(1,Qt.AscendingOrder)
+        table=window.table;table.setHorizontalHeader(FilterHeader(table));table.horizontalHeader().filterRequested.connect(self.filter_column);table.setProperty('_managed_columns',True);table.setColumnCount(len(COLUMNS));table.setHorizontalHeaderLabels([tr(v) for _,v in COLUMNS]);header=table.horizontalHeader();header.setSectionsMovable(True);header.setStretchLastSection(False);header.setSortIndicatorShown(True);header.setSortIndicator(1,Qt.AscendingOrder)
         header.sectionClicked.connect(self.sort);header.sectionMoved.connect(self.header_changed);header.sectionResized.connect(self.resized);table.itemClicked.connect(self.clicked);table.itemActivated.connect(self.clicked)
         self.controls=[];layout=window.filter_bar.layout()
         for i in range(layout.count()):
@@ -137,7 +138,7 @@ class DeviceListController:
         if all(k in self.view['hidden'] for k in ('name','short_id')):
             self.view['hidden']=[k for k in self.view['hidden'] if k!='name'];self.w.table.setColumnHidden(KEYS.index('name'),False)
         for key,width in self.view.get('widths',{}).items():self.w.table.setColumnWidth(KEYS.index(key),width)
-        h.blockSignals(False)
+        h.blockSignals(False);h.sync([tr(label) for _,label in COLUMNS],{KEYS.index(k) for k in self.view['filters']})
     def header_changed(self,*_):
         if self.rendering:return
         h=self.w.table.horizontalHeader();self.view['order']=[KEYS[h.logicalIndex(i)] for i in range(h.count())];self.persist()
@@ -210,7 +211,10 @@ class DeviceListController:
         from PySide6.QtWidgets import QInputDialog
         labels=[tr(label) for _,label in COLUMNS];label,ok=QInputDialog.getItem(self.w,tr('Filters'),tr('Choose a column'),labels,0,False)
         if not ok:return
-        key=KEYS[labels.index(label)];candidates=[r for r in self.w.rows if self.base_matches(r) and matches(r,self.view['filters'],skip=key)]
+        self.filter_column(labels.index(label))
+    def filter_column(self,index):
+        if not 0<=index<len(KEYS):return
+        key=KEYS[index];candidates=[r for r in self.w.rows if self.base_matches(r) and matches(r,self.view['filters'],skip=key)]
         counts={}
         for r in candidates:
             for v in set(values(r,key)):counts[v]=counts.get(v,0)+1
@@ -219,6 +223,9 @@ class DeviceListController:
         for v in self.view['filters'].get(key,[]):counts.setdefault(v,0)
         options=[(v,(tr(v) if key in ('current_state','physical_condition') else v or tr('Unknown'))+' ('+str(counts[v])+')') for v in sorted(counts)]
         dialog=ChoiceDialog('Filters',options,self.view['filters'].get(key),self.w,allow_all=True)
+        dialog.setWindowTitle(tr('Filters')+' — '+tr(dict(COLUMNS)[key]));dialog.resize(430,min(480,max(240,160+24*len(options))))
+        header=self.w.table.horizontalHeader();anchor=header.mapToGlobal(QPoint(header.sectionViewportPosition(index),header.height()))
+        screen=header.screen().availableGeometry();dialog.move(max(screen.left(),min(anchor.x(),screen.right()-dialog.width())),max(screen.top(),min(anchor.y(),screen.bottom()-dialog.height())))
         if dialog.exec()!=QDialog.Accepted:return
         selected=dialog.selected()
         if selected is None:self.view['filters'].pop(key,None)
