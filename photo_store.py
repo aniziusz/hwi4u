@@ -27,10 +27,10 @@ class PhotoStore:
         if not source.strip():raise ValueError('Photo information source is required.')
         filename=Path(filename)
         if filename.stat().st_size>25*1024*1024:raise ValueError('Choose a JPEG or PNG file up to 25 MiB.')
-        device=QFile(str(filename))
-        if not device.open(QIODevice.ReadOnly):raise OSError(device.errorString())
+        source_device=QFile(str(filename))
+        if not source_device.open(QIODevice.ReadOnly):raise OSError(source_device.errorString())
         try:
-            reader=QImageReader(device);reader.setAutoTransform(True)
+            reader=QImageReader(source_device);reader.setAutoTransform(True)
             fmt=bytes(reader.format()).lower()
             if fmt not in (b'jpeg',b'jpg',b'png'):raise ValueError('Supported photo formats: JPEG and PNG.')
             size=reader.size()
@@ -38,7 +38,7 @@ class PhotoStore:
                 raise ValueError('Choose an image up to 16 megapixels; export a smaller copy if needed.')
             image=reader.read()
             if image.isNull():raise ValueError('Could not decode this image: '+reader.errorString())
-        finally:device.close()
+        finally:source_device.close()
         ident=uuid.uuid4().hex
         root=self.db.parent/'photos';root.mkdir(exist_ok=True)
         if root.is_symlink():raise ValueError('Managed photos folder must not be a symlink')
