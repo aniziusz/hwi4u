@@ -36,7 +36,7 @@ class EditorWorkspace(QWidget):
             for key in keys:
                 item=QTreeWidgetItem(branch,[TITLES[key]]);item.setData(0,Qt.UserRole,key);self.items[key]=item
             branch.setExpanded(title in ('Device','Purchase & lifecycle','Network & connectivity'))
-        self.old_panel=window.form_scroll.takeWidget();old=self.old_panel.layout();self.footer=QWidget();footer_layout=QVBoxLayout(self.footer);footer_layout.setContentsMargins(0,0,0,0)
+        self.old_panel=window.form_scroll.takeWidget();self.old_panel.setParent(self);self.old_panel.hide();old=self.old_panel.layout();self.footer=QWidget();footer_layout=QVBoxLayout(self.footer);footer_layout.setContentsMargins(0,0,0,0)
         # Direct widget mapping avoids relying on translated field labels.
         mapping={id(window.short_id):'identity',id(window.type_group):'identity',id(window.name_feedback):'identity',id(window.role_button):'identity',id(window.location_panel):'location',id(window.source_selectors['device'].parentWidget()):'evidence',id(window.merchant_hint):'purchase',id(window.merchant_fix):'purchase'}
         for key,widget in window.inputs.items():
