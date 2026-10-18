@@ -9,6 +9,7 @@ from update_runtime import publish,prepare_database
 from photo_files import backup_bundle
 from tools.verify_bundle import restore
 from PySide6.QtWidgets import QMessageBox
+from PySide6.QtCore import Qt
 
 def placement(**changes):
     return {**empty_location(),'state':'recorded','building':'Fictional home','floor':'Ground floor','room':'Living room','position':'Northwest wall','height_m':'1,8','height_reference':'finished_floor',**changes}
@@ -54,8 +55,9 @@ class GuidedLocations(unittest.TestCase):
         self.assertEqual(self.store.devices()[0]['_location']['room'],'Changed')
     def test_ui_preview_pending_cancel_language_search(self):
         row=self.create();w=self.window;w.reload();w.load(row)
-        self.assertEqual(w.location_panel.value(),empty_location());before=w.values()
+        self.assertEqual(w.location_panel.value(),empty_location());self.assertEqual(w.location_panel.summary.textFormat(),Qt.PlainText);before=w.values()
         d=LocationDialog(self.store,empty_location(),w);self.addCleanup(d.deleteLater)
+        self.assertEqual(d.preview.textFormat(),Qt.PlainText)
         d.state.setCurrentIndex(d.state.findData('recorded'))
         for k,v in [('building','Ház'),('floor','Földszint'),('room','Nappali'),('height_m','1,8')]:d.inputs[k].setText(v)
         self.assertFalse(d.use.isEnabled());d.reference.setCurrentIndex(d.reference.findData('finished_floor'));self.assertTrue(d.use.isEnabled())

@@ -85,4 +85,6 @@ def audit_locations(con):
         if validate_location(data)!=data:raise ValueError('Non-canonical location details.')
     cursor=con.cursor();cursor.row_factory=sqlite3.Row
     for row in cursor.execute('SELECT * FROM location_places'):
+        validate_location(dict(empty_location(),state='recorded',**{k:row[k] for k in PLACE_FIELDS}))
+        if any(clean(row[k])!=row[k] for k in PLACE_FIELDS):raise ValueError('Non-canonical reusable place.')
         if row['place_key']!=place_key(dict(row)):raise ValueError('Invalid reusable place key.')
