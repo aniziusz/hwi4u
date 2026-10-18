@@ -18,9 +18,10 @@ class FilterHeader(QHeaderView):
         self.position_buttons();self.viewport().update()
     def position_buttons(self,*_):
         for index,button in self.buttons.items():
-            visible=index<self.count() and not self.isSectionHidden(index)
+            x=self.sectionViewportPosition(index)+self.sectionSize(index)-32 if index<self.count() else -32
+            visible=index<self.count() and not self.isSectionHidden(index) and x+30>0 and x<self.viewport().width()
             button.setVisible(visible)
-            if visible:button.setGeometry(self.sectionViewportPosition(index)+self.sectionSize(index)-32,1,30,max(24,self.height()-2))
+            if visible:button.setGeometry(x,1,30,max(24,self.height()-2))
     def resizeEvent(self,event):
         super().resizeEvent(event);self.position_buttons()
     def sizeHint(self):
