@@ -19,6 +19,7 @@ def new_device_id():
     return 'hw-' + uuid.uuid4().hex
 
 from names import name_key,validate_name
+from location_store import load_location,validate_location,save_location,PLACE_FIELDS
 from source_store import load_links,validate_links,save_links,citation,SCOPES
 
 
@@ -41,7 +42,12 @@ class DeviceStore:
                 row['_software']=load_software(con,row['device_id'])
                 row['_network']=load_network(con,row['device_id'])
                 row['_sources']=load_links(con,row['device_id'])
+                row['_location']=load_location(con,row['device_id'])
             return rows
+
+    def places(self):
+        with inventory.contextlib.closing(self.connect()) as con:
+            return [dict(r) for r in con.execute('SELECT * FROM location_places ORDER BY building,floor,room,city')]
 
     def name_issue(self,name,device_id=None):
         try:name=validate_name(name)
@@ -191,7 +197,7 @@ class DeviceStore:
             else:
                 if values['device_id'] != original['device_id']:
                     raise ValueError('Existing device IDs cannot be changed in this form.')
-                if current is None or dict(current) != {k:v for k,v in original.items() if k not in ('type_group','short_id','_connectivity','_software','_network','_sources')}:
+                if current is None or dict(current) != {k:v for k,v in original.items() if k not in ('type_group','short_id','_connectivity','_software','_network','_sources','_location')}:
                     raise ValueError('This device changed outside the form. Cancel and refresh before editing again.')
             for row in con.execute('SELECT device_id,name FROM devices'):
                 if row['device_id'] != values['device_id'] and name_key(row['name']) == name_key(values['name']):
@@ -212,6 +218,11 @@ class DeviceStore:
                 software=validate_software(con,software_data)
                 if original is not None and original.get('_software') != load_software(con,values['device_id']):
                     raise ValueError('Software changed outside the form. Cancel and refresh before editing again.')
+            location=None
+            if 'location_details' in data:
+                location=validate_location(data['location_details'])
+                if original is not None and original.get('_location')!=load_location(con,values['device_id']):
+                    raise ValueError('Location changed outside the form. Cancel and refresh before editing again.')
             network=None
             if 'network' in data:
                 network_data=dict(data['network'])
@@ -236,6 +247,7 @@ class DeviceStore:
             if software is not None:save_software(con,values['device_id'],software)
             if network is not None:save_network(con,values['device_id'],network)
             if selections is not None:save_links(con,values['device_id'],selections)
+            if location is not None:save_location(con,values['device_id'],location)
             con.commit()
             data['device_id'] = values['device_id']
             return output
@@ -253,8 +265,8 @@ class DeviceStore:
         try:
             con.execute('BEGIN IMMEDIATE')
             current=con.execute('SELECT * FROM devices WHERE device_id=?',(device_id,)).fetchone()
-            expected={k:v for k,v in original.items() if k not in ('type_group','short_id','_connectivity','_software','_network','_sources')}
-            if current is None or dict(current)!=expected or load_network(con,device_id)!=original['_network'] or load_software(con,device_id)!=original['_software'] or load_connectivity(con,device_id)!=original['_connectivity'] or load_links(con,device_id)!=original['_sources']:
+            expected={k:v for k,v in original.items() if k not in ('type_group','short_id','_connectivity','_software','_network','_sources','_location')}
+            if current is None or dict(current)!=expected or load_network(con,device_id)!=original['_network'] or load_software(con,device_id)!=original['_software'] or load_connectivity(con,device_id)!=original['_connectivity'] or load_links(con,device_id)!=original['_sources'] or load_location(con,device_id)!=original['_location']:
                 raise ValueError('This device changed outside the form. Cancel and refresh before editing again.')
             if con.execute('SELECT 1 FROM network_links l JOIN network_interfaces i ON i.interface_id=l.endpoint_a OR i.interface_id=l.endpoint_b WHERE i.device_id=?',(device_id,)).fetchone():
                 raise ValueError('Remove the connection records before deleting this device.')
@@ -268,8 +280,10 @@ class DeviceStore:
                 'network_addresses':('interface_id IN(SELECT interface_id FROM network_interfaces WHERE device_id=?)',(device_id,)),
                 'network_interfaces':('device_id=?',(device_id,)), 'device_network':('device_id=?',(device_id,)),
                 'network_observations':('device_id=?',(device_id,)),
+                'device_locations':('device_id=?',(device_id,)),
                 'source_links':('device_id=?',(device_id,)), 'source_link_history':('device_id=?',(device_id,))}
             snapshot={table:[dict(r) for r in con.execute('SELECT * FROM '+table+' WHERE '+where,args)] for table,(where,args) in tables.items()}
+            snapshot['device_location_history']=[dict(r) for r in con.execute('SELECT * FROM device_location_history WHERE device_id=?',(device_id,))]
             output=self.path.parent/'backups'/('before-device-delete-'+dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'.zip')
             full_snapshot_locked(self.path,output)
             con.execute('INSERT INTO deleted_devices(device_id,snapshot_json) VALUES(?,?)',(device_id,json.dumps(snapshot,ensure_ascii=False)))

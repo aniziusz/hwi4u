@@ -73,7 +73,7 @@ class Sources(unittest.TestCase):
             tables=[r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")];before={t:c.execute('SELECT * FROM '+t).fetchall() for t in tables}
             c.executescript((BASE/'migrations/019-source-library.sql').read_text())
             c.executescript((BASE/'migrations/020-network-links.sql').read_text())
-            c.executescript((BASE/'migrations/021-location.sql').read_text())
+            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text())
             for table,rows in before.items():self.assertEqual([tuple(r[:-1]) if table=='devices' else r for r in c.execute('SELECT * FROM '+table).fetchall()],rows,table)
             self.assertEqual(c.execute('SELECT body FROM source_entries').fetchall(),[('Árvíz\nOriginal SOURCE',)])
             self.assertEqual(c.execute('SELECT kind FROM source_entries').fetchone()[0],'legacy_text')
