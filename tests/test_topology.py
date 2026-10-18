@@ -89,7 +89,7 @@ class Upgrade(unittest.TestCase):
                 c.execute("INSERT INTO network_interfaces(interface_id,device_id,label) VALUES(?, 'test','LAN')",('a'*32,));c.commit()
                 tables=[r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")];before={t:c.execute('SELECT * FROM '+t).fetchall() for t in tables}
                 c.executescript((test_desktop.BASE/'migrations/020-network-links.sql').read_text())
-                c.executescript((test_desktop.BASE/'migrations/021-location.sql').read_text());c.executescript((test_desktop.BASE/'migrations/022-guided-locations.sql').read_text())
+                c.executescript((test_desktop.BASE/'migrations/021-location.sql').read_text());c.executescript((test_desktop.BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((test_desktop.BASE/'migrations/023-device-roles.sql').read_text())
                 for t,rows in before.items():self.assertEqual([tuple(r[:-1]) if t=='devices' else r for r in c.execute('SELECT * FROM '+t).fetchall()],rows,t)
                 self.assertEqual(c.execute('SELECT count(*) FROM network_links').fetchone()[0],0)
                 __import__('inventory').check(c)

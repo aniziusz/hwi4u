@@ -10,8 +10,8 @@ from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox
     QComboBox,QLineEdit,QTableWidget,QMenu,QDateEdit,QToolButton)
 
 LANGUAGES={'en':'English','de':'Deutsch','hu':'Magyar'}
-APP_VERSION='0.15.0'
-RELEASE_DATE='2026-10-18'
+APP_VERSION='0.16.1'
+RELEASE_DATE='2026-10-19'
 TRANSLATIONS={}
 
 def tr(text):
@@ -86,7 +86,7 @@ def apply(root):
                     if item.text()!=last:source=item.text()
                     if source is None:source=item.text()
                     item.setData(273,source);item.setData(274,tr(source));item.setText(tr(source))
-            w.resizeColumnsToContents()
+            if not w.property('_managed_columns'):w.resizeColumnsToContents()
         if isinstance(w,QDateEdit):
             locale=QLocale({'en':'en_GB','de':'de_DE','hu':'hu_HU'}[getattr(QApplication.instance(),'inventory_language','en')])
             w.setLocale(locale);w.calendarWidget().setLocale(locale)
@@ -143,3 +143,43 @@ def localized(method):
         apply(self)
         return result
     return wrapped
+
+
+TRANSLATIONS.update({
+ 'Roles':('Rollen','Szerepkörök'),
+ 'Choose roles…':('Rollen wählen…','Szerepkörök választása…'),
+ 'Add role…':('Rolle hinzufügen…','Szerepkör hozzáadása…'),
+ 'Add role':('Rolle hinzufügen','Szerepkör hozzáadása'),
+ 'Role name (catalogue saves immediately)':('Rollenname (Katalog speichert sofort)','Szerepkör neve (katalógus azonnal mentődik)'),
+ 'Search choices…':('Auswahl durchsuchen…','Választék keresése…'),
+ 'Select all':('Alle auswählen','Összes kijelölése'),
+ 'Clear selection':('Auswahl leeren','Kijelölés törlése'),
+ 'No restriction':('Keine Einschränkung','Nincs korlátozás'),
+ 'Columns':('Spalten','Oszlopok'),
+ 'Columns…':('Spalten…','Oszlopok…'),
+ 'Tick visible columns. Drag rows to change their order. Hiding never deletes data.':('Sichtbare Spalten markieren. Zeilen für Reihenfolge ziehen. Ausblenden löscht keine Daten.','Látható oszlopok jelölése. Sorrend húzással módosítható. Elrejtés nem töröl adatot.'),
+ 'Move up':('Nach oben','Felfelé'), 'Move down':('Nach unten','Lefelé'),
+ 'Restore defaults':('Standard wiederherstellen','Alapértékek visszaállítása'),
+ 'Group by':('Gruppieren nach','Csoportosítás'), 'Group by…':('Gruppieren nach…','Csoportosítás…'),
+ 'Ungrouped':('Ungruppiert','Csoportosítás nélkül'),
+ 'Choose up to two levels. Roles can repeat devices; totals count unique devices.':('Bis zu zwei Ebenen. Rollen können Geräte wiederholen; Gesamtzahl zählt eindeutige Geräte.','Legfeljebb két szint. Szerepek ismételhetik az eszközt; összesítés egyedi eszközöket számol.'),
+ 'Filters':('Filter','Szűrők'), 'Filters…':('Filter…','Szűrők…'),
+ 'Clear filters':('Filter löschen','Szűrők törlése'), 'Choose a column':('Spalte wählen','Oszlop választása'),
+ 'No matches':('Keine Treffer','Nincs találat'), 'unique devices':('eindeutige Geräte','egyedi eszköz'),
+ 'Role groups can repeat devices.':('Rollengruppen können Geräte mehrfach zeigen.','Szerepcsoportok ugyanazt az eszközt többször mutathatják.'),
+ 'Could not save view preferences: ':('Ansicht konnte nicht gespeichert werden: ','Nézetbeállítás nem menthető: '),
+ 'General':('Allgemein','Általános'), 'Location':('Standort','Hely'),
+ 'Purchase & lifecycle':('Kauf und Lebenszyklus','Vásárlás és életciklus'),
+ 'State & condition':('Status und Zustand','Életciklus és állapot'),
+ 'Device':('Gerät','Eszköz'), 'Network & connectivity':('Netzwerk und Verbindungen','Hálózat és kapcsolatok'),
+ 'Files & evidence':('Dateien und Nachweise','Fájlok és bizonyítékok'),
+ 'MAC addresses':('MAC-Adressen','MAC-címek'), 'IP addresses':('IP-Adressen','IP-címek'),
+ 'Expand navigation groups. Select a section to find its tile; other sections remain available.':('Navigationsgruppen aufklappen. Bereich wählen, um seine Kachel zu finden; andere Bereiche bleiben verfügbar.','Navigációs csoportok kinyithatók. Szakaszválasztás a csempéhez ugrik; más szakaszok elérhetők maradnak.'),
+ 'Roles changed outside the form. Cancel and refresh before editing again.':('Rollen wurden außerhalb geändert. Verwerfen und vor weiterer Bearbeitung aktualisieren.','Szerepkörök máshol módosultak. Elvetés és frissítés szükséges.'),
+ 'Unknown role; refresh the role choices.':('Unbekannte Rolle; Auswahl aktualisieren.','Ismeretlen szerepkör; választék frissítendő.'),
+})
+
+TRANSLATIONS.update({
+ 'Filter column: ':('Spalte filtern: ','Oszlop szűrése: '),
+ 'Filter active':('Filter aktiv','Aktív szűrő'),
+})

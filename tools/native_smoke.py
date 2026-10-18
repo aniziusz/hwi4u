@@ -23,10 +23,14 @@ def smoke(output):
     source=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='hwi4u-platform-') as tmp:
         root=Path(tmp);workspace=root/'private space';initialize(source,workspace,run_tests=False)
-        db=workspace/'hardware.sqlite3';store=DeviceStore(db);store.save(dict(name='Fictional Árvíztűrő Büro',source='FICTIONAL TEST'))
+        db=workspace/'hardware.sqlite3';store=DeviceStore(db);store.save(dict(name='Fictional Árvíztűrő Büro',source='FICTIONAL TEST',roles=['firewall','router']))
         window=Window(store,language='en');window.show();app.processEvents();window.load(window.rows[0])
         window.table.itemDoubleClicked.emit(window.table.item(0,1));editor=next(iter(window.editors.values()));app.processEvents()
         assert editor.isMaximized() and editor.table.isHidden()
+        assert editor.workspace and editor.role_values==['firewall','router']
+        window.list_controller.view['groups']=['roles'];window.list_controller.render()
+        assert '1 / 1' in window.list_controller.summary.text()
+        editor.workspace.tree.setCurrentItem(editor.workspace.items['network']);app.processEvents()
         editor.inputs['name'].setText('Fictional reviewed device');editor.inputs['location'].setText('Földszint / Büro');assert editor.save()
         assert window.inputs['name'].text()=='Fictional reviewed device'
         for code in ('de','hu','en'):window.set_language(code);assert editor.language_actions[code].isChecked()

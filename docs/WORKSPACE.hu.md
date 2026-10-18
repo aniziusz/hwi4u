@@ -1,0 +1,23 @@
+# Eszközlista, szerepkörök és adaptív munkaterület
+
+Document ID: HWI4U-WORKSPACE · Version: 2 · 2026-10-19
+
+Oszlopfejléc-szűrés (0.16.1): látható oszlop jobb szélén kis nyíl közvetlenül megnyitja kereshető jelölőnégyzetes szűrőjét. Aktív szűrőnél pont a nyíl mellett és összegzésben is látszik. Gomb logikai oszlopot követi méretezés/áthelyezés/elrejtés/vízszintes görgetés esetén; kattintás nem rendez. Fejlécszöveg továbbra is rendez. Alkalmaz/Mégse, VAGY/ÉS és mentett szűrők maradnak. Eszköztár Szűrők… rejtett oszlopokhoz alternatíva. Lista fejléc közelében képernyőn belül nyílik, magassága elemszámhoz igazodik. 0.16.0-ról nincs sémamigráció/adatátírás.
+
+HWI4U 0.16.0, 23-as séma. FR-030/031/032/033/035 TEST-ben; éles átvétel külön. FR-034 meglévő keresés duplikátuma. Felülírja korábbi egyválasztásos listaszűrőket és egyoszlopos nagy szerkesztőt.
+
+**Csoportosítás…**: nulla, egy vagy két rendezett szint. Csoportfejléc kattintással/billentyűvel nyitható/csukható. Adat nem változik. Szerepcsoport ugyanazt az eszközt ismételheti; számláló egyedi eszközt számol. Ismeretlen külön csoport. Fejléc rendez csoporton belül; vételár numerikusan. UUID biztosítja helyes kijelölést/dupla kattintást rendezés/ismétlődés után is.
+
+**Oszlopok…**: meglévő tulajdonság mutatása/elrejtése, húzás vagy Fel/Le, alapértékek. Fejléc közvetlenül húzható/méretezhető. Elrejtés nem töröl mezőt. Név vagy rövid ID látható marad. Szerepek, hely, épület/emelet/szoba, gépnév, MAC/IP, dátumok, vásárlás, UUID választható. Több cím együtt; csoportosítás értelmes kategóriákra korlátozva. Nézet JSON az adatbázis mellett: client-view-production.json/client-view-test.json; TEST-adatkészletenként külön. Nem leltáradat, nincs szinkron; leltármentés nem tartalmazza, igény esetén külön másolandó. Keresőszöveg, ideiglenes csoportnyitás és rendezési irány nem mentődik. Hibás beállítás alapértékre áll, adatbázist nem érint.
+
+**Szűrők…**: oszlop választása, kereshető jelölőnégyzet-lista. Alkalmaz menti választást, Mégse nem változtat. Keresés elrejt, jelölést nem módosít. Összes kijelölése jelenlegi értékeket jelöl; Nincs korlátozás eltávolítja szűrőt és jövőbeli értékeket is enged; Kijelölés törlése nulla találat. Ismeretlen/üres külön. Mezőn belül VAGY, mezők/kereső között ÉS. Darabszám más aktív szűrők szerint, kiválasztott nulla találat megmarad. Csoport/típus független, nincs csendes eldobás. **Szűrők törlése** mezőszűrőt/keresőt töröl. Összegzés egyedi találat/összes és aktív korlátozások. Régi rejtett egyválasztásos vezérlők kompatibilitási célúak.
+
+**Szerepkörök** mindkét szerkesztőben többválasztásos katalógus; üres = nincs rögzítve. Kezdeti értékek: tűzfal, router, VPN-átjáró, szerver, mentő-/fájlszerver, Wi-Fi hozzáférési pont, switch, otthonautomatizálás-vezérlő, monitoring, kliens, médialejátszó (tárolt katalógus kanonikus). Felhasználói cél, nem felfedezés. Új szerep azonnal bővíti közös katalógust előmentéssel; hozzárendelés Mégse nem törli új katalóguselemet. Név szóköz/kisbetű normalizálva, max. 60 nyomtatható karakter; meglévő újrahasznált. Hozzárendelés csak Eszköz mentésekor, Elvetés régihez tér. UUID/rövid ID/típus/csoport marad, változtathatatlan előtte/utána történet. 22→23 migráció nem rendel szerepet meglévő eszközhöz.
+
+Dupla kattintás **adaptív munkaterület**, gyorsszerkesztő marad. Kinyitható fa csempéhez ugrik/kiemeli; ágcsukás nem rejti űrlapot. Általános, hely, vásárlás/életciklus, állapot, hálózat, szoftver, interfész, protokoll, fotó, kézikönyv és bizonyíték együtt elérhető. Logikai szélesség szerint 1–4 oszlop; méretezés/betűk számítanak. További csempék görgethetők; teljes táblák, nem egyszerűsített előnézet. Mentés/Elvetés görgetett terület alatt. Méret/navigáció/nyelv nem veti el értékeket. Azonnali melléklet/forráskönyvtár-mentés megmarad, eszköz-Elvetés nem vonja vissza.
+
+Kezelt Frissítés/újraindítás: futó kliens kódszerkesztéskor rögzített marad. Munkamenet/írászár halasztja frissítést. Teljes mentés után tranzakciós 023 migráció; nincs feltöltött adatbáziscsere. Éles csak átvétel után, TEST-adat nem kerül át. Visszaminősítés tiltott; ellenőrzött korábbi teljes mentést új mappába helyreállítani és megfelelő régi klienssel használni. Szereptáblát törölni/user_version értéket hamisítani nem szabad.
+
+Fiktív teszt: sor/ID megőrzés, szereptörténet/ütközés, mentési hibánál rollback, csoport/szűrő/azonosság/egyedi darabszám, nézetmentés, áttördelés, nyelvek. Teljes/platform eredmény review/bizonylatban; workflow önmagában nem siker. Natív próba szerepet/csoportot is néz helyreállítás/Unicode-export előtt. Saját képernyő felhasználói átvétele szükséges.
+
+[Útmutató](../GUIDE.hu.md) · [Asztali telepítés](DESKTOP.hu.md) · [Helyreállítás](RECOVERY.hu.md)

@@ -534,5 +534,11 @@ CREATE TRIGGER location_place_no_update BEFORE UPDATE ON location_places BEGIN S
 CREATE TRIGGER location_place_no_delete BEFORE DELETE ON location_places BEGIN SELECT RAISE(ABORT,'Retain reusable places for placement history.'); END;
 CREATE TRIGGER location_history_no_update BEFORE UPDATE ON device_location_history BEGIN SELECT RAISE(ABORT,'Placement history is immutable.'); END;
 CREATE TRIGGER location_history_no_delete BEFORE DELETE ON device_location_history BEGIN SELECT RAISE(ABORT,'Placement history is immutable.'); END;
-PRAGMA user_version = 22;
+CREATE TABLE role_choices(value TEXT PRIMARY KEY NOT NULL CHECK(length(value) BETWEEN 1 AND 60 AND value=trim(value)));
+INSERT INTO role_choices VALUES('firewall'),('router'),('vpn gateway'),('server'),('backup server'),('file server'),('wireless access point'),('network switch'),('home automation controller'),('monitoring'),('client'),('media player');
+CREATE TABLE device_roles(device_id TEXT NOT NULL REFERENCES devices(device_id) ON DELETE CASCADE,role TEXT NOT NULL REFERENCES role_choices(value) ON DELETE RESTRICT,PRIMARY KEY(device_id,role));
+CREATE TABLE device_role_history(history_id INTEGER PRIMARY KEY,device_id TEXT NOT NULL,before_json TEXT NOT NULL CHECK(json_valid(before_json)),after_json TEXT NOT NULL CHECK(json_valid(after_json)),recorded_at TEXT NOT NULL,source TEXT NOT NULL DEFAULT 'user_entry',verification TEXT NOT NULL DEFAULT 'user_reported');
+CREATE TRIGGER role_history_no_update BEFORE UPDATE ON device_role_history BEGIN SELECT RAISE(ABORT,'Role history is immutable.'); END;
+CREATE TRIGGER role_history_no_delete BEFORE DELETE ON device_role_history BEGIN SELECT RAISE(ABORT,'Role history is immutable.'); END;
+PRAGMA user_version=23;
 COMMIT;

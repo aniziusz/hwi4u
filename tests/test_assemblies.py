@@ -67,7 +67,7 @@ class Assemblies(unittest.TestCase):
         with sqlite3.connect(self.root/'restored.sqlite3') as c:
             self.addCleanup(c.close)
             c.executescript((self.root/'export/inventory.sql').read_text())
-            self.assertEqual(c.execute('PRAGMA user_version').fetchone()[0],22)
+            self.assertEqual(c.execute('PRAGMA user_version').fetchone()[0],23)
             self.assertEqual(c.execute('SELECT count(*) FROM component_installations').fetchone()[0],1)
             self.assertFalse(c.execute('PRAGMA foreign_key_check').fetchall())
             with self.assertRaises(sqlite3.IntegrityError):

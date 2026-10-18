@@ -8,6 +8,7 @@ import uuid
 import string
 import inventory
 from connectivity import load_connectivity,validate_profile,save_profile
+from roles import load_roles,validate_roles,save_roles,role_name
 from software import load_software,validate_software,save_software
 from network_identity import load_network,validate_network,save_network
 
@@ -43,7 +44,24 @@ class DeviceStore:
                 row['_network']=load_network(con,row['device_id'])
                 row['_sources']=load_links(con,row['device_id'])
                 row['_location']=load_location(con,row['device_id'])
+                row['_roles']=load_roles(con,row['device_id'])
             return rows
+
+    def roles(self):
+        with inventory.contextlib.closing(self.connect()) as con:
+            return [r[0] for r in con.execute('SELECT value FROM role_choices ORDER BY value')]
+
+    def add_role(self,name):
+        name=role_name(name)
+        with inventory.contextlib.closing(self.connect()) as con:
+            con.execute('BEGIN IMMEDIATE')
+            if con.execute('SELECT 1 FROM role_choices WHERE value=?',(name,)).fetchone():return name
+            output=self.path.parent/'backups'/('before-role-choice-'+uuid.uuid4().hex+'.sqlite3')
+            with inventory.exclusive(output):pass
+            with inventory.contextlib.closing(inventory.connect(self.path,readonly=True)) as src, inventory.contextlib.closing(sqlite3.connect(output)) as dest:
+                src.backup(dest);inventory.check(dest)
+            con.execute('INSERT INTO role_choices VALUES(?)',(name,));con.commit()
+        return name
 
     def places(self):
         with inventory.contextlib.closing(self.connect()) as con:
@@ -197,7 +215,7 @@ class DeviceStore:
             else:
                 if values['device_id'] != original['device_id']:
                     raise ValueError('Existing device IDs cannot be changed in this form.')
-                if current is None or dict(current) != {k:v for k,v in original.items() if k not in ('type_group','short_id','_connectivity','_software','_network','_sources','_location')}:
+                if current is None or dict(current) != {k:v for k,v in original.items() if k not in ('type_group','short_id','_connectivity','_software','_network','_sources','_location','_roles')}:
                     raise ValueError('This device changed outside the form. Cancel and refresh before editing again.')
             for row in con.execute('SELECT device_id,name FROM devices'):
                 if row['device_id'] != values['device_id'] and name_key(row['name']) == name_key(values['name']):
@@ -223,6 +241,10 @@ class DeviceStore:
                 location=validate_location(data['location_details'])
                 if original is not None and original.get('_location')!=load_location(con,values['device_id']):
                     raise ValueError('Location changed outside the form. Cancel and refresh before editing again.')
+            role_values=None
+            if 'roles' in data:
+                role_values=validate_roles(con,data['roles'])
+                if original is not None and original.get('_roles',[])!=load_roles(con,values['device_id']):raise ValueError('Roles changed outside the form. Cancel and refresh before editing again.')
             network=None
             if 'network' in data:
                 network_data=dict(data['network'])
@@ -248,6 +270,7 @@ class DeviceStore:
             if network is not None:save_network(con,values['device_id'],network)
             if selections is not None:save_links(con,values['device_id'],selections)
             if location is not None:save_location(con,values['device_id'],location)
+            if role_values is not None:save_roles(con,values['device_id'],role_values)
             con.commit()
             data['device_id'] = values['device_id']
             return output
@@ -265,12 +288,13 @@ class DeviceStore:
         try:
             con.execute('BEGIN IMMEDIATE')
             current=con.execute('SELECT * FROM devices WHERE device_id=?',(device_id,)).fetchone()
-            expected={k:v for k,v in original.items() if k not in ('type_group','short_id','_connectivity','_software','_network','_sources','_location')}
-            if current is None or dict(current)!=expected or load_network(con,device_id)!=original['_network'] or load_software(con,device_id)!=original['_software'] or load_connectivity(con,device_id)!=original['_connectivity'] or load_links(con,device_id)!=original['_sources'] or load_location(con,device_id)!=original['_location']:
+            expected={k:v for k,v in original.items() if k not in ('type_group','short_id','_connectivity','_software','_network','_sources','_location','_roles')}
+            if current is None or dict(current)!=expected or load_network(con,device_id)!=original['_network'] or load_software(con,device_id)!=original['_software'] or load_connectivity(con,device_id)!=original['_connectivity'] or load_links(con,device_id)!=original['_sources'] or load_location(con,device_id)!=original['_location'] or load_roles(con,device_id)!=original.get('_roles',[]):
                 raise ValueError('This device changed outside the form. Cancel and refresh before editing again.')
             if con.execute('SELECT 1 FROM network_links l JOIN network_interfaces i ON i.interface_id=l.endpoint_a OR i.interface_id=l.endpoint_b WHERE i.device_id=?',(device_id,)).fetchone():
                 raise ValueError('Remove the connection records before deleting this device.')
             tables={
+                'device_roles':('device_id=?',(device_id,)),
                 'devices':('device_id=?',(device_id,)), 'facts':('device_id=?',(device_id,)),
                 'relationships':('from_device=? OR to_device=?',(device_id,device_id)),
                 'component_installations':('parent_device=? OR component_device=?',(device_id,device_id)),
@@ -283,6 +307,7 @@ class DeviceStore:
                 'device_locations':('device_id=?',(device_id,)),
                 'source_links':('device_id=?',(device_id,)), 'source_link_history':('device_id=?',(device_id,))}
             snapshot={table:[dict(r) for r in con.execute('SELECT * FROM '+table+' WHERE '+where,args)] for table,(where,args) in tables.items()}
+            snapshot['device_role_history']=[dict(r) for r in con.execute('SELECT * FROM device_role_history WHERE device_id=?',(device_id,))]
             snapshot['device_location_history']=[dict(r) for r in con.execute('SELECT * FROM device_location_history WHERE device_id=?',(device_id,))]
             output=self.path.parent/'backups'/('before-device-delete-'+dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'.zip')
             full_snapshot_locked(self.path,output)
