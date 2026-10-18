@@ -15,7 +15,7 @@ def package(root,output):
     try:
         with output.open('xb') as file,zipfile.ZipFile(file,'w',zipfile.ZIP_DEFLATED) as archive:
             for name,data in files.items():
-                entry=zipfile.ZipInfo('HWI4U/'+name);entry.compress_type=zipfile.ZIP_DEFLATED
+                entry=zipfile.ZipInfo('HWI4U/'+name);entry.create_system=3;entry.compress_type=zipfile.ZIP_DEFLATED
                 entry.external_attr=((stat.S_IFREG| (0o755 if Path(name).suffix in ('.sh','.command') else 0o644))<<16)
                 archive.writestr(entry,data)
             archive.writestr('HWI4U/SOURCE-MANIFEST.json',json.dumps(dict(version=APP_VERSION,sha256={n:digest(b) for n,b in files.items()}),indent=2)+'\n')

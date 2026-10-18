@@ -1,6 +1,6 @@
 # Anleitung
 
-Document ID: HWI4U-GUIDE · Version: 2 · 2026-10-18
+Document ID: HWI4U-GUIDE · Version: 3 · 2026-10-18
 
 README lesen, neuen privaten Arbeitsbereich initialisieren. Produktion: manage.py run, TEST: manage.py test. Daten getrennt, kein automatischer Abgleich. manage.py refresh-test nur bewusst: Bestätigung und ältere Kopien bleiben. Gleichzeitiges Bearbeiten desselben Datensatzes vermeiden; veraltetes Speichern wird abgewiesen.
 
@@ -19,3 +19,5 @@ Vollsicherung: geprüfte ZIP mit Datenbank und referenzierten Bildern/Handbüche
 [Setup](README.de.md) · [Wiederherstellung](docs/RECOVERY.de.md) · [CLI](docs/CLI.de.md)
 
 [FR-025 · Guided location / Standort / Helyadat](docs/LOCATIONS.de.md)
+
+[FR-028 · FR-012 · FR-029](docs/DESKTOP.de.md)

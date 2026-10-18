@@ -18,6 +18,7 @@ def validate_platform(system=None,machine=None,version=None):
     version=version or sys.version_info[:2]
     if tuple(version)!=(3,14):raise ValueError('Install Python 3.14 first; this installer uses the tested Python 3.14 runtime.')
     if system=='Darwin' and machine not in ('arm64','aarch64'):raise ValueError('FR-029 targets native Apple Silicon. Use the ARM64 Python runtime, not Rosetta/Intel Python.')
+    if system=='Darwin' and platform.system()=='Darwin' and int(platform.mac_ver()[0].split('.')[0])<14:raise ValueError('This Apple Silicon client targets macOS 14 or later.')
     if system=='Windows' and machine not in ('amd64','x86_64'):raise ValueError('This Windows package targets x64 Python.')
     if system not in ('Windows','Darwin','Linux'):raise ValueError('Unsupported desktop platform.')
     return system

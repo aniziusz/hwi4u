@@ -17,7 +17,7 @@ class DesktopPlatforms(unittest.TestCase):
         with tempfile.TemporaryDirectory() as t:
             source=Path(t)/"source space's folder";source.mkdir();dest=Path(t)/'HWI4U TEST.app';make_mac_launcher(source,dest,True)
             info=plistlib.loads((dest/'Contents/Info.plist').read_bytes());self.assertEqual(info['CFBundleIdentifier'],'org.hwi4u.test')
-            script=(dest/'Contents/MacOS/hwi4u').read_text();command=shlex.split(script.split('exec ',1)[1]);self.assertEqual(command,[str(environment_python(source,'Darwin')),str(source/'desktop_start.py'),'test'])
+            script=(dest/'Contents/MacOS/hwi4u').read_text();command=shlex.split(script.split('exec ',1)[1]);self.assertEqual(command,[str(environment_python(source.resolve(),'Darwin')),str(source.resolve()/'desktop_start.py'),'test'])
             self.assertFalse(list(dest.rglob('*.sqlite3')))
             with self.assertRaises(FileExistsError):make_mac_launcher(source,dest)
     def test_default_data_paths(self):

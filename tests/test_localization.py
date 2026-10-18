@@ -44,7 +44,7 @@ class Localization(unittest.TestCase):
         self.w.set_language('de');self.assertEqual(self.w.form_title.text(),'Neues Gerät')
         self.assertIn('eindeutige',self.w.inputs['device_id'].toolTip())
         self.assertIn('gemeinsamen',next(b for b in self.w.findChildren(QPushButton) if b.property('_i18n_source_text')=='Manage connection choices…').toolTip().lower())
-        self.assertIn(APP_VERSION,self.w.about_text());self.assertIn(str(self.db),self.w.about_text());self.assertIn('Datenbankschema',self.w.about_text())
+        self.assertIn(APP_VERSION,self.w.about_text());self.assertIn(str(self.db.resolve()),self.w.about_text());self.assertIn('Datenbankschema',self.w.about_text())
         self.assertIn('gültiges',tr('Purchase date: choose a valid calendar date.'))
         for cls,expected in ((ConnectionDialog,'Verbindungsauswahl verwalten'),(TypeDialog,'Gerätetypen verwalten')):
             dialog=cls(self.store,self.w);self.addCleanup(dialog.deleteLater);dialog.show();APP.processEvents()

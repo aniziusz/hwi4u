@@ -5,7 +5,7 @@ from pathlib import Path
 import shutil
 import sqlite3
 import uuid
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt,QFile,QIODevice
 from PySide6.QtGui import QImageReader
 import inventory
 from photo_files import managed_path,sha256
@@ -27,14 +27,18 @@ class PhotoStore:
         if not source.strip():raise ValueError('Photo information source is required.')
         filename=Path(filename)
         if filename.stat().st_size>25*1024*1024:raise ValueError('Choose a JPEG or PNG file up to 25 MiB.')
-        reader=QImageReader(str(filename));reader.setAutoTransform(True)
-        fmt=bytes(reader.format()).lower()
-        if fmt not in (b'jpeg',b'jpg',b'png'):raise ValueError('Supported photo formats: JPEG and PNG.')
-        size=reader.size()
-        if size.width()<=0 or size.height()<=0 or size.width()*size.height()>16_000_000:
-            raise ValueError('Choose an image up to 16 megapixels; export a smaller copy if needed.')
-        image=reader.read()
-        if image.isNull():raise ValueError('Could not decode this image: '+reader.errorString())
+        device=QFile(str(filename))
+        if not device.open(QIODevice.ReadOnly):raise OSError(device.errorString())
+        try:
+            reader=QImageReader(device);reader.setAutoTransform(True)
+            fmt=bytes(reader.format()).lower()
+            if fmt not in (b'jpeg',b'jpg',b'png'):raise ValueError('Supported photo formats: JPEG and PNG.')
+            size=reader.size()
+            if size.width()<=0 or size.height()<=0 or size.width()*size.height()>16_000_000:
+                raise ValueError('Choose an image up to 16 megapixels; export a smaller copy if needed.')
+            image=reader.read()
+            if image.isNull():raise ValueError('Could not decode this image: '+reader.errorString())
+        finally:device.close()
         ident=uuid.uuid4().hex
         root=self.db.parent/'photos';root.mkdir(exist_ok=True)
         if root.is_symlink():raise ValueError('Managed photos folder must not be a symlink')
@@ -45,8 +49,12 @@ class PhotoStore:
         try:
             shutil.copyfile(filename,original);original.chmod(0o600)
             # Decode the managed copy to protect against source-file changes during import.
-            copyreader=QImageReader(str(original));copyreader.setAutoTransform(True)
-            copied=copyreader.read()
+            copy_device=QFile(str(original))
+            if not copy_device.open(QIODevice.ReadOnly):raise OSError(copy_device.errorString())
+            try:
+                copyreader=QImageReader(copy_device);copyreader.setAutoTransform(True)
+                copied=copyreader.read()
+            finally:copy_device.close()
             if copied.isNull() or copied.size()!=image.size() or sha256(filename)!=sha256(original):
                 raise ValueError('Source image changed while importing; please retry.')
             small=copied.scaled(240,180,Qt.KeepAspectRatio,Qt.SmoothTransformation)

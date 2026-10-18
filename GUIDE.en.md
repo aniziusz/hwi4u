@@ -1,6 +1,6 @@
 # User guide
 
-Document ID: HWI4U-GUIDE · Version: 2 · 2026-10-18
+Document ID: HWI4U-GUIDE · Version: 3 · 2026-10-18
 
 Start with README and initialize a new private workspace. Open production with manage.py run, TEST with manage.py test. TEST is a separate data copy; edits never synchronize automatically. Refresh TEST from production only deliberately: manage.py refresh-test opens a confirmation dialog and retains older datasets. Avoid opening multiple editors of the same record; stale saves are rejected.
 
@@ -19,3 +19,5 @@ Full backup creates a verified ZIP containing database and referenced photos/man
 [Setup](README.en.md) · [Recovery](docs/RECOVERY.en.md) · [CLI](docs/CLI.en.md)
 
 [FR-025 · Guided location / Standort / Helyadat](docs/LOCATIONS.en.md)
+
+[FR-028 · FR-012 · FR-029](docs/DESKTOP.en.md)

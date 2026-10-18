@@ -54,7 +54,7 @@ def publish_pointer(root,ident,channel='production'):
     atomic_json(path,value)
 
 def published(root,channel='production'):
-    root=Path(root);pointer=channel_pointer(root,channel)
+    root=Path(root).resolve();pointer=channel_pointer(root,channel)
     if not pointer.exists():return None
     ident=json.loads(pointer.read_text())['release_id']
     if not re.fullmatch('[0-9a-f]{64}',ident):raise ValueError('Invalid published release identity')
