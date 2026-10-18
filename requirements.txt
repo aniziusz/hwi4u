@@ -1,0 +1,2 @@
+# Tested reference dependency. Install in a virtual environment.
+PySide6==6.11.2
