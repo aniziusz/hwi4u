@@ -10,8 +10,8 @@ import json
 import uuid
 import re
 try:
-    from PySide6.QtCore import QDate, Qt, QSize, QUrl, QTimer, QProcess
-    from PySide6.QtGui import QIcon, QPixmap, QImageReader, QActionGroup, QDesktopServices
+    from PySide6.QtCore import QDate, Qt, QSize, QUrl, QTimer, QProcess, Signal
+    from PySide6.QtGui import QIcon, QPixmap, QImageReader, QActionGroup, QAction, QDesktopServices
     from PySide6.QtWidgets import (QApplication,QMainWindow,QWidget,QVBoxLayout,QHBoxLayout,
         QFormLayout,QLineEdit,QComboBox,QCheckBox,QDateEdit,QTableWidget,QTableWidgetItem,
         QPushButton,QLabel,QMessageBox,QSplitter,QAbstractItemView,QScrollArea,QListWidget,QListWidgetItem,QFileDialog,QDialog,QDialogButtonBox,QGroupBox,QToolButton)
@@ -319,8 +319,11 @@ class ManualDialog(QDialog):
         except (ValueError,OSError,sqlite3.Error) as exc:QMessageBox.warning(self,'Could not save manual reference',str(exc))
 
 class Window(QMainWindow):
-    def __init__(self,store,language=None):
-        super().__init__();install(language or read_language(store.path.parent));self.store=store;self.source_store=SourceStore(store.path);self.source_selectors={};self.photo_store=PhotoStore(store.path);self.manual_store=ManualStore(store.path);self.original=None;self.baseline=None;self.loading=False
+    device_changed=Signal(str)
+    def __init__(self,store,language=None,editor_owner=None):
+        super().__init__(editor_owner);self.editor_owner=editor_owner;self.editors={};self.bound_device_id=None;self.skip_close_prompt=False;
+        if editor_owner is not None:self.setWindowFlag(Qt.Window,True)
+        install(language or read_language(store.path.parent));self.store=store;self.source_store=SourceStore(store.path);self.source_selectors={};self.photo_store=PhotoStore(store.path);self.manual_store=ManualStore(store.path);self.original=None;self.baseline=None;self.loading=False
         self.type_rows=store.types()
         self.build_menus()
         self.setWindowTitle('HWI4U TEST' if os.environ.get('INVENTORY_CHANNEL')=='test' else 'HWI4U');self.resize(1180,760)
@@ -335,22 +338,22 @@ class Window(QMainWindow):
         if os.environ.get('INVENTORY_CHANNEL')=='test':
             banner=QLabel('TEST ENVIRONMENT — changes affect only the test copy.');banner.setStyleSheet('background:#ffd166;color:#332600;padding:10px;font-weight:bold;');outer.addWidget(banner)
         self.search=QLineEdit();self.search.setPlaceholderText('Search devices, software, interfaces or protocols…')
-        toolbar=QHBoxLayout();toolbar.addWidget(self.search,1)
+        toolbar=QHBoxLayout();toolbar.addWidget(self.search,1);self.toolbar_buttons={}
         for label,callback in [('New device',self.new),('Save device',self.save),('Delete device…',self.delete_device),('Refresh',self.refresh),('Full backup',self.full_backup),('Manage types',self.manage_types)]:
-            button=QPushButton(label);button.clicked.connect(callback);toolbar.addWidget(button)
+            button=QPushButton(label);button.clicked.connect(callback);toolbar.addWidget(button);self.toolbar_buttons[label]=button
         self.update_button=QPushButton('Apply update');self.update_button.setToolTip('Save or discard edits, then restart into the tested update. A database write lock defers migration.');self.update_button.hide();self.update_button.clicked.connect(self.apply_update);toolbar.addWidget(self.update_button)
         outer.addLayout(toolbar)
-        filters=QHBoxLayout();filters.addWidget(QLabel('Filter group'))
+        self.filter_bar=QWidget();filters=QHBoxLayout(self.filter_bar);filters.setContentsMargins(0,0,0,0);filters.addWidget(QLabel('Filter group'))
         self.group_filter=SearchComboBox();self.group_filter.addItem('All groups',None);self.group_filter.addItem('Unknown','__unknown__')
         for group in store.groups():self.group_filter.addItem(group,group)
         filters.addWidget(self.group_filter);filters.addWidget(QLabel('Type'))
-        self.type_filter=SearchComboBox();filters.addWidget(self.type_filter,1);outer.addLayout(filters)
-        split=QSplitter();outer.addWidget(split,1)
+        self.type_filter=SearchComboBox();filters.addWidget(self.type_filter,1);outer.addWidget(self.filter_bar)
+        split=QSplitter();self.splitter=split;outer.addWidget(split,1)
         self.table=QTableWidget(0,6);self.table.setHorizontalHeaderLabels(['Short ID','Name','Group','Type','State','Condition'])
         self.table.setSelectionBehavior(QAbstractItemView.SelectRows);self.table.setSelectionMode(QAbstractItemView.SingleSelection)
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers);self.table.horizontalHeader().setStretchLastSection(True)
         split.addWidget(self.table)
-        scroll=QScrollArea();scroll.setWidgetResizable(True);panel=QWidget();form=QFormLayout(panel);form.setContentsMargins(20,12,12,12);form.setSpacing(14)
+        scroll=QScrollArea();self.form_scroll=scroll;scroll.setWidgetResizable(True);panel=QWidget();form=QFormLayout(panel);form.setContentsMargins(20,12,12,12);form.setSpacing(14)
         self.form_title=QLabel('New device');self.form_title.setStyleSheet('font-size:18px;font-weight:600;');form.addRow(self.form_title)
         self.inputs={}
         for key,label in [('device_id','Device ID *'),('name','Name *'),('location','Location text / additional description'),('source','Information source / notes')]:
@@ -432,6 +435,8 @@ class Window(QMainWindow):
         path=QLabel(str(store.path));path.setTextInteractionFlags(Qt.TextSelectableByMouse);outer.addWidget(path)
         self.setCentralWidget(root)
         self.search.textChanged.connect(self.filter_rows);self.table.itemSelectionChanged.connect(self.select)
+        self.table.itemDoubleClicked.connect(lambda item:self.open_device_editor(item.row()))
+        self.table.setToolTip('Double-click a device to edit it in a large window. The quick editor remains available.')
         self.group_filter.currentIndexChanged.connect(self.filter_group_changed)
         self.type_filter.currentIndexChanged.connect(self.filter_rows)
         self.filter_group_changed();self.reload();self.load(None);self.install_help();apply(self)
@@ -484,7 +489,7 @@ class Window(QMainWindow):
         if not os.environ.get('INVENTORY_RELEASE_ID'):return
         if QApplication.activeModalWidget() is not None:
             QMessageBox.information(self,'Finish the current dialog','Save or cancel the open dialog before applying the update.');return
-        if not self.discard_ok():return
+        if not self.editor_root().approve_all_edits():return
         QApplication.instance().exit(UPDATE_EXIT)
 
     def build_menus(self):
@@ -493,6 +498,7 @@ class Window(QMainWindow):
         self.about_action.setToolTip('Application version, data location, license and backup information.')
         guide=info.addAction('Open user guide');guide.triggered.connect(self.open_guide)
         update=info.addAction('Check for local updates');update.triggered.connect(self.show_update_status)
+        quit_action=info.addAction('Quit HWI4U');quit_action.setMenuRole(QAction.QuitRole);quit_action.triggered.connect(lambda:self.editor_root().close())
         self.language_menu=self.menuBar().addMenu('Language');self.language_actions={};group=QActionGroup(self);group.setExclusive(True)
         for code,label in LANGUAGES.items():
             action=self.language_menu.addAction(label);action.setCheckable(True);action.setChecked(code==QApplication.instance().inventory_language)
@@ -502,6 +508,10 @@ class Window(QMainWindow):
         install(code)
         for key,action in self.language_actions.items():action.setChecked(key==code)
         self.refresh_photos();self.refresh_manuals();self.translate_state_cells();self.filter_rows();self.location_panel.refresh_text();apply(self)
+        for view in [self.editor_root(),*list(self.editor_root().editors.values())]:
+            if view is self:continue
+            for key,action in view.language_actions.items():action.setChecked(key==code)
+            view.refresh_photos();view.refresh_manuals();view.translate_state_cells();view.filter_rows();view.location_panel.refresh_text();apply(view)
         try:write_language(self.store.path.parent,code)
         except OSError as exc:QMessageBox.warning(self,'Could not save language preference',str(exc))
     def translate_state_cells(self):
@@ -599,7 +609,7 @@ class Window(QMainWindow):
         if box.exec()!=QDialog.Accepted:return
         try:
             backup=self.store.delete(original);self.reload();self.load(None)
-            self.status.setText(tr('Device deleted. Full backup: ')+str(backup))
+            self.status.setText(tr('Device deleted. Full backup: ')+str(backup));self.device_changed.emit(original['device_id'])
         except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc)
 
     def discard_ok(self):
@@ -609,6 +619,12 @@ class Window(QMainWindow):
         return answer==QMessageBox.Discard
     @localized
     def load(self,row):
+        if self.bound_device_id and row is None:
+            row=next((r for r in self.rows if r['device_id']==self.bound_device_id),None)
+            if row is None:
+                self.form_scroll.setEnabled(False)
+                for label in ('Save device','Delete device…'):self.toolbar_buttons[label].setEnabled(False)
+                self.status.setText(tr('This device was deleted. Close this editor.'));return
         self.original=dict(row) if row else None
         self.form_title.setText('Edit device' if row else 'New device')
         group=row.get('type_group') if row else None
@@ -660,6 +676,7 @@ class Window(QMainWindow):
             elif kind is not None:visible=visible and row['device_type']==kind
             self.table.setRowHidden(n,not visible)
     def select(self):
+        if self.bound_device_id:return
         if self.loading:return
         n=self.table.currentRow()
         if n<0:return
@@ -669,6 +686,7 @@ class Window(QMainWindow):
             self.loading=True;self.table.clearSelection();self.loading=False
     @localized
     def new(self):
+        if self.bound_device_id:return
         if self.discard_ok():
             self.loading=True;self.table.clearSelection();self.loading=False
             self.load(None);self.status.clear();self.inputs['name'].setFocus()
@@ -695,6 +713,7 @@ class Window(QMainWindow):
             self.status.setText(f'Saved {row["short_id"]}. Pre-save backup: {backup.name}')
             if missing_sources(row['_connectivity']):self.status.setText(self.status.text()+' '+tr('Warning: connectivity source is missing. Saving is allowed.'))
             if missing_network_source(row['_network']):self.status.setText(self.status.text()+' '+tr('Warning: network information source is missing. Saving unverified details is allowed.'))
+            self.device_changed.emit(row['device_id'])
             return True
         except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc);return False
     @localized
@@ -862,9 +881,62 @@ class Window(QMainWindow):
             backup_bundle(self.store.path,Path(filename));self.status.setText('Verified full backup saved: '+filename)
         except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc)
 
+    def editor_root(self):
+        return self.editor_owner or self
+
+    def approve_all_edits(self):
+        return all(view.discard_ok() for view in [self,*list(self.editors.values())])
+
+    def open_device_editor(self,row_number):
+        if self.bound_device_id or not 0<=row_number<len(self.rows):return None
+        device_id=self.rows[row_number]['device_id']
+        if not self.discard_ok():return None
+        # Save can reorder the list. Match by immutable ID, never the old row index.
+        self.reload()
+        selected=next((r for r in self.rows if r['device_id']==device_id),None)
+        if selected is None:return None
+        current_id=self.original['device_id'] if self.original else None
+        self.load(next((r for r in self.rows if r['device_id']==current_id),None))
+        if device_id in self.editors:
+            editor=self.editors[device_id];editor.showMaximized();editor.raise_();editor.activateWindow();return editor
+        editor=Window(self.store,language=QApplication.instance().inventory_language,editor_owner=self)
+        editor.bound_device_id=device_id;editor.load(selected)
+        editor.table.hide();editor.filter_bar.hide();editor.search.hide()
+        for label in ('New device','Manage types'):editor.toolbar_buttons[label].hide()
+        editor.client_button.hide();editor.connections_button.hide()
+        editor.setProperty('_literal_title',True)
+        editor.setWindowTitle('HWI4U — '+selected['short_id']+' — '+selected['name'])
+        editor.setAttribute(Qt.WA_DeleteOnClose)
+        self.editors[device_id]=editor
+        editor.destroyed.connect(lambda *_:self.editors.pop(device_id,None) if self.editors.get(device_id) is editor else None)
+        editor.device_changed.connect(lambda ident:self.synchronize_editors(ident,editor))
+        if not getattr(self,'_editor_sync_connected',False):
+            self.device_changed.connect(lambda ident:self.synchronize_editors(ident,self));self._editor_sync_connected=True
+        editor.showMaximized();return editor
+
+    def synchronize_editors(self,device_id,origin):
+        for view in [self,*list(self.editors.values())]:
+            if view is origin:continue
+            selected=view.original['device_id'] if view.original else None
+            pending=view.baseline is not None and view.values()!=view.baseline
+            view.reload()
+            if selected!=device_id:continue
+            if pending:
+                view.status.setText(tr('This device changed in another window. Your unsaved edits are kept. Cancel and refresh before saving.'))
+            else:
+                row=next((r for r in view.rows if r['device_id']==device_id),None)
+                view.load(row)
+                if row:view.status.setText(tr('Device refreshed after changes in another window.'))
+
     def closeEvent(self,event):
-        if self.discard_ok():event.accept()
-        else:event.ignore()
+        if self.skip_close_prompt:event.accept();return
+        allowed=self.discard_ok() if self.editor_owner else self.approve_all_edits()
+        if not allowed:event.ignore();return
+        if self.editor_owner:
+            self.editor_owner.editors.pop(self.bound_device_id,None)
+        else:
+            for editor in list(self.editors.values()):editor.skip_close_prompt=True;editor.close()
+        event.accept()
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)

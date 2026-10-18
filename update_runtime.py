@@ -26,7 +26,7 @@ def atomic_json(path,value):
     finally:tmp.unlink(missing_ok=True)
 
 def source_files(root):
-    files=[*root.glob('*.py'),root/'schema.sql',root/'LICENSE-desktop.txt',*root.glob('GUIDE.*.md'),*root.glob('README.*.md'),*root.glob('UPDATES.*.md'),*root.glob('NETWORK.*.md'),*root.glob('HWI4U.*.md'),*root.glob('TESTING.*.md'),*root.glob('*.sh'),*root.glob('*.cmd'),*root.glob('FEATURES.*.md'),*root.glob('SOURCES.*.md'),*root.glob('TOPOLOGY.*.md')]
+    files=[*root.glob('*.py'),root/'schema.sql',root/'LICENSE-desktop.txt',*root.glob('GUIDE.*.md'),*root.glob('README.*.md'),*root.glob('UPDATES.*.md'),*root.glob('NETWORK.*.md'),*root.glob('HWI4U.*.md'),*root.glob('TESTING.*.md'),*root.glob('*.sh'),*root.glob('*.cmd'),*root.glob('*.command'),*root.glob('FEATURES.*.md'),*root.glob('SOURCES.*.md'),*root.glob('TOPOLOGY.*.md')]
     files += [*root.glob('LICENSE'),*root.glob('NOTICE.*.md'),*root.glob('CONTRIBUTING.*.md'),*root.glob('requirements*.txt'),*root.glob('.python-version'),*list((root/'docs').glob('*.md')),*list((root/'tools').glob('*.py'))]
     files += list((root/'migrations').glob('*.sql')) + list((root/'tests').rglob('*.py')) + list((root/'tests/fixtures').glob('*.sql'))
     return {f.relative_to(root).as_posix():f.read_bytes() for f in sorted(files) if f.is_file()}
