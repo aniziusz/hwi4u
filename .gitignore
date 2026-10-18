@@ -37,3 +37,7 @@ dist/
 .idea/
 .vscode/
 .DS_Store
+
+# Locally generated macOS launcher bundles
+*.app/
+SOURCE-MANIFEST.json

@@ -32,12 +32,13 @@ def date(value):
 
 def connect(path, readonly=False, timeout=5.0):
     con = sqlite3.connect(path.resolve().as_uri() + ('?mode=ro' if readonly else '?mode=rw'), uri=True, timeout=timeout)
-    con.execute('PRAGMA foreign_keys = ON')
-    con.row_factory = sqlite3.Row
-    if con.execute('PRAGMA user_version').fetchone()[0] != 22:
-        con.close()
-        raise ValueError('Unsupported schema version')
-    return con
+    try:
+        con.execute('PRAGMA foreign_keys = ON')
+        con.row_factory = sqlite3.Row
+        if con.execute('PRAGMA user_version').fetchone()[0] != 22:raise ValueError('Unsupported schema version')
+        return con
+    except Exception:
+        con.close();raise
 
 def check(con):
     integrity = [r[0] for r in con.execute('PRAGMA integrity_check')]

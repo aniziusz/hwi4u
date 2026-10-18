@@ -1,6 +1,7 @@
 """Lowercase-choice migration checks; temporary databases only."""
 from pathlib import Path
 import sqlite3
+import contextlib
 import tempfile
 import unittest
 
@@ -9,7 +10,7 @@ BASE=Path(__file__).resolve().parents[1]
 class Lowercase(unittest.TestCase):
     def test_migration_and_constraints(self):
         with tempfile.TemporaryDirectory() as t:
-            with sqlite3.connect(':memory:') as source, sqlite3.connect(Path(t)/'test.sqlite3') as c:
+            with contextlib.closing(sqlite3.connect(':memory:')) as source, contextlib.closing(sqlite3.connect(Path(t)/'test.sqlite3')) as c:
                 source.executescript((BASE/'tests/fixtures/schema-008.sql').read_text())
                 self.addCleanup(source.close)
                 self.addCleanup(c.close)

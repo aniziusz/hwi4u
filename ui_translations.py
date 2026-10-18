@@ -568,3 +568,12 @@ add('Type part of a name, then choose a matching result. Typing alone does not a
 
 add('Location text / additional description','Standorttext / zusätzliche Beschreibung','Helyszöveg / további leírás')
 add('Structured location','Strukturierter Standort','Strukturált helyadat')
+
+# FR-028 and platform launchers.
+add('Quit HWI4U','HWI4U beenden','Kilépés a HWI4U-ból')
+add('Double-click a device to edit it in a large window. The quick editor remains available.','Gerät doppelt anklicken, um es im großen Fenster zu bearbeiten. Schnelleditor bleibt verfügbar.','Dupla kattintással nagy ablakban szerkesztheted az eszközt. A gyorsszerkesztő megmarad.')
+add('This device was deleted. Close this editor.','Dieses Gerät wurde gelöscht. Dieses Fenster schließen.','Ezt az eszközt törölték. Zárd be ezt a szerkesztőt.')
+add('This device changed in another window. Your unsaved edits are kept. Cancel and refresh before saving.','Dieses Gerät wurde in einem anderen Fenster geändert. Ungespeicherte Änderungen bleiben erhalten. Vor dem Speichern abbrechen und aktualisieren.','Az eszköz másik ablakban módosult. Függő adataid megmaradnak. Mentés előtt vond vissza és frissítsd.')
+add('Device refreshed after changes in another window.','Gerät nach Änderungen in anderem Fenster aktualisiert.','Eszköz frissítve a másik ablak módosítása után.')
+add('No private workspace is installed. Run Install HWI4U first.','Kein privater Arbeitsbereich installiert. Zuerst Install HWI4U ausführen.','Nincs telepített privát munkaterület. Először futtasd az Install HWI4U telepítőt.')
+add('Cannot start HWI4U','HWI4U kann nicht gestartet werden','A HWI4U nem indítható')

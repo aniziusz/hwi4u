@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox
     QComboBox,QLineEdit,QTableWidget,QMenu,QDateEdit,QToolButton)
 
 LANGUAGES={'en':'English','de':'Deutsch','hu':'Magyar'}
-APP_VERSION='0.14.0'
+APP_VERSION='0.15.0'
 RELEASE_DATE='2026-10-18'
 TRANSLATIONS={}
 

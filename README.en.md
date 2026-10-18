@@ -1,8 +1,8 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 3 · 2026-10-18
+Document ID: HWI4U-README · Version: 4 · 2026-10-18
 
-**Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.14.0**, database schema **22**. No cloud account is required to use the application.
+**Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.15.0**, database schema **22**. No cloud account is required to use the application.
 
 Record devices, Unicode names, generated UUIDs and short labels, dates, purchase details, physical location, device groups/types, lifecycle/condition, operating system/firmware, interfaces, MAC/IP identities, connection records and sourced evidence. Photos/PDFs remain separate managed files. Evidence is user-provided; the program does not discover hardware or automatically verify claims. Unknown values remain unknown.
 
@@ -12,7 +12,7 @@ Linux needs the Qt system libraries supplied by your distribution. The Ubuntu CI
 
 ## Quick start on Linux
 
-Reference tested environment: Python 3.14.7, SQLite 3.53.4, PySide6/Qt 6.11.2. Git 2.55.0 was used for source checks. Other versions/platforms have not been qualified. Preliminary Windows launchers do not establish Windows support; Android/iOS clients are not implemented.
+Reference tested environment: Python 3.14.7, SQLite 3.53.4, PySide6/Qt 6.11.2. Git 2.55.0 was used for source checks. Windows x64 and Apple Silicon macOS installation and validation are described in the desktop guide. CI evidence is distinct from end-user platform acceptance. Android/iOS clients are not implemented.
 
 ```sh
 python3 -m venv .venv
@@ -35,4 +35,6 @@ Source files are editable Markdown/Python/SQL and can be read offline using ordi
 
 [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-[FR-025 · 0.14.0 · TEST](docs/LOCATIONS.en.md)
+[FR-025 · 0.15.0 · TEST](docs/LOCATIONS.en.md)
+
+[FR-012 / FR-028 / FR-029 · 0.15.0 · TEST](docs/DESKTOP.en.md)

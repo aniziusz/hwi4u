@@ -1,6 +1,6 @@
 # Mitarbeit
 
-Document ID: HWI4U-CONTRIBUTING · Version: 1 · 2026-10-18
+Document ID: HWI4U-CONTRIBUTING · Version: 2 · 2026-10-18
 
 Branch/Code-Fork mit eigenem privatem Arbeitsbereich und fiktiven Wegwerfgeräten, keine gemeinsame beschreibbare Inventardatei. UUIDs bei Migration erhalten. Keine Laufzeitdaten, Anhänge, Rechnungen, geheimen Logs/Kontodaten oder privaten Projektdokumente committen. Ignore ersetzt keine Prüfung von Index/Verlauf.
 
@@ -25,3 +25,5 @@ python manage.py promote --workspace /absoluter/privater/arbeitsbereich
 Publish überträgt Quelle in erzeugten Arbeitsbereich, prüft unveränderlichen TEST-Kandidaten, Produktion bleibt fixiert. Generierte Quellen nicht bearbeiten: Änderungen werden zum Schutz erkannt. TEST samt ungespeicherten Änderungen prüfen. Promote öffnet bewusste Freigabe, kopiert keine Testdaten. Nur frische leere Installation wählt erste geprüfte Version für beide Kanäle; bestehendes Inventar erhält keine automatische Freigabe.
 
 [Setup](README.de.md) · [Wiederherstellung](docs/RECOVERY.de.md)
+
+[Platform checks / Plattformprüfung / Platformteszt](docs/DESKTOP.de.md)

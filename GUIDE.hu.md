@@ -1,6 +1,6 @@
 # Felhasználói útmutató
 
-Document ID: HWI4U-GUIDE · Version: 2 · 2026-10-18
+Document ID: HWI4U-GUIDE · Version: 3 · 2026-10-18
 
 README után új privát munkaterület inicializálása. Éles: manage.py run, TEST: manage.py test. Külön adatok, nincs automatikus szinkron. manage.py refresh-test tudatos művelet: megerősítés, régebbi másolatok megőrzése. Ugyanazon rekord párhuzamos szerkesztését kerüld; elavult mentést elutasít.
 
@@ -19,3 +19,5 @@ Teljes mentés: ellenőrzött ZIP adatbázissal és hivatkozott képpel/kézikö
 [Telepítés](README.hu.md) · [Visszaállítás](docs/RECOVERY.hu.md) · [CLI](docs/CLI.hu.md)
 
 [FR-025 · Guided location / Standort / Helyadat](docs/LOCATIONS.hu.md)
+
+[FR-028 · FR-012 · FR-029](docs/DESKTOP.hu.md)

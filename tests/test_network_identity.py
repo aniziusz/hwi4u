@@ -22,7 +22,11 @@ class NetworkIdentity(unittest.TestCase):
         return data
     def test_live_name_uniqueness_unicode_and_length(self):
         first={'name':'Árvíz  szerver','source':'TEST ONLY'};self.store.save(first)
-        w=self.window;w.inputs['name'].setText(' ÁRVÍZ szerver ');QTest.qWait(300)
+        w=self.window;w.inputs['name'].setText(' ÁRVÍZ szerver ')
+        # Await the debounced UI result rather than assuming a fixed CI scheduling delay.
+        for _ in range(100):
+            if 'already exists' in w.name_feedback.text():break
+            QTest.qWait(50)
         self.assertIn('already exists',w.name_feedback.text())
         w.inputs['name'].setText('ü'*100);w.check_name();self.assertIn('No duplicate',w.name_feedback.text())
         self.assertIn('100',w.inputs['name'].toolTip());self.assertIn('Unicode',w.inputs['name'].toolTip())

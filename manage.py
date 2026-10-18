@@ -12,9 +12,10 @@ from update_runtime import atomic_json,digest,publish,publish_pointer,source_fil
 
 MARKER='.hwi4u-workspace.json'
 
-def default_workspace():
-    if os.name=='nt':return Path(os.environ.get('LOCALAPPDATA',Path.home()/'AppData/Local'))/'HWI4U'
-    if sys.platform=='darwin':return Path.home()/'Library/Application Support/HWI4U'
+def default_workspace(system=None):
+    system=system or sys.platform
+    if system=='win32':return Path(os.environ.get('LOCALAPPDATA',Path.home()/'AppData/Local'))/'HWI4U'
+    if system=='darwin':return Path.home()/'Library/Application Support/HWI4U'
     return Path(os.environ.get('XDG_DATA_HOME',Path.home()/'.local/share'))/'hwi4u'
 
 def validate_target(source,target):
@@ -40,7 +41,7 @@ def synchronize_source(source,target):
     for name,content in files.items():
         path=target/name;path.parent.mkdir(parents=True,exist_ok=True)
         path.write_bytes(content)
-        if path.suffix=='.sh':path.chmod(0o700)
+        if path.suffix in ('.sh','.command'):path.chmod(0o700)
     atomic_json(marker,dict(format=1,source_sha256={n:digest(b) for n,b in files.items()}))
     return target
 
