@@ -84,10 +84,10 @@ class DeviceTypes(unittest.TestCase):
             c.executescript((BASE/'migrations/018-hwi4u.sql').read_text())
             c.executescript((BASE/'migrations/019-source-library.sql').read_text())
             c.executescript((BASE/'migrations/020-network-links.sql').read_text())
-            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text())
+            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text())
         backup=backup_bundle(old,self.root/'bundle.zip')
         with zipfile.ZipFile(backup) as z:
-            self.assertEqual(json.loads(z.read('MANIFEST.json'))['schema_version'],22)
+            self.assertEqual(json.loads(z.read('MANIFEST.json'))['schema_version'],23)
         data={'device_id':'TEST','name':'Test','source':'TEST ONLY','device_type':'boiler'};self.store.save(data)
         import subprocess
         r=subprocess.run([sys.executable,str(BASE/'inventory.py'),'--db',str(self.db),'export','--directory',str(self.root/'export')],capture_output=True,text=True)

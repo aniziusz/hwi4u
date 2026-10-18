@@ -33,6 +33,7 @@ import platform
 import PySide6
 
 from search_combo import SearchComboBox
+from list_view import DeviceListController,ChoiceDialog
 from location_ui import LocationPanel
 from location_store import empty_location,location_summary
 
@@ -329,12 +330,12 @@ class Window(QMainWindow):
         self.setWindowTitle('HWI4U TEST' if os.environ.get('INVENTORY_CHANNEL')=='test' else 'HWI4U');self.resize(1180,760)
         root=QWidget();outer=QVBoxLayout(root);outer.setContentsMargins(20,20,20,20);outer.setSpacing(12)
         title=QLabel('HWI4U TEST' if os.environ.get('INVENTORY_CHANNEL')=='test' else 'HWI4U');title.setStyleSheet('font-size: 24px; font-weight: 600;')
-        heading=QHBoxLayout();heading.addWidget(title,1)
+        self.header_title=title;heading=QHBoxLayout();heading.addWidget(title,1)
         self.client_button=QPushButton('Open production client' if os.environ.get('INVENTORY_CHANNEL')=='test' else 'Open test client')
         self.client_button.setToolTip('Open the other client in a separate window. Unsaved edits stay in this window; no data is copied.')
         self.client_button.clicked.connect(self.open_other_client);heading.addWidget(self.client_button)
         self.connections_button=QPushButton('Network connections…');self.connections_button.clicked.connect(self.manage_network_links);heading.addWidget(self.connections_button);outer.addLayout(heading)
-        subtitle=QLabel('hardware inventory database client');outer.addWidget(subtitle)
+        subtitle=QLabel('hardware inventory database client');self.subtitle=subtitle;outer.addWidget(subtitle)
         if os.environ.get('INVENTORY_CHANNEL')=='test':
             banner=QLabel('TEST ENVIRONMENT — changes affect only the test copy.');banner.setStyleSheet('background:#ffd166;color:#332600;padding:10px;font-weight:bold;');outer.addWidget(banner)
         self.search=QLineEdit();self.search.setPlaceholderText('Search devices, software, interfaces or protocols…')
@@ -392,6 +393,7 @@ class Window(QMainWindow):
             widget=QComboBox();widget.addItem('Unknown',None)
             for value in store.choices(table):widget.addItem(value,value)
             self.inputs[key]=widget;form.addRow(label,widget)
+        self.role_values=[];self.role_button=QPushButton();self.role_button.setProperty('_literal_text',True);self.role_button.clicked.connect(self.choose_roles);form.addRow('Roles',self.role_button)
         self.sections=[]
         self.network_panel=NetworkPanel();self.network_section=CollapsibleSection('Network identity',self.network_panel);self.sections.append(self.network_section);form.addRow(self.network_section)
         self.software_panel=SoftwarePanel(store.os_families());section=CollapsibleSection('Software',self.software_panel);self.sections.append(section);form.addRow(section)
@@ -434,6 +436,7 @@ class Window(QMainWindow):
         self.status=QLabel();self.status.setWordWrap(True);outer.addWidget(self.status)
         path=QLabel(str(store.path));path.setTextInteractionFlags(Qt.TextSelectableByMouse);outer.addWidget(path)
         self.setCentralWidget(root)
+        self.list_controller=DeviceListController(self)
         self.search.textChanged.connect(self.filter_rows);self.table.itemSelectionChanged.connect(self.select)
         self.table.itemDoubleClicked.connect(lambda item:self.open_device_editor(item.row()))
         self.table.setToolTip('Double-click a device to edit it in a large window. The quick editor remains available.')
@@ -514,12 +517,20 @@ class Window(QMainWindow):
             view.refresh_photos();view.refresh_manuals();view.translate_state_cells();view.filter_rows();view.location_panel.refresh_text();apply(view)
         try:write_language(self.store.path.parent,code)
         except OSError as exc:QMessageBox.warning(self,'Could not save language preference',str(exc))
+    def refresh_roles(self):
+        self.role_button.setText(', '.join(self.role_values) or tr('Choose roles…'))
+    def choose_roles(self):
+        from PySide6.QtWidgets import QInputDialog
+        def add_choice():
+            value,ok=QInputDialog.getText(self,tr('Add role'),tr('Role name (catalogue saves immediately)'))
+            if not ok:return None
+            try:return self.store.add_role(value)
+            except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc);return None
+        dialog=ChoiceDialog('Roles',[(v,v) for v in self.store.roles()],self.role_values,self,add_choice=add_choice)
+        if dialog.exec()==QDialog.Accepted:self.role_values=sorted(dialog.selected());self.refresh_roles()
     def translate_state_cells(self):
-        blocked=self.table.blockSignals(True)
-        for n,row in enumerate(self.rows):
-            for column,key in ((4,'current_state'),(5,'physical_condition')):
-                self.table.item(n,column).setText(tr(row[key]) if row[key] else '—')
-        self.table.blockSignals(blocked)
+        self.list_controller.render();self.refresh_roles()
+        if hasattr(self,'workspace'):self.workspace.translate()
 
     def about_text(self):
         with self.store.connect() as c:schema=c.execute('PRAGMA user_version').fetchone()[0]
@@ -564,6 +575,7 @@ class Window(QMainWindow):
             elif key in ('current_state','physical_condition','device_type'):data[key]=w.currentData()
             elif key=='purchase_currency':data[key]=w.currentText().strip() or None
             else:data[key]=w.text().strip() if key in ('device_id','name','source') else (w.text().strip() or None)
+        data['roles']=list(self.role_values)
         data['location_details']=self.location_panel.value()
         data['sources']={scope:selector.value() for scope,selector in self.source_selectors.items()}
         data['network']=self.network_panel.value()
@@ -623,10 +635,13 @@ class Window(QMainWindow):
             row=next((r for r in self.rows if r['device_id']==self.bound_device_id),None)
             if row is None:
                 self.form_scroll.setEnabled(False)
+                if hasattr(self,'workspace'):self.workspace.setEnabled(False)
                 for label in ('Save device','Delete device…'):self.toolbar_buttons[label].setEnabled(False)
                 self.status.setText(tr('This device was deleted. Close this editor.'));return
         self.original=dict(row) if row else None
         self.form_title.setText('Edit device' if row else 'New device')
+        if self.editor_owner is not None and row:
+            self.header_title.setProperty('_literal_text',True);self.header_title.setText(row['short_id']+' — '+row['name']);self.header_title.setStyleSheet('font-size:18px;font-weight:600;');self.subtitle.hide()
         group=row.get('type_group') if row else None
         self.type_group.blockSignals(True);self.type_group.setCurrentIndex(max(0,self.type_group.findData(group)));self.type_group.blockSignals(False)
         self.fill_types(group)
@@ -638,6 +653,7 @@ class Window(QMainWindow):
             else:w.setText(value or '')
         self.inputs['device_id'].setReadOnly(True)
         self.short_id.setText(row.get('short_id','') if row else '')
+        self.role_values=list(row.get('_roles',[]) if row else []);self.refresh_roles()
         self.location_panel.load(row.get('_location',empty_location()) if row else empty_location())
         self.network_panel.load(row.get('_network',empty_network()) if row else empty_network())
         self.software_panel.load(row.get('_software',empty_software()) if row else empty_software())
@@ -651,36 +667,18 @@ class Window(QMainWindow):
     def reload(self):
         self.loading=True
         try:
-            self.rows=self.store.devices();self.table.setRowCount(len(self.rows))
-            for n,row in enumerate(self.rows):
-                for col,key in enumerate(('short_id','name','type_group','device_type','current_state','physical_condition')):
-                    self.table.setItem(n,col,QTableWidgetItem(tr(row[key]) if row[key] and key in ('current_state','physical_condition') else row[key] or '—'))
-            for n,row in enumerate(self.rows):self.table.item(n,0).setToolTip(row['device_id'])
-            self.table.clearSelection();self.table.resizeColumnsToContents();self.filter_rows()
+            self.rows=self.store.devices();self.list_controller.render()
         finally:self.loading=False
     def filter_rows(self):
-        query=self.search.text().casefold()
-        group=self.group_filter.currentData();kind=self.type_filter.currentData()
-        for n,row in enumerate(self.rows):
-            words=[str(row[k] or '') for k in ('device_id','short_id','name','type_group','device_type','current_state','physical_condition','location')]
-            words.append(location_summary(row['_location']))
-            words.extend(str(value) for value in row['_software'].values() if value is not None)
-            network=row['_network'];words.append(network['hostname'] or '')
-            for port in network['interfaces']:words.extend([port['label'],port['mac_address'] or '',*port['addresses']])
-            words.extend(tr(row[key]) for key in ('current_state','physical_condition') if row[key])
-            for assessment in row['_connectivity'].values():words.extend(assessment['supported'])
-            visible=query in ' '.join(words).casefold()
-            if group=='__unknown__':visible=visible and row['device_type'] is None
-            elif group is not None:visible=visible and row['type_group']==group
-            if kind=='__unknown__':visible=visible and row['device_type'] is None
-            elif kind is not None:visible=visible and row['device_type']==kind
-            self.table.setRowHidden(n,not visible)
+        if hasattr(self,'list_controller'):self.list_controller.render()
     def select(self):
         if self.bound_device_id:return
         if self.loading:return
         n=self.table.currentRow()
         if n<0:return
-        selected_id=self.rows[n]['device_id']
+        selected=self.list_controller.identity(n)
+        if selected is None:return
+        selected_id=selected['device_id']
         if self.discard_ok():self.load(next(row for row in self.rows if row['device_id']==selected_id));self.status.clear()
         else:
             self.loading=True;self.table.clearSelection();self.loading=False
@@ -888,8 +886,10 @@ class Window(QMainWindow):
         return all(view.discard_ok() for view in [self,*list(self.editors.values())])
 
     def open_device_editor(self,row_number):
-        if self.bound_device_id or not 0<=row_number<len(self.rows):return None
-        device_id=self.rows[row_number]['device_id']
+        if self.bound_device_id:return None
+        selected_row=self.list_controller.identity(row_number)
+        if selected_row is None:return None
+        device_id=selected_row['device_id']
         if not self.discard_ok():return None
         # Save can reorder the list. Match by immutable ID, never the old row index.
         self.reload()
@@ -901,8 +901,12 @@ class Window(QMainWindow):
             editor=self.editors[device_id];editor.showMaximized();editor.raise_();editor.activateWindow();return editor
         editor=Window(self.store,language=QApplication.instance().inventory_language,editor_owner=self)
         editor.bound_device_id=device_id;editor.load(selected)
+        from editor_workspace import EditorWorkspace
+        editor.workspace=EditorWorkspace(editor)
+        editor.splitter.addWidget(editor.workspace)
+        editor.splitter.setSizes([0,1500])
         editor.table.hide();editor.filter_bar.hide();editor.search.hide()
-        for label in ('New device','Manage types'):editor.toolbar_buttons[label].hide()
+        for label in ('New device','Manage types','Save device'):editor.toolbar_buttons[label].hide()
         editor.client_button.hide();editor.connections_button.hide()
         editor.setProperty('_literal_title',True)
         editor.setWindowTitle('HWI4U — '+selected['short_id']+' — '+selected['name'])

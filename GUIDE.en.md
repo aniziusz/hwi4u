@@ -1,6 +1,8 @@
 # User guide
 
-Document ID: HWI4U-GUIDE · Version: 3 · 2026-10-18
+Document ID: HWI4U-GUIDE · Version: 4 · 2026-10-19
+
+Current 0.16.0 list controls, roles and expanded layout supersede the older descriptions below. Read [the current workspace guide](docs/WORKSPACE.en.md). FR-034 duplicates the existing search and adds no separate implementation.
 
 Start with README and initialize a new private workspace. Open production with manage.py run, TEST with manage.py test. TEST is a separate data copy; edits never synchronize automatically. Refresh TEST from production only deliberately: manage.py refresh-test opens a confirmation dialog and retains older datasets. Avoid opening multiple editors of the same record; stale saves are rejected.
 
@@ -21,3 +23,6 @@ Full backup creates a verified ZIP containing database and referenced photos/man
 [FR-025 · Guided location / Standort / Helyadat](docs/LOCATIONS.en.md)
 
 [FR-028 · FR-012 · FR-029](docs/DESKTOP.en.md)
+
+
+[FR-030/031/032/033/035 · 0.16.0 · TEST](docs/WORKSPACE.en.md)
