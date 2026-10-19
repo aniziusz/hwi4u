@@ -543,5 +543,22 @@ CREATE TRIGGER role_history_no_delete BEFORE DELETE ON device_role_history BEGIN
 ALTER TABLE devices ADD COLUMN manufacturer TEXT CHECK(manufacturer IS NULL OR length(manufacturer) BETWEEN 1 AND 200);
 ALTER TABLE devices ADD COLUMN model TEXT CHECK(model IS NULL OR length(model) BETWEEN 1 AND 200);
 ALTER TABLE devices ADD COLUMN serial_number TEXT CHECK(serial_number IS NULL OR length(serial_number) BETWEEN 1 AND 200);
-PRAGMA user_version=24;
+CREATE TABLE device_lifecycle (
+ device_id TEXT PRIMARY KEY REFERENCES devices(device_id) ON DELETE CASCADE,
+ records_json TEXT NOT NULL
+);
+CREATE TABLE device_lifecycle_history (
+ history_id INTEGER PRIMARY KEY, device_id TEXT NOT NULL,
+ records_json TEXT NOT NULL, recorded_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+);
+CREATE TABLE model_profiles (
+ profile_id TEXT PRIMARY KEY,
+ manufacturer TEXT NOT NULL, model TEXT NOT NULL, variant TEXT NOT NULL,
+ device_type TEXT REFERENCES device_types(type_name) ON UPDATE CASCADE,
+ roles_json TEXT NOT NULL, lifecycle_json TEXT NOT NULL,
+ sources_json TEXT NOT NULL, note TEXT NOT NULL,
+ supersedes TEXT UNIQUE REFERENCES model_profiles(profile_id),
+ recorded_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+);
+PRAGMA user_version=25;
 COMMIT;

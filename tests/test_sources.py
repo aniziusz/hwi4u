@@ -73,7 +73,7 @@ class Sources(unittest.TestCase):
             tables=[r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")];before={t:c.execute('SELECT * FROM '+t).fetchall() for t in tables};old_columns={t:[r[1] for r in c.execute('PRAGMA table_info('+t+')')] for t in tables}
             c.executescript((BASE/'migrations/019-source-library.sql').read_text())
             c.executescript((BASE/'migrations/020-network-links.sql').read_text())
-            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text());c.executescript((BASE/'migrations/024-device-identification.sql').read_text())
+            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text());c.executescript((BASE/'migrations/024-device-identification.sql').read_text());c.executescript((test_desktop.BASE/'migrations/025-model-lifecycle.sql').read_text())
             for table,rows in before.items():self.assertEqual(c.execute('SELECT '+','.join(old_columns[table])+' FROM '+table).fetchall(),rows,table)
             self.assertEqual(c.execute('SELECT body FROM source_entries').fetchall(),[('Árvíz\nOriginal SOURCE',)])
             self.assertEqual(c.execute('SELECT kind FROM source_entries').fetchone()[0],'legacy_text')

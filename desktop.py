@@ -34,6 +34,8 @@ import PySide6
 
 from search_combo import SearchComboBox
 from list_view import DeviceListController,ChoiceDialog
+from lifecycle_ui import LifecyclePanel,ModelDialog
+from lifecycle import ModelStore,warnings as lifecycle_warnings
 from location_ui import LocationPanel
 from location_store import empty_location,location_summary
 
@@ -394,6 +396,10 @@ class Window(QMainWindow):
             for value in store.choices(table):widget.addItem(value,value)
             self.inputs[key]=widget;form.addRow(label,widget)
         self.role_values=[];self.role_button=QPushButton();self.role_button.setProperty('_literal_text',True);self.role_button.clicked.connect(self.choose_roles);form.addRow('Roles',self.role_button)
+        self.model_button=QPushButton('Model suggestions…');self.model_button.clicked.connect(self.model_suggestions);self.model_button.setToolTip('Review exact manufacturer/model matches or save a sourced reusable model profile. No classification is changed automatically.');form.addRow(self.model_button)
+        self.lifecycle_panel=LifecyclePanel(store,self.source_store,OptionalDate,lambda:self.inputs['manufacturer'].text(),lambda:self.inputs['model'].text(),lambda:self.inputs['purchase_date'].value());form.addRow(self.lifecycle_panel)
+        for key in ('manufacturer','model'):self.inputs[key].textChanged.connect(self.lifecycle_panel.update_warning)
+        self.inputs['purchase_date'].known.toggled.connect(self.lifecycle_panel.update_warning);self.inputs['purchase_date'].editor.dateChanged.connect(self.lifecycle_panel.update_warning)
         self.sections=[]
         self.network_panel=NetworkPanel();self.network_section=CollapsibleSection('Network identity',self.network_panel);self.sections.append(self.network_section);form.addRow(self.network_section)
         self.software_panel=SoftwarePanel(store.os_families());section=CollapsibleSection('Software',self.software_panel);self.sections.append(section);form.addRow(section)
@@ -510,11 +516,11 @@ class Window(QMainWindow):
         if code not in LANGUAGES:raise ValueError('Unsupported interface language')
         install(code)
         for key,action in self.language_actions.items():action.setChecked(key==code)
-        self.refresh_photos();self.refresh_manuals();self.translate_state_cells();self.filter_rows();self.location_panel.refresh_text();apply(self)
+        self.refresh_photos();self.refresh_manuals();self.translate_state_cells();self.filter_rows();self.location_panel.refresh_text();self.lifecycle_panel.render();apply(self)
         for view in [self.editor_root(),*list(self.editor_root().editors.values())]:
             if view is self:continue
             for key,action in view.language_actions.items():action.setChecked(key==code)
-            view.refresh_photos();view.refresh_manuals();view.translate_state_cells();view.filter_rows();view.location_panel.refresh_text();apply(view)
+            view.refresh_photos();view.refresh_manuals();view.translate_state_cells();view.filter_rows();view.location_panel.refresh_text();view.lifecycle_panel.render();apply(view)
         try:write_language(self.store.path.parent,code)
         except OSError as exc:QMessageBox.warning(self,'Could not save language preference',str(exc))
     def refresh_roles(self):
@@ -575,6 +581,7 @@ class Window(QMainWindow):
             elif key in ('current_state','physical_condition','device_type'):data[key]=w.currentData()
             elif key=='purchase_currency':data[key]=w.currentText().strip() or None
             else:data[key]=w.text().strip() if key in ('device_id','name','source') else (w.text().strip() or None)
+        data['lifecycle']=self.lifecycle_panel.value()
         data['roles']=list(self.role_values)
         data['location_details']=self.location_panel.value()
         data['sources']={scope:selector.value() for scope,selector in self.source_selectors.items()}
@@ -653,6 +660,7 @@ class Window(QMainWindow):
             else:w.setText(value or '')
         self.inputs['device_id'].setReadOnly(True)
         self.short_id.setText(row.get('short_id','') if row else '')
+        self.lifecycle_panel.load(row.get('_lifecycle',[]) if row else [],row['device_id'] if row else None)
         self.role_values=list(row.get('_roles',[]) if row else []);self.refresh_roles()
         self.location_panel.load(row.get('_location',empty_location()) if row else empty_location())
         self.network_panel.load(row.get('_network',empty_network()) if row else empty_network())
@@ -711,6 +719,8 @@ class Window(QMainWindow):
             self.status.setText(f'Saved {row["short_id"]}. Pre-save backup: {backup.name}')
             if missing_sources(row['_connectivity']):self.status.setText(self.status.text()+' '+tr('Warning: connectivity source is missing. Saving is allowed.'))
             if missing_network_source(row['_network']):self.status.setText(self.status.text()+' '+tr('Warning: network information source is missing. Saving unverified details is allowed.'))
+            notes=lifecycle_warnings(row['purchase_date'],row['_lifecycle'],row['manufacturer'] or '',row['model'] or '')
+            if notes:self.status.setText(self.status.text()+' '+' '.join(tr(n) for n in notes))
             self.device_changed.emit(row['device_id'])
             return True
         except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc);return False
@@ -736,6 +746,27 @@ class Window(QMainWindow):
             if group is None or row['group_name']==group:self.type_filter.addItem(row['type_name'],row['type_name'])
         self.type_filter.blockSignals(False)
         if hasattr(self,'rows'):self.filter_rows()
+    def model_suggestions(self):
+        try:
+            dialog=ModelDialog(self)
+            if dialog.exec()!=QDialog.Accepted or dialog.applied is None:return
+            self.apply_model_profile(dialog.applied)
+        except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc)
+    def apply_model_profile(self,profile):
+        # Recheck exact identity and revision at acceptance; never apply a stale catalogue row.
+        rows=ModelStore(self.store.path).list(self.inputs['manufacturer'].text(),self.inputs['model'].text())
+        if profile not in rows:raise ValueError('Model profile changed; reopen the catalogue.')
+        kind=profile['device_type']
+        self.reload_catalogue()
+        self.type_group.blockSignals(True);self.type_group.setCurrentIndex(max(0,self.type_group.findData(profile['group_name'])));self.type_group.blockSignals(False)
+        self.fill_types(profile['group_name'],kind)
+        self.role_values=list(profile['roles']);self.refresh_roles()
+        warranty=[r for r in self.lifecycle_panel.value() if r['kind']=='warranty_expiry']
+        self.lifecycle_panel.load(profile['lifecycle']+warranty,self.original['device_id'] if self.original else None)
+        ids=sorted(set(self.source_selectors['device'].value()+profile['sources']))
+        self.source_selectors['device'].load(ids,self.original['device_id'] if self.original else None)
+        self.status.setText(tr('Model suggestion applied to the form. Review and Save device to commit; Cancel changes restores the saved device.'))
+
     def manage_types(self):
         if not self.discard_ok():return
         if TypeDialog(self.store,self).exec()!=QDialog.Accepted:return
