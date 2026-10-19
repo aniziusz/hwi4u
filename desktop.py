@@ -357,7 +357,7 @@ class Window(QMainWindow):
         scroll=QScrollArea();self.form_scroll=scroll;scroll.setWidgetResizable(True);panel=QWidget();form=QFormLayout(panel);form.setContentsMargins(20,12,12,12);form.setSpacing(14)
         self.form_title=QLabel('New device');self.form_title.setStyleSheet('font-size:18px;font-weight:600;');form.addRow(self.form_title)
         self.inputs={}
-        for key,label in [('device_id','Device ID *'),('name','Name *'),('location','Location text / additional description'),('source','Information source / notes')]:
+        for key,label in [('device_id','Device ID *'),('name','Name *'),('manufacturer','Manufacturer'),('model','Model'),('serial_number','Serial number'),('location','Location text / additional description'),('source','Information source / notes')]:
             widget=QLineEdit();self.inputs[key]=widget;form.addRow(label,widget)
             if key=='name':self.name_feedback=QLabel();self.name_feedback.setWordWrap(True);form.addRow(self.name_feedback)
         self.location_panel=LocationPanel(store);form.addRow(self.location_panel)

@@ -46,7 +46,7 @@ class Releases(unittest.TestCase):
         with contextlib.closing(sqlite3.connect(self.old)) as browser:
             self.assertEqual(browser.execute('SELECT count(*) FROM devices').fetchone()[0],1)
             backup=prepare_database(self.old,release)
-            self.assertEqual(browser.execute('PRAGMA user_version').fetchone()[0],23)
+            self.assertEqual(browser.execute('PRAGMA user_version').fetchone()[0],24)
             self.assertEqual(browser.execute('SELECT name FROM devices').fetchone()[0],'preserve')
         with zipfile.ZipFile(backup) as z:
             snapshot=self.root/'before.sqlite3';snapshot.write_bytes(z.read('hardware.sqlite3'))
@@ -85,7 +85,7 @@ class Releases(unittest.TestCase):
             self.assertEqual(browser.execute('PRAGMA user_version').fetchone()[0],14)
             browser.rollback()
             prepare_database(self.old,release)
-            self.assertEqual(browser.execute('PRAGMA user_version').fetchone()[0],23)
+            self.assertEqual(browser.execute('PRAGMA user_version').fetchone()[0],24)
     def test_migration_backup_includes_local_manual_and_hashes(self):
         import hashlib
         release=self.stage();folder=self.root/'manuals'/('a'*32);folder.mkdir(parents=True)

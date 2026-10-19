@@ -3,7 +3,7 @@ from PySide6.QtCore import Qt,QTimer
 from PySide6.QtWidgets import (QWidget,QHBoxLayout,QVBoxLayout,QGridLayout,QFormLayout,QGroupBox,QTreeWidget,QTreeWidgetItem,QLabel,QSizePolicy,QSplitter)
 from ui_i18n import tr
 
-TITLES={'identity':'General','location':'Location','purchase':'Purchase & lifecycle','condition':'State & condition','network':'Network identity','software':'Software','interface':'Connection interfaces','protocol':'Communication protocols','photos':'Device photos','manuals':'Manuals and references','evidence':'Sources and evidence'}
+TITLES={'identity':'General','location':'Hardware & location','purchase':'Purchase & lifecycle','condition':'State & condition','network':'Network identity','software':'Software','interface':'Connection interfaces','protocol':'Communication protocols','photos':'Device photos','manuals':'Manuals and references','evidence':'Sources and evidence'}
 BRANCHES=[('Device',['identity','location']),('Purchase & lifecycle',['purchase','condition']),('Network & connectivity',['network','interface','protocol']),('Software',['software']),('Files & evidence',['photos','manuals','evidence'])]
 
 class TileGrid(QWidget):
@@ -40,7 +40,7 @@ class EditorWorkspace(QWidget):
         # Direct widget mapping avoids relying on translated field labels.
         mapping={id(window.short_id):'identity',id(window.type_group):'identity',id(window.name_feedback):'identity',id(window.role_button):'identity',id(window.location_panel):'location',id(window.source_selectors['device'].parentWidget()):'evidence',id(window.merchant_hint):'purchase',id(window.merchant_fix):'purchase'}
         for key,widget in window.inputs.items():
-            mapping[id(widget)]=('identity' if key in ('device_id','name','device_type') else 'location' if key=='location' else 'evidence' if key=='source' else 'condition' if key in ('current_state','physical_condition') else 'purchase')
+            mapping[id(widget)]=('identity' if key in ('device_id','name','device_type') else 'location' if key in ('manufacturer','model','serial_number','location') else 'evidence' if key=='source' else 'condition' if key in ('current_state','physical_condition') else 'purchase')
         sections={id(section):key for section,key in zip(window.sections,('network','software','interface','protocol'))}
         mode='identity'
         while old.rowCount():

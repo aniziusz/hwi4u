@@ -82,7 +82,7 @@ class NetworkIdentity(unittest.TestCase):
             c.executescript((BASE/'migrations/018-hwi4u.sql').read_text())
             c.executescript((BASE/'migrations/019-source-library.sql').read_text())
             c.executescript((BASE/'migrations/020-network-links.sql').read_text())
-            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text())
+            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text());c.executescript((BASE/'migrations/024-device-identification.sql').read_text())
         self.assertEqual(DeviceStore(db).devices()[0]['_network'],empty_network())
     def test_normalization_and_distinct_network_scope(self):
         self.assertEqual(hostname('München.example'),'xn--mnchen-3ya.example')

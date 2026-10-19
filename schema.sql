@@ -540,5 +540,8 @@ CREATE TABLE device_roles(device_id TEXT NOT NULL REFERENCES devices(device_id) 
 CREATE TABLE device_role_history(history_id INTEGER PRIMARY KEY,device_id TEXT NOT NULL,before_json TEXT NOT NULL CHECK(json_valid(before_json)),after_json TEXT NOT NULL CHECK(json_valid(after_json)),recorded_at TEXT NOT NULL,source TEXT NOT NULL DEFAULT 'user_entry',verification TEXT NOT NULL DEFAULT 'user_reported');
 CREATE TRIGGER role_history_no_update BEFORE UPDATE ON device_role_history BEGIN SELECT RAISE(ABORT,'Role history is immutable.'); END;
 CREATE TRIGGER role_history_no_delete BEFORE DELETE ON device_role_history BEGIN SELECT RAISE(ABORT,'Role history is immutable.'); END;
-PRAGMA user_version=23;
+ALTER TABLE devices ADD COLUMN manufacturer TEXT CHECK(manufacturer IS NULL OR length(manufacturer) BETWEEN 1 AND 200);
+ALTER TABLE devices ADD COLUMN model TEXT CHECK(model IS NULL OR length(model) BETWEEN 1 AND 200);
+ALTER TABLE devices ADD COLUMN serial_number TEXT CHECK(serial_number IS NULL OR length(serial_number) BETWEEN 1 AND 200);
+PRAGMA user_version=24;
 COMMIT;

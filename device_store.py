@@ -13,7 +13,7 @@ from software import load_software,validate_software,save_software
 from network_identity import load_network,validate_network,save_network
 
 FIELDS = ('device_id','name','source','purchase_date','purchase_price','purchase_currency','purchased_at',
-          'installation_date','scrapped_date','current_state','physical_condition','device_type','location')
+          'installation_date','scrapped_date','current_state','physical_condition','device_type','location','manufacturer','model','serial_number')
 DATES = ('purchase_date','installation_date','scrapped_date')
 
 def new_device_id():
@@ -166,6 +166,13 @@ class DeviceStore:
             values[key] = values[key].strip()
         if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*',values['device_id']):
             raise ValueError('Device ID: use letters, digits, dots, underscores or hyphens; begin with a letter or digit.')
+        for key in ('manufacturer','model','serial_number'):
+            value=values[key]
+            if value is not None:
+                if not isinstance(value,str) or any(unicodedata.category(c).startswith('C') for c in value):raise ValueError('Manufacturer, model and serial number must be single-line printable text, up to 200 characters.')
+                value=value.strip() or None
+                if value and len(value)>200:raise ValueError('Manufacturer, model and serial number must be single-line printable text, up to 200 characters.')
+                values[key]=value
         for key in DATES:
             if values[key] is not None:
                 try: inventory.date(values[key])

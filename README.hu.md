@@ -1,8 +1,10 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 6 · 2026-10-19
+Document ID: HWI4U-README · Version: 7 · 2026-10-19
 
-**Hardware inventory database client** — helyi Python/Qt alkalmazás SQLite-tal, EN/DE/HU-felülettel. Forrásverzió **0.16.1**, séma **23**. Használatához felhőfiók nem szükséges.
+[FR-036 · Manufacturer / Model / Serial number · 0.17.0 TEST](docs/IDENTIFICATION.hu.md)
+
+**Hardware inventory database client** — helyi Python/Qt alkalmazás SQLite-tal, EN/DE/HU-felülettel. Forrásverzió **0.17.0**, séma **24**. Használatához felhőfiók nem szükséges.
 
 Eszközök, Unicode-név, generált UUID/rövid ID, dátum/vásárlás/hely, csoport/típus, életciklus/állapot, OS/firmware, interfész/MAC/IP, kapcsolatok és források rögzítése. Kép/PDF külön kezelt fájl. Nincs automatikus felderítés/igazolás; ismeretlen adat ismeretlen marad.
 
@@ -35,9 +37,9 @@ Markdown/Python/SQL normál programmal offline olvasható. Függőségtelepíté
 
 [English](README.en.md) · [Deutsch](README.de.md)
 
-[FR-025 · 0.16.1 · TEST](docs/LOCATIONS.hu.md)
+[FR-025 · 0.17.0 · TEST](docs/LOCATIONS.hu.md)
 
-[FR-012 / FR-028 / FR-029 · 0.16.1 · TEST](docs/DESKTOP.hu.md)
+[FR-012 / FR-028 / FR-029 · 0.17.0 · TEST](docs/DESKTOP.hu.md)
 
 
-[FR-030/031/032/033/035 · 0.16.1 · TEST](docs/WORKSPACE.hu.md)
+[FR-030/031/032/033/035 · 0.17.0 · TEST](docs/WORKSPACE.hu.md)

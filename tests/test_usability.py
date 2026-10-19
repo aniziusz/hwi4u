@@ -71,7 +71,7 @@ class Usability(unittest.TestCase):
             c.executescript((BASE/'migrations/018-hwi4u.sql').read_text())
             c.executescript((BASE/'migrations/019-source-library.sql').read_text())
             c.executescript((BASE/'migrations/020-network-links.sql').read_text())
-            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text())
+            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text());c.executescript((BASE/'migrations/024-device-identification.sql').read_text())
         self.assertEqual(len(DeviceStore(db).devices()),2)
     def test_catalogues_and_language_preserve_short_id(self):
         self.assertIn('freebsd',self.store.os_families())
