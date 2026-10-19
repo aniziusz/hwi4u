@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox
     QComboBox,QLineEdit,QTableWidget,QMenu,QDateEdit,QToolButton)
 
 LANGUAGES={'en':'English','de':'Deutsch','hu':'Magyar'}
-APP_VERSION='0.16.1'
+APP_VERSION='0.17.0'
 RELEASE_DATE='2026-10-19'
 TRANSLATIONS={}
 
@@ -182,4 +182,10 @@ TRANSLATIONS.update({
 TRANSLATIONS.update({
  'Filter column: ':('Spalte filtern: ','Oszlop szűrése: '),
  'Filter active':('Filter aktiv','Aktív szűrő'),
+})
+
+TRANSLATIONS.update({
+ 'Manufacturer':('Hersteller','Gyártó'), 'Model':('Modell','Modell'), 'Serial number':('Seriennummer','Sorozatszám'),
+ 'Hardware & location':('Hardware und Standort','Hardver és hely'),
+ 'Manufacturer, model and serial number must be single-line printable text, up to 200 characters.':('Hersteller, Modell und Seriennummer müssen einzeiliger druckbarer Text mit höchstens 200 Zeichen sein.','Gyártó, modell és sorozatszám egysoros nyomtatható szöveg, legfeljebb 200 karakter lehet.'),
 })

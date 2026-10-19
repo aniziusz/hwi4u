@@ -8,9 +8,9 @@ from column_header import FilterHeader
 from location_store import location_summary
 from update_runtime import atomic_json
 
-COLUMNS=[('short_id','Short ID'),('name','Name'),('type_group','Group'),('device_type','Type'),('current_state','State'),('physical_condition','Condition'),('roles','Roles'),('location','Location'),('building','Building'),('floor','Floor'),('room','Room'),('hostname','Hostname'),('mac','MAC addresses'),('ip','IP addresses'),('purchased_at','Purchased at'),('purchase_date','Purchase date'),('installation_date','Installation date'),('scrapped_date','Scrapped date'),('purchase_price','Purchase price'),('purchase_currency','Currency'),('device_id','Device ID')]
+COLUMNS=[('short_id','Short ID'),('name','Name'),('type_group','Group'),('device_type','Type'),('current_state','State'),('physical_condition','Condition'),('roles','Roles'),('location','Location'),('building','Building'),('floor','Floor'),('room','Room'),('hostname','Hostname'),('mac','MAC addresses'),('ip','IP addresses'),('purchased_at','Purchased at'),('purchase_date','Purchase date'),('installation_date','Installation date'),('scrapped_date','Scrapped date'),('purchase_price','Purchase price'),('purchase_currency','Currency'),('device_id','Device ID'),('manufacturer','Manufacturer'),('model','Model'),('serial_number','Serial number')]
 KEYS=[k for k,_ in COLUMNS];DEFAULT=KEYS[:6]
-GROUPABLE=['type_group','device_type','roles','current_state','physical_condition','building','floor','room','purchased_at']
+GROUPABLE=['type_group','device_type','roles','current_state','physical_condition','building','floor','room','purchased_at','manufacturer','model']
 
 def values(row,key):
     if key=='roles':return row.get('_roles',[]) or ['']
@@ -107,8 +107,9 @@ class GroupDialog(QDialog):
 def read_view(path):
     try:
         x=json.loads(Path(path).read_text());order=x['order'];hidden=x['hidden'];group=x.get('groups',[]);filters=x.get('filters',{})
-        if set(order)!=set(KEYS) or len(order)!=len(KEYS) or not set(hidden)<=set(KEYS) or len(group)>2 or not set(group)<=set(GROUPABLE):raise ValueError()
+        if not isinstance(order,list) or len(order)!=len(set(order)) or not set(order)<=set(KEYS) or not {'name','short_id'}<=set(order) or not set(hidden)<=set(order) or len(group)>2 or not set(group)<=set(GROUPABLE):raise ValueError()
         if not isinstance(filters,dict) or any(k not in KEYS or not isinstance(v,list) or any(not isinstance(a,str) for a in v) for k,v in filters.items()):raise ValueError()
+        missing=[key for key in KEYS if key not in order];order=order+missing;hidden=hidden+missing
         widths=x.get('widths',{})
         if not isinstance(widths,dict) or any(k not in KEYS or not isinstance(v,int) or not 40<=v<=2000 for k,v in widths.items()):widths={}
         return dict(order=order,hidden=hidden,groups=group,filters=filters,widths=widths)

@@ -70,11 +70,11 @@ class Sources(unittest.TestCase):
         with contextlib.closing(sqlite3.connect(db)) as c:
             c.executescript((BASE/'tests/fixtures/schema-018.sql').read_text())
             c.execute("INSERT INTO devices(device_id,name,source) VALUES('one','one',?),('two','two',?)",('Árvíz\nOriginal SOURCE','Árvíz\nOriginal SOURCE'));c.commit()
-            tables=[r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")];before={t:c.execute('SELECT * FROM '+t).fetchall() for t in tables}
+            tables=[r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")];before={t:c.execute('SELECT * FROM '+t).fetchall() for t in tables};old_columns={t:[r[1] for r in c.execute('PRAGMA table_info('+t+')')] for t in tables}
             c.executescript((BASE/'migrations/019-source-library.sql').read_text())
             c.executescript((BASE/'migrations/020-network-links.sql').read_text())
-            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text())
-            for table,rows in before.items():self.assertEqual([tuple(r[:-1]) if table=='devices' else r for r in c.execute('SELECT * FROM '+table).fetchall()],rows,table)
+            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text());c.executescript((BASE/'migrations/024-device-identification.sql').read_text())
+            for table,rows in before.items():self.assertEqual(c.execute('SELECT '+','.join(old_columns[table])+' FROM '+table).fetchall(),rows,table)
             self.assertEqual(c.execute('SELECT body FROM source_entries').fetchall(),[('Árvíz\nOriginal SOURCE',)])
             self.assertEqual(c.execute('SELECT kind FROM source_entries').fetchone()[0],'legacy_text')
             self.assertEqual(c.execute('SELECT observed_on,evidence_status FROM source_entries').fetchall(),[(None,'uncertain')]);self.assertEqual(c.execute('SELECT count(*) FROM source_links').fetchone()[0],2)

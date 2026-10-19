@@ -91,13 +91,13 @@ class GuidedLocations(unittest.TestCase):
         schema=(test_desktop.BASE/'schema.sql').read_text().split('CREATE TABLE location_places')[0]+'PRAGMA user_version=21;\nCOMMIT;'
         with contextlib.closing(sqlite3.connect(old)) as c:
             c.executescript(schema);c.execute("INSERT INTO devices(device_id,name,source,location) VALUES('old','Old device','TEST','  Legacy / text  ')");c.commit()
-            before=c.execute('SELECT * FROM devices').fetchall();label=c.execute('SELECT * FROM device_short_ids').fetchall()
+            old_columns=[r[1] for r in c.execute('PRAGMA table_info(devices)')];before=c.execute('SELECT * FROM devices').fetchall();label=c.execute('SELECT * FROM device_short_ids').fetchall()
         stage=self.root/'stage';stage.mkdir()
         for name in ('schema.sql','ui_i18n.py','LICENSE-desktop.txt'):shutil.copyfile(test_desktop.BASE/name,stage/name)
         shutil.copytree(test_desktop.BASE/'migrations',stage/'migrations')
         release=publish(stage,run_tests=False);backup=prepare_database(old,release)
         with contextlib.closing(sqlite3.connect(old)) as c:
-            self.assertEqual(c.execute('SELECT * FROM devices').fetchall(),before);self.assertEqual(c.execute('SELECT * FROM device_short_ids').fetchall(),label)
+            self.assertEqual(c.execute('SELECT '+','.join(old_columns)+' FROM devices').fetchall(),before);self.assertEqual(c.execute('SELECT * FROM device_short_ids').fetchall(),label)
             self.assertEqual(c.execute('SELECT count(*) FROM device_locations').fetchone()[0],0)
             self.assertEqual(c.execute('SELECT count(*) FROM location_places').fetchone()[0],0)
         with zipfile.ZipFile(backup) as z:self.assertIn('hardware.sqlite3',z.namelist())

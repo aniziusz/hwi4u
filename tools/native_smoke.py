@@ -23,11 +23,12 @@ def smoke(output):
     source=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='hwi4u-platform-') as tmp:
         root=Path(tmp);workspace=root/'private space';initialize(source,workspace,run_tests=False)
-        db=workspace/'hardware.sqlite3';store=DeviceStore(db);store.save(dict(name='Fictional Árvíztűrő Büro',source='FICTIONAL TEST',roles=['firewall','router']))
+        db=workspace/'hardware.sqlite3';store=DeviceStore(db);store.save(dict(name='Fictional Árvíztűrő Büro',source='FICTIONAL TEST',roles=['firewall','router'],manufacturer='Fictional maker',model='Model-x',serial_number='0007aB'))
         window=Window(store,language='en');window.show();app.processEvents();window.load(window.rows[0])
         window.table.itemDoubleClicked.emit(window.table.item(0,1));editor=next(iter(window.editors.values()));app.processEvents()
         assert editor.isMaximized() and editor.table.isHidden()
         assert editor.workspace and editor.role_values==['firewall','router']
+        assert editor.inputs['serial_number'].text()=='0007aB'
         window.list_controller.view['groups']=['roles'];window.list_controller.render()
         assert '1 / 1' in window.list_controller.summary.text()
         editor.workspace.tree.setCurrentItem(editor.workspace.items['network']);app.processEvents()
@@ -37,6 +38,7 @@ def smoke(output):
         assert editor.grab().save(str(output/'device-editor.png'));assert window.grab().save(str(output/'quick-editor.png'))
         bundle=root/'full.zip';backup_bundle(db,bundle);restored=restore(bundle,root/'restore')
         assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['device_id']==store.devices()[0]['device_id']
+        assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['serial_number']=='0007aB'
         # Windows/macOS UTF-8 export must preserve non-ASCII user text.
         import subprocess
         subprocess.run([sys.executable,str(source/'inventory.py'),'--db',str(db),'export','--directory',str(root/'export')],check=True,capture_output=True)
