@@ -3,8 +3,8 @@ from PySide6.QtCore import Qt,QTimer
 from PySide6.QtWidgets import (QWidget,QHBoxLayout,QVBoxLayout,QGridLayout,QFormLayout,QGroupBox,QTreeWidget,QTreeWidgetItem,QLabel,QSizePolicy,QSplitter)
 from ui_i18n import tr
 
-TITLES={'identity':'General','location':'Hardware & location','purchase':'Purchase & lifecycle','condition':'State & condition','network':'Network identity','software':'Software','interface':'Connection interfaces','protocol':'Communication protocols','photos':'Device photos','manuals':'Manuals and references','evidence':'Sources and evidence'}
-BRANCHES=[('Device',['identity','location']),('Purchase & lifecycle',['purchase','condition']),('Network & connectivity',['network','interface','protocol']),('Software',['software']),('Files & evidence',['photos','manuals','evidence'])]
+TITLES={'identity':'General','location':'Hardware & location','purchase':'Purchase & lifecycle','lifecycle':'Lifecycle dates','condition':'State & condition','network':'Network identity','software':'Software','interface':'Connection interfaces','protocol':'Communication protocols','photos':'Device photos','manuals':'Manuals and references','evidence':'Sources and evidence'}
+BRANCHES=[('Device',['identity','location']),('Purchase & lifecycle',['purchase','lifecycle','condition']),('Network & connectivity',['network','interface','protocol']),('Software',['software']),('Files & evidence',['photos','manuals','evidence'])]
 
 class TileGrid(QWidget):
     def __init__(self):
@@ -36,9 +36,10 @@ class EditorWorkspace(QWidget):
             for key in keys:
                 item=QTreeWidgetItem(branch,[TITLES[key]]);item.setData(0,Qt.UserRole,key);self.items[key]=item
             branch.setExpanded(title in ('Device','Purchase & lifecycle','Network & connectivity'))
+        window.lifecycle_panel.setTitle('')
         self.old_panel=window.form_scroll.takeWidget();self.old_panel.setParent(self);self.old_panel.hide();old=self.old_panel.layout();self.footer=QWidget();footer_layout=QVBoxLayout(self.footer);footer_layout.setContentsMargins(0,0,0,0)
         # Direct widget mapping avoids relying on translated field labels.
-        mapping={id(window.short_id):'identity',id(window.type_group):'identity',id(window.name_feedback):'identity',id(window.role_button):'identity',id(window.location_panel):'location',id(window.source_selectors['device'].parentWidget()):'evidence',id(window.merchant_hint):'purchase',id(window.merchant_fix):'purchase'}
+        mapping={id(window.lifecycle_panel):'lifecycle',id(window.model_button):'identity',id(window.short_id):'identity',id(window.type_group):'identity',id(window.name_feedback):'identity',id(window.role_button):'identity',id(window.location_panel):'location',id(window.source_selectors['device'].parentWidget()):'evidence',id(window.merchant_hint):'purchase',id(window.merchant_fix):'purchase'}
         for key,widget in window.inputs.items():
             mapping[id(widget)]=('identity' if key in ('device_id','name','device_type') else 'location' if key in ('manufacturer','model','serial_number','location') else 'evidence' if key=='source' else 'condition' if key in ('current_state','physical_condition') else 'purchase')
         sections={id(section):key for section,key in zip(window.sections,('network','software','interface','protocol'))}

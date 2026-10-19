@@ -24,11 +24,20 @@ def smoke(output):
     with tempfile.TemporaryDirectory(prefix='hwi4u-platform-') as tmp:
         root=Path(tmp);workspace=root/'private space';initialize(source,workspace,run_tests=False)
         db=workspace/'hardware.sqlite3';store=DeviceStore(db);store.save(dict(name='Fictional Árvíztűrő Büro',source='FICTIONAL TEST',roles=['firewall','router'],manufacturer='Fictional maker',model='Model-x',serial_number='0007aB'))
+        from source_store import SourceStore
+        from lifecycle import ModelStore
+        sid=SourceStore(db).save(dict(kind='observation',title='FICTIONAL manufacturer notice',body='Fictional test only',observed_on='2026-10-19',evidence_status='verified'))
+        row=store.devices()[0]
+        records=[dict(kind='market_release',date='2025-Q2',provider='Fictional maker',product='Model-x',version='',applicability='Fictional revision A',status='verified',observed_on='2026-10-19',sources=[sid],note='Fictional platform smoke')]
+        store.save({**row,'purchase_date':'2026-01-01','lifecycle':records},row)
+        ModelStore(db).save(dict(manufacturer='Fictional maker',model='Model-x',variant='Fictional revision A',device_type='firewall appliance',roles=['firewall','router'],lifecycle=records,sources=[sid],note='Fictional platform smoke'))
         window=Window(store,language='en');window.show();app.processEvents();window.load(window.rows[0])
         window.table.itemDoubleClicked.emit(window.table.item(0,1));editor=next(iter(window.editors.values()));app.processEvents()
         assert editor.isMaximized() and editor.table.isHidden()
         assert editor.workspace and editor.role_values==['firewall','router']
         assert editor.inputs['serial_number'].text()=='0007aB'
+        assert editor.lifecycle_panel.value()==records
+        assert editor.lifecycle_panel.parentWidget() is editor.workspace.cards['lifecycle']
         window.list_controller.view['groups']=['roles'];window.list_controller.render()
         assert '1 / 1' in window.list_controller.summary.text()
         editor.workspace.tree.setCurrentItem(editor.workspace.items['network']);app.processEvents()
@@ -39,6 +48,8 @@ def smoke(output):
         bundle=root/'full.zip';backup_bundle(db,bundle);restored=restore(bundle,root/'restore')
         assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['device_id']==store.devices()[0]['device_id']
         assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['serial_number']=='0007aB'
+        assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['_lifecycle']==records
+        assert len(ModelStore(restored/'hardware.sqlite3').list())==1
         # Windows/macOS UTF-8 export must preserve non-ASCII user text.
         import subprocess
         subprocess.run([sys.executable,str(source/'inventory.py'),'--db',str(db),'export','--directory',str(root/'export')],check=True,capture_output=True)

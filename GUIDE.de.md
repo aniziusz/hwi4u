@@ -1,10 +1,12 @@
 # Anleitung
 
-Document ID: HWI4U-GUIDE · Version: 6 · 2026-10-19
+Document ID: HWI4U-GUIDE · Version: 7 · 2026-10-19
 
-[FR-036 · Manufacturer / Model / Serial number · 0.17.0 TEST](docs/IDENTIFICATION.de.md)
+[FR-037/038/039 · 0.18.0 TEST · Lifecycle / Lebenszyklus / Életciklus](docs/LIFECYCLE.de.md)
 
-Aktuelle 0.17.0-Listensteuerung, Rollen und großes Layout ersetzen ältere Beschreibungen unten. [Aktuelle Anleitung](docs/WORKSPACE.de.md). FR-034 ist Duplikat vorhandener Suche, keine eigene Umsetzung.
+[FR-036 · Manufacturer / Model / Serial number · 0.18.0 TEST](docs/IDENTIFICATION.de.md)
+
+Aktuelle 0.18.0-Listensteuerung, Rollen und großes Layout ersetzen ältere Beschreibungen unten. [Aktuelle Anleitung](docs/WORKSPACE.de.md). FR-034 ist Duplikat vorhandener Suche, keine eigene Umsetzung.
 
 README lesen, neuen privaten Arbeitsbereich initialisieren. Produktion: manage.py run, TEST: manage.py test. Daten getrennt, kein automatischer Abgleich. manage.py refresh-test nur bewusst: Bestätigung und ältere Kopien bleiben. Gleichzeitiges Bearbeiten desselben Datensatzes vermeiden; veraltetes Speichern wird abgewiesen.
 
@@ -27,4 +29,4 @@ Vollsicherung: geprüfte ZIP mit Datenbank und referenzierten Bildern/Handbüche
 [FR-028 · FR-012 · FR-029](docs/DESKTOP.de.md)
 
 
-[FR-030/031/032/033/035 · 0.17.0 · TEST](docs/WORKSPACE.de.md)
+[FR-030/031/032/033/035 · 0.18.0 · TEST](docs/WORKSPACE.de.md)

@@ -1,10 +1,12 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 7 · 2026-10-19
+Document ID: HWI4U-README · Version: 8 · 2026-10-19
 
-[FR-036 · Manufacturer / Model / Serial number · 0.17.0 TEST](docs/IDENTIFICATION.en.md)
+[FR-037/038/039 · 0.18.0 TEST · Lifecycle / Lebenszyklus / Életciklus](docs/LIFECYCLE.en.md)
 
-**Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.17.0**, database schema **24**. No cloud account is required to use the application.
+[FR-036 · Manufacturer / Model / Serial number · 0.18.0 TEST](docs/IDENTIFICATION.en.md)
+
+**Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.18.0**, database schema **24**. No cloud account is required to use the application.
 
 Record devices, Unicode names, generated UUIDs and short labels, dates, purchase details, physical location, device groups/types, lifecycle/condition, operating system/firmware, interfaces, MAC/IP identities, connection records and sourced evidence. Photos/PDFs remain separate managed files. Evidence is user-provided; the program does not discover hardware or automatically verify claims. Unknown values remain unknown.
 
@@ -37,9 +39,9 @@ Source files are editable Markdown/Python/SQL and can be read offline using ordi
 
 [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-[FR-025 · 0.17.0 · TEST](docs/LOCATIONS.en.md)
+[FR-025 · 0.18.0 · TEST](docs/LOCATIONS.en.md)
 
-[FR-012 / FR-028 / FR-029 · 0.17.0 · TEST](docs/DESKTOP.en.md)
+[FR-012 / FR-028 / FR-029 · 0.18.0 · TEST](docs/DESKTOP.en.md)
 
 
-[FR-030/031/032/033/035 · 0.17.0 · TEST](docs/WORKSPACE.en.md)
+[FR-030/031/032/033/035 · 0.18.0 · TEST](docs/WORKSPACE.en.md)

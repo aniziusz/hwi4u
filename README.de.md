@@ -1,10 +1,12 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 7 · 2026-10-19
+Document ID: HWI4U-README · Version: 8 · 2026-10-19
 
-[FR-036 · Manufacturer / Model / Serial number · 0.17.0 TEST](docs/IDENTIFICATION.de.md)
+[FR-037/038/039 · 0.18.0 TEST · Lifecycle / Lebenszyklus / Életciklus](docs/LIFECYCLE.de.md)
 
-**Hardware inventory database client** — lokale Python/Qt-Anwendung mit SQLite und EN/DE/HU-Oberfläche. Quellversion **0.17.0**, Schema **24**. Nutzung ohne Cloudkonto.
+[FR-036 · Manufacturer / Model / Serial number · 0.18.0 TEST](docs/IDENTIFICATION.de.md)
+
+**Hardware inventory database client** — lokale Python/Qt-Anwendung mit SQLite und EN/DE/HU-Oberfläche. Quellversion **0.18.0**, Schema **24**. Nutzung ohne Cloudkonto.
 
 Geräte, Unicode-Namen, generierte UUID/Kurzkennungen, Daten/Kauf/Standort, Gruppen/Typen, Lebenszyklus/Zustand, OS/Firmware, Schnittstellen/MAC/IP, Verbindungen und Quellen erfassen. Fotos/PDFs separate verwaltete Dateien. Angaben werden nicht automatisch erkannt/geprüft; Unbekanntes bleibt unbekannt.
 
@@ -37,9 +39,9 @@ Markdown/Python/SQL offline mit normalen Werkzeugen lesbar. Abhängigkeitsinstal
 
 [English](README.en.md) · [Magyar](README.hu.md)
 
-[FR-025 · 0.17.0 · TEST](docs/LOCATIONS.de.md)
+[FR-025 · 0.18.0 · TEST](docs/LOCATIONS.de.md)
 
-[FR-012 / FR-028 / FR-029 · 0.17.0 · TEST](docs/DESKTOP.de.md)
+[FR-012 / FR-028 / FR-029 · 0.18.0 · TEST](docs/DESKTOP.de.md)
 
 
-[FR-030/031/032/033/035 · 0.17.0 · TEST](docs/WORKSPACE.de.md)
+[FR-030/031/032/033/035 · 0.18.0 · TEST](docs/WORKSPACE.de.md)

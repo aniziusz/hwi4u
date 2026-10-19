@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox
     QComboBox,QLineEdit,QTableWidget,QMenu,QDateEdit,QToolButton)
 
 LANGUAGES={'en':'English','de':'Deutsch','hu':'Magyar'}
-APP_VERSION='0.17.0'
+APP_VERSION='0.18.0'
 RELEASE_DATE='2026-10-19'
 TRANSLATIONS={}
 
@@ -189,3 +189,6 @@ TRANSLATIONS.update({
  'Hardware & location':('Hardware und Standort','Hardver és hely'),
  'Manufacturer, model and serial number must be single-line printable text, up to 200 characters.':('Hersteller, Modell und Seriennummer müssen einzeiliger druckbarer Text mit höchstens 200 Zeichen sein.','Gyártó, modell és sorozatszám egysoros nyomtatható szöveg, legfeljebb 200 karakter lehet.'),
 })
+
+from lifecycle_translations import STRINGS as LIFECYCLE_STRINGS
+TRANSLATIONS.update(LIFECYCLE_STRINGS)
