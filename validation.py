@@ -144,7 +144,7 @@ def run_full(root, evidence, reuse=True):
     log = evidence / (ident + '.log')
     if log.is_symlink() or receipt.is_symlink():
         raise ValueError('Unsafe validation receipt path')
-    log.write_text(output, encoding='utf-8')
+    log.write_bytes(output.encode('utf-8'))
     atomic_json(receipt, {'record': record, 'signature': hmac.new(key, canonical(record), 'sha256').hexdigest()})
     if record['result'] != 'passed':
         raise RuntimeError('Full regression failed:\n' + output)
