@@ -59,7 +59,7 @@ class ModelLifecycle(unittest.TestCase):
         with contextlib.closing(self.store.connect()) as c:self.assertEqual(c.execute('SELECT count(*) FROM model_profiles').fetchone()[0],3)
         with self.assertRaisesRegex(ValueError,'warranty'):store.save({**data,'variant':'Warranty bad','lifecycle':[{**data['lifecycle'][0],'kind':'warranty_expiry'}]})
     def test_model_application_review_cancel_preserves_warranty_pending_and_sources(self):
-        w=self.window;w.inputs['name'].setText('Fictional');w.inputs['source'].setText('FICTIONAL');w.inputs['manufacturer'].setText('Example');w.inputs['model'].setText('Model 1');w.inputs['purchase_date'].load('2024-06-15')
+        w=self.window;w.begin_edit();w.inputs['name'].setText('Fictional');w.begin_edit();w.inputs['source'].setText('FICTIONAL');w.begin_edit();w.inputs['manufacturer'].setText('Example');w.begin_edit();w.inputs['model'].setText('Model 1');w.inputs['purchase_date'].load('2024-06-15')
         data=self.profile();ModelStore(self.db).save(data);w.lifecycle_panel.load([{**data['lifecycle'][0],'kind':'warranty_expiry','date':'2029-12-31','applicability':'Individual contract TEST'}]);before=w.values()
         dialog=ModelDialog(w);self.assertFalse(dialog.apply_button.isEnabled());dialog.list.setCurrentRow(0);self.assertFalse(dialog.apply_button.isEnabled());dialog.confirm.setChecked(True);self.assertTrue(dialog.apply_button.isEnabled());dialog.reject();self.assertEqual(w.values(),before)
         profile=ModelStore(self.db).list()[0];w.apply_model_profile(profile);self.assertEqual(w.role_values,['firewall','router']);self.assertEqual(len(w.lifecycle_panel.value()),2);self.assertEqual(w.inputs['device_type'].currentData(),'firewall appliance');self.assertEqual(self.store.devices(),[]);self.assertTrue(w.save());self.assertEqual(len(self.store.devices()[0]['_lifecycle']),2)
@@ -102,6 +102,7 @@ class ModelLifecycle(unittest.TestCase):
         data=self.profile();catalogue=ModelStore(self.db);catalogue.save(data);profile=catalogue.list()[0];device=self.add(data['lifecycle']);catalogue.save({**data,'lifecycle':[{**data['lifecycle'][0],'date':'2025-07'}]},profile)
         self.assertEqual(self.store.devices()[0]['_lifecycle'],device['_lifecycle'])
         w=self.window;w.reload();w.load(w.rows[0]);before=w.values()
+        w.begin_edit()
         with self.assertRaisesRegex(ValueError,'changed'):w.apply_model_profile(profile)
         self.assertEqual(w.values(),before)
     def test_unverified_source_cannot_confirm_a_release_and_stale_delete_is_rejected(self):

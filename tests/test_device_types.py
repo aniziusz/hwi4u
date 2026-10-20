@@ -45,13 +45,13 @@ class DeviceTypes(unittest.TestCase):
         with self.assertRaises(sqlite3.IntegrityError):self.store.save_type('physical server','other')
     def test_gui_groups_filters_and_manager(self):
         w=Window(self.store);self.addCleanup(w.deleteLater)
-        for k,v in (('device_id','TEST'),('name','Server'),('source','TEST ONLY')):w.inputs[k].setText(v)
+        for k,v in (('device_id','TEST'),('name','Server'),('source','TEST ONLY')):w.begin_edit();w.inputs[k].setText(v)
         w.type_group.setCurrentIndex(w.type_group.findData('networking'))
         self.assertGreaterEqual(w.inputs['device_type'].findData('ont'),0)
         self.assertEqual(w.inputs['device_type'].findData('server'),-1)
         with patch.object(QMessageBox,'warning') as warning:
             w.save();self.assertTrue(warning.called)
-        w.inputs['device_type'].setCurrentIndex(w.inputs['device_type'].findData('ont'));w.save()
+        w.begin_edit();w.inputs['device_type'].setCurrentIndex(w.inputs['device_type'].findData('ont'));w.save()
         self.assertEqual(self.store.devices()[0]['device_type'],'ont')
         w.group_filter.setCurrentIndex(w.group_filter.findData('computers'));self.assertTrue(w.table.isRowHidden(0))
         w.group_filter.setCurrentIndex(w.group_filter.findData('networking'));self.assertFalse(w.table.isRowHidden(0))

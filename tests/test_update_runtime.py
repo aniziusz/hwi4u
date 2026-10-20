@@ -105,7 +105,7 @@ class UpdateUI(unittest.TestCase):
         folder=root/'.runtime';folder.mkdir();(folder/'current.json').write_text(json.dumps({'release_id':'new'}))
         with patch.dict(os.environ,{'INVENTORY_PROJECT_ROOT':str(root),'INVENTORY_RELEASE_ID':'old'}):
             w.check_update();self.assertFalse(w.update_button.isHidden())
-            w.inputs['name'].setText('pending');w.inputs['source'].setText('TEST ONLY')
+            w.begin_edit();w.inputs['name'].setText('pending');w.begin_edit();w.inputs['source'].setText('TEST ONLY')
             with patch.object(Window,'unsaved_choice',return_value=QMessageBox.Cancel),patch.object(QApplication,'exit') as exit_call:
                 w.apply_update();exit_call.assert_not_called()
             with patch.object(Window,'unsaved_choice',return_value=QMessageBox.Save),patch.object(QApplication,'exit') as exit_call:

@@ -801,8 +801,8 @@
       "source_sha256": "5d0072dc251a03959465fd022a1201f10724499cc19e1f5b6b05700fd59cf584"
     },
     "ui.0200": {
-      "text": "Gerät doppelt anklicken, um es im großen Fenster zu bearbeiten. Schnelleditor bleibt verfügbar.",
-      "source_sha256": "1361d89d6d169c62533f384d303391acc03fcbf5a032d07c1b153ad6813bb8b4"
+      "text": "Doppelklick öffnet das Gerät im großen Fenster. Zum Ändern Gerät bearbeiten wählen. Die Schnellansicht bleibt verfügbar.",
+      "source_sha256": "08107213726ecb3b2f0a575cee70029c0e9194cc2e5b5faf2c35cb0c77328f82"
     },
     "ui.0201": {
       "text": "Doppelte Verbindungsauswahl.",
@@ -2903,6 +2903,74 @@
     "ui.0725": {
       "text": "{0}: Erfasst benötigt mindestens eine Auswahl für {1}; unbekannt/keine dürfen keine Auswahl haben.",
       "source_sha256": "d9fead8fbb8f3633277a5b084b3f39b9a7a613fd2054d3428e50566d8d5eae55"
+    },
+    "ui.0726": {
+      "text": "Datei",
+      "source_sha256": "50009ce1da4d15e1c4a04024df691eed5f0d598e2c4c67092f205366d0adf99e"
+    },
+    "ui.0727": {
+      "text": "Bearbeiten",
+      "source_sha256": "464c4ffd019e1e9691dcf0537c797353ef2b1c1d4833d3d463e5b74ae4547344"
+    },
+    "ui.0728": {
+      "text": "Ansicht",
+      "source_sha256": "dcc839a4015c4b7dd9db959a8f757833b8adb92462a751b973386e453c6d58a3"
+    },
+    "ui.0729": {
+      "text": "Werkzeuge",
+      "source_sha256": "ea93d6a262ecb87a9fa4d09edbd7654c046597936a8e235fc3949eb01775ff99"
+    },
+    "ui.0730": {
+      "text": "Hilfe",
+      "source_sha256": "b79cac926e0b2e347e72cc91d5174037c9e17ae7733fd7bdb570f71b10cd7bfc"
+    },
+    "ui.0731": {
+      "text": "Basis",
+      "source_sha256": "0e35f6e9742e074dfd62e874de3c242c6d9b64c21bf9afbaf3d11f05579b4495"
+    },
+    "ui.0732": {
+      "text": "Details",
+      "source_sha256": "45989de49fb7f66dfe17a8fc26f3a02c7abcd74f7e8e6cf9f39fa0e3775780df"
+    },
+    "ui.0733": {
+      "text": "Geräte suchen",
+      "source_sha256": "be8b2f2c318528f195e708b61c80412171137ccf751118dcb3d5886669f07120"
+    },
+    "ui.0734": {
+      "text": "Anderen Client öffnen",
+      "source_sha256": "8644fb6cf9647ba8117502e12aa20bce0af2a786e1f1c82364f961b4387d7022"
+    },
+    "ui.0735": {
+      "text": "Alle Eigenschaften sind verfügbar.",
+      "source_sha256": "5458239b9254956bf6490ed8dd204ddede29a531cb373096ce6bffd7abb02e9e"
+    },
+    "ui.0736": {
+      "text": "Alltägliche Eigenschaften. Weitere gespeicherte Werte bleiben in Details erhalten.",
+      "source_sha256": "671709aaa0f3c2f50bf1eb491854c87f58a14c56869b7cb2e9cf51f0c87663e6"
+    },
+    "ui.0737": {
+      "text": "Bearbeitung — Änderungen speichern oder verwerfen.",
+      "source_sha256": "e3bb32be0b539fbb41863516d5bfb3482521f594a3b6b626d7c3cebece337f87"
+    },
+    "ui.0738": {
+      "text": "Anzeigemodus — zum Ändern Gerät bearbeiten wählen.",
+      "source_sha256": "f844f3a6b1c5312254b8e949db86912883271195fc428dc1cd366cf962c7ca5d"
+    },
+    "ui.0739": {
+      "text": "Vor Änderungen an diesem Datensatz Gerät bearbeiten wählen.",
+      "source_sha256": "1a9015c930d098acc265f7cc0db013eae887177b4f2350ffc9672fc683b96120"
+    },
+    "ui.0740": {
+      "text": "Quellen ansehen…",
+      "source_sha256": "bf937210442fec682c20ba06b852f51c4336e5161634229f8678fb8141c733af"
+    },
+    "ui.0741": {
+      "text": "Lebenszyklusdaten — Prüfung erforderlich",
+      "source_sha256": "914eb7276f6a1e0aaef4566d16df0e6d33cf0c0355a4583cb650c6f29ba1b627"
+    },
+    "ui.0742": {
+      "text": "Lebenszyklusdetails müssen geprüft werden.",
+      "source_sha256": "6bcb2154a9057fef7c5d07c1b4767441b96bea100cff62b93936de74c2b25d3e"
     }
   }
 }

@@ -20,24 +20,24 @@ class DeviceEvidence(unittest.TestCase):
 
     def test_live_alternatives_and_missing_evidence_focus(self):
         w = self.window
-        w.inputs['name'].setText('Fictional evidence test')
+        w.begin_edit();w.inputs['name'].setText('Fictional evidence test')
         self.assertFalse(w.check_device_evidence())
         with patch.object(w, 'error') as error:
             self.assertFalse(w.save())
             self.assertIn('OR choose', str(error.call_args.args[0]))
         self.assertEqual(self.store.devices(), [])
-        w.inputs['source'].setText('Fictional user report')
+        w.begin_edit();w.inputs['source'].setText('Fictional user report')
         self.assertTrue(w.check_device_evidence()); self.assertTrue(w.save())
         row = self.store.devices()[0]
         ident = SourceStore(self.db).save(dict(kind='observation', title='Fictional label', body='TEST ONLY', evidence_status='user_reported'))
-        w.inputs['source'].clear()
+        w.begin_edit();w.inputs['source'].clear()
         w.source_selectors['device'].load([ident], row['device_id'])
         w.source_selectors['device'].changed.emit()
         self.assertTrue(w.check_device_evidence()); self.assertTrue(w.save())
         self.assertEqual(self.store.devices()[0]['_sources']['device'], [ident])
 
     def test_other_sections_do_not_satisfy_device_provenance(self):
-        w = self.window; w.inputs['name'].setText('Fictional missing provenance')
+        w = self.window; w.begin_edit();w.inputs['name'].setText('Fictional missing provenance')
         ident = SourceStore(self.db).save(dict(kind='observation', title='Fictional OS settings', body='TEST ONLY', evidence_status='user_reported'))
         w.source_selectors['software'].load([ident])
         with patch.object(w, 'error'):

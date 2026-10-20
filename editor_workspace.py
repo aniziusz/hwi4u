@@ -8,7 +8,7 @@ BRANCHES=[('Device',['identity','location']),('Purchase & lifecycle',['purchase'
 
 class TileGrid(QWidget):
     def __init__(self):
-        super().__init__();self.grid=QGridLayout(self);self.grid.setContentsMargins(8,8,12,12);self.grid.setSpacing(16);self.cards=[];self.columns=0;self.pending=False;self.timer=QTimer(self);self.timer.setSingleShot(True);self.timer.timeout.connect(self.reflow)
+        super().__init__();self.grid=QGridLayout(self);self.grid.setContentsMargins(8,8,12,12);self.grid.setSpacing(16);self.grid.setAlignment(Qt.AlignTop);self.cards=[];self.columns=0;self.pending=False;self.timer=QTimer(self);self.timer.setSingleShot(True);self.timer.timeout.connect(self.reflow)
         self.setSizePolicy(QSizePolicy.Expanding,QSizePolicy.Preferred)
     def resizeEvent(self,event):
         super().resizeEvent(event);self.schedule()
@@ -17,11 +17,14 @@ class TileGrid(QWidget):
         self.pending=True;self.timer.start(0)
     def reflow(self):
         self.pending=False;columns=max(1,min(4,(self.width()-20+16)//456))
-        if columns==self.columns:return
+        visible=[card for card in self.cards if not card.isHidden()]
+        if columns==self.columns and getattr(self,'visible_count',None)==len(visible):return
+        self.visible_count=len(visible)
         self.columns=columns
         while self.grid.count():self.grid.takeAt(0)
         for c in range(4):self.grid.setColumnStretch(c,1 if c<columns else 0)
-        for i,card in enumerate(self.cards):self.grid.addWidget(card,i//columns,i%columns,Qt.AlignTop)
+        for i,card in enumerate(visible):
+            self.grid.addWidget(card,i//columns,i%columns,Qt.AlignTop);card.show()
         self.updateGeometry()
 
 class EditorWorkspace(QWidget):
@@ -38,11 +41,12 @@ class EditorWorkspace(QWidget):
             branch.setExpanded(title in ('Device','Purchase & lifecycle','Network & connectivity'))
         window.lifecycle_panel.setTitle('')
         self.old_panel=window.form_scroll.takeWidget();self.old_panel.setParent(self);self.old_panel.hide();old=self.old_panel.layout();self.footer=QWidget();footer_layout=QVBoxLayout(self.footer);footer_layout.setContentsMargins(0,0,0,0)
+        for row in range(old.rowCount()):old.setRowVisible(row,True)
         # Direct widget mapping avoids relying on translated field labels.
         mapping={id(window.lifecycle_panel):'lifecycle',id(window.model_button):'identity',id(window.short_id):'identity',id(window.type_group):'identity',id(window.name_feedback):'identity',id(window.role_button):'identity',id(window.location_panel):'location',id(window.source_selectors['device'].parentWidget()):'evidence',id(window.merchant_hint):'purchase',id(window.merchant_fix):'purchase'}
         for key,widget in window.inputs.items():
             mapping[id(widget)]=('identity' if key in ('device_id','name','device_type') else 'location' if key in ('manufacturer','model','serial_number','location') else 'evidence' if key=='source' else 'condition' if key in ('current_state','physical_condition') else 'purchase')
-        sections={id(section):key for section,key in zip(window.sections,('network','software','interface','protocol'))}
+        sections={id(section):key for section,key in zip(window.sections,('network','software','interface','protocol'))};sections[id(window.lifecycle_section)]='lifecycle'
         mode='identity'
         while old.rowCount():
             row=old.takeRow(0);label=row.labelItem.widget() if row.labelItem else None;field=row.fieldItem;widget=field.widget() if field else None;layout=field.layout() if field else None
@@ -71,9 +75,24 @@ class EditorWorkspace(QWidget):
         key=item.data(0,Qt.UserRole) if item else None
         if key not in self.cards:return
         card=self.cards[key]
+        if card.isHidden():self.window.set_details(True)
         self.window.form_scroll.ensureWidgetVisible(card,12,12)
         for k,c in self.cards.items():c.setProperty('activeTile',k==key);c.style().unpolish(c);c.style().polish(c)
         self.setStyleSheet('QGroupBox[activeTile="true"] { border: 2px solid palette(highlight); border-radius: 5px; margin-top: 8px; } QGroupBox[activeTile="true"]::title { subcontrol-origin: margin; left: 10px; }')
     def translate(self):
         for key,card in self.cards.items():card.setTitle(tr(TITLES[key]).replace('&','&&'));self.items[key].setText(0,tr(TITLES[key]))
         for i,(title,keys) in enumerate(BRANCHES):self.tree.topLevelItem(i).setText(0,tr(title))
+
+    def set_details(self,details):
+        from editing_controls import BASIC_CARDS
+        for key,card in self.cards.items():
+            card.setVisible(details or key in BASIC_CARDS);self.items[key].setHidden(not details and key not in BASIC_CARDS)
+        for i in range(self.tree.topLevelItemCount()):
+            branch=self.tree.topLevelItem(i);branch.setHidden(all(branch.child(j).isHidden() for j in range(branch.childCount())))
+        for key in ('device_id',):self.forms['identity'].setRowVisible(self.window.inputs[key],details)
+        for widget in (self.window.role_button,self.window.model_button):self.forms['identity'].setRowVisible(widget,details)
+        self.forms['location'].setRowVisible(self.window.inputs['serial_number'],details)
+        self.forms['evidence'].setRowVisible(self.window.assessment_note,details)
+        self.tiles.columns=0;self.tiles.schedule()
+        item=self.tree.currentItem()
+        if item and item.isHidden():self.tree.setCurrentItem(self.items['identity'])

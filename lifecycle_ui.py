@@ -55,8 +55,9 @@ class LifecycleEditor(QDialog):
 
 class LifecyclePanel(QGroupBox):
     changed=Signal()
+    warning_changed=Signal()
     def __init__(self,device_store,source_store,date_factory,manufacturer,model,purchase):
-        super().__init__('Lifecycle dates');self.device_store=device_store;self.source_store=source_store;self.date_factory=date_factory;self.manufacturer=manufacturer;self.model=model;self.purchase=purchase;self.records=[];self.device_id=None
+        super().__init__('Lifecycle dates');self.device_store=device_store;self.source_store=source_store;self.date_factory=date_factory;self.manufacturer=manufacturer;self.model=model;self.purchase=purchase;self.records=[];self.device_id=None;self.read_only=False
         layout=QVBoxLayout(self);self.list=QListWidget();self.list.setToolTip('Calendar dates allow purchase from one calendar year before release. Partial dates retain their original precision.');self.list.setMinimumHeight(130);self.list.setMaximumHeight(220);layout.addWidget(self.list)
         row=QHBoxLayout()
         for label,hint,fn in [('Add…','Add lifecycle date…',self.add),('Edit…','Edit lifecycle date…',self.edit),('Remove','Remove lifecycle date',self.remove)]:
@@ -78,11 +79,13 @@ class LifecyclePanel(QGroupBox):
     def update_warning(self,*_):
         try:notes=warnings(self.purchase(),self.records,self.manufacturer(),self.model())
         except ValueError:notes=[]
-        self.feedback.setText('\n'.join(tr(s) for s in notes));self.feedback.setProperty('_literal_text',True)
+        self.feedback.setText('\n'.join(tr(s) for s in notes));self.feedback.setProperty('_literal_text',True);self.warning_changed.emit()
     def add(self):
+        if self.read_only:return
         dialog=LifecycleEditor(self)
         if dialog.exec()==QDialog.Accepted:self.records.append(dialog.result_record);self.render();self.changed.emit()
     def edit(self):
+        if self.read_only:return
         item=self.list.currentItem()
         if not item:return
         action,value=item.data(Qt.UserRole);dialog=LifecycleEditor(self,self.records[value] if action=='edit' else None)
@@ -92,6 +95,7 @@ class LifecyclePanel(QGroupBox):
             else:self.records.append(dialog.result_record)
             self.render();self.changed.emit()
     def remove(self):
+        if self.read_only:return
         item=self.list.currentItem()
         if item and item.data(Qt.UserRole)[0]=='edit':
             del self.records[item.data(Qt.UserRole)[1]];self.render();self.changed.emit()

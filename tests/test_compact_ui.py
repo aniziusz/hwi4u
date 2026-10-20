@@ -11,7 +11,7 @@ class CompactUI(unittest.TestCase):
     setUp=test_desktop.Desktop.setUp
     def test_network_section_preserves_values_and_language(self):
         w=self.window;s=w.network_section
-        w.inputs['name'].setText('New device');w.inputs['source'].setText('Unknown')
+        w.begin_edit();w.inputs['name'].setText('New device');w.begin_edit();w.inputs['source'].setText('Unknown')
         w.network_panel.hostname.setText('my-server.example');w.network_panel.add_row(dict(label='WAN',mac_address='02:00:00:00:00:01',addresses=['192.0.2.1']))
         before=w.values();self.assertTrue(s.body.isHidden())
         for lang,title in [('en','Network identity'),('de','Netzwerkidentität'),('hu','Hálózati azonosítók'),('en','Network identity')]:
@@ -25,7 +25,7 @@ class CompactUI(unittest.TestCase):
         self.assertEqual(w.table.horizontalHeaderItem(0).text(),'Short ID')
         self.assertEqual(w.network_panel.table.horizontalHeaderItem(1).text(),'MAC address')
         self.assertEqual(w.network_panel.table.horizontalHeaderItem(2).text(),'IP addresses')
-        self.assertEqual(w.menuBar().actions()[0].text(),'Info')
+        self.assertEqual(w.menuBar().actions()[0].text(),'File')
         self.assertTrue(tr('TEST ENVIRONMENT — changes affect only the test copy.').startswith('TEST ENVIRONMENT'))
         self.assertEqual(tr('Save changes'),'Save changes');self.assertEqual(tr('About HWI4U…'),'About HWI4U…')
         sentence='Save writes the form to the database. Discard leaves the saved database record unchanged. Keep editing returns to the form.'
@@ -36,7 +36,7 @@ class CompactUI(unittest.TestCase):
         for lang in ('de','hu','en'):w.set_language(lang)
         self.assertEqual(w.form_title.text(),'New device')
     def test_client_button_routes_without_saving_or_db_override(self):
-        w=self.window;w.inputs['name'].setText('NOT SAVED');before=w.values()
+        w=self.window;w.begin_edit();w.inputs['name'].setText('NOT SAVED');before=w.values()
         for channel,expected in [('production',['test']),('test',[])]:
             with patch.dict(os.environ,{'INVENTORY_PROJECT_ROOT':str(self.root),'INVENTORY_CHANNEL':channel}),patch('desktop.QProcess.startDetached',return_value=(True,123)) as launch:
                 w.open_other_client()
