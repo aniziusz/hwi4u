@@ -8,7 +8,7 @@ import unittest
 from unittest.mock import patch
 import test_desktop
 from PySide6.QtWidgets import QTableWidgetItem,QMessageBox
-from PySide6.QtTest import QTest
+from PySide6.QtTest import QTest,QSignalSpy
 from device_store import DeviceStore
 from network_identity import empty_network,hostname,mac_address,ip_address,validate_network,load_network
 import inventory
@@ -22,7 +22,12 @@ class NetworkIdentity(unittest.TestCase):
         return data
     def test_live_name_uniqueness_unicode_and_length(self):
         first={'name':'Árvíz  szerver','source':'TEST ONLY'};self.store.save(first)
-        w=self.window;w.inputs['name'].setText(' ÁRVÍZ szerver ');QTest.qWait(300)
+        w=self.window;completed=QSignalSpy(w.name_timer.timeout)
+        w.inputs['name'].setText(' ÁRVÍZ szerver ')
+        self.assertTrue(w.name_timer.isActive())
+        # Wait for actual debounce completion, not a guessed scheduling delay.
+        self.assertTrue(completed.wait(5000),'Name validation timer did not fire before the failure deadline.')
+        self.assertEqual(completed.count(),1)
         self.assertIn('already exists',w.name_feedback.text())
         w.inputs['name'].setText('ü'*100);w.check_name();self.assertIn('No duplicate',w.name_feedback.text())
         self.assertIn('100',w.inputs['name'].toolTip());self.assertIn('Unicode',w.inputs['name'].toolTip())

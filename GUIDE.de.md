@@ -1,6 +1,8 @@
 # Anleitung
 
-Document ID: HWI4U-GUIDE · Version: 1 · 2026-10-18
+Document ID: HWI4U-GUIDE · Version: 2 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.de.md)
 
 README lesen, neuen privaten Arbeitsbereich initialisieren. Produktion: manage.py run, TEST: manage.py test. Daten getrennt, kein automatischer Abgleich. manage.py refresh-test nur bewusst: Bestätigung und ältere Kopien bleiben. Gleichzeitiges Bearbeiten desselben Datensatzes vermeiden; veraltetes Speichern wird abgewiesen.
 

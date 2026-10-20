@@ -1,6 +1,8 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 3 · 2026-10-20
+Document ID: HWI4U-README · Version: 4 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.hu.md)
 
 ## Dokumentáció és funkciókövetés
 
@@ -8,7 +10,7 @@ Document ID: HWI4U-README · Version: 3 · 2026-10-20
 
 Wiki és nyilvános funkciókövetés. A wiki a 0.18.0 forrást dokumentálja; ez az ág régebbi kódot tartalmazhat. A hivatkozott forrásverziót használja; dokumentáció nem frissíti a kódot.
 
-**Hardware inventory database client** — helyi Python/Qt alkalmazás SQLite-tal, EN/DE/HU-felülettel. Forrásverzió **0.13.0**, séma **21**. Használatához felhőfiók nem szükséges.
+**Hardware inventory database client** — helyi Python/Qt alkalmazás SQLite-tal, EN/DE/HU-felülettel. Forrásverzió **0.13.1**, séma **21**. Használatához felhőfiók nem szükséges.
 
 Eszközök, Unicode-név, generált UUID/rövid ID, dátum/vásárlás/hely, csoport/típus, életciklus/állapot, OS/firmware, interfész/MAC/IP, kapcsolatok és források rögzítése. Kép/PDF külön kezelt fájl. Nincs automatikus felderítés/igazolás; ismeretlen adat ismeretlen marad.
 

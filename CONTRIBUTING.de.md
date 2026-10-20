@@ -1,6 +1,8 @@
 # Mitarbeit
 
-Document ID: HWI4U-CONTRIBUTING · Version: 1 · 2026-10-18
+Document ID: HWI4U-CONTRIBUTING · Version: 2 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.de.md)
 
 Branch/Code-Fork mit eigenem privatem Arbeitsbereich und fiktiven Wegwerfgeräten, keine gemeinsame beschreibbare Inventardatei. UUIDs bei Migration erhalten. Keine Laufzeitdaten, Anhänge, Rechnungen, geheimen Logs/Kontodaten oder privaten Projektdokumente committen. Ignore ersetzt keine Prüfung von Index/Verlauf.
 

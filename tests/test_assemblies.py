@@ -1,6 +1,7 @@
 """Assembly integrity checks on temporary databases only."""
 from pathlib import Path
 import json
+import contextlib
 import sqlite3
 import subprocess
 import sys
@@ -45,8 +46,7 @@ class Assemblies(unittest.TestCase):
         self.assertEqual(len(json.loads(self.cli('assembly','SERVER','--history'))['components']),2)
         self.assertEqual(len(json.loads(self.cli('assembly','SERVER'))['components']),1)
         # Updates cannot bypass overlap checks; ordinary SQL validates calendar dates too.
-        with sqlite3.connect(self.db) as c:
-            self.addCleanup(c.close)
+        with contextlib.closing(sqlite3.connect(self.db)) as c, c:
             with self.assertRaises(sqlite3.IntegrityError): c.execute("UPDATE component_installations SET removed_on=NULL WHERE installation_id=1")
             with self.assertRaises(sqlite3.IntegrityError): c.execute("UPDATE component_installations SET installed_on='2020-02-30' WHERE installation_id=1")
 
@@ -64,8 +64,7 @@ class Assemblies(unittest.TestCase):
         self.install('SERVER','DISK')
         self.cli('export','--directory',str(self.root/'export'))
         self.cli('backup','--output',str(self.root/'backup.sqlite3'))
-        with sqlite3.connect(self.root/'restored.sqlite3') as c:
-            self.addCleanup(c.close)
+        with contextlib.closing(sqlite3.connect(self.root/'restored.sqlite3')) as c, c:
             c.executescript((self.root/'export/inventory.sql').read_text())
             self.assertEqual(c.execute('PRAGMA user_version').fetchone()[0],21)
             self.assertEqual(c.execute('SELECT count(*) FROM component_installations').fetchone()[0],1)
@@ -77,8 +76,7 @@ class Assemblies(unittest.TestCase):
         # Build the previous schema without reading the working database.
         sql=(BASE/'schema.sql').read_text()
         old=sql[:sql.index('CREATE TABLE component_installations')]+ 'PRAGMA user_version=7;\nCOMMIT;\n'
-        with sqlite3.connect(self.root/'old.sqlite3') as c:
-            self.addCleanup(c.close)
+        with contextlib.closing(sqlite3.connect(self.root/'old.sqlite3')) as c, c:
             c.executescript(old)
             c.execute("INSERT INTO devices(device_id,name,source) VALUES('OLD','Old','TEST ONLY')")
             c.execute("INSERT INTO facts(device_id,field,value,source) VALUES('OLD','model','Example','TEST ONLY')")

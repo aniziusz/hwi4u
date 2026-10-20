@@ -1,6 +1,8 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 3 · 2026-10-20
+Document ID: HWI4U-README · Version: 4 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.de.md)
 
 ## Dokumentation und Featureverwaltung
 
@@ -8,7 +10,7 @@ Document ID: HWI4U-README · Version: 3 · 2026-10-20
 
 Wiki und öffentliche Featureverwaltung. Wiki beschreibt den Quellstand 0.18.0; dieser Branch kann älteren Anwendungscode enthalten. Verlinkte Quellrevision verwenden; Dokumentation aktualisiert keinen Code.
 
-**Hardware inventory database client** — lokale Python/Qt-Anwendung mit SQLite und EN/DE/HU-Oberfläche. Quellversion **0.13.0**, Schema **21**. Nutzung ohne Cloudkonto.
+**Hardware inventory database client** — lokale Python/Qt-Anwendung mit SQLite und EN/DE/HU-Oberfläche. Quellversion **0.13.1**, Schema **21**. Nutzung ohne Cloudkonto.
 
 Geräte, Unicode-Namen, generierte UUID/Kurzkennungen, Daten/Kauf/Standort, Gruppen/Typen, Lebenszyklus/Zustand, OS/Firmware, Schnittstellen/MAC/IP, Verbindungen und Quellen erfassen. Fotos/PDFs separate verwaltete Dateien. Angaben werden nicht automatisch erkannt/geprüft; Unbekanntes bleibt unbekannt.
 

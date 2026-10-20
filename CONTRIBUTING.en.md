@@ -1,6 +1,8 @@
 # Contributing
 
-Document ID: HWI4U-CONTRIBUTING · Version: 1 · 2026-10-18
+Document ID: HWI4U-CONTRIBUTING · Version: 2 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.en.md)
 
 Use a branch or code fork, not a shared writable inventory. Each contributor uses a separate private workspace and disposable fictional devices. Keep the original UUIDs when migrating existing data. Never commit runtime data, photos/manuals, invoices, logs with secrets, real account details, or private project documents. Ignore rules are a convenience, not a substitute for inspecting staged content and history.
 

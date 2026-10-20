@@ -1,6 +1,8 @@
 # User guide
 
-Document ID: HWI4U-GUIDE · Version: 1 · 2026-10-18
+Document ID: HWI4U-GUIDE · Version: 2 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.en.md)
 
 Start with README and initialize a new private workspace. Open production with manage.py run, TEST with manage.py test. TEST is a separate data copy; edits never synchronize automatically. Refresh TEST from production only deliberately: manage.py refresh-test opens a confirmation dialog and retains older datasets. Avoid opening multiple editors of the same record; stale saves are rejected.
 

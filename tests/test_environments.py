@@ -56,7 +56,7 @@ class Environments(unittest.TestCase):
     def test_attachment_copy_is_independent_and_missing_files_preserve_pointer(self):
         folder=self.root/'manuals'/('a'*32);folder.mkdir(parents=True);content=b'%PDF-1.4 TEST ONLY';file=folder/'document.pdf';file.write_bytes(content)
         with contextlib.closing(sqlite3.connect(self.prod)) as c:
-            c.execute("INSERT INTO device_manuals(reference_id,device_id,title,kind,relative_path,original_name,sha256,source) VALUES(?,?,'test','local',?,'test.pdf',?,'TEST ONLY')",('a'*32,'PROD',str(file.relative_to(self.root)),digest(content)));c.commit()
+            c.execute("INSERT INTO device_manuals(reference_id,device_id,title,kind,relative_path,original_name,sha256,source) VALUES(?,?,'test','local',?,'test.pdf',?,'TEST ONLY')",('a'*32,'PROD',file.relative_to(self.root).as_posix(),digest(content)));c.commit()
         db=refresh_test(self.root);copied=db.parent/file.relative_to(self.root)
         self.assertEqual(copied.read_bytes(),content);self.assertNotEqual(copied.stat().st_ino,file.stat().st_ino)
         copied.write_bytes(b'test changed');self.assertEqual(file.read_bytes(),content)

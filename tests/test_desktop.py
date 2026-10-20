@@ -4,10 +4,13 @@ os.environ.setdefault('QT_QPA_PLATFORM','offscreen')
 import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+import contextlib
 import sqlite3
 import tempfile
 import unittest
 from unittest.mock import patch
+from qt_test_environment import test_environment
+os.environ.update(test_environment())
 from PySide6.QtWidgets import QApplication,QMessageBox
 from PySide6.QtCore import QDate
 from desktop import Window
@@ -20,8 +23,7 @@ class Desktop(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name);self.db=self.root/'hardware.sqlite3'
-        with sqlite3.connect(self.db) as c:
-            self.addCleanup(c.close)
+        with contextlib.closing(sqlite3.connect(self.db)) as c, c:
             c.executescript((BASE/'schema.sql').read_text())
         self.store=DeviceStore(self.db);self.window=Window(self.store)
         self.addCleanup(self.window.deleteLater)
@@ -38,8 +40,7 @@ class Desktop(unittest.TestCase):
         w.save();self.assertEqual(len(self.store.devices()),1)
         row=self.store.devices()[0];self.assertEqual(row['purchase_date'],'2020-02-29')
         backups=list((self.root/'backups').glob('*.sqlite3'));self.assertEqual(len(backups),1)
-        with sqlite3.connect(backups[0]) as c:
-            self.addCleanup(c.close)
+        with contextlib.closing(sqlite3.connect(backups[0])) as c, c:
             self.assertEqual(c.execute('SELECT count(*) FROM devices').fetchone()[0],0)
         self.assertTrue(w.inputs['device_id'].isReadOnly())
         date.known.setChecked(False);w.inputs['name'].setText('Edited');w.save()
@@ -54,8 +55,7 @@ class Desktop(unittest.TestCase):
             with self.assertRaises(ValueError):self.store.save({**data,**change})
         self.store.save(data);original=self.store.devices()[0]
         with self.assertRaises(ValueError):self.store.save(data)
-        with sqlite3.connect(self.db) as c:
-            self.addCleanup(c.close)
+        with contextlib.closing(sqlite3.connect(self.db)) as c, c:
             c.execute("UPDATE devices SET name='External change'")
         with self.assertRaises(ValueError):self.store.save({**data,'name':'Overwrite'},original)
         self.assertEqual(self.store.devices()[0]['name'],'External change')

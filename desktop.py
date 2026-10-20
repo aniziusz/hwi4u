@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline hardware inventory desktop editor. Launch: python3 desktop.py"""
 import argparse
+import contextlib
 from pathlib import Path
 import datetime as dt
 import sqlite3
@@ -509,8 +510,7 @@ class Window(QMainWindow):
         self.table.blockSignals(blocked)
 
     def about_text(self):
-        with self.store.connect() as c:schema=c.execute('PRAGMA user_version').fetchone()[0]
-        c.close()
+        with contextlib.closing(self.store.connect()) as c:schema=c.execute('PRAGMA user_version').fetchone()[0]
         def line(label,value):return '<b>'+html.escape(tr(label))+':</b> '+html.escape(str(value))+'<br>'
         text='<h2>'+html.escape(tr('HWI4U'))+'</h2><p>'+html.escape(tr('Local, offline hardware inventory'))+'</p>'
         text+=line('Environment',os.environ.get('INVENTORY_CHANNEL','production'))

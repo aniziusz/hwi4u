@@ -1,6 +1,8 @@
 # Közreműködés
 
-Document ID: HWI4U-CONTRIBUTING · Version: 1 · 2026-10-18
+Document ID: HWI4U-CONTRIBUTING · Version: 2 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.hu.md)
 
 Branch/kódfork saját privát munkaterülettel és fiktív eldobható adatokkal; ne közösen írható leltárfájl. Migráció őrizze az UUID-ket. Futási adat, melléklet, számla, titkos napló/fiókadat és privát projektdokumentum nem commitolható. Ignore nem helyettesít staging/történet-ellenőrzést.
 

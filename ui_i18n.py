@@ -10,8 +10,8 @@ from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox
     QComboBox,QLineEdit,QTableWidget,QMenu,QDateEdit,QToolButton)
 
 LANGUAGES={'en':'English','de':'Deutsch','hu':'Magyar'}
-APP_VERSION='0.13.0'
-RELEASE_DATE='2026-10-18'
+APP_VERSION='0.13.1'
+RELEASE_DATE='2026-10-20'
 TRANSLATIONS={}
 
 def tr(text):

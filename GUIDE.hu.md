@@ -1,6 +1,8 @@
 # Felhasználói útmutató
 
-Document ID: HWI4U-GUIDE · Version: 1 · 2026-10-18
+Document ID: HWI4U-GUIDE · Version: 2 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.hu.md)
 
 README után új privát munkaterület inicializálása. Éles: manage.py run, TEST: manage.py test. Külön adatok, nincs automatikus szinkron. manage.py refresh-test tudatos művelet: megerősítés, régebbi másolatok megőrzése. Ugyanazon rekord párhuzamos szerkesztését kerüld; elavult mentést elutasít.
 

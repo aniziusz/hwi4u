@@ -1,6 +1,8 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 3 · 2026-10-20
+Document ID: HWI4U-README · Version: 4 · 2026-10-20
+
+[Windows initialization repair · 0.13.1 / schema 21](docs/WINDOWS-FIX.en.md)
 
 ## Documentation and feature tracking
 
@@ -8,7 +10,7 @@ Document ID: HWI4U-README · Version: 3 · 2026-10-20
 
 Wiki and public feature tracking. The wiki documents the 0.18.0 source revision; this branch may contain older application code. Use the linked source revision rather than assuming the documentation upgrades the code.
 
-**Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.13.0**, database schema **21**. No cloud account is required to use the application.
+**Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.13.1**, database schema **21**. No cloud account is required to use the application.
 
 Record devices, Unicode names, generated UUIDs and short labels, dates, purchase details, physical location, device groups/types, lifecycle/condition, operating system/firmware, interfaces, MAC/IP identities, connection records and sourced evidence. Photos/PDFs remain separate managed files. Evidence is user-provided; the program does not discover hardware or automatically verify claims. Unknown values remain unknown.
 

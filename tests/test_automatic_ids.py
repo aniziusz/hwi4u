@@ -4,6 +4,7 @@ import unittest
 from unittest.mock import patch
 import subprocess
 import sys
+import contextlib
 import sqlite3
 
 class AutomaticIDs(unittest.TestCase):
@@ -39,5 +40,5 @@ class AutomaticIDs(unittest.TestCase):
         self.assertEqual(result.returncode,0,result.stderr)
         self.assertRegex(result.stdout,r'Added hw-[0-9a-f]{32}')
         row=self.store.devices()[0]
-        with sqlite3.connect(self.db) as c:self.assertEqual(c.execute('PRAGMA foreign_key_check').fetchall(),[])
+        with contextlib.closing(sqlite3.connect(self.db)) as c, c:self.assertEqual(c.execute('PRAGMA foreign_key_check').fetchall(),[])
         self.assertEqual(row['name'],'cli-device')
