@@ -31,6 +31,9 @@ class NamesTags(unittest.TestCase):
     def test_name_preview_explicit_use_modes_and_language(self):
         w=self.window;w.inputs['name'].setText('Keep original');w.inputs['manufacturer'].setText('Fictional');w.inputs['model'].setText('M1')
         self.assertEqual(w.inputs['name'].text(),'Keep original');self.assertEqual(w.name_preview.text(),'Fictional M1')
+        w.inputs['device_type'].setCurrentIndex(w.inputs['device_type'].findData('router'));self.assertEqual(w.name_preview.text(),'Fictional M1 — router')
+        w.type_group.setCurrentIndex(w.type_group.findData('storage'));self.assertEqual(w.name_preview.text(),'Fictional M1')
+        w.type_group.setCurrentIndex(0)
         w.name_use.click();self.assertEqual(w.inputs['name'].text(),'Fictional M1')
         w.inputs['source'].setText('FICTIONAL');self.assertTrue(w.save());self.assertFalse(w.name_use.isEnabled())
         before=w.values();w.use_name_suggestion();self.assertEqual(w.values(),before)

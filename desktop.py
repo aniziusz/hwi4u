@@ -809,7 +809,7 @@ class Window(QMainWindow):
         combo=self.inputs['device_type'];combo.blockSignals(True);combo.clear();combo.addItem('Unknown',None)
         for row in self.type_rows:
             if group is None or row['group_name']==group:combo.addItem(row['type_name'],row['type_name'])
-        combo.setCurrentIndex(max(0,combo.findData(selected)));combo.blockSignals(False)
+        combo.setCurrentIndex(max(0,combo.findData(selected)));combo.blockSignals(False);self.refresh_name_suggestion()
     def group_changed(self):
         self.fill_types(self.type_group.currentData())
     def type_changed(self):
