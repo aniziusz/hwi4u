@@ -6,7 +6,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: tests-${{ github.workflow }}-${{ github.ref }}
+  group: tests-${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref_name }}
   cancel-in-progress: true
 jobs:
   desktop:
@@ -48,7 +48,7 @@ jobs:
       - name: Verify source-only distribution
         run: ${{ matrix.python }} tools/check_distribution.py
       - name: Test
-        run: ${{ matrix.python }} -m unittest discover -s tests
+        run: ${{ matrix.python }} tools/validate.py --evidence .runtime/validation
       - name: Native Qt and disposable-workspace smoke
         run: ${{ matrix.python }} tools/native_smoke.py --output dist/smoke
       - name: Build clean source-client package

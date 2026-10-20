@@ -1,6 +1,8 @@
 # Mitarbeit
 
-Document ID: HWI4U-CONTRIBUTING · Version: 2 · 2026-10-18
+Document ID: HWI4U-CONTRIBUTING · Version: 3 · 2026-10-20
+
+[FR-043/045/047 · 0.19.0 TEST · Foundations / Grundlagen / Alapok](docs/FOUNDATIONS.de.md)
 
 Branch/Code-Fork mit eigenem privatem Arbeitsbereich und fiktiven Wegwerfgeräten, keine gemeinsame beschreibbare Inventardatei. UUIDs bei Migration erhalten. Keine Laufzeitdaten, Anhänge, Rechnungen, geheimen Logs/Kontodaten oder privaten Projektdokumente committen. Ignore ersetzt keine Prüfung von Index/Verlauf.
 

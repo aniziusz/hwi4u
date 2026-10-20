@@ -1,6 +1,8 @@
 # Közreműködés
 
-Document ID: HWI4U-CONTRIBUTING · Version: 2 · 2026-10-18
+Document ID: HWI4U-CONTRIBUTING · Version: 3 · 2026-10-20
+
+[FR-043/045/047 · 0.19.0 TEST · Foundations / Grundlagen / Alapok](docs/FOUNDATIONS.hu.md)
 
 Branch/kódfork saját privát munkaterülettel és fiktív eldobható adatokkal; ne közösen írható leltárfájl. Migráció őrizze az UUID-ket. Futási adat, melléklet, számla, titkos napló/fiókadat és privát projektdokumentum nem commitolható. Ignore nem helyettesít staging/történet-ellenőrzést.
 

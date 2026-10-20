@@ -359,12 +359,15 @@ class Window(QMainWindow):
         scroll=QScrollArea();self.form_scroll=scroll;scroll.setWidgetResizable(True);panel=QWidget();form=QFormLayout(panel);form.setContentsMargins(20,12,12,12);form.setSpacing(14)
         self.form_title=QLabel('New device');self.form_title.setStyleSheet('font-size:18px;font-weight:600;');form.addRow(self.form_title)
         self.inputs={}
-        for key,label in [('device_id','Device ID *'),('name','Name *'),('manufacturer','Manufacturer'),('model','Model'),('serial_number','Serial number'),('location','Location text / additional description'),('source','Information source / notes')]:
+        for key,label in [('device_id','Device ID *'),('name','Name *'),('manufacturer','Manufacturer'),('model','Model'),('serial_number','Serial number'),('location','Location text / additional description'),('source','Information source / notes (or selected sources) *')]:
             widget=QLineEdit();self.inputs[key]=widget;form.addRow(label,widget)
             if key=='name':self.name_feedback=QLabel();self.name_feedback.setWordWrap(True);form.addRow(self.name_feedback)
         self.location_panel=LocationPanel(store);form.addRow(self.location_panel)
-        sources_group=QGroupBox('Sources and evidence');sources_layout=QVBoxLayout(sources_group)
+        sources_group=QGroupBox('Device evidence * — text above or sources below');sources_layout=QVBoxLayout(sources_group)
         self.source_selectors['device']=SourceSelector(self.source_store,OptionalDate);sources_layout.addWidget(self.source_selectors['device']);form.addRow(sources_group)
+        self.evidence_feedback=QLabel();self.evidence_feedback.setWordWrap(True);sources_layout.addWidget(self.evidence_feedback)
+        self.inputs['source'].textChanged.connect(self.check_device_evidence)
+        self.source_selectors['device'].changed.connect(self.check_device_evidence)
         self.inputs['device_id'].setPlaceholderText('Generated automatically when saved')
         self.short_id=QLineEdit();self.short_id.setReadOnly(True);self.short_id.setPlaceholderText('Generated automatically when saved');form.insertRow(1,'Short ID',self.short_id)
         self.short_id.setToolTip('Two-letter type code and five random digits. Reclassification gives a new label; old labels still resolve to this full ID.')
@@ -463,6 +466,12 @@ class Window(QMainWindow):
             QMessageBox.warning(self,tr('Could not open client'),tr('Could not open the other client.'));return
         self.status.setText(tr('The other client opened in a separate window. Unsaved changes remain here.'))
 
+    def check_device_evidence(self):
+        ready=bool(self.inputs['source'].text().strip() or self.source_selectors['device'].value())
+        self.evidence_feedback.setText('Device evidence ready: text or selected sources supplied.' if ready else 'Required: enter device evidence text above OR choose at least one device source below.')
+        apply(self.evidence_feedback)
+        return ready
+
     def check_name(self):
         name=self.inputs['name'].text()
         if not name:self.name_feedback.clear();return
@@ -555,6 +564,7 @@ class Window(QMainWindow):
     def open_guide(self):
         code=QApplication.instance().inventory_language
         path=Path(os.environ.get('INVENTORY_PROJECT_ROOT',Path(__file__).resolve().parent))/f'GUIDE.{code}.md'
+        if not path.is_file():path=path.with_name('GUIDE.en.md')
         if not QDesktopServices.openUrl(QUrl.fromLocalFile(str(path))):QMessageBox.warning(self,'Could not open guide',str(path))
     def install_help(self):
         for key,widget in self.inputs.items():
@@ -670,7 +680,7 @@ class Window(QMainWindow):
         for scope,selector in self.source_selectors.items():selector.load(row.get('_sources',{}).get(scope,[]) if row else [],row['device_id'] if row else None)
         self.network_panel.update_warning()
         for panel in self.connection_panels.values():panel.update_warning()
-        self.baseline=self.values();self.refresh_photos();self.refresh_manuals();self.check_name()
+        self.baseline=self.values();self.refresh_photos();self.refresh_manuals();self.check_name();self.check_device_evidence()
     @localized
     def reload(self):
         self.loading=True
@@ -712,6 +722,12 @@ class Window(QMainWindow):
     def save(self):
         try:
             data=self.values()
+            if not self.check_device_evidence():
+                if hasattr(self,'workspace'):
+                    self.workspace.tree.setCurrentItem(self.workspace.items['evidence'])
+                self.form_scroll.ensureWidgetVisible(self.inputs['source'])
+                self.inputs['source'].setFocus()
+                raise ValueError('Device evidence is required: enter source text OR choose at least one device source. Sources in other sections do not satisfy this requirement.')
             if self.type_group.currentData() is not None and data['device_type'] is None:
                 raise ValueError('Choose a device type for this group, or choose Unknown / choose a type to leave classification unknown.')
             backup=self.store.save(data,self.original)

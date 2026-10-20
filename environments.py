@@ -95,7 +95,8 @@ def refresh_test(root,confirmed=False):
             preferences=root/'ui-settings.json'
             if preferences.is_file():
                 code=json.loads(preferences.read_text()).get('language')
-                if code in ('en','de','hu'):atomic_json(stage/'ui-settings.json',{'language':code})
+                from language_catalog import CATALOGUES
+                if code in CATALOGUES.locales:atomic_json(stage/'ui-settings.json',{'language':code})
             checked=subprocess.run([sys.executable,str(release/'run_desktop.py'),'prepare','--db',str(stage/'hardware.sqlite3')],capture_output=True,text=True)
             if checked.returncode:raise ValueError('Test migration failed: '+(checked.stderr or checked.stdout))
             audit=subprocess.run([sys.executable,str(release/'inventory.py'),'--db',str(stage/'hardware.sqlite3'),'check'],capture_output=True,text=True)
@@ -128,14 +129,14 @@ def promote_test(root,release_id,accepted=False):
     if receipt.get('release_id')!=release_id or receipt.get('dataset')!=current_dataset(root).name:
         raise ValueError('Launch and review this candidate with the current test dataset first')
     if not list((release/'tests').rglob('test_*.py')):raise ValueError('Candidate has no automated test suite')
-    env={**os.environ,'QT_QPA_PLATFORM':'offscreen','PYTHONDONTWRITEBYTECODE':'1'}
-    result=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(release/'tests')],cwd=release,env=env,capture_output=True,text=True)
-    if result.returncode:raise ValueError('Promotion tests failed: '+result.stdout+result.stderr)
+    from validation import run_full
+    try:checks=run_full(release,root/'.runtime/validation')
+    except RuntimeError as exc:raise ValueError('Promotion tests failed: '+str(exc)) from exc
     verify_release(release)
     if published(root,'test')[1]['release_id']!=release_id:raise ValueError('Test candidate changed during validation; production remains unchanged')
     prior=published(root)
     publish_pointer(root,release_id,'production')
-    atomic_json(root/'.runtime'/('promotion-'+uuid.uuid4().hex+'.json'),{'release_id':release_id,'previous_release_id':prior[1]['release_id'] if prior else None,'accepted_at':dt.datetime.now(dt.timezone.utc).isoformat(),'note':'Explicit acceptance; release only. No test data copied to production.'})
+    atomic_json(root/'.runtime'/('promotion-'+uuid.uuid4().hex+'.json'),{'release_id':release_id,'previous_release_id':prior[1]['release_id'] if prior else None,'accepted_at':dt.datetime.now(dt.timezone.utc).isoformat(),'validation_reused':checks['reused'],'validation_tests':checks['tests_run'],'note':'Explicit acceptance; release only. No test data copied to production.'})
     return release
 
 

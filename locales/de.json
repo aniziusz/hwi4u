@@ -1,0 +1,2908 @@
+{
+  "format": 1,
+  "language": "de",
+  "name": "Deutsch",
+  "qt_locale": "de_DE",
+  "messages": {
+    "ui.0001": {
+      "text": "Auswahlname erforderlich.",
+      "source_sha256": "d5450fb06a2d0c6ab0f713d521e4d1a9dbcee49f632ed9b423925993007d8cca"
+    },
+    "ui.0002": {
+      "text": "Lebenszyklusquelle fehlt; vor Speichern aktualisieren.",
+      "source_sha256": "3da08650ce1eec1064350d5f7b87277eda9c0d53ed965f620079db8adf5b5905"
+    },
+    "ui.0003": {
+      "text": "Modellrevision muss Hersteller, Modell und Variante beibehalten.",
+      "source_sha256": "da20ba0bc6272c0048bed8699488fb8b9c7731f684abdf04f0017c767bd4aafb"
+    },
+    "ui.0004": {
+      "text": "Ausgewählte Quelle existiert nicht mehr; Quellenauswahl erneut öffnen.",
+      "source_sha256": "45a2289e9847dbdfd2724e1a47a35ca3ed7482e1158a00abe3cae9d2f32a2ab0"
+    },
+    "ui.0005": {
+      "text": "Ein Quellentitel mit 1–200 Zeichen ist erforderlich.",
+      "source_sha256": "cc67ebaeb53273d9f8f44382f5c0f62a1a15cebd8fefde7735aa8594b49019e7"
+    },
+    "ui.0006": {
+      "text": "Ein getestetes lokales Update ist bereit. Bei Gelegenheit Update anwenden wählen.",
+      "source_sha256": "20236147d97882cb6f5f8750ac75215c2064926ac6bcaad87bf58a0ad880de98"
+    },
+    "ui.0007": {
+      "text": "Eine geprüfte vollständige Sicherung ist erforderlich. Gerätefakten, Anhänge, Netzwerkdaten und Baugruppenverknüpfungen werden aus den aktuellen Datensätzen entfernt. Andere Geräte bleiben erhalten. Löschhistorie und reservierte Kennungen sowie lokale Anhangdateien bleiben erhalten.",
+      "source_sha256": "c3df7639ee5b7c9c5cdfda1256ebc9f460d0fe6efbd6783717d39fc76793308d"
+    },
+    "ui.0008": {
+      "text": "Eine geprüfte Quelle benötigt ein Beobachtungs-/Abrufdatum.",
+      "source_sha256": "081a77d0c6062efc777388f39178ffc857428063186acb45c30aac2af90f16fa"
+    },
+    "ui.0009": {
+      "text": "Abbrechen",
+      "source_sha256": "7a3a94a8ca2299ff8fd42a903dee78936a47f30fceac3ffaed13cd4d2267ea97"
+    },
+    "ui.0010": {
+      "text": "Über HWI4U",
+      "source_sha256": "09c07ba8f4afaf600cd2b467333c36eaeb529af3135b691ab68d226715414f61"
+    },
+    "ui.0011": {
+      "text": "Über HWI4U…",
+      "source_sha256": "bc3059d0d35590dbb7aa773edb5be63048771b186107207e66eae0ff5175307f"
+    },
+    "ui.0012": {
+      "text": "Über Hardwareinventar",
+      "source_sha256": "26d7d112ab5bf5dfc7b771fc25c0ecb7339dbd37f5a7b55dded72d0ae1f75d2d"
+    },
+    "ui.0013": {
+      "text": "Über Hardwareinventar…",
+      "source_sha256": "4da06bc2816c57bfa112cf63052b29febd7190096a9561e51a502efb167c59e9"
+    },
+    "ui.0014": {
+      "text": "Über Fertigfußboden",
+      "source_sha256": "6ef273699554943c9224942d757be3b22abad02483c26cf78af5bf9cdacb3cd8"
+    },
+    "ui.0015": {
+      "text": "Über Gelände",
+      "source_sha256": "01a45ba789960a7567c6ad5dbfa4f10221991ddebec0d6abb192f856cf626c75"
+    },
+    "ui.0016": {
+      "text": "Getestete Version freigeben",
+      "source_sha256": "ea818cd329c4cd7dd8e118cb93eb076cfbc933463d90046df65c86a7595c9e65"
+    },
+    "ui.0017": {
+      "text": "Diese getestete Version für die Produktion freigeben? Nur Software und Migrationen werden übernommen. Testdatensätze werden niemals zurückkopiert. Produktion übernimmt das Update über Update anwenden.",
+      "source_sha256": "83c45f37c85f91b702e35217789bf11817d111cc6661d93519ea106c112269a9"
+    },
+    "ui.0018": {
+      "text": "Tatsächliches Beobachtungs-/Abrufdatum. Unbekannt lassen, falls nicht verfügbar; kein automatisches Datum.",
+      "source_sha256": "9e6d297ed277a4a0e4debff07502cbd12ba206b2c6320c2d00422fe8f965324f"
+    },
+    "ui.0019": {
+      "text": "Verbindung hinzufügen",
+      "source_sha256": "685f88ae3db24ee15edd7e342447d933e018a46d99e8878c21ce3065d93c21a9"
+    },
+    "ui.0020": {
+      "text": "Verbindung hinzufügen…",
+      "source_sha256": "207ce2f5716fdeda24ac13a563b56eef1a567a1565babceb766269a8ea52dab3"
+    },
+    "ui.0021": {
+      "text": "Schnittstelle hinzufügen",
+      "source_sha256": "6ec0cd0553bf69e01d4640ded67a9e1e16152d505a0d6f0a503cec02eb3349c4"
+    },
+    "ui.0022": {
+      "text": "Lebenszyklusdatum hinzufügen…",
+      "source_sha256": "c1c13017459faffaeb9b78c0cbb09187a31bd2017ab2c9bb5e190085f6ebad7f"
+    },
+    "ui.0023": {
+      "text": "Handbuchverweis hinzufügen",
+      "source_sha256": "cb9c45e8aab0b593567e0bded0ae388f4eb2b7383d58179844283f0f152aa900"
+    },
+    "ui.0024": {
+      "text": "Foto hinzufügen…",
+      "source_sha256": "4a23bb4c97090d14adc9ee0d8160dc4d41d294b5f753654e0e1895c77dae7eae"
+    },
+    "ui.0025": {
+      "text": "Verweis hinzufügen…",
+      "source_sha256": "26faa9f2cdde5aa9a32f525324cab27869475be32c24c590d37b9280b7f8fa60"
+    },
+    "ui.0026": {
+      "text": "Rolle hinzufügen",
+      "source_sha256": "e53a93625e7494838f376c9c59d6bba0d072cc59950021e2fe848dff8200df3b"
+    },
+    "ui.0027": {
+      "text": "Rolle hinzufügen…",
+      "source_sha256": "9f561999cc54996f46926b0db62a79dd049f23f48ec74a7df2984cab6c11dc53"
+    },
+    "ui.0028": {
+      "text": "Quelle hinzufügen",
+      "source_sha256": "6ea6c9ec2a76b459311598f9d9f3907f4cfec7552896a09e46b2f6bb1506e2ca"
+    },
+    "ui.0029": {
+      "text": "Quelle hinzufügen…",
+      "source_sha256": "afdc04c9beb124a2d5c219a90eaea3b1cb7b16cc6c0bdb863ff2299f51c54e95"
+    },
+    "ui.0030": {
+      "text": "Typen ergänzen oder umbenennen/verschieben. Änderungen gelten für alle zugeordneten Geräte. Namen werden kleingeschrieben.",
+      "source_sha256": "d5e23c9d99cbd1169667b9cff951dd2bf5d7a4752dd709cbdbb273e5d3ea464e"
+    },
+    "ui.0031": {
+      "text": "Gemeinsame Gerätetypen ergänzen/umbenennen/verschieben; betrifft alle zugeordneten Geräte.",
+      "source_sha256": "6aaaefb0f9496aa35c1f98598beaf14bc794c676420d50732cc02c01ce4c6db8"
+    },
+    "ui.0032": {
+      "text": "Adresse und weitere Hinweise (optional)",
+      "source_sha256": "038d86493c6d7296ed4f0cb7318505f706dcc3cbd16420a0419736de111d8bdb"
+    },
+    "ui.0033": {
+      "text": "Hinzufügen…",
+      "source_sha256": "aa2dcdf5626fe2934e19e0dd7c90f901d8a9901774e9eaefedb28c2c50696eaf"
+    },
+    "ui.0034": {
+      "text": "Alle Gruppen",
+      "source_sha256": "1b492be7722466c64eb0af6b8e995f7c18d7990490440daefea938577133453b"
+    },
+    "ui.0035": {
+      "text": "Alle Typen",
+      "source_sha256": "f10988e79e8d9a49f45a71ecf3f4ebe143a96eb9d83272156ab54101b3777046"
+    },
+    "ui.0036": {
+      "text": "Verwendete Auswahl muss auch unterstützt sein.",
+      "source_sha256": "75ef033ea5457f687b59145d2743fb22043b3de4f482819718bd1bc17d373909"
+    },
+    "ui.0037": {
+      "text": "Online-Verweis benötigt URL.",
+      "source_sha256": "532b049388b6a44e96665ad097fd65cc8376c230b6b53e2903cd5dbbdd4a86d7"
+    },
+    "ui.0038": {
+      "text": "Passendes Modell",
+      "source_sha256": "e69cf77bc04bbf6cf9c8215554a6b2d6c9da0979109567c4a7e3dc99c50bff86"
+    },
+    "ui.0039": {
+      "text": "Programmversion",
+      "source_sha256": "f0ad234172fbb9f82ca6554bf14a86134759b196ba0daade612c4f7d41f5c2a8"
+    },
+    "ui.0040": {
+      "text": "Programmversion, Speicherorte, Lizenz und Sicherungshinweise.",
+      "source_sha256": "448814df8eddbe796917730f93352b9fa365a70c673ae7c58e3b12a6e48aae0f"
+    },
+    "ui.0041": {
+      "text": "Vorschlag übernehmen",
+      "source_sha256": "2ca103b50a0203eca9970fc62a167644715a53269fdf316005687271c498788b"
+    },
+    "ui.0042": {
+      "text": "Update anwenden",
+      "source_sha256": "315d3ecbc1e144f5be7e5973119e1266430c3c4291b5f7c9918f2492a64588f1"
+    },
+    "ui.0043": {
+      "text": "Bewertungsdatum",
+      "source_sha256": "a3c4341381dc3db7be5e047d119907811ca3997563680e1635cd3cb57aa34161"
+    },
+    "ui.0044": {
+      "text": "Anhänge dieses gespeicherten Geräts. Doppelklick öffnet Original.",
+      "source_sha256": "739ef4ceb83cd2a7482e15dac12894e926f3266c39fd9372e33f4eb1c8c71e8d"
+    },
+    "ui.0045": {
+      "text": "Dachgeschoss",
+      "source_sha256": "7e20d544a60d66d51e3a644ca98d428d8487ae475f06c546d47f0289b44f7fc9"
+    },
+    "ui.0046": {
+      "text": "Keller",
+      "source_sha256": "3cbc78eb591fda67d004d9d41ea2e84d0abd4cb71cb0dda6b747c78617b293c9"
+    },
+    "ui.0047": {
+      "text": "Typname und Gruppe erforderlich.",
+      "source_sha256": "d01321248beafe6a94a5bff19f97867c5a8cba5f5c855048d34c68cc7285fe72"
+    },
+    "ui.0048": {
+      "text": "Gebäude / Standort",
+      "source_sha256": "55bbdfcb200756a58ef599c281a756a5e883ac61b5ceb19b8c2399a463845e14"
+    },
+    "ui.0049": {
+      "text": "Kauf ab einem Kalenderjahr vor Marktstart möglich. Unvollständige Daten behalten ihre Präzision.",
+      "source_sha256": "bdb7f053d0b4022a7564b9bc3ec509f3d4d083b0280141ba7fa78e756b9ecde5"
+    },
+    "ui.0050": {
+      "text": "Abbrechen",
+      "source_sha256": "19766ed6ccb2f4a32778eed80d1928d2c87a18d7c275ccb163ec6709d3eb2e27"
+    },
+    "ui.0051": {
+      "text": "Änderungen verwerfen",
+      "source_sha256": "f0714b3053e25e39e6b9c227b828b8b37d4a451f4fdaaf7a093109d670180a91"
+    },
+    "ui.0052": {
+      "text": "Inventar kann nicht geöffnet werden",
+      "source_sha256": "4a2d0a886ce2fdb67f4e5cc6ab8b8f97ea6117392a100de568ea91e4775e0ed1"
+    },
+    "ui.0053": {
+      "text": "HWI4U kann nicht gestartet werden",
+      "source_sha256": "e77d5d89ea2a423ac4859cd33183e00d80e039eba0d0d56a3a1f41c09412021c"
+    },
+    "ui.0054": {
+      "text": "In der erfassten Konfiguration verwendete Fähigkeiten, kein Live-Test. Verwendung setzt Unterstützung voraus.",
+      "source_sha256": "9d4e18fc1a28ed2aa81db2954cbc88d40c2d8dd6423431cc33a509d3022a1996"
+    },
+    "ui.0055": {
+      "text": "Bekannt aktiviert den Kalender; abgewählt wird kein Datum gespeichert. Grau angezeigtes Datum nicht gespeichert.",
+      "source_sha256": "7be96cc8c3e326f1060d6ad204a13381fba1c14a717b5c40ee93db5ce48ef7e2"
+    },
+    "ui.0056": {
+      "text": "Lokale Updates prüfen",
+      "source_sha256": "2d66b93d847be792864b07369bab12e0837886a6b022e3fd0a454bc827703edb"
+    },
+    "ui.0057": {
+      "text": "Geprüft am",
+      "source_sha256": "41765f122b96a0cab6fb0661230ed32672d2e81ed5924cf20f6033a9e16b24d5"
+    },
+    "ui.0058": {
+      "text": "Auswahl",
+      "source_sha256": "efa0389ac6fce142eaa954880c31388c79313347d00430eeca0bf713cfd84570"
+    },
+    "ui.0059": {
+      "text": "Auswahl wurde außerhalb geändert; Dialog erneut öffnen.",
+      "source_sha256": "3dddd176a79774544e40b1a94ac9b3827f4c4747ef161ed2c1df9879084e82d1"
+    },
+    "ui.0060": {
+      "text": "PDF auswählen…",
+      "source_sha256": "041adb0486dab94133545269dbfedda87dbaf7290377df2fd25adde4259023b1"
+    },
+    "ui.0061": {
+      "text": "JPEG/PNG-Datei bis 25 MiB wählen.",
+      "source_sha256": "81746369af2094dc3232173380600aef6090b6d795d18c992f0186a99a91269c"
+    },
+    "ui.0062": {
+      "text": "PDF-Datei bis 100 MiB wählen.",
+      "source_sha256": "ec8da6eaa2b20e2dcab8de2e4ee1ae53403ca84f0606664a23b1cf20917611c5"
+    },
+    "ui.0063": {
+      "text": "Spalte wählen",
+      "source_sha256": "5e48ac80db04e30bd75c55a4723f9eb9ba52682b2950802dec7d89fcaeb9c96f"
+    },
+    "ui.0064": {
+      "text": "Verbindungsmedium wählen",
+      "source_sha256": "5e5ab387e88586bbf035408c5972698c20eadecc7d6a2c6ea23e803f8ab462a1"
+    },
+    "ui.0065": {
+      "text": "Verbindungsmedium wählen.",
+      "source_sha256": "4b1fc7b0d618046149b127ce1a2a2f5936175b750782829a99bdfce5305dc466"
+    },
+    "ui.0066": {
+      "text": "Verbindungsstatus wählen.",
+      "source_sha256": "704332eb6a5591a586b38842ed86f821b2f7003371b29deb63a2a8cdae664127"
+    },
+    "ui.0067": {
+      "text": "Währung wählen oder dreistelligen Großbuchstabencode eingeben. Leer bedeutet unbekannt.",
+      "source_sha256": "c0544752682768e30826128825c432b7d4e2a95d147b0ea723b56108b4f9d12b"
+    },
+    "ui.0068": {
+      "text": "Gerätetyp für diese Gruppe wählen oder Unbekannt / Typ wählen für unbekannte Klassifikation.",
+      "source_sha256": "eddb0f34d5ae26d8385978da82732de903577dec014ab4f5656770bca817e769"
+    },
+    "ui.0069": {
+      "text": "Höhenbezug wählen",
+      "source_sha256": "31135a4f4c07ff35cac1f1cc49ca5eda0d4785225c58cba155a03412b0dc94b4"
+    },
+    "ui.0070": {
+      "text": "Höhenbezug wählen.",
+      "source_sha256": "2797cba1e2671f93c4f45341dbd68daeb5bd0fc49614ac6db477a84f879fc5b6"
+    },
+    "ui.0071": {
+      "text": "Lokale PDF-Datei wählen.",
+      "source_sha256": "6bc7946e49d76447f3fa0a0e6a4f532c16e113acf6797d4d9ec946c6a3d5bad5"
+    },
+    "ui.0072": {
+      "text": "Lokale Quelldatei auswählen.",
+      "source_sha256": "5ac99dbcc2496596dd4026db26353dc55e68c6c4b3df05d2a8a48a69c6c3da67"
+    },
+    "ui.0073": {
+      "text": "Gespeicherte Schnittstelle wählen",
+      "source_sha256": "483a86a7a4c4b87c32dbbccc211615f97d3dd5dc6c61a84617ae5af43d4ef024"
+    },
+    "ui.0074": {
+      "text": "Eindeutige Kennung wählen; noch manuelle Vergabe",
+      "source_sha256": "28c97ac50515defaf8e82ca9b1510e87223bc2d01cc28d93ccf674f70ee437a6"
+    },
+    "ui.0075": {
+      "text": "Gültiges JPEG-/PNG-Foto bis 16 Megapixel wählen.",
+      "source_sha256": "7147605d32f4b647cc6c0dab5ee9bd5f8362473fecc73cbaa7c1c9e9c5b378de"
+    },
+    "ui.0076": {
+      "text": "Gültige Betriebssystemfamilie wählen.",
+      "source_sha256": "fda569c6b3d33a5cd77c7a80542f4c68592d3a5a72f9c765d1dc8f718360e75b"
+    },
+    "ui.0077": {
+      "text": "Gültigen Gerätetyp wählen.",
+      "source_sha256": "c826e38b753488ba9f069f5af8deb09ccb4baa62bae7735ca485e698b839c8dd"
+    },
+    "ui.0078": {
+      "text": "Gültiges Lebenszyklus-Beobachtungsdatum wählen.",
+      "source_sha256": "7448a10140bcd1e7d5b158f1a03ed9ae7de38c64b7f493cc6a075bf655cba346"
+    },
+    "ui.0079": {
+      "text": "Gültige Lebenszykluseigenschaft wählen.",
+      "source_sha256": "2d5cf738b68e657dd8f09d7599d0e21639e7e0bb50e7d1b223ad52034150840f"
+    },
+    "ui.0080": {
+      "text": "Gültigen Lebenszyklus-Prüfstatus wählen.",
+      "source_sha256": "18f3e4901857a31b21662d12e51b0576af42f4b417722eb1d4f1da971a04e710"
+    },
+    "ui.0081": {
+      "text": "Gültigen Standortstatus wählen.",
+      "source_sha256": "45628f0d08475fc8ef22e121844862aa81994ced44f2d7f39ad5142a02108379"
+    },
+    "ui.0082": {
+      "text": "Gültigen Netzwerk-Belegstatus wählen.",
+      "source_sha256": "2805ea56ab57e2f7aca1399f0640d4de34febddaf4e294c3bc6ddc6441781c15"
+    },
+    "ui.0083": {
+      "text": "Gültige Quellenart wählen.",
+      "source_sha256": "0297c23d4801118259f92748cb5dbea1fb5c753d00f487102e88a2a9c3d204cf"
+    },
+    "ui.0084": {
+      "text": "Gültiges Beobachtungs-/Abrufdatum wählen.",
+      "source_sha256": "0f2fa587e92e5f52c04338f399f7b1f85685d9857ff9dbfc87868fdf19b2dfb0"
+    },
+    "ui.0085": {
+      "text": "Gültigen Quellen-Prüfstatus wählen.",
+      "source_sha256": "6b07605e42f1c4928724598e29b31483e51c635a5cd4dae02a8a55997df899a1"
+    },
+    "ui.0086": {
+      "text": "Bestehende Gruppe wählen oder neuen Gruppennamen eingeben.",
+      "source_sha256": "b4df61070ef95fc24b16fff06e897970b1c0be994f69a416de2d974bc1e42842"
+    },
+    "ui.0087": {
+      "text": "Bild bis 16 Megapixel wählen, gegebenenfalls kleinere Kopie exportieren.",
+      "source_sha256": "fc21b0f08737ebf7a91981db783accfd1285c95dfaf8cc9d2f62c86d49c2fe63"
+    },
+    "ui.0088": {
+      "text": "Online-Link oder lokale PDF wählen.",
+      "source_sha256": "84e4358b0ae2ed59cc7b0bf32e80765dfded3d7b4baee95cc3d3a8daa447e0e3"
+    },
+    "ui.0089": {
+      "text": "Unbenutzten Typcode aus zwei Großbuchstaben wählen.",
+      "source_sha256": "3de6b06bcc59461f9500041b5c61e85edced59ad5c07c9c42cae552bf7878e52"
+    },
+    "ui.0090": {
+      "text": "Mindestens eine Quelle für das Modellprofil wählen.",
+      "source_sha256": "94e99efa0825bdd2b3715353fa306c19934be52816ddb2dab29f8c9b1fd35bc4"
+    },
+    "ui.0091": {
+      "text": "Gerätefoto auswählen",
+      "source_sha256": "4c74d619b170c5120944361ac7abbe2212c06ae82917e8ae5b3ff6a25ada7661"
+    },
+    "ui.0092": {
+      "text": "Jede Lebenszyklusquelle nur einmal wählen.",
+      "source_sha256": "926f048c2bbc91500a801786cb20e12f9f274639717fd05cad7f4b4d539d9d56"
+    },
+    "ui.0093": {
+      "text": "Jede Quelle pro Bereich nur einmal wählen.",
+      "source_sha256": "30b52417e56ed27decd618716a754b0134e0f25287fc65c1b189c9b78ac6cd2d"
+    },
+    "ui.0094": {
+      "text": "Vorhandene Belege wählen.",
+      "source_sha256": "62a813680a8ab72c2f82460991fc390af741dd6b3ed23896cda881ef4aa17f39"
+    },
+    "ui.0095": {
+      "text": "Schnittstellen zweier unterschiedlicher gespeicherter Geräte wählen.",
+      "source_sha256": "aac903f095429bd0a930381bbfa235d7af62b778e31761f1cf2bfdb8c7aa7b63"
+    },
+    "ui.0096": {
+      "text": "Lokales Handbuch auswählen",
+      "source_sha256": "a6a9919e38c3713a68de93321dfdb3f3ff26a106f6738e16788286b1d05dcaaf"
+    },
+    "ui.0097": {
+      "text": "Ort wählen oder wiederverwenden, dann gerätespezifische Position und Montagehöhe eingeben. Vorhandener Standorttext bleibt erhalten.",
+      "source_sha256": "85480a684e168857cbcf4653889c98916ba7093d92c25bb0b4ec9d8d7fa318e7"
+    },
+    "ui.0098": {
+      "text": "Dreistelligen Großbuchstaben-Währungscode wählen/eingeben. EUR/HUF sind sprachunabhängig.",
+      "source_sha256": "cca7502f6b9df79877321f44fa5ccd6c1d0e73db81ce57f9466023d213e681e1"
+    },
+    "ui.0099": {
+      "text": "Unten erfasst wählen, um mehrere Werte anzukreuzen. Verwendet bedeutet unterstützt. Die Liste muss nicht vollständig sein.",
+      "source_sha256": "b258e24202f8872d07a8fa0f65c41e2310d4b2ce10e3c4f76d015042a58988ca"
+    },
+    "ui.0100": {
+      "text": "Rollen wählen…",
+      "source_sha256": "2bb29a80faca8825777e185a1918dc1d9c7344cf2a31d6cfa2a4bd9cd46ded5a"
+    },
+    "ui.0101": {
+      "text": "Quelldatei auswählen",
+      "source_sha256": "4c7022455ed04002b4dbe2432f8fa17ff1b6fc6906f9b3eeb8fac1118c649743"
+    },
+    "ui.0102": {
+      "text": "Quelldatei auswählen…",
+      "source_sha256": "1aa3041930a04f59eee1fda0d0bb9635f444352cae26fc12813016c321a5de53"
+    },
+    "ui.0103": {
+      "text": "Quellen auswählen…",
+      "source_sha256": "d70d29183f2f8666a6879eb47ce7e43968bce0e073e7fe64c77d50482458f383"
+    },
+    "ui.0104": {
+      "text": "Zwei unterschiedliche gespeicherte Schnittstellen wählen.",
+      "source_sha256": "805165bc947882b6ed3a2dfdd9492bc70f87c7805d424b961e24ab263b6f3d76"
+    },
+    "ui.0105": {
+      "text": "Verbindungsstatus unbekannt, keine oder erfasst wählen.",
+      "source_sha256": "5fffc97a1e73b07e59e632ce05153f247717b3d08cd02e95f2384dcd5cea19f9"
+    },
+    "ui.0106": {
+      "text": "Softwarestatus unbekannt, nicht zutreffend oder erfasst wählen.",
+      "source_sha256": "e94f1fce09203b3b8b8478d6cdb02451dab000da037790f2e2c63b6cc9eff8a1"
+    },
+    "ui.0107": {
+      "text": "Höchstens 100 Lebenszyklusbeobachtungen wählen.",
+      "source_sha256": "e2253e83f3b50e0b7abad768f8abc51273329489c5b89f30a8f8362c980deb60"
+    },
+    "ui.0108": {
+      "text": "Bis zu zwei Ebenen. Rollen können Geräte wiederholen; Gesamtzahl zählt eindeutige Geräte.",
+      "source_sha256": "25447ff4613d160262b6787d7038f70e5bea324895974eab0a9a209a7dbda1fe"
+    },
+    "ui.0109": {
+      "text": "Ort / Stadt",
+      "source_sha256": "fc33f73246f48295702f404001e74d56f14d2f82689b2816422dc1a4c2ec4fb2"
+    },
+    "ui.0110": {
+      "text": "Filter löschen",
+      "source_sha256": "7179ea0035fca783ec62b7185659b68c75f2a7c12b909306a57183dc9b3fa44b"
+    },
+    "ui.0111": {
+      "text": "Auswahl leeren",
+      "source_sha256": "cea4d2e010b8fd52bc28a66eca24ff0d616b2c7d982545757780c196c5cc04c7"
+    },
+    "ui.0112": {
+      "text": "Schließen",
+      "source_sha256": "7d9eb7acb13e24625c404401d8e88b2350e32162455885f18276cf802f7701ed"
+    },
+    "ui.0113": {
+      "text": "Diesen Dialog schließen.",
+      "source_sha256": "46ee62cf5392619a8eee773d496314898547b74ef892a9944b935e9fe05f66ab"
+    },
+    "ui.0114": {
+      "text": "Spalten",
+      "source_sha256": "53aade77cd69a77bbb51bf8ca4e7ea8b282db75edce8883775e47042478d35b5"
+    },
+    "ui.0115": {
+      "text": "Spalten…",
+      "source_sha256": "7daac3775504f2bc8b871bda22d57b95a561f29f7ffb53dbb30336af4761023e"
+    },
+    "ui.0116": {
+      "text": "Kommunikationsprotokolle",
+      "source_sha256": "9a61385cc98675ab2505ba9e16e16fe1275679119accbd8527751772cc87ec9e"
+    },
+    "ui.0117": {
+      "text": "Abgeschlossen: ",
+      "source_sha256": "05545af408a423856137ead573cdb57de338dcb8f3538085f0b38c95e1c333f0"
+    },
+    "ui.0118": {
+      "text": "Zustand",
+      "source_sha256": "39b36d38d6eb03c89206f3b7b74397e7a9d9abb081ad48e3f73dece59dab7ae4"
+    },
+    "ui.0119": {
+      "text": "Verbindungsauswahl aktualisiert.",
+      "source_sha256": "68789cdd666743438c5dd0b29a8f9b5d5f39b3a7b3056ccc6b9c0c2e840a2470"
+    },
+    "ui.0120": {
+      "text": "Verbindungsschnittstellen",
+      "source_sha256": "2bfb7a078c997dc374c3e96d4359935c471c2a184f0f4c5b1ebd564b26ed6828"
+    },
+    "ui.0121": {
+      "text": "Verbindungsmedium",
+      "source_sha256": "de04881e28754f500b7e1265ab55d9795add12d9e541161e3317e662cb9ba75d"
+    },
+    "ui.0122": {
+      "text": "Verbindung muss normalisiert werden.",
+      "source_sha256": "7e1e87561dc2ae6af941090c704ce7c5b76145e7efc6035455384380d487b910"
+    },
+    "ui.0123": {
+      "text": "Verbindungsnotizen und Daten müssen Text sein.",
+      "source_sha256": "278025a42cdf38eaf79065ba0ef4e8e10d39045cb6d8dda45988eb48488b9c76"
+    },
+    "ui.0124": {
+      "text": "Verbindungsstatus",
+      "source_sha256": "900c7badbeb258113b31c0fe374f0903ef940f7c3c8067af7b395331882a03a9"
+    },
+    "ui.0125": {
+      "text": "Bewertungsdatum muss ein gültiges Kalenderdatum sein.",
+      "source_sha256": "bb559fa6a0ca06bb795b36204b99d75afa0e0f87ed1c554bf8fb2109f12026e4"
+    },
+    "ui.0126": {
+      "text": "Verbindungsdaten wurden außerhalb geändert. Verwerfen und aktualisieren.",
+      "source_sha256": "39619f53b69975fe9e08e15102e69cc90042a207ac43cdbc8ba30b67c84165cf"
+    },
+    "ui.0127": {
+      "text": "JPEG/PNG in lokale Verwaltung kopieren. Gerät zuerst speichern; Anhang sofort gespeichert.",
+      "source_sha256": "db3d4b487d248a2a735f2f1dd93e703b896b7e2131a50f7f4841df0cdb6e888e"
+    },
+    "ui.0128": {
+      "text": "PDF bis 100 MiB kopieren; Quelle bleibt unverändert. Ersatz-PDF durch Entfernen/Neuanlegen zuordnen.",
+      "source_sha256": "69615f6121f89c8c99bc67b53dd15fe0d23d79a4068b1bc3c3430c6f2540390f"
+    },
+    "ui.0129": {
+      "text": "Bild konnte nicht dekodiert werden: {0}",
+      "source_sha256": "abb601e5e609e2df9c30c1fd0a49893bf930cdc8a8698fd7df6c3a18e36a20b4"
+    },
+    "ui.0130": {
+      "text": "Client konnte nicht geöffnet werden",
+      "source_sha256": "a372686cedf39af0093d116ab310496590617bfa3a5192cd33d3d6b87f5d7f1b"
+    },
+    "ui.0131": {
+      "text": "Anleitung konnte nicht geöffnet werden",
+      "source_sha256": "5133e92e917903b5015497e9b0fdced633d098dc833320675f9e62fd33a9fa84"
+    },
+    "ui.0132": {
+      "text": "Quelle konnte nicht geöffnet werden",
+      "source_sha256": "1b744217bbd0f6d258c39ae39d4aca470e296ae11699dc964770c8b4fead8e4c"
+    },
+    "ui.0133": {
+      "text": "Originalbild konnte nicht geöffnet werden.",
+      "source_sha256": "4837f13d09dc1b4afd22ab78f0e1be4b28a6928b4ef6c01fa105dcaf9ee8c171"
+    },
+    "ui.0134": {
+      "text": "Der andere Client konnte nicht geöffnet werden.",
+      "source_sha256": "357cabfcc4955ea703217c19849781da61c857d8d927e3ef10e21a7b486bb406"
+    },
+    "ui.0135": {
+      "text": "Verweis nicht geöffnet. Browser/PDF-Dateizuordnung prüfen.",
+      "source_sha256": "6d31b6c193dc63bfb43428a1dd618b664aca108c087a636a45ffc3da688316c6"
+    },
+    "ui.0136": {
+      "text": "Ausgewählte Quelle konnte nicht geöffnet werden.",
+      "source_sha256": "5c463a813a166e65e05d17769e6cd7a5b5388a704d10e900a56f91af07c1bfcd"
+    },
+    "ui.0137": {
+      "text": "Speichern fehlgeschlagen",
+      "source_sha256": "16efcd21d74fc1d209855cf3bc9a19da1839f4d3f720689586dffbd128477f25"
+    },
+    "ui.0138": {
+      "text": "Auswahl konnte nicht gespeichert werden",
+      "source_sha256": "3f8fe92a2ad4a425c433592affda8267d8293ab1c05222499a9580c1ecb121d5"
+    },
+    "ui.0139": {
+      "text": "Verbindung nicht gespeichert",
+      "source_sha256": "872bc193c5794225358332b3c15f573955940b6d7b552c78d74d332c6f2bee1d"
+    },
+    "ui.0140": {
+      "text": "Spracheinstellung konnte nicht gespeichert werden",
+      "source_sha256": "56b2854f9468567cb25edf6e0586f37d879d6f1f1649838178151245fefac231"
+    },
+    "ui.0141": {
+      "text": "Handbuchverweis konnte nicht gespeichert werden",
+      "source_sha256": "b1c057038f2b0322813fde9865b19b253f3500b238f599b9fb5df6710486144e"
+    },
+    "ui.0142": {
+      "text": "Quelle konnte nicht gespeichert werden",
+      "source_sha256": "1ce682811f4187951d105be010a1f987d8c02e3a296103805097ea9d4f4e94be"
+    },
+    "ui.0143": {
+      "text": "Vorschaubild konnte nicht gespeichert werden",
+      "source_sha256": "0a90cd706e61c6cbf0e680c68db7070bf4d6f1492cea081e793c97ee4cf5e1fc"
+    },
+    "ui.0144": {
+      "text": "Typ konnte nicht gespeichert werden",
+      "source_sha256": "a6bd1049ce2681bcea9fadaecdbb3cbdbabcfd7cd478b91d9decdc52c5e15df5"
+    },
+    "ui.0145": {
+      "text": "Ansicht konnte nicht gespeichert werden: ",
+      "source_sha256": "a939b2d250d305a983043e1a6de6726d4243a83d6941df31485552229b192298"
+    },
+    "ui.0146": {
+      "text": "Land",
+      "source_sha256": "701d021d08c54579f23343581e45b65ffb1150b2c99f94352fdac4b7036dbbd5"
+    },
+    "ui.0147": {
+      "text": "Geprüfte ZIP mit Datenbank und Fotos. Automatische Sicherungen enthalten nur Datenbank.",
+      "source_sha256": "a21918cc0b909aa270cd1325ff4a3b2f8b3bf988776f72c61b36a54b04cdaeeb"
+    },
+    "ui.0148": {
+      "text": "Geprüfte ZIP mit Datenbank, Fotos und lokalen Handbüchern; automatische Sicherungen nur Datenbank.",
+      "source_sha256": "73604c35b2951579adeee124e5a312a039c602666642051d03ff66075fe64c2d"
+    },
+    "ui.0149": {
+      "text": "Für das lokale Heiminfrastruktur-Inventar erstellt. Keine unabhängige Produktzertifizierung behauptet.",
+      "source_sha256": "3f8c148d9b7eb0121c8f5f99fc2ccf146969757f9789199350fa96e448c2d594"
+    },
+    "ui.0150": {
+      "text": "Währung",
+      "source_sha256": "3ac1a9ec4fa7a9fa612a30803f3d88fa479a45431f644190ebcc18d3eaafdb3a"
+    },
+    "ui.0151": {
+      "text": "Währung: drei Großbuchstaben, z. B. EUR oder HUF.",
+      "source_sha256": "f5dbff07b47a9f37598035f497e6b28c2855cdaf10d37de1139163b1d54f03a1"
+    },
+    "ui.0152": {
+      "text": "Aktuelle Formularwerte",
+      "source_sha256": "e99711ec52fb06a562f7f11596b668a43569e9ae2703577ec2e5149d0f49357c"
+    },
+    "ui.0153": {
+      "text": "Aktuelles Betriebssystem und Firmware mit Quelle und Prüfdatum.",
+      "source_sha256": "f79d30ac0052c2d4f349e85697fd9cf2956bd05594ac0bb8b315e72283512ab0"
+    },
+    "ui.0154": {
+      "text": "Aktueller Lebenszyklusstatus",
+      "source_sha256": "760732d82a09183191f0b38552fad63b063df21153476c0d628a32d8c5255aeb"
+    },
+    "ui.0155": {
+      "text": "Derzeit verwendet",
+      "source_sha256": "5e1e079fbb41f0b1f2b637ef4cde52a6f765800b48b56848552147edda93799c"
+    },
+    "ui.0156": {
+      "text": "Datenbank belegt. Änderungen in DB Browser abschließen/verwerfen, schließen und erneut versuchen.",
+      "source_sha256": "35ef2fde07ab9100ff4c7da33cc0e5712d2587e5e7257bea590dc66ac37252c6"
+    },
+    "ui.0157": {
+      "text": "Datenbankpfad",
+      "source_sha256": "9e62dde0d66be6ebd12f0a43facb3875daf16b9bce160594bbfc59251ae7377d"
+    },
+    "ui.0158": {
+      "text": "Datenbankschema",
+      "source_sha256": "bf3efcb83e0c73db1bea400b585eaa98f36ee5435a8fe44bc63c9a628c7e1aff"
+    },
+    "ui.0159": {
+      "text": "Datum",
+      "source_sha256": "99c40ab405926cb5ad1def9cff4d7ce624f8f8abfff4e85f655347fcb949d08e"
+    },
+    "ui.0160": {
+      "text": "Datum der Abfallentsorgung, nicht nur Stilllegung oder Abschaltung. Ungeklärtes unbekannt lassen.",
+      "source_sha256": "8736a53e7b070f7bd4405d30443f0d87e4abdf2a66faeb04d7dbb9f9726b75c0"
+    },
+    "ui.0161": {
+      "text": "Kaufdatum. Bekannt abwählen, falls unbekannt; Kalender für gültiges Datum.",
+      "source_sha256": "51ce0432d13ea7a17f21829e4c91e5ea9ebbaf5dbe4bce98a328e21d9686835c"
+    },
+    "ui.0162": {
+      "text": "Datumspräzision",
+      "source_sha256": "1ac020fb3ee006b0368e9bb574d2f27ee37abf1d66afe0dd383c0e5ece842b98"
+    },
+    "ui.0163": {
+      "text": "Gerät löschen",
+      "source_sha256": "b30297892c0f4a24b32977c1f581407e85f84a8eb5cd40d1f16d1754df2ea478"
+    },
+    "ui.0164": {
+      "text": "Gerät löschen…",
+      "source_sha256": "57e12ac653cfbba05f4f72fddb18b926aed3fe4c53007ea882a81b8a5d101621"
+    },
+    "ui.0165": {
+      "text": "Dieses Gerät löschen?",
+      "source_sha256": "03806406c0936bb7aa50f732fda9864497e6951333d4403df427b933ea34bb76"
+    },
+    "ui.0166": {
+      "text": "Nachweis und Gültigkeitsbereich beschreiben",
+      "source_sha256": "51511eabd597234cd6786120c447146e9c8d1c9549a02f433befe2ba4c9486ef"
+    },
+    "ui.0167": {
+      "text": "Hardware-Serviceumfang und zutreffende Region beschreiben.",
+      "source_sha256": "19c863fb2172324ec9e59c0e276775ba81f607f8c1fdb5215b1b6d9d80237e92"
+    },
+    "ui.0168": {
+      "text": "Individuelle Gerätegarantie oder Vertrag beschreiben.",
+      "source_sha256": "a41c4e91589c1766997b9f969dff1e8e5f4c4cd7924e1ec336222a5e436d7620"
+    },
+    "ui.0169": {
+      "text": "Modellprofilnachweise und Gültigkeit beschreiben.",
+      "source_sha256": "5d8e413b023ae4d384e3264328136669436331d419287cd89c828015c0fd855f"
+    },
+    "ui.0170": {
+      "text": "Anderen Höhenbezug in den Platzierungshinweisen beschreiben.",
+      "source_sha256": "436f830ea89919206e406c374fcf2f6abdca12e4bfb55acb195e08df7a501efd"
+    },
+    "ui.0171": {
+      "text": "Beschreibung (optional)",
+      "source_sha256": "f6cbe2f0c1f8a38b82c62ec548a4eaf0d89b02361c9228dbfc713b822575d825"
+    },
+    "ui.0172": {
+      "text": "Beschreibender Pflichttitel, etwa Installationsanleitung oder Servicehandbuch.",
+      "source_sha256": "1f5f9ec39248a04bbd9c973a8849df2453cfa8ce57c0bff750274b42414d0fa0"
+    },
+    "ui.0173": {
+      "text": "Zuordnung entfernen",
+      "source_sha256": "74bc117435434cc1708fda8004336cf159021c5fa8f991b444c4fa4b1e7c0b6f"
+    },
+    "ui.0174": {
+      "text": "Handbuchverweis entfernen",
+      "source_sha256": "bb2603c616be58926f3c9a7b290baf1d7aed91c53a2d17f0eccfb959aabd6c6f"
+    },
+    "ui.0175": {
+      "text": "Fotozuordnung entfernen",
+      "source_sha256": "edfafa71fba6358d6622de0b85d0688d93a22f819e967067d45181e5f890c762"
+    },
+    "ui.0176": {
+      "text": "Verweis entfernen",
+      "source_sha256": "b286d68005eba3113fa397a3871cbe10f68d6c62cdd8f74bbe086ba74aa54dcd"
+    },
+    "ui.0177": {
+      "text": "Gerät",
+      "source_sha256": "6ba0bdeccb426d7b2ccb601c4e07015f50b6b427ec52c93a3b95f2245b67bdd4"
+    },
+    "ui.0178": {
+      "text": "Gerätekennung *",
+      "source_sha256": "350636ec5dcfcaf316c5b3cb6f1927a85d66690e1c64c2bb13b25c6096ae1536"
+    },
+    "ui.0179": {
+      "text": "Gerätekennung: Buchstaben, Ziffern, Punkt, Unter-/Bindestrich; Beginn mit Buchstabe/Ziffer.",
+      "source_sha256": "1773a74c72f29d88066b1c331e4f2cc6246ab49c7459e126a9aaacdfa6c6ef94"
+    },
+    "ui.0180": {
+      "text": "Inbetriebnahmedatum des Geräts. Komponenten-Einbauverlauf separat gespeichert.",
+      "source_sha256": "bd0c00293913dc8bf39d50d463b22a7f879497d2d3a638d8bbd978637805a9be"
+    },
+    "ui.0181": {
+      "text": "Gerät gelöscht. Vollständige Sicherung: ",
+      "source_sha256": "4ac8bb73eeda7070108bb3399e5c5f6936e7801f0d8a3b3da869712f5dbfedd4"
+    },
+    "ui.0182": {
+      "text": "Gerätenachweis * — Text oben oder Quellen unten",
+      "source_sha256": "9bcc73e04006f1718164645b8b8ad43dfa336b02710cb3d57034af57ca6911a7"
+    },
+    "ui.0183": {
+      "text": "Gerätenachweis erforderlich: Quellentext eingeben ODER mindestens eine Gerätequelle wählen. Quellen anderer Bereiche erfüllen diese Anforderung nicht.",
+      "source_sha256": "475f43cbc166c63ca7e3d269a724cb1624cf100cbd997d5d11e27ac975bab4c7"
+    },
+    "ui.0184": {
+      "text": "Gerätenachweis vorhanden: Text oder Quellen gewählt.",
+      "source_sha256": "093193d49519a6956b9448a3ffe757be91ae10ef9f98beadc5e8528f3073996c"
+    },
+    "ui.0185": {
+      "text": "Gerätekennung",
+      "source_sha256": "4ad41656a707769775aa2339fefc5123ed4e46ddc6070613ca628253651620c2"
+    },
+    "ui.0186": {
+      "text": "Geräteliste und Typen aktualisiert.",
+      "source_sha256": "8d8486928321613d95ae2af5b9097fde03993057f1b91232d9335e8bdb36fdbc"
+    },
+    "ui.0187": {
+      "text": "Gerätestandort",
+      "source_sha256": "f753966efdef924a7a71cc6132e96a9e7417d8a9b7548557bae99f4fa40974a0"
+    },
+    "ui.0188": {
+      "text": "Gerätefotos",
+      "source_sha256": "1053fe250abe56e9cda9c59a52b57c6cf32a8dc6723ac1c52af4a96d25eaafae"
+    },
+    "ui.0189": {
+      "text": "Gerät nach Änderungen in anderem Fenster aktualisiert.",
+      "source_sha256": "94732e5fa0e411d51c84f5473f7f6e4c82a1a7469dcfec8ca315e9c77e433877"
+    },
+    "ui.0190": {
+      "text": "Gerätetyp",
+      "source_sha256": "8562a30fddb6b913111152215375504c3a31c93e3785152d4db163058339c60a"
+    },
+    "ui.0191": {
+      "text": "Gerätetypen aktualisiert. Gerät zur Typzuweisung auswählen.",
+      "source_sha256": "d3f1c862eb6bbec3bd3c7dd7c824f1531739bfe93190cacc9b4a129e493eb4cd"
+    },
+    "ui.0192": {
+      "text": "Geräte, Daten, Typen, Verbindungsbewertungen und lokale Fotoanhänge.",
+      "source_sha256": "c5e57986797be8b0a9599f7c2fc7ceda6483e81196b3ebdc22d1ef30de33851d"
+    },
+    "ui.0193": {
+      "text": "Verwerfen",
+      "source_sha256": "eb1a70e39274bb762b5d7c1adb5debeea2b05e12af28207f21a375b596853273"
+    },
+    "ui.0194": {
+      "text": "Ungespeicherte Änderungen verwerfen",
+      "source_sha256": "b68d92df747f25a32b762ea5dc535ad198cfed1028c40a7c6a8c77d186092c8b"
+    },
+    "ui.0195": {
+      "text": "Ungespeicherte Änderungen verwerfen; bereits gespeicherte Daten/Fotos bleiben.",
+      "source_sha256": "d4fb4fb3aae157ec4a52acac4ba3ecf7ec2b632b25e1ae464c955e1939f09b98"
+    },
+    "ui.0196": {
+      "text": "Ungespeicherte Änderungen verwerfen?",
+      "source_sha256": "f117f108bd96988f182e70c31b327c21f891c8d4c4c378a1e7cb5502410ecd0e"
+    },
+    "ui.0197": {
+      "text": "IP-Adresse innerhalb einer Schnittstelle nicht doppelt eintragen.",
+      "source_sha256": "379a01ae6258b1977f89a7b52ee3923d1be2ffcce86956d857213a96fa03b24b"
+    },
+    "ui.0198": {
+      "text": "Dokument (PDF)",
+      "source_sha256": "050599e3bdb8cf7e1521e8baa8479155c1d2ee3aad99e479fb368adcc027e108"
+    },
+    "ui.0199": {
+      "text": "Dokumentsprachcode en/de/hu; unbekannt leer. Ändert nicht die Programmsprache.",
+      "source_sha256": "5d0072dc251a03959465fd022a1201f10724499cc19e1f5b6b05700fd59cf584"
+    },
+    "ui.0200": {
+      "text": "Gerät doppelt anklicken, um es im großen Fenster zu bearbeiten. Schnelleditor bleibt verfügbar.",
+      "source_sha256": "1361d89d6d169c62533f384d303391acc03fcbf5a032d07c1b153ad6813bb8b4"
+    },
+    "ui.0201": {
+      "text": "Doppelte Verbindungsauswahl.",
+      "source_sha256": "9e146994239ed4d2932b781530e05efff05d8f15dadb18735835c907e4749aef"
+    },
+    "ui.0202": {
+      "text": "Jede Schnittstelle braucht 1–100 Zeichen als Bezeichnung, etwa igc0 oder WAN.",
+      "source_sha256": "f67317ce4eece8dc01a5079d1db335e2389cf2e57f0d28e72760f7949e38fa86"
+    },
+    "ui.0203": {
+      "text": "Verbindung bearbeiten",
+      "source_sha256": "047f9f951500f20a8d702bce4867ee54fc3e18ee43aa903b2fed06b9e163855f"
+    },
+    "ui.0204": {
+      "text": "Verbindung bearbeiten…",
+      "source_sha256": "5220e25191355fa3fdd00ff55384239aedc079eebb7c4246e3a8b6673fc77077"
+    },
+    "ui.0205": {
+      "text": "Gerät bearbeiten",
+      "source_sha256": "bc8e83b30fae24e32ac026c7bab3976f6d956b80fed12ebeecb1b1f6c1ed70bd"
+    },
+    "ui.0206": {
+      "text": "Lebenszyklusdatum bearbeiten…",
+      "source_sha256": "0a9e343a91813d3fc3b3f2cde62d45329cb5dad18cbd30172a0c67827cd4eda0"
+    },
+    "ui.0207": {
+      "text": "Handbuchverweis bearbeiten",
+      "source_sha256": "581754d50ca61d0fb15f99d43b959b10a12ca68412771c1b49dbdc2ff074c576"
+    },
+    "ui.0208": {
+      "text": "Verweis bearbeiten…",
+      "source_sha256": "8c73394ffb6f598e3a9110b8518fb069cdfa90da1f5beceb3a300e5574480932"
+    },
+    "ui.0209": {
+      "text": "Gemeinsamen Schnittstellen-/Protokollkatalog bearbeiten, nicht dieses Gerät. Neue Auswahl oder Umbenennung für alle Geräte; Zuordnung per Häkchen.",
+      "source_sha256": "ecf8bdfa86f6439feb6e111bf56d55cc0fc415d452618fa128a25f590d56d085"
+    },
+    "ui.0210": {
+      "text": "Ausgabe / Version",
+      "source_sha256": "cb56940d702c3ceffd954f513427ffc54e188de754a1492ad6e81f77c3464a9f"
+    },
+    "ui.0211": {
+      "text": "Ausgabe/Revision/Dokumentversion genau wie angegeben, falls bekannt.",
+      "source_sha256": "b564edf11e39339d88fcea4f72741746f9c78d321796784bb92c1578b0e04663"
+    },
+    "ui.0212": {
+      "text": "Bearbeiten…",
+      "source_sha256": "2b8a1a002b93a9599aa6d77318d7caf7d945cf161979b7011d7228ba3e67077a"
+    },
+    "ui.0213": {
+      "text": "Endpunkt A",
+      "source_sha256": "9d4f595353202db2def845db4377a80349fb11ca7bc29db40672478a67314a3e"
+    },
+    "ui.0214": {
+      "text": "Endpunkt B",
+      "source_sha256": "65fa71df8dcb6aa5bf28470868e635d5b4e35d7154828e93ae78df6e3f791e2e"
+    },
+    "ui.0215": {
+      "text": "IP-Adressen in Schnittstellenzeile, nicht unter Hostname eintragen.",
+      "source_sha256": "bfe979f224ad5e757d572058fed196f8ab77f620d9d81a291db3b5fdf1a68f42"
+    },
+    "ui.0216": {
+      "text": "Vollständige HTTP-/HTTPS-URL ohne Leerzeichen eingeben.",
+      "source_sha256": "5cb5d381e19b0b0616468064de31fa7937976012524620a04b1ae751f4b241d7"
+    },
+    "ui.0217": {
+      "text": "Gültige IPv4-/IPv6-Adresse, optional /Präfix; Schnittstellenzeile bestimmt den Geltungsbereich.",
+      "source_sha256": "99946b9597256cd7fa6a6afb2db34803780ff38d4e22db325f9033f7b382c9f8"
+    },
+    "ui.0218": {
+      "text": "Mindestens eine Standortangabe eingeben oder Unbekannt wählen.",
+      "source_sha256": "f87af7b4398e0a410b0021b25285c28474cb4949c7d4fa9741f2b8d3ebf529c0"
+    },
+    "ui.0219": {
+      "text": "Kaufpreis und Währung zusammen angeben oder beide unbekannt lassen.",
+      "source_sha256": "e7d5bd65a15b71a0983dd6a8ed974b096bc5cc6e855496e5b36a04941cfaf3f3"
+    },
+    "ui.0220": {
+      "text": "Freie Quellennotizen eingeben oder unten Quellen wählen. Bestehender Text bleibt erhalten. Ein Gerät benötigt Text oder mindestens eine Gerätequelle.",
+      "source_sha256": "93a7eb36e299ac381e8d58aca91bfbcfd06f12e73c45c6eddcc4f082bd61eaee"
+    },
+    "ui.0221": {
+      "text": "Hersteller, Modell und ausdrückliche Variante/Gültigkeit eingeben.",
+      "source_sha256": "ec4a11524c266e97048529f2bee212b1757c257c66c698566ebb933f16224a64"
+    },
+    "ui.0222": {
+      "text": "Umgebung",
+      "source_sha256": "9e471951a1b4106e54be128a21112b02914fe98cc79b2c92b49ee80c5464487c"
+    },
+    "ui.0223": {
+      "text": "Belegstatus",
+      "source_sha256": "d7e710b9658fce9a5ed2e32f9e6a0730eca94e1eb7fcb899371017ef8f19cd4e"
+    },
+    "ui.0224": {
+      "text": "Exakter Tag",
+      "source_sha256": "0bbaffa5aa37c096e9b5b9decdc8b2a60cdb0d5ce8e39ab8c8e8e228ac9f39ad"
+    },
+    "ui.0225": {
+      "text": "Genaue Ausgabe/Version, falls bekannt",
+      "source_sha256": "24f1c9d620854cab55458e6eec4e9bae25fca9886467d5d47d266e364c9ab8a5"
+    },
+    "ui.0226": {
+      "text": "Genaue installierte Firmwareversion, falls bekannt",
+      "source_sha256": "d705586e275044db601dc5dddf2d8084ea7ddeaa2e8986cf14a0f3de4974002b"
+    },
+    "ui.0227": {
+      "text": "Genaue installierte Version, falls bekannt",
+      "source_sha256": "27ba2074fdedaa51b493030be75609c2d0b84cc56dbead116a4a0e0dd8284c09"
+    },
+    "ui.0228": {
+      "text": "Nur exakte Hersteller-/Modelltreffer. Passende Variante und Werte prüfen. Übernahme ändert nur das Formular; Gerät speichern schreibt die Daten. Ersetzen erst nach ausdrücklicher Bestätigung.",
+      "source_sha256": "afe76fea524c87f3ebaff23a9263969cc7344216b370b5999e4f60fc13b7df63"
+    },
+    "ui.0229": {
+      "text": "Exakter Kaufbetrag mit Dezimalpunkt, etwa 129.90. Preis und Währung zusammen oder beide unbekannt.",
+      "source_sha256": "a82ec28e25adf6758f8964941108c1cfe6528ea97e72b78fbadae21f8a59c978"
+    },
+    "ui.0230": {
+      "text": "Beispiel: backup-server-office-01",
+      "source_sha256": "e873b9c41adf50a6fb9cc03dbea89e48cd36cca4772a90581addb44ac3277c30"
+    },
+    "ui.0231": {
+      "text": "Bestehende Gerätekennungen sind hier nicht änderbar.",
+      "source_sha256": "ab73d8fbb78962ae78f641e345314adf0ce767b3a8c7351e52259249e249c985"
+    },
+    "ui.0232": {
+      "text": "Vorhandene verwaltete Dateien werden ohne Kopieren genutzt. Quellenprüfung und Beobachtungsdatum bleiben bis zur Angabe unbekannt.",
+      "source_sha256": "0894dac871c2a2bc02738e8af8a2b7da9d7de669edc6818d345c50322a9421c5"
+    },
+    "ui.0233": {
+      "text": "Navigationsgruppen aufklappen. Bereich wählen, um seine Kachel zu finden; andere Bereiche bleiben verfügbar.",
+      "source_sha256": "318fedb8c4aaeeca704e986527c684cb934fd061983bb87a7c5eeab17935388e"
+    },
+    "ui.0234": {
+      "text": "Funktionen",
+      "source_sha256": "5697d03daef4de9cf8db7cb11755f71358a32b4acca94909a9d449f71040d2dd"
+    },
+    "ui.0235": {
+      "text": "Glasfaser",
+      "source_sha256": "7ed0a5e33e7be0026604a37fe216bb1e04e5f91ea09d89f2ee190d9d0d34d459"
+    },
+    "ui.0236": {
+      "text": "Dateien und Nachweise",
+      "source_sha256": "d4d05843760b336508f8ae965d0a0d12a1b220c1a4887dc1279f33d370e01fbd"
+    },
+    "ui.0237": {
+      "text": "Filter aktiv",
+      "source_sha256": "8303b392b5ebd96463b39a2d278551d266b1ee0a5a4a707daa49a142fdfedcc5"
+    },
+    "ui.0238": {
+      "text": "Spalte filtern: ",
+      "source_sha256": "2150f2bb40780c0bdaa7a7dc6e8914f05cab2ed1880d00c18c33d538a636ed53"
+    },
+    "ui.0239": {
+      "text": "Gruppe filtern",
+      "source_sha256": "29152c7c44eea1b6db3a3c9a34d486983041180cf5bb8695b9bc47ef9a28a24f"
+    },
+    "ui.0240": {
+      "text": "Gespeicherte Geräte nach ID, Name, Typ, Gruppe, Lebenszyklus, Zustand oder Schnittstelle/Protokoll filtern.",
+      "source_sha256": "f0bafa39d17de65e2dc279e0c314533d857681ae3039c9b6cd459523bae04b3a"
+    },
+    "ui.0241": {
+      "text": "Filter",
+      "source_sha256": "546ebb8eb993ea561029d9febd84c363bdb09010bb2cb915a8287762b76b9a64"
+    },
+    "ui.0242": {
+      "text": "Filter wirken gemeinsam mit Suchtext. Keine Änderung an Gerätedaten.",
+      "source_sha256": "c01150e115b412b2ce03810f9915a463363d86c3457d43bbf676db9fcddf7e1f"
+    },
+    "ui.0243": {
+      "text": "Filter…",
+      "source_sha256": "9fc6f7e44b961834c4237ce72740ef8d58b7c3f5e3c71a13f211c9a26af4debc"
+    },
+    "ui.0244": {
+      "text": "Installierte Versionen finden…",
+      "source_sha256": "02d1af1c11e3a9aaeec8aff1672ce7a2c0649e3551efde23d5724b06b33f4369"
+    },
+    "ui.0245": {
+      "text": "Aktuellen Dialog abschließen",
+      "source_sha256": "e20adfb8eb8a1f408f2b4ab88a44ab273e1bfe901478cd1261fc94c8d0afd77b"
+    },
+    "ui.0246": {
+      "text": "Firmware",
+      "source_sha256": "c2a314c3b32b319cf5f868d620f96245f593dc7c401acd8b5a566fac88bb40f4"
+    },
+    "ui.0247": {
+      "text": "Firmware kann für Laufwerke, Router oder Sensoren gelten, auch ohne zutreffenden OS-Eintrag. Tatsächlich installierte Version erfassen.",
+      "source_sha256": "d53e2d8351485e2fc8a578442d32b42aa5ed1c039f1a9acf6852cec1f6de41e6"
+    },
+    "ui.0248": {
+      "text": "Ende Firmware-Sicherheitsupdates",
+      "source_sha256": "4831f389200c8d2ec0b891f4fd21f6e85a5f2be4727ed0b83580d4a980f97f0b"
+    },
+    "ui.0249": {
+      "text": "Firmwareversion",
+      "source_sha256": "9d0328bd2b3a5649e0db2ec5b0e5c87f85fd622b1a13615a284c42845997f303"
+    },
+    "ui.0250": {
+      "text": "Erstes Obergeschoss",
+      "source_sha256": "0aead6ee916721ac990bf809167608ff4d44313718a07a86057b15051b3d3660"
+    },
+    "ui.0251": {
+      "text": "Geschoss / Etage",
+      "source_sha256": "f80b82220e1d73eadf2a19a60db9721340c92445293cc77198a39362b16dd13b"
+    },
+    "ui.0252": {
+      "text": "Zum Beispiel: arch linux, debian oder proxmox ve",
+      "source_sha256": "454f25aeee24aecac56bd3d2001a89f0a8d5a7c1d62338eb7584f201a43a49ff"
+    },
+    "ui.0253": {
+      "text": "Zum Beispiel: Typenschild oder Rechnungsdatei",
+      "source_sha256": "cf9218cf1fc82e91501cc5918b641bc79c3246d4c7a3643e953a15343f569313"
+    },
+    "ui.0254": {
+      "text": "Zum Beispiel: Vorderansicht oder Typenschild",
+      "source_sha256": "09f2ab32bea54c5c3e96237531a1c1a63bd00072e371560d041907348fb6f7b6"
+    },
+    "ui.0255": {
+      "text": "Zum Beispiel: Herstellerwebsite oder mitgeliefertes Dokument",
+      "source_sha256": "0b3a91cfb11b0926133721b7c6f3ff25c8ef09614458ec85dcb445aa0e3dd460"
+    },
+    "ui.0256": {
+      "text": "Zum Beispiel: eigenes Foto, 2026-10-18",
+      "source_sha256": "f3827def5534adec5ba828722a7cd6d2a6df8e470f37343d0f621735ad5f37ad"
+    },
+    "ui.0257": {
+      "text": "Zum Beispiel: Systemeinstellungen, Befehlsausgabe oder Verwaltungsoberfläche",
+      "source_sha256": "746037eed50d2fb7b92c53485e8ea4950b33cf387ee9c377779efd436dc1a7cb"
+    },
+    "ui.0258": {
+      "text": "In pfSense Dashboard → System Information öffnen: Version zeigt pfSense und die FreeBSD-Basisversion. BIOS kann Hersteller/Version/Datum des installierten BIOS anzeigen. Falls nicht, im BIOS-Setup ablesen. Firmware: erfasst wählen, um die genaue installierte BIOS-/UEFI-Version einzutragen. Herstellerdownload beweist keine installierte Version. SSD-Firmware am Laufwerk ablesen. Fehlende Werte unbekannt lassen.",
+      "source_sha256": "585c33b20caf48a7c11bd31ebf0455563f61a42a90acd6e3cda6273794096def"
+    },
+    "ui.0259": {
+      "text": "Vollständige Sicherung",
+      "source_sha256": "c9cd267e3cb580612ad16946a704f8523b54387a572926ba779e9c1de90224bf"
+    },
+    "ui.0260": {
+      "text": "Vollständige Sicherung enthält Datenbank und Fotos. Automatische Sicherungen enthalten nur die Datenbank.",
+      "source_sha256": "caa082ce116b76bcd185faac942dec42a86d01c5583f63f6b315adc3fb112d3c"
+    },
+    "ui.0261": {
+      "text": "Vollständige Sicherung enthält Datenbank, Fotos und lokale Handbücher. Automatische Sicherungen enthalten nur Datenbank.",
+      "source_sha256": "a4e18c07398ded4ba1c23db7f454dfd7b51e3bfa8fea1baa0353466d76cba109"
+    },
+    "ui.0262": {
+      "text": "Funktionszustand, etwa working oder faulty. Nicht aus der Rolle ableiten.",
+      "source_sha256": "601b6e974ed1adea16ff7558d83e0e00d27f2f98c5a7601776ffb65396a74300"
+    },
+    "ui.0263": {
+      "text": "Allgemein",
+      "source_sha256": "c910d474dcd724bff83ddedeb06bf1eceaf9fb3af7c76bb282be057f36e6dffa"
+    },
+    "ui.0264": {
+      "text": "Dauerhafte eindeutige Kennung, beim ersten Speichern automatisch erzeugt; schreibgeschützt. Bestehende IDs und Verknüpfungen bleiben erhalten.",
+      "source_sha256": "e3ff89977f543d44ba6d30546196db058f0f2b1ac6ff62b2ff2873f0fd255fcc"
+    },
+    "ui.0265": {
+      "text": "Beim Speichern automatisch erzeugt",
+      "source_sha256": "1e4d7a9167cd51302c7c2387129f07c9f495d6ed9f27bfc55ce8a83c0ff1ebde"
+    },
+    "ui.0266": {
+      "text": "Erdgeschoss",
+      "source_sha256": "18c409c5e785af2146fcd72f5a6937fd11260b6731a19e33bbda8dfea3f02e29"
+    },
+    "ui.0267": {
+      "text": "Gruppe",
+      "source_sha256": "34ca0e76608842ff3e7d924a455a396a82f471052c15e3f2ed7f090ac702e5c1"
+    },
+    "ui.0268": {
+      "text": "Gruppe *",
+      "source_sha256": "d21b65a70a91452a43c659423dea895c42e7ab17d09739780b3260153c359c56"
+    },
+    "ui.0269": {
+      "text": "Gruppieren nach",
+      "source_sha256": "956a51f6b098a41b7c3108015f0790bb24af7693717b07cee39d5df6a5da1826"
+    },
+    "ui.0270": {
+      "text": "Gruppieren nach…",
+      "source_sha256": "29a70a08df91ac7a69b97767696401a374affd156f2d20664eaf12a5a9cf7b0b"
+    },
+    "ui.0271": {
+      "text": "Standort geführt eingeben…",
+      "source_sha256": "bee11a24fc4d643510a2b0ecb1049b19807ee2c0eccd3a12c145659d23f855df"
+    },
+    "ui.0272": {
+      "text": "HTTP-/HTTPS-Link öffnet Browser nur auf Anforderung. Kein automatischer Download oder Offlinezugriff.",
+      "source_sha256": "a73b275c2e37226d62ec31748d1c86dd0b0e35a4be75ef339471eb237d27173b"
+    },
+    "ui.0273": {
+      "text": "Hardware und Standort",
+      "source_sha256": "b20b9305cecfc72b8d70c9cd371589964df2bf432281cab2840c1cb184bd2fed"
+    },
+    "ui.0274": {
+      "text": "Hardwareinventar",
+      "source_sha256": "c03c9f7e804b51da0143abd1d510efd84adf7d9d0d5c9b2ddd460a4b0928c5bf"
+    },
+    "ui.0275": {
+      "text": "Ende Hardware-Service",
+      "source_sha256": "6afa5fd507954939af2c748c5ebe9ed00baa3da18b2e7d13aa4190182755e462"
+    },
+    "ui.0276": {
+      "text": "Höhe ist unabhängig von Geschossnamen und X/Y-Position. Tatsächliche Bezugsebene wählen.",
+      "source_sha256": "51444c6224d7a937e2deff72b7498787adec603f86cfaab3a095a65e18f470c3"
+    },
+    "ui.0277": {
+      "text": "Höhenbezug",
+      "source_sha256": "46a17920c672c20e353b71065f297dcead188569be2e7b78034da43e02763d1e"
+    },
+    "ui.0278": {
+      "text": "Höhe: Zahl zwischen 0 und 10000 Metern mit Komma oder Punkt eingeben.",
+      "source_sha256": "798da07377748737b3bc1d861212e88b8b4203be447f39962e82400b4b627143"
+    },
+    "ui.0279": {
+      "text": "Hostname",
+      "source_sha256": "2db533557011ec539fc4c6604367e99cbb77c0a49b8b73b655841d3ee08f4f3e"
+    },
+    "ui.0280": {
+      "text": "Hostname: gültige DNS-Teile mit Buchstaben, Ziffern und Bindestrichen verwenden.",
+      "source_sha256": "db8150c08d371bfc7359c577741eeb523541fff47af5723f3d4f0fa994d110d7"
+    },
+    "ui.0281": {
+      "text": "Hausnummer",
+      "source_sha256": "b9115fb3a52fbcf09cde4ba2522a083cfefdfa9432d21c8f966b8f816dc51f57"
+    },
+    "ui.0282": {
+      "text": "Ich habe Variante, Klassifikation, Rollen und Lebenszyklusdaten geprüft.",
+      "source_sha256": "7c431ffb5c0bacc3fa4422ffe4346422c35be332d12c0b26688e31f97924ae32"
+    },
+    "ui.0283": {
+      "text": "IP-Adressen",
+      "source_sha256": "5cd222d9b3a7504e8d849f4cd6814d47426d0bc8b60e8219795841d2c4a45a9e"
+    },
+    "ui.0284": {
+      "text": "Änderungen in diesem Formular ignorieren. Das gespeicherte Gerät wird nicht gelöscht.",
+      "source_sha256": "2da11b89c76ef1e0383ec81a9442f1564db975bec6fee47bbe67b364a2ae4513"
+    },
+    "ui.0285": {
+      "text": "Bilder (*.jpg *.jpeg *.png)",
+      "source_sha256": "060fb13881c3be4dac08c0766db8e0ef8866b141cd038e0126074027914ba32b"
+    },
+    "ui.0286": {
+      "text": "Verwendet",
+      "source_sha256": "750af77aa42eea62726061b574cf8ab011cf3f7f60926532aad4b0da028ed046"
+    },
+    "ui.0287": {
+      "text": "Individuelle Garantie kann nicht über Modellprofile geteilt werden.",
+      "source_sha256": "dd4aaed46fff3b9c7af6bae2bd56b35419b62829a0adf80b27017374ebfbca48"
+    },
+    "ui.0288": {
+      "text": "Info",
+      "source_sha256": "170322a32f3c35b2c61576a5553d352d7b3c8ae7086dab78f15fc891a28c067c"
+    },
+    "ui.0289": {
+      "text": "Informationsquelle",
+      "source_sha256": "cce9ae2a598b24c7bf5af3dca4f0d56bbb2bf44c9215b5089c0cc4a0de1d2d19"
+    },
+    "ui.0290": {
+      "text": "Informationsquelle *",
+      "source_sha256": "9fd5e00ba347b4e9dcbfcfb9a5f1dc902ac413fe681b90d79d93d114a9d1d605"
+    },
+    "ui.0291": {
+      "text": "Informationsquelle / Notizen",
+      "source_sha256": "1aec39495012083bd17bc453c2c524ef52eb13b011fcfae39463315862a74cb8"
+    },
+    "ui.0292": {
+      "text": "Informationsquelle / Notizen (oder gewählte Quellen) *",
+      "source_sha256": "bd161a1c20112c72b7c4941ad3e07ea02e613b4b52556ca28b804efa54a0a71f"
+    },
+    "ui.0293": {
+      "text": "Quelle für bekannte Software oder nicht zutreffenden Status erforderlich.",
+      "source_sha256": "194b1826e28e6bb18609f42f5f88586a6b3712b6e966b6fe8feda5281f8519dd"
+    },
+    "ui.0294": {
+      "text": "Informationsquelle für {0}-Verbindungen erforderlich.",
+      "source_sha256": "b435505c9704d4336762d8f3ad8699be226e8a63ffad3dc7483e59dd362eb642"
+    },
+    "ui.0295": {
+      "text": "Inbetriebnahmedatum",
+      "source_sha256": "d98436515131aa510f6ae083a1065651717edd036b3f809cc8633acbdb301e08"
+    },
+    "ui.0296": {
+      "text": "Installierte Betriebssystem- und Firmwareversionen",
+      "source_sha256": "c4372d79ea284128f59c219fed906021a4929536e7019a1ad4beeb1016f92585"
+    },
+    "ui.0297": {
+      "text": "Installiertes Betriebssystem/Distribution, etwa arch linux oder proxmox ve. Ein aktuelles OS, kein Dual-Boot-Verlauf.",
+      "source_sha256": "41a0a86e4a0f17eeae09ce02a6c1398547db666b3dbd2720f5de64499173e2db"
+    },
+    "ui.0298": {
+      "text": "Schnittstelle / Port",
+      "source_sha256": "7c3967fe9d130d4b7320bb54c1db44e33acc6b74d6a69e5d9c1e9cca03597cc4"
+    },
+    "ui.0299": {
+      "text": "Schnittstellenkennung gehört zu einem anderen Gerät.",
+      "source_sha256": "016efe1e2e6ce886bb3ec66067b50bc37640a9f780a9af48b063be1dec431cb2"
+    },
+    "ui.0300": {
+      "text": "Schnittstellenbezeichnungen müssen im Gerät eindeutig sein.",
+      "source_sha256": "9691a7c58302c560d0f1b53b7e9b963a1a7a3e5a42046cdae04cb5896459aa21"
+    },
+    "ui.0301": {
+      "text": "Ungültige Lebenszyklusbeobachtung.",
+      "source_sha256": "8f2a420eceab934d37361f778a75c3b80837c47ff5669c4ce85e927271869468"
+    },
+    "ui.0302": {
+      "text": "Ungültige oder doppelte Schnittstellenkennung.",
+      "source_sha256": "131906825fc1c4333dc75b224749eb7e2191505c199a3c3fc854eb626cfdfb22"
+    },
+    "ui.0303": {
+      "text": "JPEG / PNG • bis 25 MiB und 16 Megapixel. Anhänge werden sofort gespeichert. Doppelklick zum Öffnen.",
+      "source_sha256": "fdad08324136cf2fc8a5550c40de25461fe04e26bd12aec31d81efb75f5b8768"
+    },
+    "ui.0304": {
+      "text": "Gerät behalten",
+      "source_sha256": "bd99aeb8789b771f6237b6948d08427e93bbdb7c40e8b714614c610792d7a0c0"
+    },
+    "ui.0305": {
+      "text": "Weiter bearbeiten",
+      "source_sha256": "e76fd2add01005ae11754d75ec97923c1a20a5f42e37d469c80f06a14e433511"
+    },
+    "ui.0306": {
+      "text": "Standortwerte von vor diesem Dialog behalten.",
+      "source_sha256": "8122c7d99473d9973952eb7fc306e2033e945e1168dc75b8fe55193c9239cf80"
+    },
+    "ui.0307": {
+      "text": "Bekannt",
+      "source_sha256": "19984a437f318d8a4b23feb8b9e8c999b3a26a480bb7e279d80397e62e2cf56d"
+    },
+    "ui.0308": {
+      "text": "Sprache",
+      "source_sha256": "a4fe65264ef7dbb38d104b1e81eb3350f3142f3d16f32bdec39b1d9b42c1b8d1"
+    },
+    "ui.0309": {
+      "text": "Sprachcode",
+      "source_sha256": "26dec0a3e684adcf07e3e0576994d548b4cc3cecb269965be01eb311509a5ad8"
+    },
+    "ui.0310": {
+      "text": "Bibliothekseinträge werden sofort gespeichert. Überarbeitungen erzeugen neue Einträge; alte Quellen/Zuordnungen bleiben. Zuordnungen mit Gerät speichern.",
+      "source_sha256": "f5dc7fa9a7d7924ab94c8d07d5830468b411c6b082855eafadb10003f3b89c7a"
+    },
+    "ui.0311": {
+      "text": "Quellen werden sofort gespeichert. Revisionen erzeugen einen neuen Eintrag; alte Quellen und Zuordnungen bleiben erhalten. Zuordnungen werden mit dem übergeordneten Formular gespeichert.",
+      "source_sha256": "4542ffe2e306b4ecbd517733dc90f9ac7c8a9de515e547e9b18053f984da8eae"
+    },
+    "ui.0312": {
+      "text": "Lizenz",
+      "source_sha256": "c011d6097bfbc8e936280addcf2e3e7d06ea2223ffd596973191b800a7035c32"
+    },
+    "ui.0313": {
+      "text": "Lebenszyklusdatum",
+      "source_sha256": "bf6581ff2d64232d2271ab0715eea593fba1f6fa6ad4027a9cf943b647d0978a"
+    },
+    "ui.0314": {
+      "text": "Lebenszyklusdaten",
+      "source_sha256": "3bde4642a8d5f2d501bd118171c1ad7db45172f6612d23b269c14b354973d918"
+    },
+    "ui.0315": {
+      "text": "Lebenszyklusdaten extern geändert. Verwerfen und vor Bearbeitung aktualisieren.",
+      "source_sha256": "5eb8704bd9518171129a7650e7fabafa8c2682572ec8d73d01b4597e6b3c0b32"
+    },
+    "ui.0316": {
+      "text": "Lebenszyklushinweise",
+      "source_sha256": "a4a9c2ac00c9500f8cc05454b2080ebeea9306d3b4d765cdcb75b01b5f849f1e"
+    },
+    "ui.0317": {
+      "text": "Lebenszyklusstatus, etwa in use oder spare. Getrennt von physischem Zustand und Stromstatus.",
+      "source_sha256": "c82385482ebe52b0f38b65903f75aa6b41702d9c8228ecd4f2da5a1e9dcc6fca"
+    },
+    "ui.0318": {
+      "text": "Verbindungsrate (Mbit/s)",
+      "source_sha256": "d58e1ea3b6b76c50f5dc28f47df8498921a0a30dc77933fe750c384a6fe1386c"
+    },
+    "ui.0319": {
+      "text": "Lokale PDF",
+      "source_sha256": "5564523ea0f393fb7e97f4db5498ed7b995610a969bb3b5360b6e42df26ee8fc"
+    },
+    "ui.0320": {
+      "text": "Lokale Gerätedaten • Daten, Lebenszyklus und Zustand",
+      "source_sha256": "35f62b8285268990a6deb242f88b58353b7f9cb65917bb4d21277c616cfc8d0c"
+    },
+    "ui.0321": {
+      "text": "Lokale Datei",
+      "source_sha256": "f6ecab8105350004d1c9be288b7a35b9ee7b80cd9f6e77303384788cb540f5f8"
+    },
+    "ui.0322": {
+      "text": "Lokales Offline-Hardwareinventar",
+      "source_sha256": "350bb3ecdea89e2c55bf6ca7c36ef2b919532c3c682f684ddbcf99a94162f3c0"
+    },
+    "ui.0323": {
+      "text": "Standort",
+      "source_sha256": "15b61974b2707a7b3d4201385e0f01f4ff5eb1f17c5639d98788ee5add2025cd"
+    },
+    "ui.0324": {
+      "text": "Standort wurde außerhalb des Formulars geändert. Abbrechen und vor erneutem Bearbeiten aktualisieren.",
+      "source_sha256": "23fa8ecb97e17854483cc6fec257feae85d116a3c2e25efa2b965ad0c27e7e2e"
+    },
+    "ui.0325": {
+      "text": "Standortangaben prüfen.",
+      "source_sha256": "bcf44a5d08be6ae889335a5651300259eb1384c62acb12a531e6909fbebfb0f8"
+    },
+    "ui.0326": {
+      "text": "Standortfelder müssen einzeiliger Text sein.",
+      "source_sha256": "95eb3d5f2238594bddd9b8c23d8cc6a8fe2c032332f2c4dc54665c75dd74f970"
+    },
+    "ui.0327": {
+      "text": "Standortfelder dürfen höchstens 200 Zeichen enthalten.",
+      "source_sha256": "9f5b570831e9a862c39d7a0ee5dd998442e420b4094a2f8fa27266c8d19a7628"
+    },
+    "ui.0328": {
+      "text": "Standortvorschau",
+      "source_sha256": "66301aac906040acbc52033e8894cc65f95c3a140e0b3949bd2ceac64244a7f5"
+    },
+    "ui.0329": {
+      "text": "Standortstatus",
+      "source_sha256": "8d8d75c1a18d195843dada50c941d0c1416214b0c37e408d4fb56da09f9d7a7e"
+    },
+    "ui.0330": {
+      "text": "Standorttext / zusätzliche Beschreibung",
+      "source_sha256": "5c5fa5fab95c07314aa55c7bf798d375affdca9cdd039b97a7bede29a164c29a"
+    },
+    "ui.0331": {
+      "text": "Standort: eine Textzeile mit höchstens 200 Zeichen.",
+      "source_sha256": "b26c5374314b956b8ff8b9db60f6f92b3c6252989744b96a4f3b33ad97a2fc5d"
+    },
+    "ui.0332": {
+      "text": "Auswahlname in Kleinbuchstaben",
+      "source_sha256": "800a4a2d143099f5bbb7ab01d8651cb9a6cd3156489e0670acd9f93229c7fa7f"
+    },
+    "ui.0333": {
+      "text": "MAC-Adresse",
+      "source_sha256": "000a6ce60a8e48e3e5f0089004a301efd34e53067fc1d29547d138639055221c"
+    },
+    "ui.0334": {
+      "text": "MAC-Adresse darf weder nur Nullen noch Broadcastadresse sein.",
+      "source_sha256": "9751073956a19b99d1008c2ffafaba79140e7093198f0e470574dea8d1fd3dcb"
+    },
+    "ui.0335": {
+      "text": "MAC-Adresse: sechs hexadezimale Oktette, etwa 02:00:00:00:00:01; unbekannt leer lassen.",
+      "source_sha256": "60b4ddda2b4855cc9c71eef4cffec94281c579b282cce294d9fa1496e02c2d49"
+    },
+    "ui.0336": {
+      "text": "MAC-Adressen",
+      "source_sha256": "b57d3439628c8bd3611992a83c72e67ec555182878258da6ea8ca33e4e09881a"
+    },
+    "ui.0337": {
+      "text": "Verbindungsauswahl verwalten",
+      "source_sha256": "487702bceb5562305a4cd1141c044be5d650b5930208cb32b27e6ab2ae22b277"
+    },
+    "ui.0338": {
+      "text": "Verbindungsauswahl verwalten…",
+      "source_sha256": "f619f5f27de9be5aee1d45bffc8f109ce2090b80dad936dd8cba7a143a4ba5bb"
+    },
+    "ui.0339": {
+      "text": "Gerätetypen verwalten",
+      "source_sha256": "e8d47942dca5b7bff6c5541e20462d390f379543ed212ee8a3504c5ebcb17fa5"
+    },
+    "ui.0340": {
+      "text": "Typen verwalten",
+      "source_sha256": "eae8d1114d27a4af5538c3e16622d8af1fc41a83c2896312f3269aaa899380bf"
+    },
+    "ui.0341": {
+      "text": "Handbuch während Import geändert; erneut versuchen.",
+      "source_sha256": "301af102e1d0de8f6258672af04b88bed011cac9346c8483a9037b9adef751d5"
+    },
+    "ui.0342": {
+      "text": "Handbuchdatei fehlt/verändert. Aus vollständiger Sicherung wiederherstellen.",
+      "source_sha256": "b1c09a9d91436d0f164d07f541a33a5ead4ca6c28effc34b61f00e1d2d1d0d8c"
+    },
+    "ui.0343": {
+      "text": "Handbuchordner",
+      "source_sha256": "959da183911af3df06332254e88e3c775d889ffa2d112875380235cd71e37254"
+    },
+    "ui.0344": {
+      "text": "Handbuchverweis außerhalb geändert; aktualisieren und erneut versuchen.",
+      "source_sha256": "2e72496d7a83144e72d36b93af5755abdfd961652b90b0e642baa8497e189cf2"
+    },
+    "ui.0345": {
+      "text": "Handbuchverweis gespeichert.",
+      "source_sha256": "34ec388d9a944d66b7af9b7414b99d7dfe57c4ea329d296efd21c7ed1826f3d4"
+    },
+    "ui.0346": {
+      "text": "Handbuchverweis gespeichert. Vollständige Sicherung enthält lokale PDFs.",
+      "source_sha256": "8c7a49846aea026a9b5db80b160775aa337c969d88a6c4d286609c9ae77c09a8"
+    },
+    "ui.0347": {
+      "text": "Handbuchtitel und Quelle erforderlich.",
+      "source_sha256": "64e3176f8c74919ee978b3c91e7dac67612f2919999231f0292a6b72d35cc3a1"
+    },
+    "ui.0348": {
+      "text": "Handbücher und Verweise",
+      "source_sha256": "3b238c3b8ee693d28c84b84ca39178ed8d6f7b435448668280aa8dce06e6f21c"
+    },
+    "ui.0349": {
+      "text": "Handbücher dieses Geräts: hinzufügen, Metadaten ändern, öffnen, entfernen. Dateien außerhalb SQLite.",
+      "source_sha256": "2e6dbf61868178416b2343bcd1a7d5039ecf652d3b0edc466f459bd41436f7ca"
+    },
+    "ui.0350": {
+      "text": "Hersteller",
+      "source_sha256": "1af384c577f294d4164a7ea49f3021259e2b92802eac577722d14066b2bbd5ce"
+    },
+    "ui.0351": {
+      "text": "Hersteller, Modell und Seriennummer müssen einzeiliger druckbarer Text mit höchstens 200 Zeichen sein.",
+      "source_sha256": "86800453d739a07a5c6e2dbda31630eaa124035f17d9e4f6cc1d60efd43ea7e6"
+    },
+    "ui.0352": {
+      "text": "Markteinführungsdatum",
+      "source_sha256": "7875e55ff9c7b213dc6bb9018188e5b92a895137cf810fad181d8f1643aa8beb"
+    },
+    "ui.0353": {
+      "text": "Verbindungsbeleg fehlt",
+      "source_sha256": "be8436f40a5dc21d33e74abe4306ef7478eb0043fe76722fc75ec79676705cdd"
+    },
+    "ui.0354": {
+      "text": "Modell",
+      "source_sha256": "5e2c614c23f02239bc03c6c04fcb681950f9e72bf8fdff6be79c79841cbb10c0"
+    },
+    "ui.0355": {
+      "text": "Modellgültigkeit",
+      "source_sha256": "d87b56e3ec6742ca501578602970040aa807cdfa3319065d0501661527e99437"
+    },
+    "ui.0356": {
+      "text": "Modellnachweis",
+      "source_sha256": "be555042b4687b2010fd35acd733df25f406ce9ed936869c0e51892cee9cfac4"
+    },
+    "ui.0357": {
+      "text": "Modellbibliothek wird sofort mit vollständiger Sicherung gespeichert. Geräteänderungen erst mit Gerät speichern.",
+      "source_sha256": "25ac9bc60b6c8d5d23c38d9d93c6e8c0def63abf4bc573760fd491a5ee7a3507"
+    },
+    "ui.0358": {
+      "text": "Modelllebenszyklus benötigt Hersteller und exaktes Modell in Anbieter und Produkt.",
+      "source_sha256": "d6c2ce7cacd8d44afa3c5c9d451b56bfe65244c119e09f335576f18e963f8c10"
+    },
+    "ui.0359": {
+      "text": "Modellprofil geändert; Katalog erneut öffnen.",
+      "source_sha256": "65a88f9920baef5096db5dd05e901af7f29e02b805c13e448332b2f779d7b673"
+    },
+    "ui.0360": {
+      "text": "Modellvorschlag im Formular übernommen. Prüfen und Gerät speichern; Abbrechen stellt den gespeicherten Stand wieder her.",
+      "source_sha256": "fbac6f2b3eff82f77c41777e890531023ed5dc5a957aedb8323215d4d533a437"
+    },
+    "ui.0361": {
+      "text": "Modellvorschläge",
+      "source_sha256": "f35fc5da991a69e4175d70b5b8527d39830d6a83698255dccef97dfa8a14770b"
+    },
+    "ui.0362": {
+      "text": "Modellvorschläge…",
+      "source_sha256": "1abd25a74c7edeaf28a3b24f149f3c59d290943b38d186ba565599e056a61ce1"
+    },
+    "ui.0363": {
+      "text": "Passende Modelle, falls bekannt",
+      "source_sha256": "72a73c55fe956aae41bf169385b82cb7cd356dadaddccfd53c32a40afc61f2e6"
+    },
+    "ui.0364": {
+      "text": "Monat",
+      "source_sha256": "310ca503ef36f177ddbc760463fcaec1edc6eca12bfd590ad7bb244b31e59543"
+    },
+    "ui.0365": {
+      "text": "Montagehöhe (m)",
+      "source_sha256": "0fbdbe5572574154edf0a23fd4a5210e7d1dcfabaa5a447f6779df3a96164adf"
+    },
+    "ui.0366": {
+      "text": "Nach unten",
+      "source_sha256": "40bb50da160cdc21d6029a927b68f92b07fd450688e609826cbc70d202db96da"
+    },
+    "ui.0367": {
+      "text": "Nach oben",
+      "source_sha256": "c66feb5eb8f217c76bfb0f1b41e3ee73ab41cb9959fae8284911bd3ad3816086"
+    },
+    "ui.0368": {
+      "text": "Mehrere Online-Links/lokale PDFs. Verweise sofort gespeichert. Doppelklick öffnet.",
+      "source_sha256": "7e64e57f9b66a060bce88e7354f6d8a5dc598279ff9632f519b75db50f10b500"
+    },
+    "ui.0369": {
+      "text": "Name",
+      "source_sha256": "dcd1d5223f73b3a965c07e3ff5dbee3eedcfedb806686a05b9b3868a2c3d6d50"
+    },
+    "ui.0370": {
+      "text": "Name *",
+      "source_sha256": "862fead051bea9adb92ca8cf3072881ddb026425b8f47b4acf86644b83cd940e"
+    },
+    "ui.0371": {
+      "text": "Name darf keine Steuerzeichen oder Zeilenumbrüche enthalten.",
+      "source_sha256": "9e2cf1442f6d266f1e78ed00c9916636445656b909c5e419490375434169c6d5"
+    },
+    "ui.0372": {
+      "text": "Namensprüfung nicht verfügbar; Speichern prüft erneut.",
+      "source_sha256": "3ee1a6a170569bbcf0969266228a6a3f2fea63ec9bd84f9f17607d11fe8cc428"
+    },
+    "ui.0373": {
+      "text": "Name darf höchstens 100 Zeichen lang sein.",
+      "source_sha256": "f3a6db1b23468fc970f5b167225361c77ef73a5ce4a245cb5d7c62c4b45c3f4c"
+    },
+    "ui.0374": {
+      "text": "Typauswahl eingrenzen. Gruppe allein nicht gespeichert; Typ wählen oder unbekannt lassen.",
+      "source_sha256": "dba9014b9ab3a4b0ae839f9a0bc1f007625ebf02b9885a3db5243948acda96cd"
+    },
+    "ui.0375": {
+      "text": "Netzwerk und Verbindungen",
+      "source_sha256": "4cfc4f2e394e71aef27a8aa74f84763fd680ce5054db8c1cf80bdc3b36d44898"
+    },
+    "ui.0376": {
+      "text": "Netzwerkverbindungen",
+      "source_sha256": "95816e4a4712a7fde7dba36a8d941889f5fb9944406923d8b4bd63e22ea78793"
+    },
+    "ui.0377": {
+      "text": "Netzwerkverbindungen…",
+      "source_sha256": "506de0f1952b59c1d27efd0444b8f491ed75ef0082827d9340280f45f366a88e"
+    },
+    "ui.0378": {
+      "text": "Netzwerkdaten wurden außerhalb geändert. Abbrechen und neu laden.",
+      "source_sha256": "f41be0535713eb82b0e60b8853e6d9eab1a0a3ed8a9b0b8422864e6b283d1f03"
+    },
+    "ui.0379": {
+      "text": "Netzwerkidentität",
+      "source_sha256": "259d70760da25e921c42700d9779c289700dfbb52a06391752c45a2a7eb00e39"
+    },
+    "ui.0380": {
+      "text": "Netzwerk-Beobachtungsdatum muss gültig sein.",
+      "source_sha256": "b5d632ae53e71d224fc31163efaf48f55f08caf066d87a92512fea33b01a4d54"
+    },
+    "ui.0381": {
+      "text": "Neue Auswahl",
+      "source_sha256": "6fcb3c16881d27fa0f3f35895256023dc7a8c318d13d83d198d2690d8571c30b"
+    },
+    "ui.0382": {
+      "text": "Neues Gerät",
+      "source_sha256": "30d01a64f9a923c9e8391b7d479b6669e9e62acfed76ab3e539b301eb37acd11"
+    },
+    "ui.0383": {
+      "text": "Neuer Standort…",
+      "source_sha256": "a0f25c4ad4d1dbfe12c663cd4ca7808b5eb51f27120d9138e8eed9c357217103"
+    },
+    "ui.0384": {
+      "text": "Neuer Typ",
+      "source_sha256": "2c0e61acb3c791188e556c5e0af7f8243342e4a50721c92529074c7c00eabec3"
+    },
+    "ui.0385": {
+      "text": "Nein",
+      "source_sha256": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d"
+    },
+    "ui.0386": {
+      "text": "Kein doppelter Name gefunden.",
+      "source_sha256": "fdc5cde7c33c5c4c78b0fb62f8ff1d00c9103f9f09b1bd6dab65c037cafb66c4"
+    },
+    "ui.0387": {
+      "text": "Keine Belegquelle gewählt. Diese ungeprüfte Verbindung trotzdem speichern?",
+      "source_sha256": "e16c5fac615977d15cca06307488e7857d307f02fd2a0a746964058e97d76b5b"
+    },
+    "ui.0388": {
+      "text": "Keine Treffer",
+      "source_sha256": "2df01a03ff43400b2c833c81b6240c1878abdfc99b258c624bc1605329255f6f"
+    },
+    "ui.0389": {
+      "text": "Kein Netzwerkdienst oder Cloud-Konto erforderlich.",
+      "source_sha256": "cd0973f8860bfdc082bcb7fbefa82b1f34663df0fef06e107168a265350022e4"
+    },
+    "ui.0390": {
+      "text": "Keine neuere veröffentlichte lokale Version.",
+      "source_sha256": "6498680eacf2bfd8fd4434015177fe0e4b0205506ee666179d8f6d6c24a150be"
+    },
+    "ui.0391": {
+      "text": "Kein privater Arbeitsbereich installiert. Zuerst Install HWI4U ausführen.",
+      "source_sha256": "5a3ebf399a5ae4320ad3f674e3adeb07fc2a94f27eee3bfa902d1386d0bcadef"
+    },
+    "ui.0392": {
+      "text": "Keine Einschränkung",
+      "source_sha256": "9e5efbd03fc098f49cefcd2bc8a595b110f0d9f7b9ff466e04d1411d056abad9"
+    },
+    "ui.0393": {
+      "text": "Kein geprüftes Modellprofil passt. Aktuelle belegte Werte können als wiederverwendbares Profil gespeichert werden.",
+      "source_sha256": "c22343d9f2054d3c73ac4f65b53f0ceeb380dd56b8fe7abf154e12a5660f5a34"
+    },
+    "ui.0394": {
+      "text": "Keine Quellen ausgewählt",
+      "source_sha256": "434ec36b5d0be61d261a01fd19a18839486fa0c0e1a76528880ed684f6024a67"
+    },
+    "ui.0395": {
+      "text": "Ohne unterstützte Fähigkeiten keine verwendeten Fähigkeiten.",
+      "source_sha256": "f25929e8d76b0f11fb8df49b90a4dae796611294834902a0d11b7d6fa3181bc4"
+    },
+    "ui.0396": {
+      "text": "Kein freier zweistelliger Typcode mehr vorhanden.",
+      "source_sha256": "13acfd9b0c6853daf307480b79bba842636cf59b972e36d5f61c53354f0d1e95"
+    },
+    "ui.0397": {
+      "text": "Nicht zutreffend / tragbar",
+      "source_sha256": "7308c12f6779aa14803b8b2ba8f4b7a22f4ca6f59162da782481b9589a45ce7d"
+    },
+    "ui.0398": {
+      "text": "Notizen",
+      "source_sha256": "8a7525b1492fb84833f5c4a69b30f4bfbb134f9b666b61a2c1872d63d234c085"
+    },
+    "ui.0399": {
+      "text": "Kein automatisches Datum. Geprüfte Beobachtungen benötigen geprüfte datierte Quellen. Software benötigt Anbieter, Produkt und Version; Hardware-Service und Garantie einen klaren Gültigkeitsbereich.",
+      "source_sha256": "9a3fa2aa18850521b73f2dfb9c1ba59227ee83c1fbaf55f6222b7e2a494552cc"
+    },
+    "ui.0400": {
+      "text": "OK",
+      "source_sha256": "565339bc4d33d72817b583024112eb7f5cdf3e5eef0252d6ec1b9c9a94e12bb3"
+    },
+    "ui.0401": {
+      "text": "Betriebssystemfamilie",
+      "source_sha256": "49dfe29880d05fa049e00a145c35fc0829e3b40e2fe3288aec141462b836a004"
+    },
+    "ui.0402": {
+      "text": "Betriebssystemname / Distribution",
+      "source_sha256": "a1f05ba9e7e3501abf9ba9ebc158fcada1e59ac2c7355f079499f99e40e2c35a"
+    },
+    "ui.0403": {
+      "text": "Ende OS-Sicherheitsupdates",
+      "source_sha256": "716e079cdc63750a822b01e33691b935903207be56cb5032888d3a483e6deb13"
+    },
+    "ui.0404": {
+      "text": "Betriebssystemversion",
+      "source_sha256": "fa3b88d6bda8bb935fe2c99902e9af206574938de876ed354ed02b154369e557"
+    },
+    "ui.0405": {
+      "text": "Beobachtung",
+      "source_sha256": "d239e9cf6a51335bf996fc5db77623d8be287e8b4d8e1cd1be3a0e00c8bbfe57"
+    },
+    "ui.0406": {
+      "text": "Beobachtung / Notizen",
+      "source_sha256": "aed04bc93f39ba7972f08eb79f5f39ee8bbdc87767c17d288984142c158a0614"
+    },
+    "ui.0407": {
+      "text": "Beobachtet",
+      "source_sha256": "64fa8a14a90feef5d86951352195391dfead1194f932aaed0755021c504e2a15"
+    },
+    "ui.0408": {
+      "text": "Beobachtet / abgerufen am",
+      "source_sha256": "db74e23c98d18095eed1a2e4bb2403e378949ac674e999dcce1f917e4c6aed43"
+    },
+    "ui.0409": {
+      "text": "Beobachtet bedeutet zu einem Zeitpunkt gemeldet, nicht gerade online. Geplante Verbindungen sind nicht installiert.",
+      "source_sha256": "81870e4a7f9a6d77dd736696ff9b6aeba13b7434ac7ef576dbcaebff9a59b577"
+    },
+    "ui.0410": {
+      "text": "Beobachtet am",
+      "source_sha256": "db022e9b83fb27dca0a3d1775995945793471e8c76c7f993ce7129c268823fb6"
+    },
+    "ui.0411": {
+      "text": "Beobachtete oder geplante Verbindungsrate in Mbit/s, kein gemessener Datendurchsatz. Bedeutung unter Notizen beschreiben.",
+      "source_sha256": "cd4f58391adad9a07e6036b13497aa00be30053b1abbbd85fc9fb7b8e10180f6"
+    },
+    "ui.0412": {
+      "text": "Ein aktuelles Betriebssystem pro Gerät. Unbekannt ist nicht nicht zutreffend. Firmware separat erfassbar.",
+      "source_sha256": "73d54ad97400036a18d3e9034af767cb0724cf17381c1148f4581e45ee58bd71"
+    },
+    "ui.0413": {
+      "text": "Ein physischer Gerätetyp. Gruppe folgt automatisch; Rolle und Baugruppe sind getrennt.",
+      "source_sha256": "37e9bd76c0acacf417af89685bb459090e0a61c3d26f37a258779fdc38788e99"
+    },
+    "ui.0414": {
+      "text": "Eine Zeile pro Schnittstelle, etwa igc0 oder WAN. MAC darf unbekannt sein. Mehrere IPv4-/IPv6-Adressen mit Komma, optional /Präfix. Gleiche IP auf verschiedenen Schnittstellen erlaubt.",
+      "source_sha256": "7d7b498352dc999ab7d15a248f3e6743edc0dadc7d963251a3ba8ce8cf11cca7"
+    },
+    "ui.0415": {
+      "text": "Online-URL",
+      "source_sha256": "73c3f5aa767d85c93e8030f752ffda2d2e576ab6885476c96b7ebfcb2d8f6060"
+    },
+    "ui.0416": {
+      "text": "Online-Link",
+      "source_sha256": "2dc8829c2e52f0fb24578156d5d4909fb1b87f6462d6a4d6d61f38e3da1dc88b"
+    },
+    "ui.0417": {
+      "text": "Online-Link oder lokale PDF. Art bleibt gespeichert; zum Wechsel neuen Verweis anlegen.",
+      "source_sha256": "d0086a58ac55a4b5c088390de6f2c86d294902346ea4464dd0f87c3253b570f0"
+    },
+    "ui.0418": {
+      "text": "Öffnen",
+      "source_sha256": "ed077f3d8125d60dca1979c7133601bd187d47c73ed9975028f677e49e709942"
+    },
+    "ui.0419": {
+      "text": "Bild öffnen",
+      "source_sha256": "1b5fe59610ba676ee9eda4958e0e1b769268653f36911d799300df087700d0f0"
+    },
+    "ui.0420": {
+      "text": "Produktivclient öffnen",
+      "source_sha256": "c78d0512ac6029edd0d52428e247dd8097c6b90d3691ada67d0d0845faa4c342"
+    },
+    "ui.0421": {
+      "text": "Verweis öffnen",
+      "source_sha256": "7f9236300adcbcbecb3cc5dc465c743391d6a58b69d20010d8809aa3005fbb62"
+    },
+    "ui.0422": {
+      "text": "Quelle öffnen",
+      "source_sha256": "67a0d2e0dab41fca184a37454ca4e946011756ec7b74eede7810d7df89904a18"
+    },
+    "ui.0423": {
+      "text": "Testclient öffnen",
+      "source_sha256": "4f41f9c91f7bfbb229a68fb179629525bdadb0d108759db4dc84e1a7e83ffd69"
+    },
+    "ui.0424": {
+      "text": "Anderen Client in einem separaten Fenster öffnen. Ungespeicherte Eingaben bleiben hier; keine Daten werden kopiert.",
+      "source_sha256": "a8f44e7730315e9ea169cd87fe06148b4032b5acf7c08e0581edbebcc48bb3fa"
+    },
+    "ui.0425": {
+      "text": "Ausgewähltes Original im eingebauten Bildbetrachter öffnen.",
+      "source_sha256": "656a839cab5e6e6efea989aa8d9b568c469cd012e6064003cbe2a6113b1e3e71"
+    },
+    "ui.0426": {
+      "text": "Benutzeranleitung öffnen",
+      "source_sha256": "f761791637000ea0be5fb19897cbdf69ce32a9a93ac2d4e9b8976e92961e29b8"
+    },
+    "ui.0427": {
+      "text": "Betriebssystem",
+      "source_sha256": "0fcabfe6e097cd4064a08313b4b7da807f5ea3c59d056acc46289467bd2216e4"
+    },
+    "ui.0428": {
+      "text": "Optionales Gebäude oder Standort. Gespeicherten Ort verwenden oder neuen eingeben.",
+      "source_sha256": "bc82632d79d79da4f583c260ef01ec47a61f5ce8d9811ac30a7bd83c62db677e"
+    },
+    "ui.0429": {
+      "text": "Optionale Geschossbezeichnung, z. B. Keller, Erdgeschoss oder Obergeschoss.",
+      "source_sha256": "eff576539d42337a64e35e40eaf121923403c329f2ed7830a0e2f47c3cfc0570"
+    },
+    "ui.0430": {
+      "text": "Optionale Höhe in Metern von 0 bis 10000. 1.8 und 1,8 sind zulässig. Bezugsebene angeben.",
+      "source_sha256": "f7b96fb2b3ea6380abd5f621ddab60a95fccf6caf5acf97db06cc34a3c8eced4"
+    },
+    "ui.0431": {
+      "text": "Optionaler Hersteller oder Marke, bis 200 druckbare Zeichen. Unbekannt leer lassen; keine Ableitung aus Namen.",
+      "source_sha256": "228d6888a1343045efa8f2d9d6809659b32f23eeae7f3fbe78270353d2cc543e"
+    },
+    "ui.0432": {
+      "text": "Optionale Modellbezeichnung oder Modellcode, bis 200 druckbare Zeichen. Groß-/Kleinschreibung bleibt.",
+      "source_sha256": "64a5ce0c994ed5aaa0432ccbbab149249c851083953c94604ff636cb48416721"
+    },
+    "ui.0433": {
+      "text": "Optionale Notizen über Anwendbarkeit/Grenzen.",
+      "source_sha256": "ae5605aad373e1502c7a294726c1b4091f9712393d8b609628ced2fe3613e2b1"
+    },
+    "ui.0434": {
+      "text": "Optionaler physischer Standort, z. B. Gebäude / Raum / Rack / Regal. Unicode erlaubt; höchstens 200 Zeichen. Unbekanntes leer lassen. Keine Netzwerkadresse und kein Kaufort.",
+      "source_sha256": "1bc31398ddc9974d5abfdacabe2eee7a47d2da138fbee318099c2a6c0c831f4e"
+    },
+    "ui.0435": {
+      "text": "Optionale Platzierungshinweise. Bei Anderem Höhenbezug hier den Bezug beschreiben.",
+      "source_sha256": "02b58d0ef5a1b3e6f87d12afa3bc4335d2f9fedff978b79b475ec6c24aff0e81"
+    },
+    "ui.0436": {
+      "text": "Optionaler Raum. Unzutreffende Hierarchieebenen können entfallen.",
+      "source_sha256": "569087215fda2b0beac3812d0a99681acda4333c880ecb89a45e7474455ba87b"
+    },
+    "ui.0437": {
+      "text": "Optionale Seriennummer als Text, bis 200 druckbare Zeichen. Führende Nullen, Groß-/Kleinschreibung und innere Leerzeichen bleiben; äußere werden entfernt. Nicht global eindeutig.",
+      "source_sha256": "55784f78962e0988be13acd433bfa8f3aeb6eb7c38ff6ec7a4eb9d58744db319"
+    },
+    "ui.0438": {
+      "text": "Optionaler einzeiliger Unicode-Text, höchstens 200 Zeichen.",
+      "source_sha256": "83ff5035f234f01330825c2781bc77d2f28db984c1bb9174ba37fcfb7c4b608f"
+    },
+    "ui.0439": {
+      "text": "Optionale Werte bleiben unbekannt. Netzwerkänderungen mit Gerät speichern sichern; frühere Bewertungen bleiben im Beobachtungsverlauf.",
+      "source_sha256": "bde4db030abdc085749b6d1ef5e076fc0639ffa276d999ba783f72edf5798102"
+    },
+    "ui.0440": {
+      "text": "Herkunft",
+      "source_sha256": "572757b962fd92553752b947ee43b9765f66ec07a4d6e669664f1bb990a13c03"
+    },
+    "ui.0441": {
+      "text": "Originalbild • {0}",
+      "source_sha256": "77d8b59d00c20f3cc083022b67e7ec3d73fbc0c29816ef948601d7d209be9d20"
+    },
+    "ui.0442": {
+      "text": "Originalfoto fehlt oder wurde verändert. Aus vollständiger Sicherung wiederherstellen.",
+      "source_sha256": "6bc26c80157d9d6c4f798716b99fa3c63af6c5bac760fdbca31bca6a238b8c69"
+    },
+    "ui.0443": {
+      "text": "Sonstige",
+      "source_sha256": "f97e9da0e3b879f0a9df979ae260a5f7e1371edb127c1862d4f861981166cdc1"
+    },
+    "ui.0444": {
+      "text": "Anderer Höhenbezug",
+      "source_sha256": "831941d730082bae64cdf4a86753d049bcddf103d07be1e02be69a2cf98d0f74"
+    },
+    "ui.0445": {
+      "text": "PDF-Dokumente (*.pdf)",
+      "source_sha256": "f6f9cb0305552c3c30f61c4ffcc99e9c270ab1cc2bff4630f0faff49c73c6f28"
+    },
+    "ui.0446": {
+      "text": "Unvollständiges Datum",
+      "source_sha256": "df1cc74c352b3fbb25052c03b712e1200df83cf40fc94a4fffd3ca9e8bee1205"
+    },
+    "ui.0447": {
+      "text": "Foto",
+      "source_sha256": "d84eebada93efee12b029e5b61e4df3270f0356886ceaa44a78eb52166a8f312"
+    },
+    "ui.0448": {
+      "text": "Foto kopiert und angehängt. Vollständige Sicherung enthält Datenbank und Fotos zusammen.",
+      "source_sha256": "57948d73336c4a2cbd49a8214c5284c95b67bae261c6f36bb1d9cb6730d08630"
+    },
+    "ui.0449": {
+      "text": "Fotozuordnung entfernt; Dateien für ältere Sicherungen behalten.",
+      "source_sha256": "a8376e61d00b2838eaa05485f455fcdf4f5961b004386d24dd6b76724404d3de"
+    },
+    "ui.0450": {
+      "text": "Fotoangaben",
+      "source_sha256": "ce67350c463af233f62732a6acda98360e56354488354cf9d0ae76168f2661c1"
+    },
+    "ui.0451": {
+      "text": "Fotoordner",
+      "source_sha256": "6ae5c4d4331fa7801934bdc388f6df01d129bae37c37c70f873ec387815b41af"
+    },
+    "ui.0452": {
+      "text": "Quelle für das Foto erforderlich.",
+      "source_sha256": "5547f82e918d59da7b9754894c3e836e2b6c07cb1ba31ff85fcde36e9fdd75d4"
+    },
+    "ui.0453": {
+      "text": "Fotoliste nicht verfügbar: {0}",
+      "source_sha256": "e9f203133d00530a57395f33450535649c115e8aad19c1dfa794804af1fba2a0"
+    },
+    "ui.0454": {
+      "text": "Physischer Zustand",
+      "source_sha256": "0ce4ba71ed7aabb3d23566867d91f7b354ff76ebbe347191541ef5406cf8aca9"
+    },
+    "ui.0455": {
+      "text": "Die Platzierung gehört zu diesem Gerät. Andere Geräte bleiben unverändert. Standort übernehmen führt zum Geräteformular zurück; Gerät speichern schreibt in die Datenbank.",
+      "source_sha256": "09ae9df91d6be275d37bed3e61e54b94fceebc9efce0c9e4646c55ec26e1b781"
+    },
+    "ui.0456": {
+      "text": "Platzierungshinweise",
+      "source_sha256": "bfc82cbf76488eaea172fd093641f9a6b4f2af07470f7ff61b0852d9bd80bf42"
+    },
+    "ui.0457": {
+      "text": "Geplant",
+      "source_sha256": "fb6f7c93e6bf3dfac450d268bf57844ae92b9c93f7d027b07f715bfbc467d225"
+    },
+    "ui.0458": {
+      "text": "Position / Wand",
+      "source_sha256": "062ded692c3be61b2207982fb6b7c64058e849c254236cd9246fae20a28af8b4"
+    },
+    "ui.0459": {
+      "text": "Position nur für dieses Gerät, z. B. Nordwestwand oder Rackboden.",
+      "source_sha256": "d68c0f49e995bd7620b09053e90ea4deb7f9648e2b9013c6b8d1b0e4038a7092"
+    },
+    "ui.0460": {
+      "text": "Postleitzahl",
+      "source_sha256": "ae53cea8228bcfc350fef961189a32a592e06ccffa52a8b991f88841cbac8de4"
+    },
+    "ui.0461": {
+      "text": "Dieses Update aufschieben. Aktuellen Client und alle ungespeicherten Eingaben behalten.",
+      "source_sha256": "9f96e82fda3082cd46d97e5d942bb74c40aa3de599857445d68605525533c828"
+    },
+    "ui.0462": {
+      "text": "Bewahrter Quellentext",
+      "source_sha256": "9c8e0ed31a5a0d6eb995b8523bcfbcde2771ae314f586d03c50a06f80efd4b92"
+    },
+    "ui.0463": {
+      "text": "Preis: nichtnegativen Betrag mit Dezimalpunkt eingeben, z. B. 129.90.",
+      "source_sha256": "9dee59f58fd748850639ead41797f191d7a3811ace602301fa72c6310cab3c4f"
+    },
+    "ui.0464": {
+      "text": "Produkt / exaktes Modell",
+      "source_sha256": "7abf3885e4950e6577d9c7bc38afc082d5e6b3fa6b460c606f6f9c4d3b973f5f"
+    },
+    "ui.0465": {
+      "text": "Produktionsende",
+      "source_sha256": "2063bda7f62dd5532c4a50595e14d3a37d241adddbbd751b597ebcb62c2aafa2"
+    },
+    "ui.0466": {
+      "text": "Eigenschaft",
+      "source_sha256": "40040cb181f7f0ee5add2b52e8467c6652477f7ce12af39fe380b5084b64f4fe"
+    },
+    "ui.0467": {
+      "text": "Anbieter / Hersteller",
+      "source_sha256": "fd76e8c5a06b100c258b5e77b31e7fd46db6ce9501d4af31eef212dec696e589"
+    },
+    "ui.0468": {
+      "text": "Kauf und Lebenszyklus",
+      "source_sha256": "b22f192a41df4857ee1a1cb7baa8a68f3fa812ddde79b510059fff1f262a33fb"
+    },
+    "ui.0469": {
+      "text": "Kaufdatum",
+      "source_sha256": "e42377388901784ddbd7ab362b50a7d771b9c46944a00dbba3dc763b967e2c33"
+    },
+    "ui.0470": {
+      "text": "Kaufdatum liegt vor dem bestätigten Marktstart minus einem Kalenderjahr.",
+      "source_sha256": "860ad5955617f8c1af1d086a5a131285d896e833ae2a4f85386875789c48caab"
+    },
+    "ui.0471": {
+      "text": "Kaufpreis",
+      "source_sha256": "fae80868130d254522e7f6506eb291ed7143f734c54ef65244ffd6dcfb283f0b"
+    },
+    "ui.0472": {
+      "text": "Gekauft bei",
+      "source_sha256": "2fa24674f5e8cc69094ea84df2e32aaac38b89452b38fb8c0045e0553982a74b"
+    },
+    "ui.0473": {
+      "text": "Quartal",
+      "source_sha256": "b474b39788978476d0169f6a20b5969c77dbff51023090f66ce87912410324fb"
+    },
+    "ui.0474": {
+      "text": "HWI4U beenden",
+      "source_sha256": "cb0194f9570b53470eaf6b4575331231a481c48088afbb21464c9fbb8adbd09a"
+    },
+    "ui.0475": {
+      "text": "Empfohlene Belegquelle. Fehlt sie, erscheint eine Warnung; Speichern bleibt möglich.",
+      "source_sha256": "1f9e4a206c77ad3765c3b9e28ae83aca7428b5a5d88c9651ae39ec69a787e9ac"
+    },
+    "ui.0476": {
+      "text": "Quelle empfohlen; fehlende Angabe warnt, verhindert Speichern nicht",
+      "source_sha256": "5a7c6d78836cd622e367d20e949d46fd75a87195d5471867eac0f5a81a796251"
+    },
+    "ui.0477": {
+      "text": "Empfohlen: Geräteeinstellungen oder eigene Beobachtung",
+      "source_sha256": "5dfcbc1bc9f8222aec1ab0850f5c04953ec7b3c43b6fe3f39a75b36ca2c5093c"
+    },
+    "ui.0478": {
+      "text": "Installierte Version genau wie am Gerät erfassen. Unbekannt lassen, falls fehlt; keine Online-Aktualitätsprüfung.",
+      "source_sha256": "54f56ab0024f2dd9e391fb7dd1342e91745fe00b7dbb2a1387cc29c1eea604de"
+    },
+    "ui.0479": {
+      "text": "Erfasstes Betriebssystem benötigt Familie oder Namen.",
+      "source_sha256": "9ed1bdc78a72ee50389dc380792bcffc429a2bafbc22727a35985424619f3066"
+    },
+    "ui.0480": {
+      "text": "Erfasste Firmware benötigt eine Version.",
+      "source_sha256": "458c1fca40de5c43e1f22bde80dc1fe794d030779f68036c6d685f9c3832608f"
+    },
+    "ui.0481": {
+      "text": "Standort angegeben",
+      "source_sha256": "6451982beafb7c9500fb261ab0c195ca4594177ac2e74794b25464d70528544d"
+    },
+    "ui.0482": {
+      "text": "Dokumentierte Topologie, kein Live-Netzwerkscan. Geräteänderungen vor dem Öffnen speichern. Verbindung zum Bearbeiten doppelt anklicken.",
+      "source_sha256": "8a17b799b3dfcedcd32754b427cd487b26b455025f3aed2856ccd5499368f715"
+    },
+    "ui.0483": {
+      "text": "Verweis entfernt; verwaltete Dateien bleiben.",
+      "source_sha256": "08d1a85e518e206309a516278ba3197b9afc08e5875755b5cc1c81fe578375da"
+    },
+    "ui.0484": {
+      "text": "Verweisart",
+      "source_sha256": "338a98190f9459293fd27cc26c4e9162d4e90f39dde6deeebcd1d051138eb589"
+    },
+    "ui.0485": {
+      "text": "Verweise sofort gespeichert. Links nur auf Anforderung geöffnet, keine automatischen Downloads. Lokale PDFs werden kopiert.",
+      "source_sha256": "a2d4579ddf7cc432231b9f0bbe74e95454ca237ef3c2243a84cf7c4446353420"
+    },
+    "ui.0486": {
+      "text": "Aktualisieren",
+      "source_sha256": "0e91610117029a62a478b7fa7df0b8598bebe3ab1e192d4b1882e310719c9671"
+    },
+    "ui.0487": {
+      "text": "Testdaten erneuern",
+      "source_sha256": "c9ffe2269e69dbd00b3de44e19f91c6b89998aa2b406c3df85ecc6c222d8de65"
+    },
+    "ui.0488": {
+      "text": "Testdaten aus der Produktion erneuern? Aktuelle Teständerungen werden durch eine neue Kopie ersetzt. Die vorherige Testkopie bleibt erhalten. Produktion bleibt unverändert. Zuerst die TEST-Sitzung beenden.",
+      "source_sha256": "d74391c6c8a64962f826805c9c76b6c066208a7b232f080af58025953f20af2d"
+    },
+    "ui.0489": {
+      "text": "Versionsdatum",
+      "source_sha256": "bd84924cadae6df022f41e1c74309266d1a959ff770166799007f2fdeb233f7f"
+    },
+    "ui.0490": {
+      "text": "Gespeicherte Geräte und gemeinsame Auswahllisten neu laden.",
+      "source_sha256": "d6052acf551723647941aaef647f7dbebc12cbb8d462391acde85ec94e30827f"
+    },
+    "ui.0491": {
+      "text": "Entfernen",
+      "source_sha256": "c3812fc4acb861d5182fc2b8155f327f736fbe5e5eb86a7bd7afcb6dc5497282"
+    },
+    "ui.0492": {
+      "text": "Verbindung entfernen",
+      "source_sha256": "e9e9e26c6c2f83260e68a062f1cc0c8756c41463c1a8449ffbe079124fb11e20"
+    },
+    "ui.0493": {
+      "text": "Verbindung entfernen…",
+      "source_sha256": "6790c666511f3f98d6fc29bc9e9556dac5c8332fc679888bc5ee2e48d60fd1a0"
+    },
+    "ui.0494": {
+      "text": "Schnittstelle entfernen",
+      "source_sha256": "be7837cf3f3eb2ca4506fe7a6f064317ed5aa4a8b7fc10b40b47ce0f239fd255"
+    },
+    "ui.0495": {
+      "text": "Lebenszyklusdatum entfernen",
+      "source_sha256": "7e4ba4b054fc09922f6660f9a762a056ea16b8b80cbfb08e5cdc94a0340885ea"
+    },
+    "ui.0496": {
+      "text": "Vor dem Löschen dieses Geräts die Verbindungseinträge entfernen.",
+      "source_sha256": "a74894eaf99c990ad50547262f9ddf53fe9264f74afcad177e39758fd06116ca"
+    },
+    "ui.0497": {
+      "text": "Vor dem Entfernen dieser Schnittstelle die Verbindungseinträge entfernen.",
+      "source_sha256": "025b1678ca9ed7668920bdb3342bf387d379fe11b50991bef4a09cd79f824b57"
+    },
+    "ui.0498": {
+      "text": "Fotozuordnung entfernen; Dateien für alte Sicherungen und Quelldatei bleiben.",
+      "source_sha256": "d9fb2993f432250aa9397f28ba355e02a49f955e61284ad649eea3e9985a51b5"
+    },
+    "ui.0499": {
+      "text": "Fotozuordnung entfernen? Dateien bleiben für ältere Sicherungen erhalten.",
+      "source_sha256": "46abb76dab735e80f5fc2ea4f4cdc455f3557df68fd8aa481a010cd1f6557b14"
+    },
+    "ui.0500": {
+      "text": "Diesen Verbindungseintrag entfernen? Geräte bleiben unverändert; Verbindungshistorie bleibt erhalten.",
+      "source_sha256": "3644ecaed80db2dee5a145e1362e3513dd1dc9ff16aab91679df74fe5e32c5ea"
+    },
+    "ui.0501": {
+      "text": "Verweis entfernen? Lokale Dateien bleiben für ältere Sicherungen erhalten.",
+      "source_sha256": "c78cc0384960bf831f752d252bb0f307fb6f4b4b1674a8a2465ebd4704ae73b5"
+    },
+    "ui.0502": {
+      "text": "Diesen Typ für alle zugeordneten Geräte umbenennen oder verschieben?",
+      "source_sha256": "a275bfe75765b55eacf8fddfbc31332e18b0389ed4f808fb087576c966978bdd"
+    },
+    "ui.0503": {
+      "text": "Gemeinsame Auswahl umbenennen",
+      "source_sha256": "305e717aa023e260753d932a25ea1a85e13501937b37a6e8eac8f1a966ba6391"
+    },
+    "ui.0504": {
+      "text": "Umbenennen ändert die Auswahl für alle Geräte. Keine Schnittstellen-/Protokollkompatibilität wird abgeleitet.",
+      "source_sha256": "2824f428d74148ed1ac66cf2ec3718430ef74d2038e543665e5d71601cc70db4"
+    },
+    "ui.0505": {
+      "text": "Pflichtquelle dieses Datensatzes, etwa Typenschild, Rechnung oder eigene Angabe.",
+      "source_sha256": "7c6ad4faf721f6de1ad5292a4726f6a71913edbfc4c9702b0881de1733db20ee"
+    },
+    "ui.0506": {
+      "text": "Pflichtquelle: Herstellerseite, Originalbeilage oder tatsächliche Herkunft.",
+      "source_sha256": "c4eabe08c538bb1d0f3dfaaf249ff2de091c5840091b716aef68eb3fc8f55232"
+    },
+    "ui.0507": {
+      "text": "Erforderlich bei erfasster oder nicht zutreffender Software. Echte Einstellungen, Befehlsausgabe, Oberfläche oder dokumentierte Bewertung.",
+      "source_sha256": "dfa5cd8f7c3a2c4314a2c7267b4b272b4b893d9f655729dd56c788ef51530b18"
+    },
+    "ui.0508": {
+      "text": "Eindeutiger beschreibender Pflichtname. Maximal 100 Zeichen. Unicode einschließlich ungarischer/deutscher Akzente erlaubt. Groß-/Kleinschreibung und zusätzliche Leerzeichen unterscheiden keine Namen. Beispiel: backup-server-office-01. Vom Hostnamen getrennt.",
+      "source_sha256": "76742a76b9d1d1efc2404246e34ddc64042dd06467d8775d655e8da48fdf90c7"
+    },
+    "ui.0509": {
+      "text": "Erforderlich: Quellentext oben eingeben ODER unten mindestens eine Gerätequelle wählen.",
+      "source_sha256": "92d6050f0e82db5d8ed61d4688e9926c9fd2256f7ded6dee7a69d3211ef7043f"
+    },
+    "ui.0510": {
+      "text": "Standard wiederherstellen",
+      "source_sha256": "602f8e637002a585092d04310da6f16cba500d1940e4201239bb56e00314137a"
+    },
+    "ui.0511": {
+      "text": "Stillgelegt",
+      "source_sha256": "a9f71bc2404c91936d123fb820e9e9b75a47d292eed38e776df0dcf7a07b6ef2"
+    },
+    "ui.0512": {
+      "text": "Zum Formular zurückkehren, ohne Änderungen zu speichern oder zu verwerfen.",
+      "source_sha256": "ba5ac6a163248c32876be2b7e50f1f37e4eec32c39212ecbe402effff3ad6e4f"
+    },
+    "ui.0513": {
+      "text": "Vorhandenen Standort verwenden",
+      "source_sha256": "723f991bff97c5ba76367bfaacbe1ddd7cefff20cbd176d7994ac8c3cc391d34"
+    },
+    "ui.0514": {
+      "text": "Vorhandene Anleitung oder Foto wiederverwenden",
+      "source_sha256": "08114204574955a1775e72a6369b628bbde5cf35e06d5f64b35f3a13dd02ada8"
+    },
+    "ui.0515": {
+      "text": "Anleitung/Foto wiederverwenden…",
+      "source_sha256": "f52d4c2392113ac9af0271a141cba75b9cc14acf8f98d8cec3009e8c11711ead"
+    },
+    "ui.0516": {
+      "text": "Ausgewählten Verweis wiederverwenden",
+      "source_sha256": "6646723051f6b3fc837ee55b2a47c90d4891ddce0f47174d6315a598ae5c0413"
+    },
+    "ui.0517": {
+      "text": "Adresse, Gebäude, Geschoss und Raum wiederverwenden. Genaue Position gilt nur für dieses Gerät. Vorhandene Orte werden hier nicht umbenannt.",
+      "source_sha256": "05a126fb6bc25e307ec889934f625e89f3cabc0e9b4be4b8d27458a08ab66895"
+    },
+    "ui.0518": {
+      "text": "Exakte Hersteller-/Modelltreffer prüfen oder belegtes Modellprofil speichern. Keine automatische Klassifikationsänderung.",
+      "source_sha256": "ff001114268d80b2fe8bafc318ea7909cb91eb7a10654952a221d1b0f72dc02f"
+    },
+    "ui.0519": {
+      "text": "Modellprofil revidieren",
+      "source_sha256": "3984ca06550d15e1894ab933ca1ac27bed73760f5af50b84a8cf8c9df1f777d4"
+    },
+    "ui.0520": {
+      "text": "Quelle überarbeiten",
+      "source_sha256": "76b81156a4f1ac6a93f19193ed34d1da9420ecd57a191c75cb7a9d8899d1aacf"
+    },
+    "ui.0521": {
+      "text": "Quelle überarbeiten…",
+      "source_sha256": "d968b886d818ff818b64149723179580c50649b614eb7a2d2cd9341eb33e4c16"
+    },
+    "ui.0522": {
+      "text": "Überarbeitung",
+      "source_sha256": "2e516d68f42f3e351f273a6127f89f4d323a606a3656e34e52b14b746ed27404"
+    },
+    "ui.0523": {
+      "text": "Rollengruppen können Geräte mehrfach zeigen.",
+      "source_sha256": "4e45059b1a429663e88159c6e6b94213820e61294e273a2e440df3b67023d1f4"
+    },
+    "ui.0524": {
+      "text": "Rollenname (Katalog speichert sofort)",
+      "source_sha256": "0017774f7a426b2c41d6ff1a233fd8f6b0b43f55800ba2ea52d4adc42d6fe96e"
+    },
+    "ui.0525": {
+      "text": "Rollen",
+      "source_sha256": "c25337055464f8d31fb1498bc94025cba5eae3b0e1cf07741f09f8b873d00103"
+    },
+    "ui.0526": {
+      "text": "Rollen wurden außerhalb geändert. Verwerfen und vor weiterer Bearbeitung aktualisieren.",
+      "source_sha256": "57b4ff91615b8ca55c90a61dfe5a42b7ace21ec101dde7173eb8acfc700c1193"
+    },
+    "ui.0527": {
+      "text": "Raum",
+      "source_sha256": "911ea89c43d9dbb85f5f25fdebc52e6f20816903b5946e36a1163d94d74c2040"
+    },
+    "ui.0528": {
+      "text": "Speichern",
+      "source_sha256": "1509f561f2416598629b886ad7d3c05a7e221e4e0675c84bbff4ee6d9e03913d"
+    },
+    "ui.0529": {
+      "text": "Vor dem Hinzufügen von Verweisen ein Gerät speichern.",
+      "source_sha256": "6b1f7b05943019462754952a3cde59d0989b3b1fe4bb75d76dbb2e6f21b5761c"
+    },
+    "ui.0530": {
+      "text": "Vor dem Anhängen von Fotos ein Gerät speichern.",
+      "source_sha256": "8bd8e35305552b60e271404a518219817d4e7800b9bbfd33571993fcf0dffe07"
+    },
+    "ui.0531": {
+      "text": "Neue unveränderliche Revision speichern? Vorhandene Geräte bleiben unverändert.",
+      "source_sha256": "f1e97318b4061ddfaf6b1308c26c36bd3750fc3c0b2d6b992c429e41e3d95dc5"
+    },
+    "ui.0532": {
+      "text": "Gemeinsame Auswahl speichern; Umbenennung aktualisiert alle zugeordneten Geräte.",
+      "source_sha256": "9cc540dbc9f7c61c95fc4361750da129581bb17803e28f4055622cfbe797f9a6"
+    },
+    "ui.0533": {
+      "text": "Zuerst tatsächliche Schnittstellen unter Netzwerkidentität speichern. Unbekannte MAC-/IP-Adressen dürfen leer bleiben.",
+      "source_sha256": "1992123214f5e803b74ec3181e82883266cefe6dc700b5f89d8c0bd1a8bf6e5c"
+    },
+    "ui.0534": {
+      "text": "Änderungen speichern",
+      "source_sha256": "dd0ae7a5cbcf233968657563dce34639e681861e2df6d3f845c08d49981c0999"
+    },
+    "ui.0535": {
+      "text": "Zuerst Änderungen speichern",
+      "source_sha256": "cb45ec6afd2e00fdfb77e1ff7a9488136faa6d394f1268c37728b64a0bdb8db3"
+    },
+    "ui.0536": {
+      "text": "Auswahl speichern",
+      "source_sha256": "ecaa2c56437b4ee613e7feadc063e4e9c27a501399e0177fdc40abf396e4b192"
+    },
+    "ui.0537": {
+      "text": "Verbindung speichern",
+      "source_sha256": "df24ef128adf67e1234f0740ff776e366e48ebc3392d67c6fb5ade7ff1edb851"
+    },
+    "ui.0538": {
+      "text": "Verbindung speichern übernimmt diesen Eintrag sofort. Abbrechen lässt ihn unverändert. In der Auswahl erstellte Quellen werden separat gespeichert. Fehlende Belege erzeugen eine Warnung; Geprüft erfordert Beleg und Datum.",
+      "source_sha256": "bc0eb123359e202906327f28d03fb44deb85b6f35f61c16251084c0492537d0b"
+    },
+    "ui.0539": {
+      "text": "Aktuelle Werte als Modellprofil speichern…",
+      "source_sha256": "5328947fd31ca52bebd010034efd47152a0f9735ad2749898b242ab0353e37cd"
+    },
+    "ui.0540": {
+      "text": "Gerät speichern",
+      "source_sha256": "7967bafd36dfb66da24212a8a1ef10988a8898a68167405b8d6a5513d527b314"
+    },
+    "ui.0541": {
+      "text": "Vollständige Inventarsicherung speichern",
+      "source_sha256": "a9b1fe8fada3f1eff10e6e5b235edbabaf66165a164f2076db80b39fc3e13ce1"
+    },
+    "ui.0542": {
+      "text": "Geräteänderungen vor dem Anhängen speichern oder verwerfen.",
+      "source_sha256": "0eb5cc3cc76c0476d1bd9a522d6c89a5d40d6c5189188d2f8c78889864cbd4ab"
+    },
+    "ui.0543": {
+      "text": "Geräteänderungen vor der Sicherung speichern oder verwerfen.",
+      "source_sha256": "052889a9d6eb1ae8a2ca1b4643af86561c5f304fbd6467d03780e0fb328fc8eb"
+    },
+    "ui.0544": {
+      "text": "Geräteänderungen vor dem Entfernen speichern oder verwerfen.",
+      "source_sha256": "7c3320900dc521a56c7f9201114de55fb98dc1eed9c99d261fecc38c22106c1a"
+    },
+    "ui.0545": {
+      "text": "Geräteänderungen vor dem Bearbeiten von Verweisen speichern/verwerfen.",
+      "source_sha256": "f7875394539a28a3a6ce1d936777a1d63638ee732c94580554f8d7f49dd9b6aa"
+    },
+    "ui.0546": {
+      "text": "Geräteänderungen vor dem Bearbeiten der Netzwerkverbindungen speichern oder verwerfen.",
+      "source_sha256": "0a7f0387c3a5763f1c4fc1c7c30c9f5120c57ae12c1a49c1484a2bae2046e333"
+    },
+    "ui.0547": {
+      "text": "Offenen Dialog vor Update speichern oder abbrechen.",
+      "source_sha256": "5949e288fc58623bb55b9ca01e50450a44b43dfed38dfdf01e685bd973e2b33b"
+    },
+    "ui.0548": {
+      "text": "Änderungen speichern/verwerfen, dann getestetes Update neu starten. Eine Datenbank-Schreibsperre verschiebt die Migration.",
+      "source_sha256": "8d9e4ee43a25926705ccc52ad32625d0f2d70bd1d4ad7623d25cfa6a26513d80"
+    },
+    "ui.0549": {
+      "text": "Quelle speichern",
+      "source_sha256": "36d26ce8c3f6dae5f347ec0a616724bad9cfb01409d1aac80cafea675f135e0e"
+    },
+    "ui.0550": {
+      "text": "Typ und Gruppe speichern; Änderungen gelten für alle zugeordneten Geräte.",
+      "source_sha256": "03d66bed02742fb3b3b674799d7fc09b0d8e3f451f5375b19c5ae001040b36bd"
+    },
+    "ui.0551": {
+      "text": "Typ speichern",
+      "source_sha256": "bf354ffc3e49c4c9a9d47ca0fa662f609bfce289c52a41e831e960e16d6d0ed1"
+    },
+    "ui.0552": {
+      "text": "Speichern schreibt das Formular in die Datenbank. Verwerfen lässt den gespeicherten Datensatz unverändert. Weiter bearbeiten kehrt zum Formular zurück.",
+      "source_sha256": "e3553294e6b93730557f2947e13648f4126cb5172f297492c3c7a40105fe83af"
+    },
+    "ui.0553": {
+      "text": "Änderungen vor dem Fortfahren speichern?",
+      "source_sha256": "51cb8da7d4bfe19f29b770aa4ef8748778b7d349d709a354c4a41f7c26e57e3f"
+    },
+    "ui.0554": {
+      "text": "{0} gespeichert. Vorherige Sicherung: {1}",
+      "source_sha256": "22e5318facf05bb35f74cbd7e7868f6619bbe1e8734f4fd7436d15039e4913ac"
+    },
+    "ui.0555": {
+      "text": "Entsorgungsdatum",
+      "source_sha256": "ecf85db0a12432121033a69e856b6b4537e2fcfb5119a7ad1156e8d0d1058635"
+    },
+    "ui.0556": {
+      "text": "Auswahl durchsuchen…",
+      "source_sha256": "5290d1f048f66c1020e973996902b658c2d6103e70c9426941f0770ef7e51b70"
+    },
+    "ui.0557": {
+      "text": "Geräte, Software, Schnittstellen oder Protokolle suchen…",
+      "source_sha256": "ff65dcee512fa8d8172534a63c28da14a85ecd8e97ec9af4303665f9053920b1"
+    },
+    "ui.0558": {
+      "text": "Geräte, Typen, Schnittstellen oder Protokolle suchen…",
+      "source_sha256": "e86077cd3e84b3fc867e8abbd7ce6ddcfece4472ca3969e9cb5262718acc41e5"
+    },
+    "ui.0559": {
+      "text": "Quellentitel, URLs oder Beobachtungen suchen…",
+      "source_sha256": "93e489acbb1487b19036e926e3507a6a45f9d6732bbac1f9d2b13b716483b263"
+    },
+    "ui.0560": {
+      "text": "Zuerst ein gespeichertes Gerät auswählen.",
+      "source_sha256": "b9da8a99f6eb31c74f77152c71166e363cef5450c42351e197cfcc7db3cb1f1b"
+    },
+    "ui.0561": {
+      "text": "Alle auswählen",
+      "source_sha256": "1fc9a387654d410febd202b81bddbe62d38368260b69b9f73ee6630164536bdf"
+    },
+    "ui.0562": {
+      "text": "Mehrere Quellen wählen oder Belege hinzufügen. Zuordnungen werden mit dem übergeordneten Formular gespeichert.",
+      "source_sha256": "4f3492d547bfeb596d61d45f30cbf56c77f0ad8a54ef4a8f5decc9cd1d3b222d"
+    },
+    "ui.0563": {
+      "text": "Mehrere vorhandene Quellen wählen oder Belege ergänzen. Zuordnungen werden mit dem Gerät gespeichert.",
+      "source_sha256": "9798d8e58858ecd716b0b8648a93514523e259cbd236285391a005b1fb86761a"
+    },
+    "ui.0564": {
+      "text": "Aktuelle Betriebssystemfamilie wählen, falls bekannt. Name ohne bekannte Familie möglich. Keine Ableitung aus Gerätetyp.",
+      "source_sha256": "1f4fb9b80e35bc14fef9a2183796b1577fd62df3cc2e7c4452470cf3e4355e61"
+    },
+    "ui.0565": {
+      "text": "Ausgewählte Quellen:",
+      "source_sha256": "7f80c73b53a0abf8ea87830c75405675e9b10ea696a08ba9d5ff542eb8001dd4"
+    },
+    "ui.0566": {
+      "text": "Vom beschreibenden Inventarnamen getrennt. DNS-Teile nutzen Buchstaben, Ziffern, Bindestriche; IDN wird als ASCII-IDNA gespeichert. Keine DNS-Abfrage.",
+      "source_sha256": "75807ae7a88e6335bc9473d756f44d3cf21cf23cd99b0cb398c98e14623b9d0e"
+    },
+    "ui.0567": {
+      "text": "Marktstart, Firmware-/OS-Sicherheit, Hardware-Service, Produktion und Gerätegarantie getrennt. Unbekannt bleibt leer. Änderungen mit Gerät speichern sichern.",
+      "source_sha256": "dcd65f994b7514db60073c55236dd972e749d51b625f161206d7ea7644dbb730"
+    },
+    "ui.0568": {
+      "text": "Seriennummer",
+      "source_sha256": "f2307baf1c858f10a7594859dd7e3abae29f142ac84ab30406cdcb4ebdd1abc9"
+    },
+    "ui.0569": {
+      "text": "Gemeinsamer Katalogname; Umbenennung ändert alle zugeordneten Geräte.",
+      "source_sha256": "4243f27e6aaefd5afbb825c06be4ae269c8ccbf6ab24cdf0967521ab899196f1"
+    },
+    "ui.0570": {
+      "text": "Gemeinsame Katalogwerte und eigene Eingaben bleiben beim Sprachwechsel unverändert.",
+      "source_sha256": "237179ac5772397ed53d3e0108424b0ddf6721d32667f4eb5e0bc69e252b4750"
+    },
+    "ui.0571": {
+      "text": "Shop, Marktplatz oder Verkäufer. Optionaler Text; Schreibvorschläge ändern ihn niemals automatisch.",
+      "source_sha256": "e4db707fcfa8690e85c9456d3c5a3b84dae07124bd86eef76458e1f8894f7c2c"
+    },
+    "ui.0572": {
+      "text": "Kurz-ID",
+      "source_sha256": "7eaeb4a7984c0fd690b642f392dab183a75e661a90f8e966fa9af12d8c48cbfa"
+    },
+    "ui.0573": {
+      "text": "Software",
+      "source_sha256": "9b3289a385a5301eea0c04a06fde98bc542113ab4ed24c47c9b9771984869a31"
+    },
+    "ui.0574": {
+      "text": "Software wurde außerhalb geändert. Verwerfen und vor Bearbeitung aktualisieren.",
+      "source_sha256": "302a80806abde3a316f8a9995a2d0356aa661b516d872dca9d617476bce6e84f"
+    },
+    "ui.0575": {
+      "text": "Software-Prüfdatum muss gültiges Kalenderdatum sein.",
+      "source_sha256": "e3af05b686617d520058591919ba650268684f8a054eb542abee94a0f7b2892b"
+    },
+    "ui.0576": {
+      "text": "Software-Support benötigt Anbieter, Produkt und Version oder Supportzweig.",
+      "source_sha256": "50d291afbea5c669daf6016b3ff85015aea3aa514d6e84d55fd87f85c6e5ce34"
+    },
+    "ui.0577": {
+      "text": "Quelle",
+      "source_sha256": "0e570ca6fabe24f94e52c1833f3ffd25567022beb826fa16891f3322051bc221"
+    },
+    "ui.0578": {
+      "text": "Quellen-IDs",
+      "source_sha256": "03cf62389778d038345c17eb97f94e785d02ef5d6db753898ef14f467c2619fb"
+    },
+    "ui.0579": {
+      "text": "Quellenzuordnungen wurden außerhalb des Formulars geändert. Abbrechen und vor weiterer Bearbeitung aktualisieren.",
+      "source_sha256": "0be06c7010844a99d64beeb53653866c25d6832b7d3c4f02e301dd97f0329604"
+    },
+    "ui.0580": {
+      "text": "Quelldatei wurde beim Import verändert; erneut versuchen.",
+      "source_sha256": "f8c7830f881dcbc5fafde81b13ab3966d395ee3867a29ef0fd15286abdc11b08"
+    },
+    "ui.0581": {
+      "text": "Quelldatei fehlt oder wurde verändert.",
+      "source_sha256": "30910d1cc2aca72f22d31a3936f25fc5c133eb8a70051729ac4df5d8db685643"
+    },
+    "ui.0582": {
+      "text": "Quelldatei während Import verändert; erneut versuchen.",
+      "source_sha256": "6260e94e03e972fc8b1df199dfc97cb2bcffa6a67d5663400d4f1ccda64c7b23"
+    },
+    "ui.0583": {
+      "text": "Quellenart",
+      "source_sha256": "5486021c159f0f9d8c3fab99846239faed3d9ba6d3d7f207e32f19f579193c91"
+    },
+    "ui.0584": {
+      "text": "Quellenbeobachtung",
+      "source_sha256": "7482fcc361df3b188de6ba8e46026dcbc617a245a863e2eb7741541f7c4e39e3"
+    },
+    "ui.0585": {
+      "text": "Quelle für bekannte Fähigkeiten oder bekannte Abwesenheit erforderlich",
+      "source_sha256": "0a9e91037d84ed2414c1034b9cacf1755241ca7ccc34b959bfa580dcbfaaf56c"
+    },
+    "ui.0586": {
+      "text": "Quellentext",
+      "source_sha256": "a155f1ea2dfd022fddd0019e52f6b6e4c2a372b4ad467cb3f7c36a2f9b5eb604"
+    },
+    "ui.0587": {
+      "text": "Quelle: ",
+      "source_sha256": "1a5ac0bd0b6b5765b31354264a6dac2c517f709a3a092230cb2c4fae34b4a88f"
+    },
+    "ui.0588": {
+      "text": "Quellen und Belege",
+      "source_sha256": "92ca30a8d836c8d4cd76e7ea66719079f6518a469a534f9ddadc8303dcb84c24"
+    },
+    "ui.0589": {
+      "text": "Geschwindigkeit muss eine positive Zahl in Mbit/s oder leer sein.",
+      "source_sha256": "c4a30092836292355fb3559310730d2ae32cce8cd5b3fec15614c299d625735d"
+    },
+    "ui.0590": {
+      "text": "Dauerhafte Kurzkennung dieses Inventars. Die vollständige ID bleibt die technische Referenz.",
+      "source_sha256": "50dd180af270ade10fa1a7254a1fdba015cf90e11bab2c0ec11741eda865aec1"
+    },
+    "ui.0591": {
+      "text": "Leeres Geräteformular starten; ungespeicherte Änderungen vor Verwerfen bestätigen.",
+      "source_sha256": "347929664faea89c440e125181b90552d05127c1f2b249e7a42ff774dd0ace01"
+    },
+    "ui.0592": {
+      "text": "Neue gemeinsame Auswahl anlegen.",
+      "source_sha256": "a2675c7b94b13496f57264a0fc88092e5685fe6a9bd3660dcf038996e83664ba"
+    },
+    "ui.0593": {
+      "text": "Neuen gemeinsamen Gerätetyp anlegen.",
+      "source_sha256": "fbe7722752f277ec9b8b3a2c2f201244d331c3af7370c118ff7dcc409dac4da5"
+    },
+    "ui.0594": {
+      "text": "Status",
+      "source_sha256": "a3b50c476732c7409d297c3d7d0e23569fee5e08318553ae76041ab5fe60582e"
+    },
+    "ui.0595": {
+      "text": "Status und Zustand",
+      "source_sha256": "6c24deadd627b2b0f2e830239a21fa4390f0d0d1cfa6a90e4420692edaf50b6a"
+    },
+    "ui.0596": {
+      "text": "Gespeicherter Wert: ",
+      "source_sha256": "7c7a25a4889bfac9cfa432767f4e1e96f6d0425616e7d951933e45f9159c84c2"
+    },
+    "ui.0597": {
+      "text": "Straße",
+      "source_sha256": "c666591df0537cf226cc7d33d50a72a2d9d4c7651ff7caeae045f723528c3917"
+    },
+    "ui.0598": {
+      "text": "Strukturierter Standort",
+      "source_sha256": "0ffe5275db1a62949ac049c76a1bd8b08b63cba1e9dc196c066889dc478a0ce1"
+    },
+    "ui.0599": {
+      "text": "Schreibvorschlag: ",
+      "source_sha256": "bae24216762c8c37964036d6763e87d5b877c947dc3b96508b156371e8a7a019"
+    },
+    "ui.0600": {
+      "text": "Unterstützt",
+      "source_sha256": "c165800065d11429cea0d002ac8ebdf75d75283cb00acccb6f5f115b5e0ca849"
+    },
+    "ui.0601": {
+      "text": "Unterstützte Fähigkeiten",
+      "source_sha256": "bfbe96d2ed7d085af44ea23242c32aa9a5b25bb5ca58bd56ede992fb342bfef2"
+    },
+    "ui.0602": {
+      "text": "Unterstützte Fotoformate: JPEG und PNG.",
+      "source_sha256": "d768f3b5c6a307b05c5ac5d3888ba027ded42fc330e6da375ac8520f2508fe82"
+    },
+    "ui.0603": {
+      "text": "TESTUMGEBUNG — Änderungen betreffen nur die Testkopie.",
+      "source_sha256": "a5158bd7ec2bb8c5cb7ce65651b449a2d4a872bcc1d407236081b2d4cda1339d"
+    },
+    "ui.0604": {
+      "text": "Diese Gerätekennung existiert bereits. Andere Kennung wählen.",
+      "source_sha256": "6f73b594cf96c5bea8ea762133fa22f22336e9558d0dea76358874cc217c335b"
+    },
+    "ui.0605": {
+      "text": "Dieser Gerätename existiert bereits. Einen unterscheidenden Ort oder eine Nummer ergänzen.",
+      "source_sha256": "6a5b55810328f22eb9accb3dba1c886b84b1cf6a85e7c77afdd4f1d5334ce72a"
+    },
+    "ui.0606": {
+      "text": "Modellvariante existiert; für Revision auswählen.",
+      "source_sha256": "0b3d929a0d0b485f24e56941674662fc54457e023401173761e01afba4d4e0a7"
+    },
+    "ui.0607": {
+      "text": "Datum muss zur gewählten Präzision passen.",
+      "source_sha256": "7408e76c825cfa511dce78557d72c5b249d9217c611a57a9c47e0169dcfba2cb"
+    },
+    "ui.0608": {
+      "text": "Vom Dokument abgedeckte Modelle; unbekannt leer. Keine automatische Modellzuordnung.",
+      "source_sha256": "382288d6b4dbcad482b75e9a2cf2f8a24d96e57a3bdd0cad2a7e9df5a642b41e"
+    },
+    "ui.0609": {
+      "text": "Der andere Client wurde in einem separaten Fenster geöffnet. Ungespeicherte Änderungen bleiben hier.",
+      "source_sha256": "90701ca0ba4905fd4c94cb87e75d6f163643bf83e18da1dd7c6dc545d6316cd4"
+    },
+    "ui.0610": {
+      "text": "Diese Verbindung wurde geändert. Verbindungsliste schließen und erneut öffnen.",
+      "source_sha256": "0ac4fdfaeb0e954ab22123218f8188c5ee5e817bb92eb07b178bd05e49670ca9"
+    },
+    "ui.0611": {
+      "text": "Dieses Gerät wurde in einem anderen Fenster geändert. Ungespeicherte Änderungen bleiben erhalten. Vor dem Speichern abbrechen und aktualisieren.",
+      "source_sha256": "502b3e7bc68871c3cac43b10f8b27b40de02d964860b2d391c3c31581f501050"
+    },
+    "ui.0612": {
+      "text": "Gerät wurde außerhalb geändert. Verwerfen und vor erneutem Bearbeiten aktualisieren.",
+      "source_sha256": "233db5205450858a071bbd2e92c4806ce88d1b001f5f6bad3a0897e7661939ef"
+    },
+    "ui.0613": {
+      "text": "Dieses Gerät wurde gelöscht. Dieses Fenster schließen.",
+      "source_sha256": "4d2d266902cecefccc319d0b44afab98d9a7135603070b45dca9c6c66dc7bf65"
+    },
+    "ui.0614": {
+      "text": "Datei hat keinen PDF-Kopf.",
+      "source_sha256": "eccaa040c7fbd0e3d0be9141d721e01fee38d0e83a4f06133ffb53da1f27ce12"
+    },
+    "ui.0615": {
+      "text": "Für dieses Schnittstellenpaar besteht bereits ein Verbindungseintrag.",
+      "source_sha256": "20febcaf85778f6b6380b15d8892ce09fd4ad5a8f5eba48603a02bb60afb60b1"
+    },
+    "ui.0616": {
+      "text": "Quellen für diesen Abschnitt markieren; zum Entfernen der Zuordnung abwählen. Neue/revidierte Quellen werden sofort gespeichert; Zuordnungen erst mit dem übergeordneten Formular.",
+      "source_sha256": "9513458fbe4afe19c361701f17168a7c668337f3907c27e5fba984ccee83d104"
+    },
+    "ui.0617": {
+      "text": "Quellen für diesen Bereich ankreuzen, zum Entfernen abwählen. Neue/überarbeitete Einträge sofort gespeichert; Zuordnungen erst mit Gerät speichern.",
+      "source_sha256": "d8927e2594cc1687ed06c9e6377e72bdf72b5c95486b2affcd42171de2702a85"
+    },
+    "ui.0618": {
+      "text": "Sichtbare Spalten markieren. Zeilen für Reihenfolge ziehen. Ausblenden löscht keine Daten.",
+      "source_sha256": "c32c1bd977c529785bfef1acf773f746207c0c04bc66b9fd9f68b881d4f8ee21"
+    },
+    "ui.0619": {
+      "text": "Titel *",
+      "source_sha256": "4bf07d033e69aa4a877da3fc0a1dcd65fc786f8063cf884abb12970a9aa5b48b"
+    },
+    "ui.0620": {
+      "text": "Zweistelliger Buchstabencode; leer = automatisch",
+      "source_sha256": "3752781632f5721ee08ae6fc105b3a52c3e93305807bee9b73f73e6640939848"
+    },
+    "ui.0621": {
+      "text": "Zwei Typbuchstaben und fünf Zufallsziffern. Neue Klassifikation erzeugt neues Kürzel; alte Kürzel verweisen weiter auf dieselbe vollständige ID.",
+      "source_sha256": "07fa144d93a0e502b7e1891e1ff874be4ddeee007f4121c77c58b14629dc9f3b"
+    },
+    "ui.0622": {
+      "text": "Typ",
+      "source_sha256": "baaddf70fb5d432b8bd948ef91d6f910124a6d138edae4d5f000c4610ddc8eae"
+    },
+    "ui.0623": {
+      "text": "Typ wurde außerhalb geändert; Dialog erneut öffnen.",
+      "source_sha256": "771e681eb7268683d367c6aefa256a3a6c6cb6dd07f4844c47105395965ea20e"
+    },
+    "ui.0624": {
+      "text": "Typcode",
+      "source_sha256": "936997b9e45eb31de121db7571cd44f63abcc3a8f983d2c8570c1eca5ae65ee2"
+    },
+    "ui.0625": {
+      "text": "Typgruppe",
+      "source_sha256": "96565c8ead3aa164d84dc3a0e8cbaf0ef7d5a232558861aa1f87e92795dd2410"
+    },
+    "ui.0626": {
+      "text": "Typname *",
+      "source_sha256": "e167c9da51f32629e3cc717328026dd303adcd2af9ed768f68245873df5a7800"
+    },
+    "ui.0627": {
+      "text": "Namensteil tippen und Treffer wählen. Tippen allein aktiviert keinen Filter und erstellt keinen Eintrag. Zum Zurücksetzen Alle Gruppen oder Alle Typen wählen.",
+      "source_sha256": "ba10fddd98692666fdcea70493c51572f2f51dc66c327b2336b1607af1a4a431"
+    },
+    "ui.0628": {
+      "text": "Tippen, um vorhandene Auswahl zu finden…",
+      "source_sha256": "35850d7d8e3c83032767aaa34ea9e8c95249817929350b52fe3b02d54ddab7e4"
+    },
+    "ui.0629": {
+      "text": "Unsicher",
+      "source_sha256": "4e313210bf91f49ee8039eb79237bec64c3a4aabd8b697007fe703a08b311adc"
+    },
+    "ui.0630": {
+      "text": "Bekannt abwählen für unbekannte Daten; kein Datum wird automatisch gespeichert.\n* Pflichtfelder. Gruppe folgt dem gewählten Typ.\nKennungen bleiben fest; Komponenten/Angaben über vorhandenes Werkzeug.",
+      "source_sha256": "ee26f9ef2ff5695b9ee5d30a6abd746a845643a25d13fd43858346720db08344"
+    },
+    "ui.0631": {
+      "text": "Ungruppiert",
+      "source_sha256": "674b38cae72bb0c8be97cea114f7ce84a6ad4ae3c7f3ceb0c869d62db8e53fa2"
+    },
+    "ui.0632": {
+      "text": "Unbekannt",
+      "source_sha256": "b764cdc0eab7137467211272fa539f1260d1bf2e71bcf6ff3bdc960f5c16aa14"
+    },
+    "ui.0633": {
+      "text": "Unbekannt / Typ wählen",
+      "source_sha256": "4a457028f3d65f57aeb2907dfcc1f4b46ce119a1c92c69418a7e59e68588205e"
+    },
+    "ui.0634": {
+      "text": "Unbekannt bedeutet ungeklärt. Nicht zutreffend benötigt einen Nachweis. Erfasst aktiviert Details. Betriebssystem und Firmware sind unabhängig.",
+      "source_sha256": "7f2a8a3538639ca5f05e6d2d7a5249cce1e79c9b7ebf747b6a1430297504428e"
+    },
+    "ui.0635": {
+      "text": "Unbekannt bedeutet ungeklärt, keine bedeutet nachweislich abwesend; unten erfasst erfordert mindestens ein Häkchen.",
+      "source_sha256": "25c9254a2a4f667fa24c2b96ef0fa710b2c57952c0923b61103752d02c556007"
+    },
+    "ui.0636": {
+      "text": "Unbekanntes/nicht zutreffendes Betriebssystem darf keine Details enthalten.",
+      "source_sha256": "cf9e6f051c29f6060dd24e0f75cbe409b22c9f5ece8ce5505d13bd796699353f"
+    },
+    "ui.0637": {
+      "text": "Unbekannte/nicht zutreffende Firmware darf keine Version enthalten.",
+      "source_sha256": "f180bbade42617730344513b8afd054de89989982c202517486f92eb8db32509"
+    },
+    "ui.0638": {
+      "text": "Unbekannte oder nicht zutreffende Standorte dürfen keine strukturierten Angaben haben.",
+      "source_sha256": "9466402506f2e1e13b5bdf897aa3a3102c9dbaa864f4c9473fdda75ade2e1c14"
+    },
+    "ui.0639": {
+      "text": "Unbekannte Rolle; Auswahl aktualisieren.",
+      "source_sha256": "44077aa0b37450b31b91d63bfd185c07db863165827ce2eeaa68ce3f31dd30c4"
+    },
+    "ui.0640": {
+      "text": "Unbekannte Auswahl für {0}; Listen aktualisieren.",
+      "source_sha256": "016ef9732846205b5ce6e8607f0dafd1eaeead3715a5036219f3d45b0b9c7b26"
+    },
+    "ui.0641": {
+      "text": "Unbekannt — leer lassen",
+      "source_sha256": "2d6a5ced127f48e25719a910f18277099e5fc49c9f81ce500c4e23b05fc27104"
+    },
+    "ui.0642": {
+      "text": "Unbekannt — oder Betrag wie 129.90",
+      "source_sha256": "4e5d97aad5d099c34a30b90deecc3aa1d847d28821298ef3ba9c1754ebfc55e8"
+    },
+    "ui.0643": {
+      "text": "Unbekannt oder tatsächlicher Hostname / FQDN",
+      "source_sha256": "de928edd3ee072b15a530ff85d5700e814af9cda531910ee3c4df7f72023c9cb"
+    },
+    "ui.0644": {
+      "text": "Ungespeicherte Änderungen",
+      "source_sha256": "a710c2b90913b5375ca6ac865341e49dd6daa42f6d95182e6ed1a7b1b650ff4c"
+    },
+    "ui.0645": {
+      "text": "Ungespeicherte Änderungen verworfen.",
+      "source_sha256": "b7a981801e84b085c3ac7a2209c193b5550c301fc08853758ef0ad9db2f38233"
+    },
+    "ui.0646": {
+      "text": "Nicht unterstützte Schemaversion",
+      "source_sha256": "952bda65dd892ae6d924a18cd6f5dba8723625dc9327f44689048b37045a675f"
+    },
+    "ui.0647": {
+      "text": "Update verschoben. Offene Datenbanktransaktionen abschließen, dann Update anwenden erneut versuchen.",
+      "source_sha256": "8b7423ac47a381929ed0fd4bfb7a9df5a7ae87f8a42941d1b5ac7d4b03604b75"
+    },
+    "ui.0648": {
+      "text": "Update aufgeschoben. Ihre ungespeicherten Änderungen bleiben erhalten.",
+      "source_sha256": "6da6a6495c195e2499e6acb5e93484687df410a5e9ec8220abefb3c905dc1253"
+    },
+    "ui.0649": {
+      "text": "Gemeinsamen Typ ändern",
+      "source_sha256": "f80859c42898aabb474e2947b0527577a7664bf6fa1e572f8cab173387ba8e83"
+    },
+    "ui.0650": {
+      "text": "Diese Auswahl für alle zugeordneten Geräte ändern?",
+      "source_sha256": "d18645065fe9e8437aa411c46d706040e2427f81f45f8c92f28e5dbfb4d322a8"
+    },
+    "ui.0651": {
+      "text": "YYYY, YYYY-MM, YYYY-Q1 bis YYYY-Q4 oder YYYY-MM-DD verwenden.",
+      "source_sha256": "0b88b05a2f5841438efedb966559f25f8a1253b3834ffd5efd2fa5fc6fb709ee"
+    },
+    "ui.0652": {
+      "text": "Sprachcode wie en, de, hu, en-GB; unbekannt leer lassen.",
+      "source_sha256": "d1bfc80ccf841ebff91117b2ea18a238d165c6eb5c9d5a164c5872f6e2d015c2"
+    },
+    "ui.0653": {
+      "text": "HTTP-/HTTPS-URL mit Host ohne eingebettete Zugangsdaten verwenden.",
+      "source_sha256": "81737661d80d3d4ccade889a7e2a60effd3340c415b1253ee287efa27ebe9f3c"
+    },
+    "ui.0654": {
+      "text": "Für verwaltete Updates launch-desktop.sh verwenden.",
+      "source_sha256": "4d08fa023dc91f3e87ddf68b3f2a533707f42f0838f12d468d8d1384e5340a4e"
+    },
+    "ui.0655": {
+      "text": "Lebenszyklusdatum übernehmen",
+      "source_sha256": "8b9943cbcc659a9c72e273b785eac95180f9ede2a4dbb9d5b2cca80a653faa3d"
+    },
+    "ui.0656": {
+      "text": "Standort übernehmen",
+      "source_sha256": "a6ab4552d4363a453043f9cd33153b85d9ac6e37d627f7eff855f0f937db29ae"
+    },
+    "ui.0657": {
+      "text": "Druckbaren einzeiligen Text innerhalb der Feldgrenze verwenden.",
+      "source_sha256": "752981a014567a6e905bd4fd816c815ee31a8979eb8dc9b24086c3fc8b3eaa8d"
+    },
+    "ui.0658": {
+      "text": "Ausgewählte Quellen verwenden",
+      "source_sha256": "0d31211a9c0b33d29a938765145243665c9cba5e0c427b809b59a63f2ad2a2e2"
+    },
+    "ui.0659": {
+      "text": "Schreibvorschlag übernehmen",
+      "source_sha256": "7c4e80e5ddb24551c48b61aa8cc30087813c450b9b1e7b1f2e083a74d130be05"
+    },
+    "ui.0660": {
+      "text": "Vom Benutzer angegeben",
+      "source_sha256": "ec2ceb8bbe10e1b15283664e5c4776ef2b4df0c31dd05fa6773b579359bcf9f9"
+    },
+    "ui.0661": {
+      "text": "Ausstehende Angaben prüfen und ins Geräteformular übernehmen. Gerät speichern ist weiterhin erforderlich.",
+      "source_sha256": "b299e66dff521fe2ec4d20817b462e728f0480d3a0648568f431282d57b78bee"
+    },
+    "ui.0662": {
+      "text": "Formular, Daten und Verbindungen nach geprüfter vorheriger Datenbanksicherung gemeinsam speichern.",
+      "source_sha256": "b8b0b725426cbb490f5ec96eec3b80e34d30edd6385392156b4fee4ba42b916d"
+    },
+    "ui.0663": {
+      "text": "Variante / Region / Hardwarerevision",
+      "source_sha256": "7f1cc5efb75382ce95e77a2445987e0b2a1681dcf9890dae455bb1098f1fc789"
+    },
+    "ui.0664": {
+      "text": "Variante / Region / Service- oder Garantieumfang",
+      "source_sha256": "74a12e6f395644eb6c32fe088a2a5e0738d15e75e06503bea97d56822e31aef0"
+    },
+    "ui.0665": {
+      "text": "Prüfstatus",
+      "source_sha256": "aedfff7efc5d9f59f57d9a012b6ad992fdc179e06970871285b6550cad59458c"
+    },
+    "ui.0666": {
+      "text": "Geprüft",
+      "source_sha256": "4f7838402f37674e8ebedb6cf048c0aea66bacdb25607aa3eee4b53093d83f5c"
+    },
+    "ui.0667": {
+      "text": "Geprüfte Verbindungen benötigen Beleg und Beobachtungsdatum.",
+      "source_sha256": "4e282604348ad55d3de3f6a569cd6b15ed45d9721183eb8f91a439c95ae3f8d0"
+    },
+    "ui.0668": {
+      "text": "Geprüfte vollständige Sicherung gespeichert: {0}",
+      "source_sha256": "2821d1d449d8282de3d9ed45f625bf46088f3ade2800002fb8b95b47da76f47a"
+    },
+    "ui.0669": {
+      "text": "Geprüfte Lebenszyklusdaten benötigen Beobachtungsdatum und geprüfte datierte Quellen.",
+      "source_sha256": "77e00dfabb366f0eb2953e8d9e611c64bed348e3d3a2c2af7d2c692a75dd9f95"
+    },
+    "ui.0670": {
+      "text": "Geprüft bedeutet tatsächliche Werte geprüft; Quelle und Datum erforderlich. Speichern prüft das Gerät nicht selbst.",
+      "source_sha256": "30e1c048204b4a814da82c340ac7691ece10793da43f2179773929270fd07d50"
+    },
+    "ui.0671": {
+      "text": "Geprüft bedeutet, dass Sie die Quelle geprüft haben; Datum erforderlich. Verknüpfte Gerätebewertungen werden nicht automatisch bestätigt.",
+      "source_sha256": "e2d315886cf96c961d2b135e97e6ce04494523e444827a688611f487f3e6dde2"
+    },
+    "ui.0672": {
+      "text": "Geprüfte Netzwerkangaben brauchen Quelle und Beobachtungsdatum.",
+      "source_sha256": "8251b839ae64af9fab6402cb737a8c25695de1d7efaeb615a0c7454d570fd396"
+    },
+    "ui.0673": {
+      "text": "Version / Supportzweig",
+      "source_sha256": "7b92fbec6a779fc17b217897bd2b1a631e8ae74d6e9f5955e26c91abcc06342e"
+    },
+    "ui.0674": {
+      "text": "Warnung: widersprüchliche Marktstartdaten; Quellen vor Nutzung der Kaufdatumsprüfung prüfen.",
+      "source_sha256": "93d41f2521321c37722b79262950e1c519da4d07270997a66a4cc19234d0547f"
+    },
+    "ui.0675": {
+      "text": "Warnung: Verbindungsquelle fehlt. Speichern ist möglich.",
+      "source_sha256": "b05b6af6afa9eec3ad406189bf901af7809527d6c82a9675819c5f61af98451c"
+    },
+    "ui.0676": {
+      "text": "Warnung: Lebenszyklusquellen fehlen. Ungeprüfte Beobachtungen können gespeichert werden.",
+      "source_sha256": "d1b1be1a7d5542aed1a55e6f7f692a094facf1ae72cf87ba44e7675383992dee"
+    },
+    "ui.0677": {
+      "text": "Warnung: Marktstart nicht geprüft; Kaufdatumsplausibilität nicht bestätigbar.",
+      "source_sha256": "d95f05c808f896f30507943ab3c465b1208f0aae749914875ac91d93b1909b56"
+    },
+    "ui.0678": {
+      "text": "Warnung: Netzwerkquelle fehlt. Ungeprüfte Angaben dürfen gespeichert werden.",
+      "source_sha256": "ef12e7d87620586267e3597777c31ee483d531a6e79fea07ed1e283d99c028c0"
+    },
+    "ui.0679": {
+      "text": "Warnung: kein Marktstart erfasst; Kaufdatumsplausibilität nicht prüfbar.",
+      "source_sha256": "6c642aa4436977a8f1a711c94f23ffc3cbe9985dc691da01560756e32a65ee29"
+    },
+    "ui.0680": {
+      "text": "Warnung: Kaufdatum liegt im unsicheren Grenzbereich der Marktstarttoleranz.",
+      "source_sha256": "b55a4eeb30414ecb9916947aa979f99b86a9ed122236fc46d8d4f2a559bb2257"
+    },
+    "ui.0681": {
+      "text": "Warnung: Marktstart passt nicht zu Hersteller und Modell des Geräts.",
+      "source_sha256": "9dea4e48b2c58cd6abf256a6a25cae652a0d348c4ce4fb1b8bec7be35d6ea007"
+    },
+    "ui.0682": {
+      "text": "Garantieablauf",
+      "source_sha256": "e80d5275406241839a977c560853f6166e3ea731b715c7a3b123cb82f507a0db"
+    },
+    "ui.0683": {
+      "text": "Webseite",
+      "source_sha256": "b5a229ac8becc6035511f432ca6018f581f0627233eada6ae8e12b505d44af7f"
+    },
+    "ui.0684": {
+      "text": "Wo befindet sich dieses Gerät?",
+      "source_sha256": "0b1a7c0e3500e68293da742afaa5740e11436906ea60046f572531a9e3c255ab"
+    },
+    "ui.0685": {
+      "text": "Wer diese Quelle lieferte oder woher sie stammt. Eine Quelle bestätigt nicht automatisch ein Gerät oder seinen Installationszustand.",
+      "source_sha256": "7e79b035c1b9298a41c1d75f93678fe8f8a5ab6fad6f6eb8704c3460a236bdb8"
+    },
+    "ui.0686": {
+      "text": "Wird ausgeführt…",
+      "source_sha256": "5474eef8d0f179c707cf418e2bbb468c77cc24edc5e9f5f4e137e85e06a8eea0"
+    },
+    "ui.0687": {
+      "text": "Beobachtung oder bewahrten Quellentext eingeben.",
+      "source_sha256": "8f5f9344d7418144f9c4b42da66705184758f120d96d5e013828fd0a8c46ab84"
+    },
+    "ui.0688": {
+      "text": "Diese Geräteänderungen in die Datenbank schreiben und fortfahren.",
+      "source_sha256": "0f1f979927a0a4569bda54d499a0fe901d6e1389dce174adaf81536d5a741948"
+    },
+    "ui.0689": {
+      "text": "Jahr",
+      "source_sha256": "89f6832560dec0b7f8721d1fe3ba0b5036a5d1464ce4339bb16c3e1485bfec34"
+    },
+    "ui.0690": {
+      "text": "Ja",
+      "source_sha256": "85a39ab345d672ff8ca9b9c6876f3adcacf45ee7c1e2dbd2408fd338bd55e07e"
+    },
+    "ui.0691": {
+      "text": "ZIP-Archiv (*.zip)",
+      "source_sha256": "a381d6b0545f9f3f1e50b578d791f8e1173e7c42ff19d1e263a13428bdfb8e97"
+    },
+    "ui.0692": {
+      "text": "wartet auf installation",
+      "source_sha256": "56b87acaf1ebbf6f98e9092698767018e69f1906094e437b8accb778e72872a8"
+    },
+    "ui.0693": {
+      "text": "en, de, hu, fr…; unbekannt leer lassen",
+      "source_sha256": "0f8fec6c33c8c070553906b79f4d24bf8d3513ca6049813f54984d715186c885"
+    },
+    "ui.0694": {
+      "text": "defekt",
+      "source_sha256": "9ec1600e60d2aba399d84db8163ec37fc67cd60096cb32a66f0a52280797ee95"
+    },
+    "ui.0695": {
+      "text": "verschenkt",
+      "source_sha256": "72d266d05255e4bf9dd24cea01f856cdb30a9447da4b9cc8b7e5343ae199ef2a"
+    },
+    "ui.0696": {
+      "text": "Hardwareinventar-Datenbankclient",
+      "source_sha256": "1516996c173891426b602f342ee0b9014b874e275e34835bdaf111a969bfe98f"
+    },
+    "ui.0697": {
+      "text": "eingelagert",
+      "source_sha256": "977d9946ae46bd1275ad5f1b0e4206e96b7ca50d6d813c78d1662b2074261950"
+    },
+    "ui.0698": {
+      "text": "in betrieb",
+      "source_sha256": "64c6c17ec05d3f03325619718b1ec3640bce999ed092928b6c343b31941d62d8"
+    },
+    "ui.0699": {
+      "text": "Schnittstelle",
+      "source_sha256": "c796d37c6d491e8f0c6e9b83eed34c15c0f377f9f0f3cbb3216fbbf776da6325"
+    },
+    "ui.0700": {
+      "text": "verloren",
+      "source_sha256": "76f75e6129fe30135bd44d80ab7cc46fdba81907758dc808f3e2517beef2b1e9"
+    },
+    "ui.0701": {
+      "text": "keine",
+      "source_sha256": "140bedbf9c3f6d56a9846d2ba7088798683f4da0c248231336e6a05679e4fdfe"
+    },
+    "ui.0702": {
+      "text": "nicht zutreffend",
+      "source_sha256": "1bd86e06d963120918fd496dad060b9164242865a582684fa90e8c772befcf43"
+    },
+    "ui.0703": {
+      "text": "teilweise funktionsfähig",
+      "source_sha256": "b287bc415a46e7172c00584f6fb88bb46a6a15a05c35f698da45f1fab4811dcd"
+    },
+    "ui.0704": {
+      "text": "Protokoll",
+      "source_sha256": "2ea88c7a30351b12a4dcfc06cdce2af6eab18416176466c2500cb6ef74f745bf"
+    },
+    "ui.0705": {
+      "text": "erfasst",
+      "source_sha256": "3d96a458120e68868ccca6bad66be3fc8df4627a6b7372d69b98d3ba7688774d"
+    },
+    "ui.0706": {
+      "text": "unten erfasst",
+      "source_sha256": "0bdc10a31a322d8ba181d3cffacbfc8acee9183fe716e7982c0a8bccba996886"
+    },
+    "ui.0707": {
+      "text": "außer betrieb genommen",
+      "source_sha256": "5b720147b6918dfc19baa0d7767cab75b76e17998837d04af43f2f3463c5350f"
+    },
+    "ui.0708": {
+      "text": "zurückgegeben",
+      "source_sha256": "68752bf62253f655b49bd5e8d989fc11d439d0e90cccbca77f13180179706cea"
+    },
+    "ui.0709": {
+      "text": "entsorgt",
+      "source_sha256": "60d0b40a114a558200348ed49a271b99b4cfbd4ba12fb034cd57123b4d675c94"
+    },
+    "ui.0710": {
+      "text": "verkauft",
+      "source_sha256": "a6fffccf2d95e20b779be56876f174076586fed6b6ecef72b0eba0ce87233754"
+    },
+    "ui.0711": {
+      "text": "reserve",
+      "source_sha256": "cf2d9706736982fb261656d2e712344c3c38bd94b34a444ea4f3ce97591cd48f"
+    },
+    "ui.0712": {
+      "text": "gestohlen",
+      "source_sha256": "823d95a9a728f14d626df9a894705dda27417b8927412364255b515e9f2ac2e2"
+    },
+    "ui.0713": {
+      "text": "unterstützt",
+      "source_sha256": "37b322c559d476e555e4768afc8d922da4490cadcc6d90fa82ff6b335c8e220b"
+    },
+    "ui.0714": {
+      "text": "unsicher",
+      "source_sha256": "96642b36a83c4c78c5dc7a3019ab2c4c7138ff513fad4ffd669f5c65ab4ae178"
+    },
+    "ui.0715": {
+      "text": "in prüfung",
+      "source_sha256": "cebe21e673c1a7fbaede498cd66ab9506e09f58e5ab7fc616d94ad29d0e70609"
+    },
+    "ui.0716": {
+      "text": "in reparatur",
+      "source_sha256": "1675a58c82f4ad946156436dfc326c70e86bbbb025d95d37372010ac117ca1ad"
+    },
+    "ui.0717": {
+      "text": "eindeutige Geräte",
+      "source_sha256": "c661a6fb8279562ef050272612146405bbf3baae48668792ef5424b4dbbf97c5"
+    },
+    "ui.0718": {
+      "text": "unbekannt",
+      "source_sha256": "b23a6a8439c0dde5515893e7c90c1e3233b8616e634470f20dc4928bcf3609bc"
+    },
+    "ui.0719": {
+      "text": "ungeprüft",
+      "source_sha256": "089b71123d238bd44816c6b4fabd5ad2df40dfe597a05fe672f756a848d7de19"
+    },
+    "ui.0720": {
+      "text": "Nutzerangabe",
+      "source_sha256": "2ae1e2a8a6f4c11d6d8ac39c2a3d19ec0a0d73fde370c747dbb4e4158239c30f"
+    },
+    "ui.0721": {
+      "text": "geprüft",
+      "source_sha256": "1c34f88707b55e6104c4eb20e71ffa3d33e414b71ef689a15fad0640d0ac58cb"
+    },
+    "ui.0722": {
+      "text": "funktionsfähig",
+      "source_sha256": "dd5ace9e018dbd62336cbe039916ad7c817d0e9bc9934f70d67f3ff75544da88"
+    },
+    "ui.0723": {
+      "text": "{0} ist erforderlich.",
+      "source_sha256": "8eac00b5ce37cf66899b7732f208f704c87bc7829603a118a264b8e4032964d4"
+    },
+    "ui.0724": {
+      "text": "{0}: gültiges Kalenderdatum wählen.",
+      "source_sha256": "f1e162e0132cc036a614b62d36146a531f0911d4a2e17643ba7a3d41d9f5a34a"
+    },
+    "ui.0725": {
+      "text": "{0}: Erfasst benötigt mindestens eine Auswahl für {1}; unbekannt/keine dürfen keine Auswahl haben.",
+      "source_sha256": "d9fead8fbb8f3633277a5b084b3f39b9a7a613fd2054d3428e50566d8d5eae55"
+    }
+  }
+}
