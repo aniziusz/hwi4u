@@ -3778,6 +3778,76 @@
       "text": "Optional reusable labels, up to 50 Unicode characters. Extra spaces and capitalization do not distinguish tags. New tags and assignments save with this device; Cancel discards them. Removing a selection affects only this device.",
       "source": "Optional reusable labels, up to 50 Unicode characters. Extra spaces and capitalization do not distinguish tags. New tags and assignments save with this device; Cancel discards them. Removing a selection affects only this device.",
       "context": "Name suggestion and reusable device tags"
+    },
+    "installer.001": {
+      "text": "HWI4U — startup",
+      "context": "Bundled Windows startup wizard",
+      "source": "HWI4U — startup"
+    },
+    "installer.002": {
+      "text": "Open existing inventory…",
+      "context": "Bundled Windows startup wizard",
+      "source": "Open existing inventory…"
+    },
+    "installer.003": {
+      "text": "New inventory…",
+      "context": "Bundled Windows startup wizard",
+      "source": "New inventory…"
+    },
+    "installer.004": {
+      "text": "Prepare update in TEST",
+      "context": "Bundled Windows startup wizard",
+      "source": "Prepare update in TEST"
+    },
+    "installer.005": {
+      "text": "Start HWI4U TEST",
+      "context": "Bundled Windows startup wizard",
+      "source": "Start HWI4U TEST"
+    },
+    "installer.006": {
+      "text": "Start HWI4U",
+      "context": "Bundled Windows startup wizard",
+      "source": "Start HWI4U"
+    },
+    "installer.007": {
+      "text": "Ready. Production and TEST keep separate databases.",
+      "context": "Bundled Windows startup wizard",
+      "source": "Ready. Production and TEST keep separate databases."
+    },
+    "installer.008": {
+      "text": "First start creates an empty inventory and runs the complete checks. It may take a few minutes.",
+      "context": "Bundled Windows startup wizard",
+      "source": "First start creates an empty inventory and runs the complete checks. It may take a few minutes."
+    },
+    "installer.009": {
+      "text": "An incomplete or unrecognized folder already exists. It will not be changed. Choose a new folder or a completed workspace.",
+      "context": "Bundled Windows startup wizard",
+      "source": "An incomplete or unrecognized folder already exists. It will not be changed. Choose a new folder or a completed workspace."
+    },
+    "installer.010": {
+      "text": "Prepare this installed version as a TEST update? Production stays pinned and TEST data is preserved. Review TEST before explicit production acceptance.",
+      "context": "Bundled Windows startup wizard",
+      "source": "Prepare this installed version as a TEST update? Production stays pinned and TEST data is preserved. Review TEST before explicit production acceptance."
+    },
+    "installer.011": {
+      "text": "Open completed HWI4U workspace",
+      "context": "Bundled Windows startup wizard",
+      "source": "Open completed HWI4U workspace"
+    },
+    "installer.012": {
+      "text": "New inventory folder",
+      "context": "Bundled Windows startup wizard",
+      "source": "New inventory folder"
+    },
+    "installer.013": {
+      "text": "New data-folder path:",
+      "context": "Bundled Windows startup wizard",
+      "source": "New data-folder path:"
+    },
+    "installer.014": {
+      "text": "Startup stopped. Data and diagnostics were retained. See the startup log beside your chosen data folder. Choose a new folder after a failed first initialization; do not delete the failed folder.",
+      "context": "Bundled Windows startup wizard",
+      "source": "Startup stopped. Data and diagnostics were retained. See the startup log beside your chosen data folder. Choose a new folder after a failed first initialization; do not delete the failed folder."
     }
   },
   "help": {

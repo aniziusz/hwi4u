@@ -1,6 +1,8 @@
 # Közreműködés
 
-Document ID: HWI4U-CONTRIBUTING · Version: 5 · 2026-10-20
+Document ID: HWI4U-CONTRIBUTING · Version: 6 · 2026-10-21
+
+[Windows offline EXE-telepítő · 0.21.1 TEST](docs/WINDOWS-INSTALLER.hu.md)
 
 [Névjavaslatok és újrahasználható címkék — 0.21.0 TEST](docs/NAMES-TAGS.hu.md)
 

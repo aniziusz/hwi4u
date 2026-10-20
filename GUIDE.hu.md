@@ -1,6 +1,8 @@
 # Felhasználói útmutató
 
-Document ID: HWI4U-GUIDE · Version: 10 · 2026-10-20
+Document ID: HWI4U-GUIDE · Version: 11 · 2026-10-21
+
+[Windows offline EXE-telepítő · 0.21.1 TEST](docs/WINDOWS-INSTALLER.hu.md)
 
 [Névjavaslatok és újrahasználható címkék — 0.21.0 TEST](docs/NAMES-TAGS.hu.md)
 

@@ -1,6 +1,8 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 11 · 2026-10-20
+Document ID: HWI4U-README · Version: 12 · 2026-10-21
+
+[Windows offline EXE installer · 0.21.1 TEST](docs/WINDOWS-INSTALLER.en.md)
 
 [Name suggestions and reusable tags — 0.21.0 TEST](docs/NAMES-TAGS.en.md)
 
@@ -12,7 +14,7 @@ Document ID: HWI4U-README · Version: 11 · 2026-10-20
 
 [FR-036 · Manufacturer / Model / Serial number · 0.18.0 TEST](docs/IDENTIFICATION.en.md)
 
-**Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.21.0 TEST**, database schema **26**. No cloud account is required to use the application.
+**Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.21.1 TEST**, database schema **26**. No cloud account is required to use the application.
 
 Record devices, Unicode names, generated UUIDs and short labels, dates, purchase details, physical location, device groups/types, lifecycle/condition, operating system/firmware, interfaces, MAC/IP identities, connection records and sourced evidence. Photos/PDFs remain separate managed files. Evidence is user-provided; the program does not discover hardware or automatically verify claims. Unknown values remain unknown.
 

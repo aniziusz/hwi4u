@@ -1,0 +1,23 @@
+# Windows offline EXE-telepítő
+
+Document ID: HWI4U-WINDOWS-INSTALLER · Version: 1 · 2026-10-21
+
+Töltse le a Windows x64 setup EXE-t a hivatkozott ellenőrzött buildből/kiadásból, kattintson rá duplán, fogadja el a megjelenő licencet, és válassza a Telepítést. Csak az aktuális felhasználó számára települ, rendszergazdai jog nélkül. Python3.14.8, Qt/PySide6-Essentials6.11.2 és shiboken6 mellékelve. A célgépen külön Python/pip, terminálparancs vagy internet nem szükséges; a buildhez internet kell. A0.21.1 telepítő valódi Windows-ellenőrzés és felhasználói elfogadás előtt TEST-jelölt; munkafolyamatfájl önmagában nem bizonyít sikeres futást.
+
+Start → HWI4U0.21.1 → HWI4U vagy HWI4U TEST. Első indítás adatmappa-varázslót mutat, üres leltárt és független TEST-adathalmazt készít teljes tesztkapuval; néhány percig tarthat. Javasolt mappa: %LOCALAPPDATA%/HWI4U. Hiányos korábbi telepítés változatlan marad: Új leltár másik időbélyeges útvonalat, Meglévő leltár megnyitása teljes kezelt munkaterületet választ. Kiválasztás külön: %LOCALAPPDATA%/HWI4U-launcher.json; --workspace nem írja át. Diagnosztika az adatmappa melletti <mappa>-startup.log. Újrapróbáláshoz ne törölje a korábbi hibás telepítést.
+
+Program: %LOCALAPPDATA%/Programs/HWI4U/0.21.1, adatoktól külön. Teljes meglévő leltár megtartja éles/TEST-kiválasztását. Szokásos parancsikon nem szinkronizál forrást, nem frissít TEST-adatot és nem léptet élesre. Külön Frissítés előkészítése TEST-ben parancsikon tudatosan teljes ellenőrzéssel publikál TEST-be; ellenőrzés után külön éles elfogadás szükséges. TEST-adatot nem másol vissza. Helyi forrásfrissítés másik Windows-PC-t automatikusan nem frissít.
+
+Eltávolítás a Windows Telepített alkalmazásokból vagy verzióhoz tartozó Start-parancsikonból. Előbb szabályosan zárja be a programot. Csak telepítési manifest fájljai, saját parancsikonok/regisztráció törlődnek; leltár, mentés, melléklet, indítási beállítás, hibás telepítés és ismeretlen fájl megmarad. PATH, fájltársítás, globális Python és HKLM változatlan. Régi verziók egymás mellett maradnak. Független teljes mentés szükséges; azonos lemezes másolat nem független.
+
+Első build aláíratlan EXE, nem MSI. Windows ismeretlen kiadót/SmartScreen-jelzést mutathat; a védelmet ne kapcsolja ki. Ellenőrizze SHA256SUMS.txt-t és a letöltés forrását. Aláíráshoz külön tanúsítvány-/fiókdöntés kell. Cél Windows11 x64; automatikus Windows2025 x64 próba nem helyettesíti a saját PC ellenőrzését. ARM/x86/macOS/mobil telepítő nincs igazolva.
+
+Build Windows alatt Python3.14.8 x64, requirements.txt és FOSS NSIS3.13 használatával: python tools/build_windows_installer.py --output dist/windows-installer --makensis "C:/Program Files (x86)/NSIS/makensis.exe". Új kimeneti mappa kell. Csak engedélyezett forrás, teljes áthelyezhető CPython standard könyvtár és rögzített Essentials/shiboken wheel másolódik; nincs leltár, venv, rendszerbeállítás vagy futási pillanatkép. Futási prefix/modulút ellenőrzött, teljes SHA256-manifest készül. NSIS felhasználói EXE-t és pontos fájllistás eltávolítót készít.
+
+Ellenőrzés: tools/windows_installer_smoke.py valódi EXE-t telepít izolált Unicode-útvonalra, hash-t ellenőriz, eltávolítja fejlesztői Pythont a PATH-ból, teljes mellékelt tesztcsomagot és friss inicializálást futtat teljes kapuval, telepített pythonw-ból natív TEST-ablakot nyit és szabályosan bezár. Valódi eltávolítás után fiktív leltár, hibadiagnosztika és ismeretlen programfájl megmaradását ellenőrzi. Nincs kihagyott teszt vagy gyengített DB-szabály. CI-napló/bizonylat/manifest/hash14 napig érhető el; tartós kiadási fájl és felhasználói elfogadás külön.
+
+Licencek: HWI4U MIT, CPython LICENSE és Essentials/shiboken wheel értesítések mellékelve; dinamikus Qt-könyvtárak cserélhetők. Felesleges Qt Addons kimarad. Változatlan források/licencek: https://www.python.org/downloads/source/ , https://code.qt.io/cgit/pyside/pyside-setup.git/?h=v6.11.2 , https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/ , https://doc.qt.io/qtforpython-6/licenses.html . FOSS NSIS buildeszköz: https://nsis.sourceforge.io/License . Windows és esetleges fordítói futtatókörnyezet saját platformfeltételei megmaradnak, a célplatform kompatibilitási feltételei. Forráshivatkozásokhoz internet kell; teljes offline függőségforrás-archívum nincs állítva.
+
+[Desktop](DESKTOP.hu.md) · [Recovery](RECOVERY.hu.md)
+
+[Dependency licenses and exact corresponding sources](DEPENDENCY-SOURCES.hu.md)

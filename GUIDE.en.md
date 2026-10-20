@@ -1,6 +1,8 @@
 # User guide
 
-Document ID: HWI4U-GUIDE · Version: 10 · 2026-10-20
+Document ID: HWI4U-GUIDE · Version: 11 · 2026-10-21
+
+[Windows offline EXE installer · 0.21.1 TEST](docs/WINDOWS-INSTALLER.en.md)
 
 [Name suggestions and reusable tags — 0.21.0 TEST](docs/NAMES-TAGS.en.md)
 

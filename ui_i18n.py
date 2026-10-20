@@ -11,8 +11,8 @@ from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox
 
 from language_catalog import CATALOGUES
 LANGUAGES={code:data['name'] for code,data in CATALOGUES.locales.items()}
-APP_VERSION='0.21.0'
-RELEASE_DATE='2026-10-20'
+APP_VERSION='0.21.1'
+RELEASE_DATE='2026-10-21'
 
 def locale_name(code):
     return CATALOGUES.locales.get(code,CATALOGUES.locales['en'])['qt_locale']
