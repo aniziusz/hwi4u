@@ -14,7 +14,7 @@ BASE = Path(__file__).resolve().parent
 STATES = ('awaiting installation', 'in use', 'spare', 'in storage', 'under assessment', 'under repair', 'retired', 'sold', 'given away', 'returned', 'lost', 'stolen', 'scrapped')
 CONDITIONS = ('working', 'partially working', 'faulty', 'untested')
 
-TABLES = ('device_type_groups', 'device_types', 'device_states', 'physical_conditions', 'devices', 'facts', 'relationships', 'component_installations', 'device_photos', 'connection_options', 'device_connectivity', 'device_connections', 'os_families', 'device_software', 'device_manuals', 'device_type_codes', 'device_short_labels', 'device_network', 'network_interfaces', 'network_addresses', 'network_observations','deleted_devices','source_entries','source_links','source_link_history','network_links','network_link_sources','network_link_history','location_places','device_locations','device_location_history','role_choices','device_roles','device_role_history','device_lifecycle','device_lifecycle_history','model_profiles')
+TABLES = ('device_type_groups', 'device_types', 'device_states', 'physical_conditions', 'devices', 'facts', 'relationships', 'component_installations', 'device_photos', 'connection_options', 'device_connectivity', 'device_connections', 'os_families', 'device_software', 'device_manuals', 'device_type_codes', 'device_short_labels', 'device_network', 'network_interfaces', 'network_addresses', 'network_observations','deleted_devices','source_entries','source_links','source_link_history','network_links','network_link_sources','network_link_history','location_places','device_locations','device_location_history','role_choices','device_roles','device_role_history','device_lifecycle','device_lifecycle_history','model_profiles','tag_choices','device_tags','device_tag_history')
 
 def nonempty(value):
     if not value.strip():
@@ -35,7 +35,7 @@ def connect(path, readonly=False, timeout=5.0):
     try:
         con.execute('PRAGMA foreign_keys = ON')
         con.row_factory = sqlite3.Row
-        if con.execute('PRAGMA user_version').fetchone()[0] != 25:raise ValueError('Unsupported schema version')
+        if con.execute('PRAGMA user_version').fetchone()[0] != 26:raise ValueError('Unsupported schema version')
         return con
     except Exception:
         con.close();raise
@@ -85,6 +85,9 @@ def check(con):
     if con.execute('PRAGMA user_version').fetchone()[0]>=25:
         from lifecycle import audit_lifecycle
         audit_lifecycle(con)
+    if con.execute('PRAGMA user_version').fetchone()[0]>=26:
+        from tags import audit_tags
+        audit_tags(con)
     return {'integrity': 'ok', 'foreign_keys': 'ok', 'schema_version': con.execute('PRAGMA user_version').fetchone()[0]}
 
 def exclusive(path):
@@ -267,6 +270,8 @@ def main(argv=None):
             result['source_links']=load_links(con,args.device)
             result['network_history']=[dict(r) for r in con.execute('SELECT * FROM network_observations WHERE device_id=? ORDER BY observation_id',(args.device,))]
             result['manuals']=[dict(r) for r in con.execute('SELECT * FROM device_manuals WHERE device_id=? ORDER BY title,reference_id',(args.device,))]
+            from tags import load_tags
+            result['tags']=load_tags(con,args.device)
             result['photos'] = [dict(r) for r in con.execute('SELECT * FROM device_photos WHERE device_id=? ORDER BY recorded_at,photo_id',(args.device,))]
             result['facts'] = [dict(r) for r in con.execute('SELECT * FROM facts WHERE device_id=? ORDER BY fact_id',(args.device,))]
             result['component_installations'] = [dict(r) for r in con.execute('SELECT * FROM component_installations WHERE parent_device=? OR component_device=? ORDER BY installation_id',(args.device,args.device))]
@@ -296,7 +301,7 @@ def main(argv=None):
             con.execute('BEGIN')
             snapshot={t:[dict(r) for r in con.execute(f'SELECT * FROM {t} ORDER BY 1')] for t in TABLES}
             (directory/'inventory.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n')
-            (directory/'inventory.sql').write_text('PRAGMA foreign_keys=OFF;\n'+'\n'.join(con.iterdump())+'\nPRAGMA user_version = 25;\nPRAGMA foreign_keys=ON;\n')
+            (directory/'inventory.sql').write_text('PRAGMA foreign_keys=OFF;\n'+'\n'.join(con.iterdump())+'\nPRAGMA user_version = 26;\nPRAGMA foreign_keys=ON;\n')
             con.rollback()
             print(f'Exported JSON and SQL: {directory}. Photo/manual metadata only; use backup-bundle to include local files.')
 

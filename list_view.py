@@ -8,11 +8,12 @@ from column_header import FilterHeader
 from location_store import location_summary
 from update_runtime import atomic_json
 
-COLUMNS=[('short_id','Short ID'),('name','Name'),('type_group','Group'),('device_type','Type'),('current_state','State'),('physical_condition','Condition'),('roles','Roles'),('location','Location'),('building','Building'),('floor','Floor'),('room','Room'),('hostname','Hostname'),('mac','MAC addresses'),('ip','IP addresses'),('purchased_at','Purchased at'),('purchase_date','Purchase date'),('installation_date','Installation date'),('scrapped_date','Scrapped date'),('purchase_price','Purchase price'),('purchase_currency','Currency'),('device_id','Device ID'),('manufacturer','Manufacturer'),('model','Model'),('serial_number','Serial number')]
+COLUMNS=[('short_id','Short ID'),('name','Name'),('type_group','Group'),('device_type','Type'),('current_state','State'),('physical_condition','Condition'),('roles','Roles'),('location','Location'),('building','Building'),('floor','Floor'),('room','Room'),('hostname','Hostname'),('mac','MAC addresses'),('ip','IP addresses'),('purchased_at','Purchased at'),('purchase_date','Purchase date'),('installation_date','Installation date'),('scrapped_date','Scrapped date'),('purchase_price','Purchase price'),('purchase_currency','Currency'),('device_id','Device ID'),('manufacturer','Manufacturer'),('model','Model'),('serial_number','Serial number'),('tags','Tags')]
 KEYS=[k for k,_ in COLUMNS];DEFAULT=KEYS[:6]
 GROUPABLE=['type_group','device_type','roles','current_state','physical_condition','building','floor','room','purchased_at','manufacturer','model']
 
 def values(row,key):
+    if key=='tags':return row.get('_tags',[]) or ['']
     if key=='roles':return row.get('_roles',[]) or ['']
     if key in ('hostname','mac','ip'):
         network=row['_network']
@@ -38,7 +39,7 @@ def groups(rows,keys):
 
 class ChoiceDialog(QDialog):
     """Search hides choices; it never changes checked values. Cancel is inert."""
-    def __init__(self,title,options,selected,parent=None,allow_all=False,add_choice=None):
+    def __init__(self,title,options,selected,parent=None,allow_all=False,add_choice=None,add_label='Add role…'):
         super().__init__(parent);self.setWindowTitle(tr(title));self.resize(430,480);self.options=dict(options);self.all_mode=selected is None;self.allowed_all=allow_all
         layout=QVBoxLayout(self);self.search=QLineEdit();self.search.setPlaceholderText(tr('Search choices…'));layout.addWidget(self.search)
         self.list=QListWidget();layout.addWidget(self.list,1)
@@ -50,11 +51,14 @@ class ChoiceDialog(QDialog):
         if allow_all:
             button=QPushButton(tr('No restriction'));button.clicked.connect(self.unrestrict);actions.addWidget(button)
         if add_choice:
-            button=QPushButton(tr('Add role…'));layout.addWidget(button)
+            button=QPushButton(tr(add_label));layout.addWidget(button)
             def add():
                 value=add_choice()
                 if value and value not in self.options:
                     self.options[value]=value;item=QListWidgetItem(value,self.list);item.setData(Qt.UserRole,value);item.setFlags(item.flags()|Qt.ItemIsUserCheckable);item.setCheckState(Qt.Checked)
+                elif value:
+                    for i in range(self.list.count()):
+                        if self.list.item(i).data(Qt.UserRole)==value:self.list.item(i).setCheckState(Qt.Checked)
             button.clicked.connect(add)
         self.buttons=QDialogButtonBox(QDialogButtonBox.Apply|QDialogButtonBox.Cancel);layout.addWidget(self.buttons);self.buttons.button(QDialogButtonBox.Apply).clicked.connect(self.accept);self.buttons.rejected.connect(self.reject)
         self.search.textChanged.connect(lambda text:[self.list.item(i).setHidden(text.casefold() not in self.list.item(i).text().casefold()) for i in range(self.list.count())])

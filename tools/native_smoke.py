@@ -23,7 +23,7 @@ def smoke(output):
     source=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='hwi4u-platform-') as tmp:
         root=Path(tmp);workspace=root/'private space';initialize(source,workspace,run_tests=False)
-        db=workspace/'hardware.sqlite3';store=DeviceStore(db);store.save(dict(name='Fictional Árvíztűrő Büro',source='FICTIONAL TEST',roles=['firewall','router'],manufacturer='Fictional maker',model='Model-x',serial_number='0007aB'))
+        db=workspace/'hardware.sqlite3';store=DeviceStore(db);store.save(dict(name='Fictional Árvíztűrő Büro',source='FICTIONAL TEST',roles=['firewall','router'],manufacturer='Fictional maker',model='Model-x',serial_number='0007aB',tags=['Fictional Büro','安全']))
         from source_store import SourceStore
         from lifecycle import ModelStore
         sid=SourceStore(db).save(dict(kind='observation',title='FICTIONAL manufacturer notice',body='Fictional test only',observed_on='2026-10-19',evidence_status='verified'))
@@ -35,26 +35,34 @@ def smoke(output):
         window.table.itemDoubleClicked.emit(window.table.item(0,1));editor=next(iter(window.editors.values()));app.processEvents()
         assert editor.isMaximized() and editor.table.isHidden()
         assert editor.workspace and editor.role_values==['firewall','router']
+        assert editor.tag_values==['Fictional Büro','安全'] and not editor.tag_button.isEnabled()
+        assert editor.name_preview.text()=='Fictional maker Model-x'
         assert editor.inputs['serial_number'].text()=='0007aB'
         assert editor.lifecycle_panel.value()==records
         assert editor.lifecycle_panel.parentWidget() is editor.workspace.cards['lifecycle']
         window.list_controller.view['groups']=['roles'];window.list_controller.render()
         assert '1 / 1' in window.list_controller.summary.text()
-        editor.begin_edit();editor.set_details(True)
+        editor.begin_edit();editor.name_use.click();assert editor.inputs['name'].text()=='Fictional maker Model-x'
+        editor.set_details(True)
         editor.workspace.tree.setCurrentItem(editor.workspace.items['network']);app.processEvents()
         editor.inputs['name'].setText('Fictional reviewed device');editor.inputs['location'].setText('Földszint / Büro');assert editor.save()
         assert window.inputs['name'].text()=='Fictional reviewed device'
         for code in ('de','hu','en'):window.set_language(code);assert editor.language_actions[code].isChecked()
+        from PySide6.QtTest import QTest
+        app.processEvents();QTest.qWait(100);app.processEvents()
         assert editor.grab().save(str(output/'device-editor.png'));assert window.grab().save(str(output/'quick-editor.png'))
         bundle=root/'full.zip';backup_bundle(db,bundle);restored=restore(bundle,root/'restore')
         assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['device_id']==store.devices()[0]['device_id']
         assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['serial_number']=='0007aB'
         assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['_lifecycle']==records
+        assert DeviceStore(restored/'hardware.sqlite3').devices()[0]['_tags']==['Fictional Büro','安全']
         assert len(ModelStore(restored/'hardware.sqlite3').list())==1
         # Windows/macOS UTF-8 export must preserve non-ASCII user text.
         import subprocess
         subprocess.run([sys.executable,str(source/'inventory.py'),'--db',str(db),'export','--directory',str(root/'export')],check=True,capture_output=True)
-        assert json.loads((root/'export/inventory.json').read_text(encoding='utf-8'))['devices'][0]['location']=='Földszint / Büro'
+        exported=json.loads((root/'export/inventory.json').read_text(encoding='utf-8'))
+        assert exported['devices'][0]['location']=='Földszint / Büro'
+        assert len(exported['tag_choices'])==2 and len(exported['device_tags'])==2
         editor.close();window.close();app.processEvents()
     report=dict(system=system,machine=platform.machine(),python=platform.python_version(),qt=PySide6.__version__,qt_platform=app.platformName(),native_ui=(system in ('Windows','Darwin')),expanded_editor=True,quick_refresh=True,workspace_initialization=True,full_restore=True,export=True,data='disposable fictional data only')
     (output/'platform-report.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')

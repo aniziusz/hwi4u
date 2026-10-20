@@ -1,6 +1,8 @@
 # Közreműködés
 
-Document ID: HWI4U-CONTRIBUTING · Version: 4 · 2026-10-20
+Document ID: HWI4U-CONTRIBUTING · Version: 5 · 2026-10-20
+
+[Névjavaslatok és újrahasználható címkék — 0.21.0 TEST](docs/NAMES-TAGS.hu.md)
 
 [FR-050/053/052/044/046 · 0.20.0 TEST · Basic/Details · View/Edit](docs/EDITOR-MODES.hu.md)
 

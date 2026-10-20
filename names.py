@@ -13,3 +13,18 @@ def validate_name(value):
     if len(value)>100:raise ValueError('Name must be at most 100 characters.')
     return value
 
+
+
+def suggested_name(manufacturer,model,device_type,used=()):
+    """Descriptive Unicode name, not a hostname; caller applies only on explicit action."""
+    def part(value):
+        if not isinstance(value,str):return ''
+        return ' '.join(''.join(c for c in value if unicodedata.category(c) not in ('Cc','Cs') and c not in ('\u2028','\u2029')).split())
+    identity=' '.join(filter(None,(part(manufacturer),part(model))))
+    base=' — '.join(filter(None,(identity,part(device_type))))
+    if not base:return None
+    occupied={name_key(n) for n in used}
+    candidate=base[:100].rstrip();number=1
+    while name_key(candidate) in occupied:
+        number+=1;suffix=' ('+str(number)+')';candidate=base[:100-len(suffix)].rstrip()+suffix
+    return validate_name(candidate)

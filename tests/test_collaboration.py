@@ -13,7 +13,7 @@ class Collaboration(unittest.TestCase):
             target=Path(tmp)/'private';initialize(test_desktop.BASE,target,run_tests=False)
             with contextlib.closing(sqlite3.connect(target/'hardware.sqlite3')) as c:
                 self.assertEqual(c.execute('SELECT count(*) FROM devices').fetchone()[0],0)
-                self.assertEqual(c.execute('PRAGMA user_version').fetchone()[0],25)
+                self.assertEqual(c.execute('PRAGMA user_version').fetchone()[0],26)
             from environments import current_dataset
             with contextlib.closing(sqlite3.connect(current_dataset(target)/'hardware.sqlite3')) as c:self.assertEqual(c.execute('SELECT count(*) FROM devices').fetchone()[0],0)
             self.assertEqual(published(target)[1]['release_id'],published(target,'test')[1]['release_id'])

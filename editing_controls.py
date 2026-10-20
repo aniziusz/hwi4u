@@ -119,9 +119,10 @@ def set_editing(w,editing):
     w.software_panel.firmware.setEnabled(w.software_panel.firmware_status.currentData()=='recorded')
     w.lifecycle_panel.read_only=not editing;w.location_panel.read_only=not editing
     for selector in w.source_selectors.values():selector.set_read_only(not editing)
-    for button in (w.role_button,w.model_button,w.merchant_fix):button.setEnabled(editing)
+    for button in (w.role_button,w.tag_button,w.model_button,w.merchant_fix):button.setEnabled(editing)
     for name in ('add_photo_button','detach_photo_button','add_manual_button','edit_manual_button','detach_manual_button'):
         if hasattr(w,name):getattr(w,name).setEnabled(editing and w.original is not None)
+    w.refresh_name_suggestion()
     w.connections_button.setEnabled(editing)
     for key,value in [('edit',not editing and not getattr(w,'deleted',False)),('save',editing),('cancel',editing),('delete',editing and w.original is not None),('links',editing)]:w.actions[key].setEnabled(value)
     w.edit_button.setVisible(not editing);w.save_button.setVisible(editing);w.cancel_button.setVisible(editing)
@@ -130,7 +131,7 @@ def set_editing(w,editing):
 
 
 def basic_widget(w,widget):
-    if widget in (w.short_id,w.type_group,w.name_feedback,w.location_panel,w.source_selectors['device'].parentWidget()):return True
+    if widget in (w.short_id,w.type_group,w.name_feedback,w.name_suggestion_panel,w.tag_button,w.location_panel,w.source_selectors['device'].parentWidget()):return True
     return any(widget is w.inputs[key] for key in BASIC_FIELDS)
 
 
@@ -163,6 +164,7 @@ def reveal_validation(w,error):
              (('network','hostname','mac','ip address'),'network',w.network_panel),
              (('serial','manufacturer','model'),'location',w.inputs['serial_number']),
              (('role',),'identity',w.role_button),
+             (('tag',),'identity',w.tag_button),
              (('source','evidence'),'evidence',w.inputs['source'])]
     for words,section,widget in mapping:
         if any(word in text for word in words):key=section;target=widget;break
