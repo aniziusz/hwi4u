@@ -1000,7 +1000,7 @@
       "source": "Document language code, such as en, de or hu; leave unknown blank. This does not change the application language."
     },
     "ui.0200": {
-      "text": "Double-click a device to edit it in a large window. The quick editor remains available.",
+      "text": "Double-click a device to open it in a large window. Choose Edit device to change it. The quick editor remains available.",
       "context": "UI label, dialog, choice or validation message",
       "source": "Double-click a device to edit it in a large window. The quick editor remains available."
     },
@@ -3628,6 +3628,91 @@
       "text": "{0}: recorded needs at least one {1} choice; unknown/none must have no choices.",
       "context": "UI label, dialog, choice or validation message",
       "source": "{0}: recorded needs at least one {1} choice; unknown/none must have no choices."
+    },
+    "ui.0726": {
+      "text": "File",
+      "source": "File",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0727": {
+      "text": "Edit",
+      "source": "Edit",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0728": {
+      "text": "View",
+      "source": "View",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0729": {
+      "text": "Tools",
+      "source": "Tools",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0730": {
+      "text": "Help",
+      "source": "Help",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0731": {
+      "text": "Basic",
+      "source": "Basic",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0732": {
+      "text": "Details",
+      "source": "Details",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0733": {
+      "text": "Find devices",
+      "source": "Find devices",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0734": {
+      "text": "Open the other client",
+      "source": "Open the other client",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0735": {
+      "text": "All properties are available.",
+      "source": "All properties are available.",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0736": {
+      "text": "Everyday properties. Other saved values are retained in Details.",
+      "source": "Everyday properties. Other saved values are retained in Details.",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0737": {
+      "text": "Editing — save or cancel your changes.",
+      "source": "Editing — save or cancel your changes.",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0738": {
+      "text": "View mode — choose Edit device to make changes.",
+      "source": "View mode — choose Edit device to make changes.",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0739": {
+      "text": "Choose Edit device before changing this record.",
+      "source": "Choose Edit device before changing this record.",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0740": {
+      "text": "View sources…",
+      "source": "View sources…",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0741": {
+      "text": "Lifecycle dates — needs attention",
+      "source": "Lifecycle dates — needs attention",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0742": {
+      "text": "Lifecycle details need attention.",
+      "source": "Lifecycle details need attention.",
+      "context": "Editor mode, classic menu or lifecycle disclosure"
     }
   },
   "help": {

@@ -69,8 +69,8 @@ class SourceEditor(QDialog):
 
 
 class SourceLibrary(QDialog):
-    def __init__(self,store,date_factory,selected,device=None,parent=None):
-        super().__init__(parent);self.store=store;self.date_factory=date_factory;self.device=device
+    def __init__(self,store,date_factory,selected,device=None,parent=None,read_only=False):
+        super().__init__(parent);self.store=store;self.date_factory=date_factory;self.device=device;self.read_only=read_only
         self.setWindowTitle(tr('Sources and evidence'));self.resize(850,580);layout=QVBoxLayout(self)
         self.search=QLineEdit();self.search.setPlaceholderText('Search source titles, URLs or observations…');layout.addWidget(self.search)
         self.list=QListWidget();layout.addWidget(self.list,1);self.search.textChanged.connect(self.filter)
@@ -78,9 +78,9 @@ class SourceLibrary(QDialog):
         actions=QHBoxLayout();layout.addLayout(actions)
         for label,callback in [('Add source…',self.add),('Reuse manual/photo…',self.reuse),('Revise source…',self.revise),('Open source',self.open_selected)]:
             button=QPushButton(label);button.clicked.connect(callback);actions.addWidget(button)
-            if label=='Reuse manual/photo…':button.setEnabled(bool(device))
+            if label!='Open source':button.setEnabled(not read_only and (label!='Reuse manual/photo…' or bool(device)))
         self.hint=QLabel('Tick sources for this section. Untick to remove an assignment. New/revised library entries save immediately; assignments apply only when the parent form is saved.');self.hint.setWordWrap(True);layout.addWidget(self.hint)
-        self.use_button=explicit_buttons(layout,'Use selected sources',self.accept,self.reject)
+        self.use_button=explicit_buttons(layout,'Close' if read_only else 'Use selected sources',self.accept,self.reject)
         self.populate(selected);apply(self)
     def selection(self):return sorted(self.list.item(n).data(Qt.UserRole)['source_id'] for n in range(self.list.count()) if self.list.item(n).checkState()==Qt.Checked)
     def populate(self,selected):
@@ -88,7 +88,9 @@ class SourceLibrary(QDialog):
         for row in self.store.list():
             suffix=(' · '+tr('Revision')) if row['supersedes'] else ''
             item=QListWidgetItem(row['title']+'\n'+tr(KIND_LABELS[row['kind']])+' · '+tr(STATUS_LABELS[row['evidence_status']])+' · '+(row['observed_on'] or tr('Unknown'))+suffix)
-            item.setData(Qt.UserRole,row);item.setFlags(item.flags()|Qt.ItemIsUserCheckable);item.setCheckState(Qt.Checked if row['source_id'] in selected else Qt.Unchecked);item.setToolTip('<pre>'+html.escape((row['url'] or row['original_name'] or row['body'] or '')+'\n'+row['source_id'])+'</pre>');self.list.addItem(item)
+            item.setData(Qt.UserRole,row);item.setFlags(item.flags()|Qt.ItemIsUserCheckable);item.setCheckState(Qt.Checked if row['source_id'] in selected else Qt.Unchecked)
+            if self.read_only:item.setFlags(item.flags() & ~Qt.ItemIsUserCheckable)
+            item.setToolTip('<pre>'+html.escape((row['url'] or row['original_name'] or row['body'] or '')+'\n'+row['source_id'])+'</pre>');self.list.addItem(item)
         self.filter()
     def filter(self,*_):
         query=self.search.text().casefold()
@@ -96,9 +98,11 @@ class SourceLibrary(QDialog):
             item=self.list.item(n);row=item.data(Qt.UserRole);item.setHidden(query not in ' '.join(str(row.get(k) or '') for k in ('title','url','body','source_note','source_id')).casefold())
     def current(self):return self.list.currentItem().data(Qt.UserRole) if self.list.currentItem() else None
     def add(self):
+        if self.read_only:return
         dialog=SourceEditor(self.store,self.date_factory,parent=self)
         if dialog.exec()==QDialog.Accepted:self.populate(self.selection()+[dialog.saved_id])
     def revise(self):
+        if self.read_only:return
         row=self.current()
         if not row:return
         dialog=SourceEditor(self.store,self.date_factory,row,self)
@@ -107,6 +111,7 @@ class SourceLibrary(QDialog):
         row=self.current()
         if row:open_source(self,self.store,row)
     def reuse(self):
+        if self.read_only:return
         dialog=QDialog(self);dialog.setWindowTitle(tr('Reuse an existing manual or photo'));layout=QVBoxLayout(dialog);listing=QListWidget();layout.addWidget(listing)
         for kind,row in self.store.reusable(self.device):
             item=QListWidgetItem(row.get('title') or row.get('caption') or row['original_name']);item.setData(Qt.UserRole,(kind,row));listing.addItem(item)
@@ -121,9 +126,9 @@ class SourceLibrary(QDialog):
 class SourceSelector(QWidget):
     changed=Signal()
     def __init__(self,store,date_factory):
-        super().__init__();self.store=store;self.date_factory=date_factory;self.device=None;self.ids=[]
+        super().__init__();self.store=store;self.date_factory=date_factory;self.device=None;self.ids=[];self.read_only=False
         layout=QVBoxLayout(self);layout.setContentsMargins(0,0,0,0);self.summary=QLabel('No sources selected');self.summary.setTextFormat(Qt.PlainText);self.summary.setWordWrap(True);layout.addWidget(self.summary)
-        button=QPushButton('Choose sources…');button.setToolTip('Select several existing sources or add evidence. Source assignments save together with the parent form.');button.clicked.connect(self.choose);layout.addWidget(button)
+        button=QPushButton('Choose sources…');self.button=button;button.setToolTip('Select several existing sources or add evidence. Source assignments save together with the parent form.');button.clicked.connect(self.choose);layout.addWidget(button)
     def value(self):return list(self.ids)
     def load(self,ids,device=None):
         self.ids=sorted(ids);self.device=device;rows={r['source_id']:r for r in self.store.list()}
@@ -133,6 +138,8 @@ class SourceSelector(QWidget):
         self.summary.setProperty('_literal_text',bool(self.ids));self.summary.setText(display if self.ids else 'No sources selected')
         self.summary.setToolTip('<pre>'+html.escape(tr('Selected sources:')+'\n'+'\n'.join(titles))+'</pre>' if titles else '')
         apply(self)
+    def set_read_only(self,value):
+        self.read_only=bool(value);self.button.setText('View sources…' if value else 'Choose sources…');self.button.setEnabled(True);apply(self)
     def choose(self):
-        dialog=SourceLibrary(self.store,self.date_factory,self.ids,self.device,self)
-        if dialog.exec()==QDialog.Accepted:self.load(dialog.selection(),self.device);self.changed.emit()
+        dialog=SourceLibrary(self.store,self.date_factory,self.ids,self.device,self,read_only=self.read_only)
+        if dialog.exec()==QDialog.Accepted and not self.read_only:self.load(dialog.selection(),self.device);self.changed.emit()

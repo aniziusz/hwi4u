@@ -58,7 +58,7 @@ class Software(unittest.TestCase):
         self.assertEqual(self.store.devices()[0]['_software']['os_version'],'EXTERNAL TEST')
     def test_gui_language_calendar_search_cancel(self):
         w=Window(self.store);self.addCleanup(w.deleteLater)
-        for key,value in self.data.items():w.inputs[key].setText(value)
+        for key,value in self.data.items():w.begin_edit();w.inputs[key].setText(value)
         p=w.software_panel
         p.os_status.setCurrentIndex(p.os_status.findData('recorded'))
         p.family.setCurrentIndex(p.family.findData('linux'));p.name.setText('Arch Linux');p.version.setText('Rolling TEST')

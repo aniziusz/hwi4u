@@ -12,13 +12,13 @@ class AutomaticIDs(unittest.TestCase):
     def test_auto_id_readonly_save_edit_and_names(self):
         w=self.window
         self.assertTrue(w.inputs['device_id'].isReadOnly())
-        w.inputs['name'].setText('backup-server-office-01')
-        w.inputs['source'].setText('TEST ONLY')
+        w.begin_edit();w.inputs['name'].setText('backup-server-office-01')
+        w.begin_edit();w.inputs['source'].setText('TEST ONLY')
         w.save()
         first=self.store.devices()[0]
         self.assertRegex(first['device_id'],r'^hw-[0-9a-f]{32}$')
         self.assertEqual(w.inputs['device_id'].text(),first['device_id'])
-        w.inputs['name'].setText('archive-server-office-01');w.save()
+        w.begin_edit();w.inputs['name'].setText('archive-server-office-01');w.save()
         self.assertEqual(self.store.devices()[0]['device_id'],first['device_id'])
         duplicate={'name':' ARCHIVE-server-office-01 ','source':'TEST ONLY'}
         with self.assertRaisesRegex(ValueError,'name already exists'):self.store.save(duplicate)

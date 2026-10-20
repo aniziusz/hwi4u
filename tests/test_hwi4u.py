@@ -39,7 +39,7 @@ class HWI4U(Desktop):
     def test_expansion_typo_and_explicit_dialog_actions(self):
         w=self.window;install('en')
         self.assertEqual(w.windowTitle(),'HWI4U')
-        w.inputs['purchased_at'].setText('amzaon');self.assertEqual(w.merchant_suggestion,'amazon')
+        w.begin_edit();w.inputs['purchased_at'].setText('amzaon');self.assertEqual(w.merchant_suggestion,'amazon')
         self.assertEqual(w.values()['purchased_at'],'amzaon');w.merchant_fix.click();self.assertEqual(w.values()['purchased_at'],'amazon')
         before=w.values()
         for section in w.sections:
@@ -69,7 +69,7 @@ class HWI4U(Desktop):
         def click(text):
             box=APP.activeModalWidget()
             next(b for b in box.findChildren(QPushButton) if b.text()==text).click()
-        install('en');QTimer.singleShot(0,lambda:click('Keep device'));w.delete_device()
+        w.begin_edit();install('en');QTimer.singleShot(0,lambda:click('Keep device'));w.delete_device()
         self.assertEqual(len(self.store.devices()),1)
         QTimer.singleShot(0,lambda:click('Delete device'));w.delete_device()
         self.assertEqual(self.store.devices(),[])

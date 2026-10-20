@@ -61,7 +61,7 @@ class Connectivity(unittest.TestCase):
             self.assertEqual(self.store.devices(),[])
     def test_gui_checkbox_rules_and_discard(self):
         w=Window(self.store);self.addCleanup(w.deleteLater)
-        for k,v in self.data.items():w.inputs[k].setText(v)
+        for k,v in self.data.items():w.begin_edit();w.inputs[k].setText(v)
         panel=w.connection_panels['interface']
         panel.supported.setCurrentIndex(panel.supported.findData('recorded'));panel.usage.setCurrentIndex(panel.usage.findData('recorded'))
         panel.source.setText('TEST ONLY')

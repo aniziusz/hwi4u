@@ -66,7 +66,7 @@ class GuidedLocations(unittest.TestCase):
         for lang in ('de','hu','en'):w.set_language(lang);self.assertEqual(w.values(),pending)
         with patch.object(w,'unsaved_choice',return_value=QMessageBox.Discard):w.cancel()
         self.assertEqual(w.values(),before)
-        w.location_panel.load(d.result_location);self.assertTrue(w.save());self.assertEqual(self.store.devices()[0]['location'],'Existing / text')
+        w.begin_edit();w.location_panel.load(d.result_location);self.assertTrue(w.save());self.assertEqual(self.store.devices()[0]['location'],'Existing / text')
         w.search.setText('Nappali');self.assertFalse(w.table.isRowHidden(0));w.search.setText('Elsewhere');self.assertTrue(w.table.isRowHidden(0))
     def test_reuse_preserves_shared_place_and_clears_old_device_position(self):
         self.create(details=placement());dialog=LocationDialog(self.store,validate_location(placement(room='Other')),self.window);self.addCleanup(dialog.deleteLater)

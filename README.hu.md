@@ -1,6 +1,8 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 9 · 2026-10-20
+Document ID: HWI4U-README · Version: 10 · 2026-10-20
+
+[FR-050/053/052/044/046 · 0.20.0 TEST · Basic/Details · View/Edit](docs/EDITOR-MODES.hu.md)
 
 [FR-043/045/047 · 0.19.0 TEST · Foundations / Grundlagen / Alapok](docs/FOUNDATIONS.hu.md)
 

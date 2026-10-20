@@ -324,7 +324,7 @@ class ManualDialog(QDialog):
 class Window(QMainWindow):
     device_changed=Signal(str)
     def __init__(self,store,language=None,editor_owner=None):
-        super().__init__(editor_owner);self.editor_owner=editor_owner;self.editors={};self.bound_device_id=None;self.skip_close_prompt=False;
+        super().__init__(editor_owner);self.editor_owner=editor_owner;self.editors={};self.bound_device_id=None;self.skip_close_prompt=False;self.editing=True;self.details_mode=False;
         if editor_owner is not None:self.setWindowFlag(Qt.Window,True)
         install(language or read_language(store.path.parent));self.store=store;self.source_store=SourceStore(store.path);self.source_selectors={};self.photo_store=PhotoStore(store.path);self.manual_store=ManualStore(store.path);self.original=None;self.baseline=None;self.loading=False
         self.type_rows=store.types()
@@ -341,8 +341,8 @@ class Window(QMainWindow):
         if os.environ.get('INVENTORY_CHANNEL')=='test':
             banner=QLabel('TEST ENVIRONMENT — changes affect only the test copy.');banner.setStyleSheet('background:#ffd166;color:#332600;padding:10px;font-weight:bold;');outer.addWidget(banner)
         self.search=QLineEdit();self.search.setPlaceholderText('Search devices, software, interfaces or protocols…')
-        toolbar=QHBoxLayout();toolbar.addWidget(self.search,1);self.toolbar_buttons={}
-        for label,callback in [('New device',self.new),('Save device',self.save),('Delete device…',self.delete_device),('Refresh',self.refresh),('Full backup',self.full_backup),('Manage types',self.manage_types)]:
+        toolbar=QHBoxLayout();self.toolbar_layout=toolbar;toolbar.addWidget(self.search,1);self.toolbar_buttons={}
+        for label,callback in [('New device',self.new),('Edit device',self.begin_edit),('Delete device…',self.delete_device),('Refresh',self.refresh),('Full backup',self.full_backup),('Manage types',self.manage_types)]:
             button=QPushButton(label);button.clicked.connect(callback);toolbar.addWidget(button);self.toolbar_buttons[label]=button
         self.update_button=QPushButton('Apply update');self.update_button.setToolTip('Save or discard edits, then restart into the tested update. A database write lock defers migration.');self.update_button.hide();self.update_button.clicked.connect(self.apply_update);toolbar.addWidget(self.update_button)
         outer.addLayout(toolbar)
@@ -400,7 +400,8 @@ class Window(QMainWindow):
             self.inputs[key]=widget;form.addRow(label,widget)
         self.role_values=[];self.role_button=QPushButton();self.role_button.setProperty('_literal_text',True);self.role_button.clicked.connect(self.choose_roles);form.addRow('Roles',self.role_button)
         self.model_button=QPushButton('Model suggestions…');self.model_button.clicked.connect(self.model_suggestions);self.model_button.setToolTip('Review exact manufacturer/model matches or save a sourced reusable model profile. No classification is changed automatically.');form.addRow(self.model_button)
-        self.lifecycle_panel=LifecyclePanel(store,self.source_store,OptionalDate,lambda:self.inputs['manufacturer'].text(),lambda:self.inputs['model'].text(),lambda:self.inputs['purchase_date'].value());form.addRow(self.lifecycle_panel)
+        self.lifecycle_panel=LifecyclePanel(store,self.source_store,OptionalDate,lambda:self.inputs['manufacturer'].text(),lambda:self.inputs['model'].text(),lambda:self.inputs['purchase_date'].value());self.lifecycle_section=CollapsibleSection('Lifecycle dates',self.lifecycle_panel);form.addRow(self.lifecycle_section)
+        self.lifecycle_panel.warning_changed.connect(self.update_lifecycle_header)
         for key in ('manufacturer','model'):self.inputs[key].textChanged.connect(self.lifecycle_panel.update_warning)
         self.inputs['purchase_date'].known.toggled.connect(self.lifecycle_panel.update_warning);self.inputs['purchase_date'].editor.dateChanged.connect(self.lifecycle_panel.update_warning)
         self.sections=[]
@@ -413,10 +414,7 @@ class Window(QMainWindow):
         for scope,assessment in [('software',self.software_panel),('network',self.network_panel),*self.connection_panels.items()]:
             selector=SourceSelector(self.source_store,OptionalDate);self.source_selectors[scope]=selector;assessment.layout().addRow('Sources and evidence',selector);assessment.source_selector=selector
             if hasattr(assessment,'update_warning'):selector.changed.connect(assessment.update_warning)
-        note=QLabel('Uncheck Known to keep a date unknown. No date is saved automatically.\n* Required fields. Group follows the selected type; choose a type to save a classification.\nExisting IDs stay fixed; components and facts use the existing tool.');note.setWordWrap(True);form.addRow(note)
-        buttons=QHBoxLayout();save=QPushButton('Save device');save.setDefault(True);save.clicked.connect(self.save)
-        cancel=QPushButton('Cancel changes');cancel.clicked.connect(self.cancel)
-        buttons.addWidget(save);buttons.addWidget(cancel);form.addRow(buttons)
+        note=QLabel('Uncheck Known to keep a date unknown. No date is saved automatically.\n* Required fields. Group follows the selected type; choose a type to save a classification.\nExisting IDs stay fixed; components and facts use the existing tool.');note.setWordWrap(True);self.assessment_note=note;form.addRow(note)
         photo_title=QLabel('Device photos');photo_title.setStyleSheet('font-size:18px;font-weight:600;');form.addRow(photo_title)
         self.photo_hint=QLabel('Save a device before attaching photos.');self.photo_hint.setWordWrap(True);form.addRow(self.photo_hint)
         self.photo_list=QListWidget();self.photo_list.setIconSize(QSize(120,90));self.photo_list.setMinimumHeight(140);self.photo_list.setMaximumHeight(230)
@@ -424,19 +422,23 @@ class Window(QMainWindow):
         photo_buttons=QHBoxLayout()
         self.add_photo_button=QPushButton('Add photo…');self.add_photo_button.clicked.connect(self.add_photo);photo_buttons.addWidget(self.add_photo_button)
         open_button=QPushButton('Open image');open_button.clicked.connect(self.open_photo);photo_buttons.addWidget(open_button)
-        remove_button=QPushButton('Detach');remove_button.clicked.connect(self.detach_photo);photo_buttons.addWidget(remove_button)
+        remove_button=QPushButton('Detach');self.detach_photo_button=remove_button;remove_button.clicked.connect(self.detach_photo);photo_buttons.addWidget(remove_button)
         form.addRow(photo_buttons)
         manual_title=QLabel('Manuals and references');manual_title.setStyleSheet('font-size:18px;font-weight:600;');form.addRow(manual_title)
         self.manual_hint=QLabel('Save a device before adding references.');self.manual_hint.setWordWrap(True);form.addRow(self.manual_hint)
         self.manual_list=QListWidget();self.manual_list.setMinimumHeight(130);self.manual_list.setMaximumHeight(230);self.manual_list.setToolTip(TIPS['manual_list'])
         self.manual_list.itemDoubleClicked.connect(lambda item:self.open_manual());form.addRow(self.manual_list)
         actions=QHBoxLayout();self.add_manual_button=QPushButton('Add reference…');self.add_manual_button.clicked.connect(self.add_manual);actions.addWidget(self.add_manual_button)
-        edit=QPushButton('Edit reference…');edit.clicked.connect(self.edit_manual);actions.addWidget(edit);form.addRow(actions)
+        edit=QPushButton('Edit reference…');self.edit_manual_button=edit;edit.clicked.connect(self.edit_manual);actions.addWidget(edit);form.addRow(actions)
         open_actions=QHBoxLayout()
         for label,callback in [('Open reference',self.open_manual),('Detach reference',self.detach_manual)]:
             button=QPushButton(label);button.clicked.connect(callback);open_actions.addWidget(button)
+            if label=='Detach reference':self.detach_manual_button=button
         form.addRow(open_actions)
         scroll.setWidget(panel);split.addWidget(scroll);split.setSizes([580,560])
+        self.quick_form=form
+        from editing_controls import install_controls
+        install_controls(self,outer)
         self.update_notice=QWidget();notice=QHBoxLayout(self.update_notice);notice.setContentsMargins(0,0,0,0)
         self.update_notice_text=QLabel('A tested local update is ready. Use Apply update when convenient.');self.update_notice_text.setWordWrap(True);notice.addWidget(self.update_notice_text,1)
         self.footer_apply=QPushButton('Apply update');self.footer_apply.setToolTip('Save or discard edits, then restart into the tested update. A database write lock defers migration.');self.footer_apply.clicked.connect(self.apply_update);notice.addWidget(self.footer_apply)
@@ -511,30 +513,43 @@ class Window(QMainWindow):
         QApplication.instance().exit(UPDATE_EXIT)
 
     def build_menus(self):
-        info=self.menuBar().addMenu('Info')
-        self.about_action=info.addAction('About HWI4U…');self.about_action.triggered.connect(self.show_about)
-        self.about_action.setToolTip('Application version, data location, license and backup information.')
-        guide=info.addAction('Open user guide');guide.triggered.connect(self.open_guide)
-        update=info.addAction('Check for local updates');update.triggered.connect(self.show_update_status)
-        quit_action=info.addAction('Quit HWI4U');quit_action.setMenuRole(QAction.QuitRole);quit_action.triggered.connect(lambda:self.editor_root().close())
-        self.language_menu=self.menuBar().addMenu('Language');self.language_actions={};group=QActionGroup(self);group.setExclusive(True)
-        for code,label in LANGUAGES.items():
-            action=self.language_menu.addAction(label);action.setCheckable(True);action.setChecked(code==QApplication.instance().inventory_language)
-            group.addAction(action);action.triggered.connect(lambda checked=False,key=code:self.set_language(key));self.language_actions[code]=action
+        from editing_controls import build_menus
+        build_menus(self)
+    def begin_edit(self):
+        if getattr(self,'deleted',False):return False
+        if self.original is None and not self.editing:return self.new()
+        self.set_editing(True)
+        self.inputs['name'].setFocus()
+    def set_editing(self,editing):
+        from editing_controls import set_editing
+        set_editing(self,editing)
+    def set_details(self,details):
+        from editing_controls import set_details
+        set_details(self,details)
+    def reveal_validation(self,error):
+        from editing_controls import reveal_validation
+        reveal_validation(self,error)
+    def update_lifecycle_header(self):
+        if not hasattr(self,'lifecycle_section'):return
+        self.lifecycle_section.header.setText('Lifecycle dates — needs attention' if self.lifecycle_panel.feedback.text() else 'Lifecycle dates')
+        apply(self.lifecycle_section.header)
+        if hasattr(self,'mode_bar'):self.set_details(self.details_mode)
     def set_language(self,code):
         if code not in LANGUAGES:raise ValueError('Unsupported interface language')
         install(code)
         for key,action in self.language_actions.items():action.setChecked(key==code)
-        self.refresh_photos();self.refresh_manuals();self.translate_state_cells();self.filter_rows();self.location_panel.refresh_text();self.lifecycle_panel.render();apply(self)
+        self.refresh_photos();self.refresh_manuals();self.set_editing(self.editing);self.translate_state_cells();self.filter_rows();self.location_panel.refresh_text();self.lifecycle_panel.render();apply(self)
         for view in [self.editor_root(),*list(self.editor_root().editors.values())]:
             if view is self:continue
             for key,action in view.language_actions.items():action.setChecked(key==code)
-            view.refresh_photos();view.refresh_manuals();view.translate_state_cells();view.filter_rows();view.location_panel.refresh_text();view.lifecycle_panel.render();apply(view)
+            view.refresh_photos();view.refresh_manuals();view.set_editing(view.editing);view.translate_state_cells();view.filter_rows();view.location_panel.refresh_text();view.lifecycle_panel.render();apply(view)
         try:write_language(self.store.path.parent,code)
         except OSError as exc:QMessageBox.warning(self,'Could not save language preference',str(exc))
     def refresh_roles(self):
         self.role_button.setText(', '.join(self.role_values) or tr('Choose roles…'))
     def choose_roles(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         from PySide6.QtWidgets import QInputDialog
         def add_choice():
             value,ok=QInputDialog.getText(self,tr('Add role'),tr('Role name (catalogue saves immediately)'))
@@ -622,9 +637,13 @@ class Window(QMainWindow):
         self.merchant_hint.setText((tr('Suggested spelling: ')+self.merchant_suggestion) if matches else '')
         self.merchant_fix.setVisible(bool(matches))
     def apply_merchant_suggestion(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         if self.merchant_suggestion:self.inputs['purchased_at'].setText(self.merchant_suggestion)
 
     def delete_device(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         if not self.original:
             QMessageBox.information(self,tr('Delete device'),tr('Select a saved device first.'));return
         if not self.discard_ok():return
@@ -651,11 +670,12 @@ class Window(QMainWindow):
         if self.bound_device_id and row is None:
             row=next((r for r in self.rows if r['device_id']==self.bound_device_id),None)
             if row is None:
+                self.deleted=True;self.set_editing(False)
                 self.form_scroll.setEnabled(False)
                 if hasattr(self,'workspace'):self.workspace.setEnabled(False)
                 for label in ('Save device','Delete device…'):self.toolbar_buttons[label].setEnabled(False)
                 self.status.setText(tr('This device was deleted. Close this editor.'));return
-        self.original=dict(row) if row else None
+        self.deleted=False;self.original=dict(row) if row else None
         self.form_title.setText('Edit device' if row else 'New device')
         if self.editor_owner is not None and row:
             self.header_title.setProperty('_literal_text',True);self.header_title.setText(row['short_id']+' — '+row['name']);self.header_title.setStyleSheet('font-size:18px;font-weight:600;');self.subtitle.hide()
@@ -680,7 +700,7 @@ class Window(QMainWindow):
         for scope,selector in self.source_selectors.items():selector.load(row.get('_sources',{}).get(scope,[]) if row else [],row['device_id'] if row else None)
         self.network_panel.update_warning()
         for panel in self.connection_panels.values():panel.update_warning()
-        self.baseline=self.values();self.refresh_photos();self.refresh_manuals();self.check_name();self.check_device_evidence()
+        self.baseline=self.values();self.refresh_photos();self.refresh_manuals();self.check_name();self.check_device_evidence();self.set_editing(row is None);self.set_details(self.details_mode)
     @localized
     def reload(self):
         self.loading=True
@@ -713,13 +733,16 @@ class Window(QMainWindow):
         except (OSError,sqlite3.Error,ValueError) as exc:self.error(exc)
     @localized
     def cancel(self):
-        if self.discard_ok():self.load(self.original);self.status.setText('Unsaved changes cancelled.')
+        if self.discard_ok():
+            self.load(self.original);self.set_editing(False);self.status.setText('Unsaved changes cancelled.')
     def error(self,exc):
         message=str(exc)
         if 'locked' in message.lower():message='Database busy. Finish or cancel changes in DB Browser, close it, and try again.'
         QMessageBox.warning(self,'Could not save',message)
     @localized
     def save(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         try:
             data=self.values()
             if not self.check_device_evidence():
@@ -739,7 +762,8 @@ class Window(QMainWindow):
             if notes:self.status.setText(self.status.text()+' '+' '.join(tr(n) for n in notes))
             self.device_changed.emit(row['device_id'])
             return True
-        except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc);return False
+        except (ValueError,OSError,sqlite3.Error) as exc:
+            self.reveal_validation(exc);self.error(exc);return False
     @localized
     def fill_types(self,group,selected=None):
         combo=self.inputs['device_type'];combo.blockSignals(True);combo.clear();combo.addItem('Unknown',None)
@@ -763,12 +787,16 @@ class Window(QMainWindow):
         self.type_filter.blockSignals(False)
         if hasattr(self,'rows'):self.filter_rows()
     def model_suggestions(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         try:
             dialog=ModelDialog(self)
             if dialog.exec()!=QDialog.Accepted or dialog.applied is None:return
             self.apply_model_profile(dialog.applied)
         except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc)
     def apply_model_profile(self,profile):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         # Recheck exact identity and revision at acceptance; never apply a stale catalogue row.
         rows=ModelStore(self.store.path).list(self.inputs['manufacturer'].text(),self.inputs['model'].text())
         if profile not in rows:raise ValueError('Model profile changed; reopen the catalogue.')
@@ -805,7 +833,7 @@ class Window(QMainWindow):
 
     @localized
     def refresh_photos(self):
-        self.photo_list.clear();self.add_photo_button.setEnabled(self.original is not None)
+        self.photo_list.clear();self.add_photo_button.setEnabled(self.editing and self.original is not None)
         if self.original is None:
             self.photo_hint.setText('Save a device before attaching photos.');return
         try:
@@ -820,6 +848,8 @@ class Window(QMainWindow):
                 self.photo_list.addItem(item)
         except (ValueError,OSError,sqlite3.Error) as exc:self.status.setText('Photo list unavailable: '+str(exc))
     def add_photo(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         if not self.original:return
         if self.values()!=self.baseline:
             QMessageBox.information(self,'Save changes first','Save or cancel device changes before adding a photo.');return
@@ -852,6 +882,8 @@ class Window(QMainWindow):
             dialog.exec()
         except (ValueError,OSError) as exc:self.error(exc)
     def detach_photo(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         item=self.photo_list.currentItem()
         if item is None:return
         if self.values()!=self.baseline:
@@ -862,7 +894,7 @@ class Window(QMainWindow):
         except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc)
     @localized
     def refresh_manuals(self):
-        self.manual_list.clear();self.add_manual_button.setEnabled(self.original is not None)
+        self.manual_list.clear();self.add_manual_button.setEnabled(self.editing and self.original is not None)
         if self.original is None:self.manual_hint.setText('Save a device before adding references.');return
         try:
             rows=self.manual_store.list(self.original['device_id'])
@@ -875,6 +907,8 @@ class Window(QMainWindow):
                 item.setToolTip((row['url'] or row['relative_path'])+'\n'+tr('Source: ')+row['source']);self.manual_list.addItem(item)
         except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc)
     def manual_edit_ready(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         if self.original is None:return False
         if self.values()!=self.baseline:
             QMessageBox.information(self,'Save changes first','Save or cancel device changes before editing manual references.');return False
@@ -911,6 +945,8 @@ class Window(QMainWindow):
         except (ValueError,OSError,sqlite3.Error) as exc:self.error(exc)
 
     def manage_network_links(self):
+        if not self.editing:
+            self.status.setText(tr('Choose Edit device before changing this record.'));return False
         if self.values()!=self.baseline:
             QMessageBox.information(self,'Save changes first','Save or cancel device changes before editing network connections.');return
         from topology_ui import LinkManager
@@ -950,11 +986,13 @@ class Window(QMainWindow):
         editor.bound_device_id=device_id;editor.load(selected)
         from editor_workspace import EditorWorkspace
         editor.workspace=EditorWorkspace(editor)
+        editor.set_details(editor.details_mode);editor.set_editing(editor.editing)
+        for key in ('new','search','filters','columns','group','clear_filters'):editor.actions[key].setEnabled(False)
         editor.splitter.addWidget(editor.workspace)
         editor.splitter.setSizes([0,1500])
         editor.table.hide();editor.filter_bar.hide();editor.search.hide()
-        for label in ('New device','Manage types','Save device'):editor.toolbar_buttons[label].hide()
-        editor.client_button.hide();editor.connections_button.hide()
+        for label in ('New device','Manage types','Edit device'):editor.toolbar_buttons[label].hide()
+        editor.client_button.hide();editor.connections_button.hide();editor.toolbar_layout.addStretch(1)
         editor.setProperty('_literal_title',True)
         editor.setWindowTitle('HWI4U — '+selected['short_id']+' — '+selected['name'])
         editor.setAttribute(Qt.WA_DeleteOnClose)

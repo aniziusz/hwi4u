@@ -89,7 +89,7 @@ class LocationDialog(QDialog):
 class LocationPanel(QWidget):
     changed=Signal()
     def __init__(self,store,parent=None):
-        super().__init__(parent);self.store=store;self.data=empty_location()
+        super().__init__(parent);self.store=store;self.data=empty_location();self.read_only=False
         layout=QVBoxLayout(self);layout.setContentsMargins(0,0,0,0)
         layout.addWidget(QLabel('Structured location'))
         self.summary=QLabel();self.summary.setTextFormat(Qt.PlainText);self.summary.setWordWrap(True);self.summary.setProperty('_literal_text',True);layout.addWidget(self.summary)
@@ -99,5 +99,6 @@ class LocationPanel(QWidget):
     def refresh_text(self):self.summary.setText(location_summary(self.data,tr))
     def value(self):return dict(self.data)
     def edit(self):
+        if self.read_only:return
         dialog=LocationDialog(self.store,self.data,self)
         if dialog.exec()==QDialog.Accepted:self.load(dialog.result_location);self.changed.emit()

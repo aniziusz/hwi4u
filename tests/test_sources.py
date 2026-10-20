@@ -21,7 +21,7 @@ class Sources(unittest.TestCase):
     def links(self,**values):return {k:values.get(k,[]) for k in SCOPES}
     def test_multi_scope_reuse_generates_real_citations_and_keeps_legacy_notes(self):
         w=self.window;one=self.entry('label');two=SourceStore(self.db).save(dict(kind='website',title='manufacturer reference',url='https://example.org/model',evidence_status='uncertain'))
-        w.inputs['name'].setText('test device');w.source_selectors['device'].load([one,two]);w.source_selectors['software'].load([one])
+        w.begin_edit();w.inputs['name'].setText('test device');w.source_selectors['device'].load([one,two]);w.source_selectors['software'].load([one])
         w.software_panel.os_status.setCurrentIndex(w.software_panel.os_status.findData('recorded'));w.software_panel.name.setText('TEST OS')
         self.assertTrue(w.save());row=self.store.devices()[0];self.assertIn('[source:'+one+']',row['source']);self.assertEqual(row['_sources']['device'],sorted([one,two]));self.assertIn(one,row['_software']['source'])
         original=row;data={**row,'source':'Preserved original text','sources':self.links(device=[two])};self.store.save(data,original)
@@ -91,7 +91,7 @@ class Sources(unittest.TestCase):
         self.assertEqual(self.store.devices(),[])
         with self.assertRaises(ValueError):asset_path(self.root,'sources/../secret')
     def test_selector_languages_cancel_and_filter_keep_values(self):
-        ident=self.entry('New device');w=self.window;w.inputs['name'].setText('unchanged');w.source_selectors['device'].load([ident]);before=w.values()
+        ident=self.entry('New device');w=self.window;w.begin_edit();w.inputs['name'].setText('unchanged');w.source_selectors['device'].load([ident]);before=w.values()
         for lang in ('de','hu','en'):w.set_language(lang);self.assertEqual(w.values(),before);self.assertEqual(w.source_selectors['device'].summary.text(),'New device')
         library=SourceLibrary(SourceStore(self.db),OptionalDate,[ident]);self.addCleanup(library.deleteLater);library.search.setText('not present');self.assertEqual(library.selection(),[ident])
         with patch('source_ui.SourceLibrary.exec',return_value=0):w.source_selectors['device'].choose()
@@ -116,7 +116,7 @@ class Sources(unittest.TestCase):
             open_source(self.window,store,row);opened.assert_not_called();warning.assert_called_once()
         with self.assertRaises(ValueError):full_snapshot_locked(self.db,self.root/'bad-locked.zip')
     def test_source_based_connectivity_and_network_keep_verification_rules(self):
-        w=self.window;ident=self.entry();w.inputs['name'].setText('source based');w.source_selectors['device'].load([ident])
+        w=self.window;ident=self.entry();w.begin_edit();w.inputs['name'].setText('source based');w.source_selectors['device'].load([ident])
         panel=w.connection_panels['interface'];panel.supported.setCurrentIndex(panel.supported.findData('none'));panel.usage.setCurrentIndex(panel.usage.findData('none'));w.source_selectors['interface'].load([ident]);panel.update_warning();self.assertEqual(panel.warning.text(),'')
         w.network_panel.hostname.setText('device.example');w.source_selectors['network'].load([ident]);w.network_panel.evidence.setCurrentIndex(w.network_panel.evidence.findData('verified'))
         with patch('desktop.QMessageBox.warning'):self.assertFalse(w.save())

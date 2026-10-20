@@ -29,7 +29,7 @@ class Usability(unittest.TestCase):
         with contextlib.closing(self.store.connect()) as c:
             with self.assertRaises(sqlite3.IntegrityError):c.execute('UPDATE device_short_labels SET number=99')
     def test_unsourced_connectivity_saves_and_warns(self):
-        w=self.window;w.inputs['name'].setText('test');w.inputs['source'].setText('TEST ONLY')
+        w=self.window;w.begin_edit();w.inputs['name'].setText('test');w.begin_edit();w.inputs['source'].setText('TEST ONLY')
         panel=w.connection_panels['interface'];panel.supported.setCurrentIndex(panel.supported.findData('recorded'))
         panel.table.item(panel.options.index('m.2'),1).setCheckState(Qt.Checked)
         self.assertIn('warning',panel.warning.text().lower());self.assertTrue(w.save())
@@ -38,15 +38,15 @@ class Usability(unittest.TestCase):
         with contextlib.closing(self.store.connect()) as c:inventory.check(c)
         self.assertIn('Warning',w.status.text())
     def test_save_discard_cancel_prompt_and_failed_save(self):
-        w=self.window;w.inputs['name'].setText('test');w.inputs['source'].setText('TEST ONLY')
+        w=self.window;w.begin_edit();w.inputs['name'].setText('test');w.begin_edit();w.inputs['source'].setText('TEST ONLY')
         with patch.object(Window,'unsaved_choice',return_value=QMessageBox.Save):w.new()
         self.assertEqual(len(self.store.devices()),1);self.assertIsNone(w.original)
-        w.inputs['name'].setText('incomplete')
+        w.begin_edit();w.inputs['name'].setText('incomplete')
         with patch.object(Window,'unsaved_choice',return_value=QMessageBox.Save),patch.object(QMessageBox,'warning'):
             w.new();self.assertEqual(w.inputs['name'].text(),'incomplete')
         with patch.object(Window,'unsaved_choice',return_value=QMessageBox.Cancel):self.assertFalse(w.discard_ok())
         with patch.object(Window,'unsaved_choice',return_value=QMessageBox.Discard):self.assertTrue(w.discard_ok())
-        self.assertGreaterEqual(sum(b.text()=='Save device' for b in w.findChildren(QPushButton)),2)
+        self.assertEqual(sum(b.text()=='Save changes' for b in w.findChildren(QPushButton)),1)
     def test_migration_preserves_history_and_handles_assigned_knx(self):
         db=self.root/'old.sqlite3'
         with contextlib.closing(sqlite3.connect(db)) as c:
@@ -86,7 +86,7 @@ class Usability(unittest.TestCase):
         z={'name':'zulu','source':'TEST ONLY'};a={'name':'alpha','source':'TEST ONLY'}
         self.store.save(z);self.store.save(a)
         w=self.window;w.reload();w.load(next(r for r in w.rows if r['device_id']==z['device_id']))
-        w.inputs['name'].setText('aardvark')
+        w.begin_edit();w.inputs['name'].setText('aardvark')
         target=next(n for n,r in enumerate(w.rows) if r['device_id']==a['device_id'])
         with patch.object(Window,'unsaved_choice',return_value=QMessageBox.Save):w.table.setCurrentCell(target,0)
         self.assertEqual(w.original['device_id'],a['device_id'])

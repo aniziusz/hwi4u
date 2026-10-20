@@ -17,7 +17,7 @@ class ColumnHeader(unittest.TestCase):
         self.assertEqual(calls,[1]);self.assertEqual((w.list_controller.sort_key,w.list_controller.descending),before)
         self.assertIn('Name',h.buttons[1].accessibleName());self.assertEqual(h.buttons[1].geometry().right(),h.sectionViewportPosition(1)+h.sectionSize(1)-3)
     def test_direct_dialog_apply_cancel_active_indicator_and_unknown(self):
-        w=self.window;w.store.save(dict(name='fictional',source='FICTIONAL TEST'));w.reload();w.inputs['name'].setText('pending name');pending=w.values();c=w.list_controller
+        w=self.window;w.store.save(dict(name='fictional',source='FICTIONAL TEST'));w.reload();w.begin_edit();w.inputs['name'].setText('pending name');pending=w.values();c=w.list_controller
         with patch('list_view.ChoiceDialog') as make,patch('PySide6.QtWidgets.QInputDialog.getItem') as column_picker:
             make.return_value.width.return_value=430;make.return_value.height.return_value=480
             make.return_value.exec.return_value=QDialog.Accepted;make.return_value.selected.return_value=['fictional'];c.filter_column(KEYS.index('name'));column_picker.assert_not_called()

@@ -33,12 +33,12 @@ class Identification(unittest.TestCase):
         self.assertIsNone(DeviceStore(db).devices()[0]['manufacturer'])
     def test_field_order_both_editors_languages_search_and_optional_columns(self):
         w=self.window;order=['manufacturer','model','serial_number','location'];form=w.inputs['location'].parentWidget().layout();indices=[form.getWidgetPosition(w.inputs[k])[0] for k in order];self.assertEqual(indices,sorted(indices));self.assertEqual(len(set(indices)),4)
-        w.inputs['name'].setText('Fictional device');w.inputs['source'].setText('FICTIONAL TEST')
-        for k,v in [('manufacturer','Fictional maker'),('model','Model-x'),('serial_number','00007aB')]:w.inputs[k].setText(v)
+        w.begin_edit();w.inputs['name'].setText('Fictional device');w.begin_edit();w.inputs['source'].setText('FICTIONAL TEST')
+        for k,v in [('manufacturer','Fictional maker'),('model','Model-x'),('serial_number','00007aB')]:w.begin_edit();w.inputs[k].setText(v)
         self.assertTrue(w.save());w.search.setText('00007AB');self.assertFalse(w.table.isRowHidden(0));self.assertIn('manufacturer',KEYS)
         self.addCleanup(self.close_editors);e=w.open_device_editor(0);form=e.workspace.forms['location'];indices=[form.getWidgetPosition(e.inputs[k])[0] for k in order];self.assertEqual(indices,sorted(indices));before=e.values()
         for lang in ('de','hu','en'):w.set_language(lang);self.assertEqual(e.values(),before)
-        self.assertEqual(e.inputs['serial_number'].text(),'00007aB');self.assertIn('200',e.inputs['serial_number'].toolTip());self.assertTrue(e.save())
+        self.assertEqual(e.inputs['serial_number'].text(),'00007aB');self.assertIn('200',e.inputs['serial_number'].toolTip());e.begin_edit();self.assertTrue(e.save())
     def test_existing_column_preferences_are_preserved_when_fields_added(self):
         old=KEYS[:-3];path=self.root/'view.json';path.write_text(json.dumps(dict(order=list(reversed(old)),hidden=['roles'],groups=['device_type'],filters={'name':['Example']},widths={'name':233})))
         view=read_view(path);self.assertEqual(view['order'][:-3],list(reversed(old)));self.assertEqual(view['order'][-3:],['manufacturer','model','serial_number']);self.assertEqual(view['widths'],{'name':233});self.assertEqual(view['filters'],{'name':['Example']});self.assertTrue(set(KEYS[-3:])<=set(view['hidden']))

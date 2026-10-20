@@ -76,6 +76,7 @@ class Manuals(unittest.TestCase):
         window.manual_list.setCurrentRow(0)
         with patch('desktop.QDesktopServices.openUrl',return_value=True) as opened:
             window.open_manual();self.assertEqual(opened.call_args[0][0].scheme(),'https')
+        window.begin_edit()
         with patch.object(QMessageBox,'question',return_value=QMessageBox.Yes):window.detach_manual()
         self.assertEqual(window.manual_list.count(),0)
         self.store.save('TEST','local',self.meta,self.pdf);window.refresh_manuals();window.manual_list.setCurrentRow(0)

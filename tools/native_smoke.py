@@ -40,6 +40,7 @@ def smoke(output):
         assert editor.lifecycle_panel.parentWidget() is editor.workspace.cards['lifecycle']
         window.list_controller.view['groups']=['roles'];window.list_controller.render()
         assert '1 / 1' in window.list_controller.summary.text()
+        editor.begin_edit();editor.set_details(True)
         editor.workspace.tree.setCurrentItem(editor.workspace.items['network']);app.processEvents()
         editor.inputs['name'].setText('Fictional reviewed device');editor.inputs['location'].setText('Földszint / Büro');assert editor.save()
         assert window.inputs['name'].text()=='Fictional reviewed device'

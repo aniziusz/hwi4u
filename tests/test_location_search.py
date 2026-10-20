@@ -7,9 +7,9 @@ from ui_i18n import install
 class LocationSearch(unittest.TestCase):
     setUp=test_desktop.Desktop.setUp
     def test_location_roundtrip_search_unicode_language_and_validation(self):
-        w=self.window;w.inputs['name'].setText('test device');w.inputs['source'].setText('TEST ONLY');w.inputs['location'].setText('  Büro / földszint  ');self.assertTrue(w.save());row=self.store.devices()[0];self.assertEqual(row['location'],'Büro / földszint')
+        w=self.window;w.begin_edit();w.inputs['name'].setText('test device');w.begin_edit();w.inputs['source'].setText('TEST ONLY');w.begin_edit();w.inputs['location'].setText('  Büro / földszint  ');self.assertTrue(w.save());row=self.store.devices()[0];self.assertEqual(row['location'],'Büro / földszint')
         w.search.setText('földszint');self.assertFalse(w.table.isRowHidden(0));w.search.setText('elsewhere');self.assertTrue(w.table.isRowHidden(0))
-        w.inputs['location'].setText('unsaved location');before=w.values()
+        w.begin_edit();w.inputs['location'].setText('unsaved location');before=w.values()
         for lang in ('de','hu','en'):w.set_language(lang);self.assertEqual(w.values(),before)
         self.assertIn('200',w.inputs['location'].toolTip())
         for value in ('x'*201,'room\nother',42):

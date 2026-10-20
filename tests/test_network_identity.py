@@ -22,15 +22,15 @@ class NetworkIdentity(unittest.TestCase):
         return data
     def test_live_name_uniqueness_unicode_and_length(self):
         first={'name':'Árvíz  szerver','source':'TEST ONLY'};self.store.save(first)
-        w=self.window;w.inputs['name'].setText(' ÁRVÍZ szerver ')
+        w=self.window;w.begin_edit();w.inputs['name'].setText(' ÁRVÍZ szerver ')
         # Await the debounced UI result rather than assuming a fixed CI scheduling delay.
         for _ in range(100):
             if 'already exists' in w.name_feedback.text():break
             QTest.qWait(50)
         self.assertIn('already exists',w.name_feedback.text())
-        w.inputs['name'].setText('ü'*100);w.check_name();self.assertIn('No duplicate',w.name_feedback.text())
+        w.begin_edit();w.inputs['name'].setText('ü'*100);w.check_name();self.assertIn('No duplicate',w.name_feedback.text())
         self.assertIn('100',w.inputs['name'].toolTip());self.assertIn('Unicode',w.inputs['name'].toolTip())
-        w.inputs['name'].setText('ü'*101);w.check_name();self.assertIn('100',w.name_feedback.text())
+        w.begin_edit();w.inputs['name'].setText('ü'*101);w.check_name();self.assertIn('100',w.name_feedback.text())
         for value in ('x'*101,'line\nbreak','tab\there','bad\x00name'):
             with self.assertRaises(ValueError):self.store.save(dict(name=value,source='TEST ONLY'))
         self.store.save(dict(name='ü'*100,source='TEST ONLY'))
@@ -60,7 +60,7 @@ class NetworkIdentity(unittest.TestCase):
         self.store.save(dict(name='test',source='TEST ONLY',network=n))
         self.assertIsNone(self.store.devices()[0]['_network']['interfaces'][0]['mac_address'])
     def test_gui_save_language_and_search(self):
-        w=self.window;w.inputs['name'].setText('test');w.inputs['source'].setText('TEST ONLY')
+        w=self.window;w.begin_edit();w.inputs['name'].setText('test');w.begin_edit();w.inputs['source'].setText('TEST ONLY')
         w.network_panel.load(validate_network(self.known()));before=w.values()
         for lang in ('de','hu','en'):
             w.set_language(lang);self.assertEqual(w.values(),before)
@@ -93,7 +93,7 @@ class NetworkIdentity(unittest.TestCase):
         with self.assertRaises(ValueError):validate_network(n)
 
     def test_name_save_race_and_direct_sql_audit(self):
-        w=self.window;w.inputs['name'].setText('available');w.inputs['source'].setText('TEST ONLY');w.check_name()
+        w=self.window;w.begin_edit();w.inputs['name'].setText('available');w.begin_edit();w.inputs['source'].setText('TEST ONLY');w.check_name()
         self.assertIn('No duplicate',w.name_feedback.text())
         DeviceStore(self.db).save(dict(name='AVAILABLE',source='OTHER EDITOR TEST'))
         with patch.object(QMessageBox,'warning'):
@@ -112,7 +112,7 @@ class NetworkIdentity(unittest.TestCase):
             self.assertEqual(c.execute('SELECT count(*) FROM network_interfaces').fetchone()[0],0)
 
     def test_busy_name_check_warns_without_writing(self):
-        w=self.window;w.inputs['name'].setText('pending')
+        w=self.window;w.begin_edit();w.inputs['name'].setText('pending')
         with contextlib.closing(sqlite3.connect(self.db)) as other:
             other.execute('BEGIN EXCLUSIVE')
             w.check_name();self.assertIn('unavailable',w.name_feedback.text())

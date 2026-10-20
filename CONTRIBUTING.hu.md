@@ -1,6 +1,8 @@
 # Közreműködés
 
-Document ID: HWI4U-CONTRIBUTING · Version: 3 · 2026-10-20
+Document ID: HWI4U-CONTRIBUTING · Version: 4 · 2026-10-20
+
+[FR-050/053/052/044/046 · 0.20.0 TEST · Basic/Details · View/Edit](docs/EDITOR-MODES.hu.md)
 
 [FR-043/045/047 · 0.19.0 TEST · Foundations / Grundlagen / Alapok](docs/FOUNDATIONS.hu.md)
 

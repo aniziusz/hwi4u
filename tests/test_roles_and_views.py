@@ -50,11 +50,11 @@ class RolesAndViews(unittest.TestCase):
         controller.view['groups']=['roles','current_state'];controller.view['hidden']=['short_id'];controller.view['order']=KEYS[1:]+KEYS[:1];controller.render()
         self.assertIn('2 / 2',controller.summary.text());header=w.table.item(0,1);self.assertIn('Roles:',header.text());self.assertIsNone(controller.identity(0));controller.clicked(header);self.assertTrue(any(w.table.isRowHidden(i) for i in range(w.table.rowCount())));controller.clicked(w.table.item(0,1))
         n=next(i for i in range(w.table.rowCount()) if controller.identity(i) and controller.identity(i)['name']=='z');wanted=controller.identity(n)['device_id'];self.addCleanup(self.close_editors);editor=w.open_device_editor(n);self.assertEqual(editor.bound_device_id,wanted)
-        editor.inputs['name'].setText('changed');self.assertTrue(editor.save());self.assertEqual(next(r for r in self.store.devices() if r['device_id']==wanted)['name'],'changed')
+        editor.begin_edit();editor.inputs['name'].setText('changed');self.assertTrue(editor.save());self.assertEqual(next(r for r in self.store.devices() if r['device_id']==wanted)['name'],'changed')
         controller.persist();saved=read_view(controller.path);self.assertEqual(saved['order'],controller.view['order']);self.assertEqual(saved['groups'],['roles','current_state'])
     def test_workspace_reflow_navigation_language_and_pending_values(self):
         self.add('test',['firewall']);w=self.window;w.reload();self.addCleanup(self.close_editors);e=w.open_device_editor(0);space=e.workspace
-        e.inputs['name'].setText('unsaved büro');before=e.values();counts=[]
+        e.begin_edit();e.inputs['name'].setText('unsaved büro');before=e.values();counts=[]
         e.showNormal()
         for width in (900,1400,2300):
             e.resize(width,1000);QApplication.processEvents();QTest.qWait(40);space.tiles.reflow();counts.append(space.tiles.columns);self.assertEqual(e.values(),before)
