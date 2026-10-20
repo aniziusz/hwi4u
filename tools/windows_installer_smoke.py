@@ -26,7 +26,7 @@ def main():
             subprocess.run([str(python),'-E','-s','-B','-m','unittest','discover','-s','tests'],cwd=app,env={**env,'QT_QPA_PLATFORM':'offscreen','QT_QPA_FONTDIR':str(Path(os.environ['WINDIR'])/'Fonts')},stdout=log,stderr=subprocess.STDOUT,check=True,timeout=600)
         # Init uses every bundled test again through the real managed publication gate.
         with (out/'bundled-initialization.log').open('w',encoding='utf-8') as log:
-            subprocess.run([str(python),'-E','-s','-B',str(app/'manage.py'),'init','--workspace',str(data)],cwd=app,env=env,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=600)
+            subprocess.run([str(python),'-E','-s','-B',str(app/'tools/windows_wizard_smoke.py'),'--workspace',str(data),'--output',str(out)],cwd=app,env=env,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=600)
         from windows_start import startup_plan
         try:startup_plan(app,sentinel)
         except ValueError:pass
@@ -60,7 +60,7 @@ def main():
         assert unknown.read_text()=='fictional user file must survive uninstall'
         assert hashlib.sha256((data/'hardware.sqlite3').read_bytes()).hexdigest()==db_hash
         assert (sentinel/'original.png').read_bytes()==b'fictional retained diagnostic'
-        report={'status':'passed','installer':args.installer.name,'version':manifest['version'],'actual_exe_install':True,'bundled_python_qt':True,'external_python_removed_from_PATH':True,'full_suite':'bundled-full-tests.log','fresh_init_full_gate':True,'native_TEST_from_installed_pythonw':True,'normal_close_exit':0,'actual_uninstall':True,'inventory_and_unknown_files_retained':True,'partial_installation_retained':True,'elapsed_seconds':time.monotonic()-start,'data':'disposable fictional only; no user inventory accessed','physical_Windows11_acceptance':'pending; hosted Windows2025 verification'}
+        report={'status':'passed','installer':args.installer.name,'version':manifest['version'],'actual_exe_install':True,'bundled_python_qt':True,'external_python_removed_from_PATH':True,'full_suite':'bundled-full-tests.log','fresh_init_full_gate':True,'actual_first_run_wizard_button':True,'native_TEST_from_installed_pythonw':True,'normal_close_exit':0,'actual_uninstall':True,'inventory_and_unknown_files_retained':True,'partial_installation_retained':True,'elapsed_seconds':time.monotonic()-start,'data':'disposable fictional only; no user inventory accessed','physical_Windows11_acceptance':'pending; hosted Windows2025 verification'}
         (out/'installer-smoke.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
 
 if __name__=='__main__':main()
