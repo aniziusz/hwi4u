@@ -1,6 +1,12 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 2 · 2026-10-18
+Document ID: HWI4U-README · Version: 3 · 2026-10-20
+
+## Documentation and feature tracking
+
+[Wiki](https://github.com/aniziusz/hwi4u/wiki/Home-en) · [Feature requests](https://github.com/aniziusz/hwi4u/wiki/Feature-requests-en) · [Projects table/board](https://github.com/users/aniziusz/projects/1) · [Offline tracking guide](docs/TRACKING.en.md)
+
+Wiki and public feature tracking. The wiki documents the 0.18.0 source revision; this branch may contain older application code. Use the linked source revision rather than assuming the documentation upgrades the code.
 
 **Hardware inventory database client** — a local Python/Qt application using SQLite, with English, German and Hungarian UI. Source release **0.13.0**, database schema **21**. No cloud account is required to use the application.
 
