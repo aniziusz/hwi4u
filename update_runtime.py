@@ -28,6 +28,7 @@ def atomic_json(path,value):
 def source_files(root):
     files=[*root.glob('*.py'),root/'schema.sql',root/'LICENSE-desktop.txt',*root.glob('GUIDE.*.md'),*root.glob('README.*.md'),*root.glob('UPDATES.*.md'),*root.glob('NETWORK.*.md'),*root.glob('HWI4U.*.md'),*root.glob('TESTING.*.md'),*root.glob('*.sh'),*root.glob('*.cmd'),*root.glob('*.command'),*root.glob('FEATURES.*.md'),*root.glob('SOURCES.*.md'),*root.glob('TOPOLOGY.*.md')]
     files += [*root.glob('LICENSE'),*root.glob('NOTICE.*.md'),*root.glob('CONTRIBUTING.*.md'),*root.glob('requirements*.txt'),*root.glob('.python-version'),*list((root/'docs').glob('*.md')),*list((root/'tools').glob('*.py'))]
+    files += list((root/'locales').glob('*.json'))
     files += list((root/'migrations').glob('*.sql')) + list((root/'tests').rglob('*.py')) + list((root/'tests/fixtures').glob('*.sql'))
     return {f.relative_to(root).as_posix():f.read_bytes() for f in sorted(files) if f.is_file()}
 
@@ -67,7 +68,11 @@ def publish(root,run_tests=True,channel='test'):
     hashes={name:digest(data) for name,data in files.items()};ident=digest(json.dumps(hashes,sort_keys=True).encode())
     release=root/'.runtime/releases'/ident;release.parent.mkdir(parents=True,exist_ok=True)
     if release.exists():
-        verify_release(release);publish_pointer(root,ident,channel);return release
+        verify_release(release)
+        if run_tests:
+            from validation import run_full
+            run_full(release,root/'.runtime/validation')
+        publish_pointer(root,ident,channel);return release
     with tempfile.TemporaryDirectory(prefix='stage-',dir=release.parent) as tmp:
         stage=Path(tmp)/'release';stage.mkdir()
         for name,data in files.items():
@@ -78,9 +83,8 @@ def publish(root,run_tests=True,channel='test'):
         meta={'release_id':ident,'version':versions['APP_VERSION'],'date':versions['RELEASE_DATE'],'schema_version':schema,'sha256':hashes}
         (stage/'release.json').write_text(json.dumps(meta,indent=2)+'\n')
         if run_tests:
-            env={**os.environ,'QT_QPA_PLATFORM':'offscreen','PYTHONDONTWRITEBYTECODE':'1'}
-            result=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(stage/'tests')],cwd=stage,env=env,capture_output=True,text=True)
-            if result.returncode:raise RuntimeError('Release tests failed:\n'+result.stdout+result.stderr)
+            from validation import run_full
+            run_full(stage,root/'.runtime/validation')
         if source_files(root)!=files:raise RuntimeError('Source changed during validation; publish again after edits finish.')
         verify_release(stage)
         os.replace(stage,release)

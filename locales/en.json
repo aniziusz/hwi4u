@@ -1,0 +1,3703 @@
+{
+  "format": 1,
+  "language": "en",
+  "name": "English",
+  "qt_locale": "en_GB",
+  "messages": {
+    "ui.0001": {
+      "text": "A choice name is required.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "A choice name is required."
+    },
+    "ui.0002": {
+      "text": "A lifecycle source no longer exists; refresh before saving.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "A lifecycle source no longer exists; refresh before saving."
+    },
+    "ui.0003": {
+      "text": "A model revision must keep the same manufacturer, model and variant.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "A model revision must keep the same manufacturer, model and variant."
+    },
+    "ui.0004": {
+      "text": "A selected source no longer exists; reopen the source selector.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "A selected source no longer exists; reopen the source selector."
+    },
+    "ui.0005": {
+      "text": "A source title of 1–200 characters is required.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "A source title of 1–200 characters is required."
+    },
+    "ui.0006": {
+      "text": "A tested local update is ready. Use Apply update when convenient.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "A tested local update is ready. Use Apply update when convenient."
+    },
+    "ui.0007": {
+      "text": "A verified full backup is required. Device facts, attachments, network details and assembly links will be removed from current records. Other devices remain. A deletion history and reserved IDs are retained; local attachment files remain on disk.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "A verified full backup is required. Device facts, attachments, network details and assembly links will be removed from current records. Other devices remain. A deletion history and reserved IDs are retained; local attachment files remain on disk."
+    },
+    "ui.0008": {
+      "text": "A verified source needs an observation or access date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "A verified source needs an observation or access date."
+    },
+    "ui.0009": {
+      "text": "Abort",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Abort"
+    },
+    "ui.0010": {
+      "text": "About HWI4U",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "About HWI4U"
+    },
+    "ui.0011": {
+      "text": "About HWI4U…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "About HWI4U…"
+    },
+    "ui.0012": {
+      "text": "About Hardware inventory",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "About Hardware inventory"
+    },
+    "ui.0013": {
+      "text": "About Hardware inventory…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "About Hardware inventory…"
+    },
+    "ui.0014": {
+      "text": "Above finished floor",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Above finished floor"
+    },
+    "ui.0015": {
+      "text": "Above ground level",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Above ground level"
+    },
+    "ui.0016": {
+      "text": "Accept tested release",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Accept tested release"
+    },
+    "ui.0017": {
+      "text": "Accept this tested release for production? Only software and migrations are promoted. Test records are never copied back. Production applies the update through Apply update.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Accept this tested release for production? Only software and migrations are promoted. Test records are never copied back. Production applies the update through Apply update."
+    },
+    "ui.0018": {
+      "text": "Actual observation or access date. Leave unknown if unavailable; no date is filled automatically.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Actual observation or access date. Leave unknown if unavailable; no date is filled automatically."
+    },
+    "ui.0019": {
+      "text": "Add connection",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add connection"
+    },
+    "ui.0020": {
+      "text": "Add connection…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add connection…"
+    },
+    "ui.0021": {
+      "text": "Add interface",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add interface"
+    },
+    "ui.0022": {
+      "text": "Add lifecycle date…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add lifecycle date…"
+    },
+    "ui.0023": {
+      "text": "Add manual reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add manual reference"
+    },
+    "ui.0024": {
+      "text": "Add photo…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add photo…"
+    },
+    "ui.0025": {
+      "text": "Add reference…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add reference…"
+    },
+    "ui.0026": {
+      "text": "Add role",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add role"
+    },
+    "ui.0027": {
+      "text": "Add role…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add role…"
+    },
+    "ui.0028": {
+      "text": "Add source",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add source"
+    },
+    "ui.0029": {
+      "text": "Add source…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add source…"
+    },
+    "ui.0030": {
+      "text": "Add types or rename/move an existing type. Changes apply to every device using that type. Names are stored in lowercase.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add types or rename/move an existing type. Changes apply to every device using that type. Names are stored in lowercase."
+    },
+    "ui.0031": {
+      "text": "Add, rename or regroup shared device types; changes affect all devices using that type.",
+      "context": "buttons.Manage types",
+      "source": "Add, rename or regroup shared device types; changes affect all devices using that type."
+    },
+    "ui.0032": {
+      "text": "Address and additional notes (optional)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Address and additional notes (optional)"
+    },
+    "ui.0033": {
+      "text": "Add…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Add…"
+    },
+    "ui.0034": {
+      "text": "All groups",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "All groups"
+    },
+    "ui.0035": {
+      "text": "All types",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "All types"
+    },
+    "ui.0036": {
+      "text": "An in-use choice must also be marked supported.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "An in-use choice must also be marked supported."
+    },
+    "ui.0037": {
+      "text": "An online reference needs a URL.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "An online reference needs a URL."
+    },
+    "ui.0038": {
+      "text": "Applicable model",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Applicable model"
+    },
+    "ui.0039": {
+      "text": "Application version",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Application version"
+    },
+    "ui.0040": {
+      "text": "Application version, data location, license and backup information.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Application version, data location, license and backup information."
+    },
+    "ui.0041": {
+      "text": "Apply suggestion",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Apply suggestion"
+    },
+    "ui.0042": {
+      "text": "Apply update",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Apply update"
+    },
+    "ui.0043": {
+      "text": "Assessment date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Assessment date"
+    },
+    "ui.0044": {
+      "text": "Attached photos for this saved device. Double-click a thumbnail to open the original.",
+      "context": "tips.photo_list",
+      "source": "Attached photos for this saved device. Double-click a thumbnail to open the original."
+    },
+    "ui.0045": {
+      "text": "Attic",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Attic"
+    },
+    "ui.0046": {
+      "text": "Basement",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Basement"
+    },
+    "ui.0047": {
+      "text": "Both type name and group are required.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Both type name and group are required."
+    },
+    "ui.0048": {
+      "text": "Building / site",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Building / site"
+    },
+    "ui.0049": {
+      "text": "Calendar dates allow purchase from one calendar year before release. Partial dates retain their original precision.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Calendar dates allow purchase from one calendar year before release. Partial dates retain their original precision."
+    },
+    "ui.0050": {
+      "text": "Cancel",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Cancel"
+    },
+    "ui.0051": {
+      "text": "Cancel changes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Cancel changes"
+    },
+    "ui.0052": {
+      "text": "Cannot open inventory",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Cannot open inventory"
+    },
+    "ui.0053": {
+      "text": "Cannot start HWI4U",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Cannot start HWI4U"
+    },
+    "ui.0054": {
+      "text": "Capabilities used in the recorded configuration, not a live connection test. In-use choices must also be supported.",
+      "context": "tips.usage",
+      "source": "Capabilities used in the recorded configuration, not a live connection test. In-use choices must also be supported."
+    },
+    "ui.0055": {
+      "text": "Check Known to enable the calendar. Uncheck it to store no date; the disabled displayed date is not saved.",
+      "context": "tips.date",
+      "source": "Check Known to enable the calendar. Uncheck it to store no date; the disabled displayed date is not saved."
+    },
+    "ui.0056": {
+      "text": "Check for local updates",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Check for local updates"
+    },
+    "ui.0057": {
+      "text": "Checked on",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Checked on"
+    },
+    "ui.0058": {
+      "text": "Choice",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choice"
+    },
+    "ui.0059": {
+      "text": "Choice changed outside the dialog; reopen it.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choice changed outside the dialog; reopen it."
+    },
+    "ui.0060": {
+      "text": "Choose PDF…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose PDF…"
+    },
+    "ui.0061": {
+      "text": "Choose a JPEG or PNG file up to 25 MiB.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a JPEG or PNG file up to 25 MiB."
+    },
+    "ui.0062": {
+      "text": "Choose a PDF file up to 100 MiB.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a PDF file up to 100 MiB."
+    },
+    "ui.0063": {
+      "text": "Choose a column",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a column"
+    },
+    "ui.0064": {
+      "text": "Choose a connection medium",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a connection medium"
+    },
+    "ui.0065": {
+      "text": "Choose a connection medium.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a connection medium."
+    },
+    "ui.0066": {
+      "text": "Choose a connection state.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a connection state."
+    },
+    "ui.0067": {
+      "text": "Choose a currency or type a three-letter uppercase code. Blank means unknown.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a currency or type a three-letter uppercase code. Blank means unknown."
+    },
+    "ui.0068": {
+      "text": "Choose a device type for this group, or choose Unknown / choose a type to leave classification unknown.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a device type for this group, or choose Unknown / choose a type to leave classification unknown."
+    },
+    "ui.0069": {
+      "text": "Choose a height reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a height reference"
+    },
+    "ui.0070": {
+      "text": "Choose a height reference.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a height reference."
+    },
+    "ui.0071": {
+      "text": "Choose a local PDF file.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a local PDF file."
+    },
+    "ui.0072": {
+      "text": "Choose a local source file.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a local source file."
+    },
+    "ui.0073": {
+      "text": "Choose a saved interface",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a saved interface"
+    },
+    "ui.0074": {
+      "text": "Choose a unique ID; format is still manual",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a unique ID; format is still manual"
+    },
+    "ui.0075": {
+      "text": "Choose a valid JPEG/PNG photo up to 16 megapixels.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid JPEG/PNG photo up to 16 megapixels."
+    },
+    "ui.0076": {
+      "text": "Choose a valid OS family.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid OS family."
+    },
+    "ui.0077": {
+      "text": "Choose a valid device type.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid device type."
+    },
+    "ui.0078": {
+      "text": "Choose a valid lifecycle observation date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid lifecycle observation date."
+    },
+    "ui.0079": {
+      "text": "Choose a valid lifecycle property.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid lifecycle property."
+    },
+    "ui.0080": {
+      "text": "Choose a valid lifecycle verification status.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid lifecycle verification status."
+    },
+    "ui.0081": {
+      "text": "Choose a valid location status.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid location status."
+    },
+    "ui.0082": {
+      "text": "Choose a valid network evidence status.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid network evidence status."
+    },
+    "ui.0083": {
+      "text": "Choose a valid source kind.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid source kind."
+    },
+    "ui.0084": {
+      "text": "Choose a valid source observation or access date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid source observation or access date."
+    },
+    "ui.0085": {
+      "text": "Choose a valid source verification status.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose a valid source verification status."
+    },
+    "ui.0086": {
+      "text": "Choose an existing group or type a new group name.",
+      "context": "tips.manage_group",
+      "source": "Choose an existing group or type a new group name."
+    },
+    "ui.0087": {
+      "text": "Choose an image up to 16 megapixels; export a smaller copy if needed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose an image up to 16 megapixels; export a smaller copy if needed."
+    },
+    "ui.0088": {
+      "text": "Choose an online link or local PDF.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose an online link or local PDF."
+    },
+    "ui.0089": {
+      "text": "Choose an unused two-letter uppercase type code.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose an unused two-letter uppercase type code."
+    },
+    "ui.0090": {
+      "text": "Choose at least one source for the model profile.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose at least one source for the model profile."
+    },
+    "ui.0091": {
+      "text": "Choose device photo",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose device photo"
+    },
+    "ui.0092": {
+      "text": "Choose each lifecycle source only once.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose each lifecycle source only once."
+    },
+    "ui.0093": {
+      "text": "Choose each source only once per section.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose each source only once per section."
+    },
+    "ui.0094": {
+      "text": "Choose existing evidence entries.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose existing evidence entries."
+    },
+    "ui.0095": {
+      "text": "Choose interfaces on two different saved devices.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose interfaces on two different saved devices."
+    },
+    "ui.0096": {
+      "text": "Choose local manual",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose local manual"
+    },
+    "ui.0097": {
+      "text": "Choose or reuse a place, then enter device-specific position and mounting height. Existing location text is preserved.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose or reuse a place, then enter device-specific position and mounting height. Existing location text is preserved."
+    },
+    "ui.0098": {
+      "text": "Choose or type a three-letter uppercase currency code. Stored codes such as EUR and HUF are language independent.",
+      "context": "fields.purchase_currency",
+      "source": "Choose or type a three-letter uppercase currency code. Stored codes such as EUR and HUF are language independent."
+    },
+    "ui.0099": {
+      "text": "Choose recorded below to tick multiple choices. In use implies supported. Recorded choices need not be an exhaustive capability list.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose recorded below to tick multiple choices. In use implies supported. Recorded choices need not be an exhaustive capability list."
+    },
+    "ui.0100": {
+      "text": "Choose roles…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose roles…"
+    },
+    "ui.0101": {
+      "text": "Choose source file",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose source file"
+    },
+    "ui.0102": {
+      "text": "Choose source file…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose source file…"
+    },
+    "ui.0103": {
+      "text": "Choose sources…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose sources…"
+    },
+    "ui.0104": {
+      "text": "Choose two different saved interfaces.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose two different saved interfaces."
+    },
+    "ui.0105": {
+      "text": "Choose unknown, none or recorded for connectivity status.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose unknown, none or recorded for connectivity status."
+    },
+    "ui.0106": {
+      "text": "Choose unknown, not applicable or recorded for software status.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose unknown, not applicable or recorded for software status."
+    },
+    "ui.0107": {
+      "text": "Choose up to 100 lifecycle observations.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose up to 100 lifecycle observations."
+    },
+    "ui.0108": {
+      "text": "Choose up to two levels. Roles can repeat devices; totals count unique devices.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Choose up to two levels. Roles can repeat devices; totals count unique devices."
+    },
+    "ui.0109": {
+      "text": "City",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "City"
+    },
+    "ui.0110": {
+      "text": "Clear filters",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Clear filters"
+    },
+    "ui.0111": {
+      "text": "Clear selection",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Clear selection"
+    },
+    "ui.0112": {
+      "text": "Close",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Close"
+    },
+    "ui.0113": {
+      "text": "Close this dialog.",
+      "context": "buttons.Close",
+      "source": "Close this dialog."
+    },
+    "ui.0114": {
+      "text": "Columns",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Columns"
+    },
+    "ui.0115": {
+      "text": "Columns…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Columns…"
+    },
+    "ui.0116": {
+      "text": "Communication protocols",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Communication protocols"
+    },
+    "ui.0117": {
+      "text": "Completed: ",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Completed: "
+    },
+    "ui.0118": {
+      "text": "Condition",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Condition"
+    },
+    "ui.0119": {
+      "text": "Connection choices updated.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Connection choices updated."
+    },
+    "ui.0120": {
+      "text": "Connection interfaces",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Connection interfaces"
+    },
+    "ui.0121": {
+      "text": "Connection medium",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Connection medium"
+    },
+    "ui.0122": {
+      "text": "Connection needs normalization.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Connection needs normalization."
+    },
+    "ui.0123": {
+      "text": "Connection notes and dates must be text.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Connection notes and dates must be text."
+    },
+    "ui.0124": {
+      "text": "Connection state",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Connection state"
+    },
+    "ui.0125": {
+      "text": "Connectivity assessment date must be a valid calendar date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Connectivity assessment date must be a valid calendar date."
+    },
+    "ui.0126": {
+      "text": "Connectivity changed outside the form. Cancel and refresh before editing again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Connectivity changed outside the form. Cancel and refresh before editing again."
+    },
+    "ui.0127": {
+      "text": "Copy a JPEG/PNG into managed local storage. Save the device first; attachments save immediately.",
+      "context": "buttons.Add photo…",
+      "source": "Copy a JPEG/PNG into managed local storage. Save the device first; attachments save immediately."
+    },
+    "ui.0128": {
+      "text": "Copy a PDF up to 100 MiB into managed local storage. Your source file stays untouched. To replace a PDF, detach and add a new reference.",
+      "context": "tips.manual_file; buttons.Detach reference",
+      "source": "Copy a PDF up to 100 MiB into managed local storage. Your source file stays untouched. To replace a PDF, detach and add a new reference."
+    },
+    "ui.0129": {
+      "text": "Could not decode this image: {0}",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not decode this image: {0}"
+    },
+    "ui.0130": {
+      "text": "Could not open client",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not open client"
+    },
+    "ui.0131": {
+      "text": "Could not open guide",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not open guide"
+    },
+    "ui.0132": {
+      "text": "Could not open source",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not open source"
+    },
+    "ui.0133": {
+      "text": "Could not open the original image.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not open the original image."
+    },
+    "ui.0134": {
+      "text": "Could not open the other client.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not open the other client."
+    },
+    "ui.0135": {
+      "text": "Could not open the reference. Check your browser or PDF file association.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not open the reference. Check your browser or PDF file association."
+    },
+    "ui.0136": {
+      "text": "Could not open the selected source.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not open the selected source."
+    },
+    "ui.0137": {
+      "text": "Could not save",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save"
+    },
+    "ui.0138": {
+      "text": "Could not save choice",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save choice"
+    },
+    "ui.0139": {
+      "text": "Could not save connection",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save connection"
+    },
+    "ui.0140": {
+      "text": "Could not save language preference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save language preference"
+    },
+    "ui.0141": {
+      "text": "Could not save manual reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save manual reference"
+    },
+    "ui.0142": {
+      "text": "Could not save source",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save source"
+    },
+    "ui.0143": {
+      "text": "Could not save thumbnail",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save thumbnail"
+    },
+    "ui.0144": {
+      "text": "Could not save type",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save type"
+    },
+    "ui.0145": {
+      "text": "Could not save view preferences: ",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Could not save view preferences: "
+    },
+    "ui.0146": {
+      "text": "Country",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Country"
+    },
+    "ui.0147": {
+      "text": "Create a verified ZIP containing the database and attached photo files. Automatic save snapshots contain only the database.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Create a verified ZIP containing the database and attached photo files. Automatic save snapshots contain only the database."
+    },
+    "ui.0148": {
+      "text": "Create a verified ZIP with the database, attached photos and local manuals. Automatic snapshots contain only the database.",
+      "context": "buttons.Full backup",
+      "source": "Create a verified ZIP with the database, attached photos and local manuals. Automatic snapshots contain only the database."
+    },
+    "ui.0149": {
+      "text": "Created for your local home-infrastructure inventory. No independent product certification is claimed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Created for your local home-infrastructure inventory. No independent product certification is claimed."
+    },
+    "ui.0150": {
+      "text": "Currency",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Currency"
+    },
+    "ui.0151": {
+      "text": "Currency: use three uppercase letters, for example EUR or HUF.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Currency: use three uppercase letters, for example EUR or HUF."
+    },
+    "ui.0152": {
+      "text": "Current form values",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Current form values"
+    },
+    "ui.0153": {
+      "text": "Current operating system and firmware assessments, with evidence and checked date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Current operating system and firmware assessments, with evidence and checked date."
+    },
+    "ui.0154": {
+      "text": "Current state",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Current state"
+    },
+    "ui.0155": {
+      "text": "Currently in use",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Currently in use"
+    },
+    "ui.0156": {
+      "text": "Database busy. Finish or cancel changes in DB Browser, close it, and try again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Database busy. Finish or cancel changes in DB Browser, close it, and try again."
+    },
+    "ui.0157": {
+      "text": "Database location",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Database location"
+    },
+    "ui.0158": {
+      "text": "Database schema",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Database schema"
+    },
+    "ui.0159": {
+      "text": "Date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Date"
+    },
+    "ui.0160": {
+      "text": "Date disposed of as waste, not merely retired or switched off. Leave unknown when not established.",
+      "context": "fields.scrapped_date",
+      "source": "Date disposed of as waste, not merely retired or switched off. Leave unknown when not established."
+    },
+    "ui.0161": {
+      "text": "Date of purchase. Uncheck Known if unknown; use the calendar for a valid date.",
+      "context": "fields.purchase_date",
+      "source": "Date of purchase. Uncheck Known if unknown; use the calendar for a valid date."
+    },
+    "ui.0162": {
+      "text": "Date precision",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Date precision"
+    },
+    "ui.0163": {
+      "text": "Delete device",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Delete device"
+    },
+    "ui.0164": {
+      "text": "Delete device…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Delete device…"
+    },
+    "ui.0165": {
+      "text": "Delete this device?",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Delete this device?"
+    },
+    "ui.0166": {
+      "text": "Describe the evidence and applicability",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Describe the evidence and applicability"
+    },
+    "ui.0167": {
+      "text": "Describe the hardware service scope and applicable region.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Describe the hardware service scope and applicable region."
+    },
+    "ui.0168": {
+      "text": "Describe the individual device warranty or contract.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Describe the individual device warranty or contract."
+    },
+    "ui.0169": {
+      "text": "Describe the model profile evidence and applicability.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Describe the model profile evidence and applicability."
+    },
+    "ui.0170": {
+      "text": "Describe the other height reference in placement notes.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Describe the other height reference in placement notes."
+    },
+    "ui.0171": {
+      "text": "Description (optional)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Description (optional)"
+    },
+    "ui.0172": {
+      "text": "Descriptive title, such as installation guide or service manual. Required for each reference.",
+      "context": "tips.manual_title",
+      "source": "Descriptive title, such as installation guide or service manual. Required for each reference."
+    },
+    "ui.0173": {
+      "text": "Detach",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Detach"
+    },
+    "ui.0174": {
+      "text": "Detach manual reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Detach manual reference"
+    },
+    "ui.0175": {
+      "text": "Detach photo",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Detach photo"
+    },
+    "ui.0176": {
+      "text": "Detach reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Detach reference"
+    },
+    "ui.0177": {
+      "text": "Device",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device"
+    },
+    "ui.0178": {
+      "text": "Device ID *",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device ID *"
+    },
+    "ui.0179": {
+      "text": "Device ID: use letters, digits, dots, underscores or hyphens; begin with a letter or digit.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device ID: use letters, digits, dots, underscores or hyphens; begin with a letter or digit."
+    },
+    "ui.0180": {
+      "text": "Device commissioning date. Component installation history is stored separately.",
+      "context": "fields.installation_date",
+      "source": "Device commissioning date. Component installation history is stored separately."
+    },
+    "ui.0181": {
+      "text": "Device deleted. Full backup: ",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device deleted. Full backup: "
+    },
+    "ui.0182": {
+      "text": "Device evidence * — text above or sources below",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device evidence * — text above or sources below"
+    },
+    "ui.0183": {
+      "text": "Device evidence is required: enter source text OR choose at least one device source. Sources in other sections do not satisfy this requirement.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device evidence is required: enter source text OR choose at least one device source. Sources in other sections do not satisfy this requirement."
+    },
+    "ui.0184": {
+      "text": "Device evidence ready: text or selected sources supplied.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device evidence ready: text or selected sources supplied."
+    },
+    "ui.0185": {
+      "text": "Device id",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device id"
+    },
+    "ui.0186": {
+      "text": "Device list and types refreshed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device list and types refreshed."
+    },
+    "ui.0187": {
+      "text": "Device location",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device location"
+    },
+    "ui.0188": {
+      "text": "Device photos",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device photos"
+    },
+    "ui.0189": {
+      "text": "Device refreshed after changes in another window.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device refreshed after changes in another window."
+    },
+    "ui.0190": {
+      "text": "Device type",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device type"
+    },
+    "ui.0191": {
+      "text": "Device types updated. Select a device to assign its type.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Device types updated. Select a device to assign its type."
+    },
+    "ui.0192": {
+      "text": "Devices, dates, types, connection assessments and local photo attachments.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Devices, dates, types, connection assessments and local photo attachments."
+    },
+    "ui.0193": {
+      "text": "Discard",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Discard"
+    },
+    "ui.0194": {
+      "text": "Discard unsaved changes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Discard unsaved changes"
+    },
+    "ui.0195": {
+      "text": "Discard unsaved edits. Already saved records or photo attachments are not undone.",
+      "context": "buttons.Cancel changes",
+      "source": "Discard unsaved edits. Already saved records or photo attachments are not undone."
+    },
+    "ui.0196": {
+      "text": "Discard your unsaved changes?",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Discard your unsaved changes?"
+    },
+    "ui.0197": {
+      "text": "Do not repeat an IP address within the same interface.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Do not repeat an IP address within the same interface."
+    },
+    "ui.0198": {
+      "text": "Document (PDF)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Document (PDF)"
+    },
+    "ui.0199": {
+      "text": "Document language code, such as en, de or hu; leave unknown blank. This does not change the application language.",
+      "context": "tips.manual_language",
+      "source": "Document language code, such as en, de or hu; leave unknown blank. This does not change the application language."
+    },
+    "ui.0200": {
+      "text": "Double-click a device to edit it in a large window. The quick editor remains available.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Double-click a device to edit it in a large window. The quick editor remains available."
+    },
+    "ui.0201": {
+      "text": "Duplicate connectivity selection.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Duplicate connectivity selection."
+    },
+    "ui.0202": {
+      "text": "Each interface needs a label of 1–100 characters, for example igc0 or WAN.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Each interface needs a label of 1–100 characters, for example igc0 or WAN."
+    },
+    "ui.0203": {
+      "text": "Edit connection",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Edit connection"
+    },
+    "ui.0204": {
+      "text": "Edit connection…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Edit connection…"
+    },
+    "ui.0205": {
+      "text": "Edit device",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Edit device"
+    },
+    "ui.0206": {
+      "text": "Edit lifecycle date…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Edit lifecycle date…"
+    },
+    "ui.0207": {
+      "text": "Edit manual reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Edit manual reference"
+    },
+    "ui.0208": {
+      "text": "Edit reference…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Edit reference…"
+    },
+    "ui.0209": {
+      "text": "Edit the shared interface/protocol catalogue, not this device. Add a new choice or rename one for every assigned device. Use the checkboxes to assign choices to a device.",
+      "context": "tips.manage_connections; buttons.Manage connection choices…",
+      "source": "Edit the shared interface/protocol catalogue, not this device. Add a new choice or rename one for every assigned device. Use the checkboxes to assign choices to a device."
+    },
+    "ui.0210": {
+      "text": "Edition / version",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Edition / version"
+    },
+    "ui.0211": {
+      "text": "Edition, revision or document version exactly as printed, when known.",
+      "context": "tips.manual_edition",
+      "source": "Edition, revision or document version exactly as printed, when known."
+    },
+    "ui.0212": {
+      "text": "Edit…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Edit…"
+    },
+    "ui.0213": {
+      "text": "Endpoint A",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Endpoint A"
+    },
+    "ui.0214": {
+      "text": "Endpoint B",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Endpoint B"
+    },
+    "ui.0215": {
+      "text": "Enter IP addresses in an interface row, not in Hostname.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Enter IP addresses in an interface row, not in Hostname."
+    },
+    "ui.0216": {
+      "text": "Enter a complete HTTP or HTTPS URL without spaces.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Enter a complete HTTP or HTTPS URL without spaces."
+    },
+    "ui.0217": {
+      "text": "Enter a valid IPv4/IPv6 address, optionally with /prefix; the interface row identifies its scope.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Enter a valid IPv4/IPv6 address, optionally with /prefix; the interface row identifies its scope."
+    },
+    "ui.0218": {
+      "text": "Enter at least one location detail, or choose Unknown.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Enter at least one location detail, or choose Unknown."
+    },
+    "ui.0219": {
+      "text": "Enter both purchase price and currency, or leave both unknown.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Enter both purchase price and currency, or leave both unknown."
+    },
+    "ui.0220": {
+      "text": "Enter free-text evidence notes, or choose source references below. Existing source text is preserved. A saved device needs text or at least one selected device source.",
+      "context": "fields.source",
+      "source": "Enter free-text evidence notes, or choose source references below. Existing source text is preserved. A saved device needs text or at least one selected device source."
+    },
+    "ui.0221": {
+      "text": "Enter manufacturer, model and explicit variant or applicability for the model profile.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Enter manufacturer, model and explicit variant or applicability for the model profile."
+    },
+    "ui.0222": {
+      "text": "Environment",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Environment"
+    },
+    "ui.0223": {
+      "text": "Evidence status",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Evidence status"
+    },
+    "ui.0224": {
+      "text": "Exact day",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Exact day"
+    },
+    "ui.0225": {
+      "text": "Exact document edition or version, if known",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Exact document edition or version, if known"
+    },
+    "ui.0226": {
+      "text": "Exact installed firmware version, if known",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Exact installed firmware version, if known"
+    },
+    "ui.0227": {
+      "text": "Exact installed version, if known",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Exact installed version, if known"
+    },
+    "ui.0228": {
+      "text": "Exact manufacturer/model matches only. Select the applicable variant and review the proposed values. Applying changes only this form; Save device commits them. Existing values are replaced only after explicit confirmation.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Exact manufacturer/model matches only. Select the applicable variant and review the proposed values. Applying changes only this form; Save device commits them. Existing values are replaced only after explicit confirmation."
+    },
+    "ui.0229": {
+      "text": "Exact purchase amount with a decimal point, for example 129.90. Price and currency must both be supplied or both unknown.",
+      "context": "fields.purchase_price",
+      "source": "Exact purchase amount with a decimal point, for example 129.90. Price and currency must both be supplied or both unknown."
+    },
+    "ui.0230": {
+      "text": "Example: backup-server-office-01",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Example: backup-server-office-01"
+    },
+    "ui.0231": {
+      "text": "Existing device IDs cannot be changed in this form.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Existing device IDs cannot be changed in this form."
+    },
+    "ui.0232": {
+      "text": "Existing managed files are reused without copying. Source verification and observation date stay unknown until supplied.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Existing managed files are reused without copying. Source verification and observation date stay unknown until supplied."
+    },
+    "ui.0233": {
+      "text": "Expand navigation groups. Select a section to find its tile; other sections remain available.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Expand navigation groups. Select a section to find its tile; other sections remain available."
+    },
+    "ui.0234": {
+      "text": "Features",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Features"
+    },
+    "ui.0235": {
+      "text": "Fiber",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Fiber"
+    },
+    "ui.0236": {
+      "text": "Files & evidence",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Files & evidence"
+    },
+    "ui.0237": {
+      "text": "Filter active",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Filter active"
+    },
+    "ui.0238": {
+      "text": "Filter column: ",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Filter column: "
+    },
+    "ui.0239": {
+      "text": "Filter group",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Filter group"
+    },
+    "ui.0240": {
+      "text": "Filter saved devices by ID, name, type, group, lifecycle, condition or recorded interface/protocol.",
+      "context": "tips.search",
+      "source": "Filter saved devices by ID, name, type, group, lifecycle, condition or recorded interface/protocol."
+    },
+    "ui.0241": {
+      "text": "Filters",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Filters"
+    },
+    "ui.0242": {
+      "text": "Filters combine with the search text. They do not change device records.",
+      "context": "tips.filter",
+      "source": "Filters combine with the search text. They do not change device records."
+    },
+    "ui.0243": {
+      "text": "Filters…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Filters…"
+    },
+    "ui.0244": {
+      "text": "Find installed versions…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Find installed versions…"
+    },
+    "ui.0245": {
+      "text": "Finish the current dialog",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Finish the current dialog"
+    },
+    "ui.0246": {
+      "text": "Firmware",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Firmware"
+    },
+    "ui.0247": {
+      "text": "Firmware can apply to disks, routers or sensors even when an OS entry is not applicable. Record the actual installed version.",
+      "context": "tips.firmware_version",
+      "source": "Firmware can apply to disks, routers or sensors even when an OS entry is not applicable. Record the actual installed version."
+    },
+    "ui.0248": {
+      "text": "Firmware security-support end",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Firmware security-support end"
+    },
+    "ui.0249": {
+      "text": "Firmware version",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Firmware version"
+    },
+    "ui.0250": {
+      "text": "First floor",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "First floor"
+    },
+    "ui.0251": {
+      "text": "Floor / storey",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Floor / storey"
+    },
+    "ui.0252": {
+      "text": "For example: arch linux, debian or proxmox ve",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "For example: arch linux, debian or proxmox ve"
+    },
+    "ui.0253": {
+      "text": "For example: device label or invoice filename",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "For example: device label or invoice filename"
+    },
+    "ui.0254": {
+      "text": "For example: front view or device label",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "For example: front view or device label"
+    },
+    "ui.0255": {
+      "text": "For example: manufacturer website or document supplied with the device",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "For example: manufacturer website or document supplied with the device"
+    },
+    "ui.0256": {
+      "text": "For example: my photograph, 2026-10-18",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "For example: my photograph, 2026-10-18"
+    },
+    "ui.0257": {
+      "text": "For example: system settings, command output or management interface",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "For example: system settings, command output or management interface"
+    },
+    "ui.0258": {
+      "text": "For pfSense, open Dashboard → System Information: Version shows pfSense and its underlying FreeBSD version. BIOS may show the installed BIOS vendor/version/date. If absent, read it in BIOS setup. Choose Firmware: recorded to enter the exact installed BIOS/UEFI version. A manufacturer download is not proof of the installed version. SSD firmware needs a reading from that disk. Leave unavailable values unknown.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "For pfSense, open Dashboard → System Information: Version shows pfSense and its underlying FreeBSD version. BIOS may show the installed BIOS vendor/version/date. If absent, read it in BIOS setup. Choose Firmware: recorded to enter the exact installed BIOS/UEFI version. A manufacturer download is not proof of the installed version. SSD firmware needs a reading from that disk. Leave unavailable values unknown."
+    },
+    "ui.0259": {
+      "text": "Full backup",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Full backup"
+    },
+    "ui.0260": {
+      "text": "Full backup includes the database and attached photos. Automatic snapshots contain only the database.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Full backup includes the database and attached photos. Automatic snapshots contain only the database."
+    },
+    "ui.0261": {
+      "text": "Full backup includes the database, attached photos and local manuals. Automatic snapshots contain only the database.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Full backup includes the database, attached photos and local manuals. Automatic snapshots contain only the database."
+    },
+    "ui.0262": {
+      "text": "Functional condition, such as working or faulty. Do not infer it from the device role.",
+      "context": "fields.physical_condition",
+      "source": "Functional condition, such as working or faulty. Do not infer it from the device role."
+    },
+    "ui.0263": {
+      "text": "General",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "General"
+    },
+    "ui.0264": {
+      "text": "Generated automatically on first save; read-only. Existing IDs and links are preserved.",
+      "context": "fields.device_id",
+      "source": "Generated automatically on first save; read-only. Existing IDs and links are preserved."
+    },
+    "ui.0265": {
+      "text": "Generated automatically when saved",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Generated automatically when saved"
+    },
+    "ui.0266": {
+      "text": "Ground floor",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Ground floor"
+    },
+    "ui.0267": {
+      "text": "Group",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Group"
+    },
+    "ui.0268": {
+      "text": "Group *",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Group *"
+    },
+    "ui.0269": {
+      "text": "Group by",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Group by"
+    },
+    "ui.0270": {
+      "text": "Group by…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Group by…"
+    },
+    "ui.0271": {
+      "text": "Guided location…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Guided location…"
+    },
+    "ui.0272": {
+      "text": "HTTP/HTTPS link opened by your browser only on request. It is not downloaded or available offline automatically.",
+      "context": "tips.manual_url; buttons.Open reference",
+      "source": "HTTP/HTTPS link opened by your browser only on request. It is not downloaded or available offline automatically."
+    },
+    "ui.0273": {
+      "text": "Hardware & location",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Hardware & location"
+    },
+    "ui.0274": {
+      "text": "Hardware inventory",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Hardware inventory"
+    },
+    "ui.0275": {
+      "text": "Hardware service-support end",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Hardware service-support end"
+    },
+    "ui.0276": {
+      "text": "Height is independent of floor labels and X/Y position. Choose the actual reference level.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Height is independent of floor labels and X/Y position. Choose the actual reference level."
+    },
+    "ui.0277": {
+      "text": "Height reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Height reference"
+    },
+    "ui.0278": {
+      "text": "Height: enter a number from 0 to 10000 metres, using a comma or point.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Height: enter a number from 0 to 10000 metres, using a comma or point."
+    },
+    "ui.0279": {
+      "text": "Hostname",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Hostname"
+    },
+    "ui.0280": {
+      "text": "Hostname: use valid DNS labels with letters, digits and hyphens.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Hostname: use valid DNS labels with letters, digits and hyphens."
+    },
+    "ui.0281": {
+      "text": "House number",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "House number"
+    },
+    "ui.0282": {
+      "text": "I reviewed the variant, classification, roles and lifecycle dates.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "I reviewed the variant, classification, roles and lifecycle dates."
+    },
+    "ui.0283": {
+      "text": "IP addresses",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "IP addresses"
+    },
+    "ui.0284": {
+      "text": "Ignore changes in this form. Do not delete the saved device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Ignore changes in this form. Do not delete the saved device."
+    },
+    "ui.0285": {
+      "text": "Images (*.jpg *.jpeg *.png)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Images (*.jpg *.jpeg *.png)"
+    },
+    "ui.0286": {
+      "text": "In use",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "In use"
+    },
+    "ui.0287": {
+      "text": "Individual warranty dates cannot be shared through model profiles.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Individual warranty dates cannot be shared through model profiles."
+    },
+    "ui.0288": {
+      "text": "Info",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Info"
+    },
+    "ui.0289": {
+      "text": "Information source",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Information source"
+    },
+    "ui.0290": {
+      "text": "Information source *",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Information source *"
+    },
+    "ui.0291": {
+      "text": "Information source / notes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Information source / notes"
+    },
+    "ui.0292": {
+      "text": "Information source / notes (or selected sources) *",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Information source / notes (or selected sources) *"
+    },
+    "ui.0293": {
+      "text": "Information source is required for known software or not applicable status.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Information source is required for known software or not applicable status."
+    },
+    "ui.0294": {
+      "text": "Information source is required for {0} connectivity.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Information source is required for {0} connectivity."
+    },
+    "ui.0295": {
+      "text": "Installation date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Installation date"
+    },
+    "ui.0296": {
+      "text": "Installed OS and firmware versions",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Installed OS and firmware versions"
+    },
+    "ui.0297": {
+      "text": "Installed operating system or distribution name, such as arch linux or proxmox ve. This form records one current OS, not dual-boot history.",
+      "context": "tips.os_name",
+      "source": "Installed operating system or distribution name, such as arch linux or proxmox ve. This form records one current OS, not dual-boot history."
+    },
+    "ui.0298": {
+      "text": "Interface / port",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Interface / port"
+    },
+    "ui.0299": {
+      "text": "Interface identity belongs to another device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Interface identity belongs to another device."
+    },
+    "ui.0300": {
+      "text": "Interface labels must be unique within this device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Interface labels must be unique within this device."
+    },
+    "ui.0301": {
+      "text": "Invalid lifecycle observation.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Invalid lifecycle observation."
+    },
+    "ui.0302": {
+      "text": "Invalid or repeated network interface identity.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Invalid or repeated network interface identity."
+    },
+    "ui.0303": {
+      "text": "JPEG / PNG • up to 25 MiB and 16 megapixels. Attachments save immediately. Double-click to open.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "JPEG / PNG • up to 25 MiB and 16 megapixels. Attachments save immediately. Double-click to open."
+    },
+    "ui.0304": {
+      "text": "Keep device",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Keep device"
+    },
+    "ui.0305": {
+      "text": "Keep editing",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Keep editing"
+    },
+    "ui.0306": {
+      "text": "Keep the location values from before this dialog.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Keep the location values from before this dialog."
+    },
+    "ui.0307": {
+      "text": "Known",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Known"
+    },
+    "ui.0308": {
+      "text": "Language",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Language"
+    },
+    "ui.0309": {
+      "text": "Language code",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Language code"
+    },
+    "ui.0310": {
+      "text": "Library entries save immediately. Revisions create a new entry; old sources and existing assignments remain unchanged. Assignments save with Save device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Library entries save immediately. Revisions create a new entry; old sources and existing assignments remain unchanged. Assignments save with Save device."
+    },
+    "ui.0311": {
+      "text": "Library entries save immediately. Revisions create a new entry; old sources and existing assignments remain unchanged. Assignments save with the parent form.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Library entries save immediately. Revisions create a new entry; old sources and existing assignments remain unchanged. Assignments save with the parent form."
+    },
+    "ui.0312": {
+      "text": "License",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "License"
+    },
+    "ui.0313": {
+      "text": "Lifecycle date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Lifecycle date"
+    },
+    "ui.0314": {
+      "text": "Lifecycle dates",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Lifecycle dates"
+    },
+    "ui.0315": {
+      "text": "Lifecycle dates changed outside the form. Cancel and refresh before editing again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Lifecycle dates changed outside the form. Cancel and refresh before editing again."
+    },
+    "ui.0316": {
+      "text": "Lifecycle notes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Lifecycle notes"
+    },
+    "ui.0317": {
+      "text": "Lifecycle state, such as in use or spare. It is separate from physical condition and power state.",
+      "context": "fields.current_state",
+      "source": "Lifecycle state, such as in use or spare. It is separate from physical condition and power state."
+    },
+    "ui.0318": {
+      "text": "Link rate (Mbit/s)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Link rate (Mbit/s)"
+    },
+    "ui.0319": {
+      "text": "Local PDF",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Local PDF"
+    },
+    "ui.0320": {
+      "text": "Local device records • dates, lifecycle and condition",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Local device records • dates, lifecycle and condition"
+    },
+    "ui.0321": {
+      "text": "Local file",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Local file"
+    },
+    "ui.0322": {
+      "text": "Local, offline hardware inventory",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Local, offline hardware inventory"
+    },
+    "ui.0323": {
+      "text": "Location",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location"
+    },
+    "ui.0324": {
+      "text": "Location changed outside the form. Cancel and refresh before editing again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location changed outside the form. Cancel and refresh before editing again."
+    },
+    "ui.0325": {
+      "text": "Location details need attention.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location details need attention."
+    },
+    "ui.0326": {
+      "text": "Location fields must be single-line text.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location fields must be single-line text."
+    },
+    "ui.0327": {
+      "text": "Location fields must contain at most 200 characters.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location fields must contain at most 200 characters."
+    },
+    "ui.0328": {
+      "text": "Location preview",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location preview"
+    },
+    "ui.0329": {
+      "text": "Location status",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location status"
+    },
+    "ui.0330": {
+      "text": "Location text / additional description",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location text / additional description"
+    },
+    "ui.0331": {
+      "text": "Location: use a single line of text, up to 200 characters.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Location: use a single line of text, up to 200 characters."
+    },
+    "ui.0332": {
+      "text": "Lowercase choice name",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Lowercase choice name"
+    },
+    "ui.0333": {
+      "text": "MAC address",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "MAC address"
+    },
+    "ui.0334": {
+      "text": "MAC address cannot be all zeros or the broadcast address.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "MAC address cannot be all zeros or the broadcast address."
+    },
+    "ui.0335": {
+      "text": "MAC address: enter six hexadecimal octets, for example 02:00:00:00:00:01, or leave unknown blank.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "MAC address: enter six hexadecimal octets, for example 02:00:00:00:00:01, or leave unknown blank."
+    },
+    "ui.0336": {
+      "text": "MAC addresses",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "MAC addresses"
+    },
+    "ui.0337": {
+      "text": "Manage connection choices",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manage connection choices"
+    },
+    "ui.0338": {
+      "text": "Manage connection choices…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manage connection choices…"
+    },
+    "ui.0339": {
+      "text": "Manage device types",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manage device types"
+    },
+    "ui.0340": {
+      "text": "Manage types",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manage types"
+    },
+    "ui.0341": {
+      "text": "Manual changed during import; please retry.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manual changed during import; please retry."
+    },
+    "ui.0342": {
+      "text": "Manual file is missing or changed. Restore it from a full backup.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manual file is missing or changed. Restore it from a full backup."
+    },
+    "ui.0343": {
+      "text": "Manual folder",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manual folder"
+    },
+    "ui.0344": {
+      "text": "Manual reference changed outside this dialog; refresh and try again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manual reference changed outside this dialog; refresh and try again."
+    },
+    "ui.0345": {
+      "text": "Manual reference saved.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manual reference saved."
+    },
+    "ui.0346": {
+      "text": "Manual reference saved. Full backup includes attached local PDFs.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manual reference saved. Full backup includes attached local PDFs."
+    },
+    "ui.0347": {
+      "text": "Manual title and information source are required.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manual title and information source are required."
+    },
+    "ui.0348": {
+      "text": "Manuals and references",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manuals and references"
+    },
+    "ui.0349": {
+      "text": "Manuals linked to this device. Add, edit metadata, open or detach. Files remain separate from SQLite.",
+      "context": "tips.manual_list; buttons.Edit reference…",
+      "source": "Manuals linked to this device. Add, edit metadata, open or detach. Files remain separate from SQLite."
+    },
+    "ui.0350": {
+      "text": "Manufacturer",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manufacturer"
+    },
+    "ui.0351": {
+      "text": "Manufacturer, model and serial number must be single-line printable text, up to 200 characters.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Manufacturer, model and serial number must be single-line printable text, up to 200 characters."
+    },
+    "ui.0352": {
+      "text": "Market release date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Market release date"
+    },
+    "ui.0353": {
+      "text": "Missing connection evidence",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Missing connection evidence"
+    },
+    "ui.0354": {
+      "text": "Model",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model"
+    },
+    "ui.0355": {
+      "text": "Model applicability",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model applicability"
+    },
+    "ui.0356": {
+      "text": "Model evidence",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model evidence"
+    },
+    "ui.0357": {
+      "text": "Model library changes save immediately with a full backup. Device changes remain pending until Save device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model library changes save immediately with a full backup. Device changes remain pending until Save device."
+    },
+    "ui.0358": {
+      "text": "Model lifecycle dates need manufacturer and exact model in provider and product.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model lifecycle dates need manufacturer and exact model in provider and product."
+    },
+    "ui.0359": {
+      "text": "Model profile changed; reopen the catalogue.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model profile changed; reopen the catalogue."
+    },
+    "ui.0360": {
+      "text": "Model suggestion applied to the form. Review and Save device to commit; Cancel changes restores the saved device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model suggestion applied to the form. Review and Save device to commit; Cancel changes restores the saved device."
+    },
+    "ui.0361": {
+      "text": "Model suggestions",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model suggestions"
+    },
+    "ui.0362": {
+      "text": "Model suggestions…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model suggestions…"
+    },
+    "ui.0363": {
+      "text": "Model(s) this document applies to, if known",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Model(s) this document applies to, if known"
+    },
+    "ui.0364": {
+      "text": "Month",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Month"
+    },
+    "ui.0365": {
+      "text": "Mounting height (m)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Mounting height (m)"
+    },
+    "ui.0366": {
+      "text": "Move down",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Move down"
+    },
+    "ui.0367": {
+      "text": "Move up",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Move up"
+    },
+    "ui.0368": {
+      "text": "Multiple online links or local PDFs. References save immediately. Double-click to open.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Multiple online links or local PDFs. References save immediately. Double-click to open."
+    },
+    "ui.0369": {
+      "text": "Name",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Name"
+    },
+    "ui.0370": {
+      "text": "Name *",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Name *"
+    },
+    "ui.0371": {
+      "text": "Name cannot contain control characters or line breaks.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Name cannot contain control characters or line breaks."
+    },
+    "ui.0372": {
+      "text": "Name check is unavailable; Save will validate again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Name check is unavailable; Save will validate again."
+    },
+    "ui.0373": {
+      "text": "Name must be at most 100 characters.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Name must be at most 100 characters."
+    },
+    "ui.0374": {
+      "text": "Narrow the device-type list. A group alone is not saved; select a type or leave both unknown.",
+      "context": "tips.type_group",
+      "source": "Narrow the device-type list. A group alone is not saved; select a type or leave both unknown."
+    },
+    "ui.0375": {
+      "text": "Network & connectivity",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Network & connectivity"
+    },
+    "ui.0376": {
+      "text": "Network connections",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Network connections"
+    },
+    "ui.0377": {
+      "text": "Network connections…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Network connections…"
+    },
+    "ui.0378": {
+      "text": "Network details changed outside the form. Cancel and refresh before editing again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Network details changed outside the form. Cancel and refresh before editing again."
+    },
+    "ui.0379": {
+      "text": "Network identity",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Network identity"
+    },
+    "ui.0380": {
+      "text": "Network observation date must be a valid calendar date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Network observation date must be a valid calendar date."
+    },
+    "ui.0381": {
+      "text": "New choice",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "New choice"
+    },
+    "ui.0382": {
+      "text": "New device",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "New device"
+    },
+    "ui.0383": {
+      "text": "New location…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "New location…"
+    },
+    "ui.0384": {
+      "text": "New type",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "New type"
+    },
+    "ui.0385": {
+      "text": "No",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No"
+    },
+    "ui.0386": {
+      "text": "No duplicate name found.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No duplicate name found."
+    },
+    "ui.0387": {
+      "text": "No evidence source is selected. Save this unverified connection anyway?",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No evidence source is selected. Save this unverified connection anyway?"
+    },
+    "ui.0388": {
+      "text": "No matches",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No matches"
+    },
+    "ui.0389": {
+      "text": "No network service or cloud account is required.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No network service or cloud account is required."
+    },
+    "ui.0390": {
+      "text": "No newer published local release.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No newer published local release."
+    },
+    "ui.0391": {
+      "text": "No private workspace is installed. Run Install HWI4U first.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No private workspace is installed. Run Install HWI4U first."
+    },
+    "ui.0392": {
+      "text": "No restriction",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No restriction"
+    },
+    "ui.0393": {
+      "text": "No reviewed model profile matches. You can save sourced current values as a reusable profile.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No reviewed model profile matches. You can save sourced current values as a reusable profile."
+    },
+    "ui.0394": {
+      "text": "No sources selected",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No sources selected"
+    },
+    "ui.0395": {
+      "text": "No supported capabilities means no capabilities in use.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No supported capabilities means no capabilities in use."
+    },
+    "ui.0396": {
+      "text": "No unused two-letter type code remains.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "No unused two-letter type code remains."
+    },
+    "ui.0397": {
+      "text": "Not applicable / portable",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Not applicable / portable"
+    },
+    "ui.0398": {
+      "text": "Notes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Notes"
+    },
+    "ui.0399": {
+      "text": "Nothing is dated automatically. Verified observations need verified dated sources. Software dates need provider, product and version; hardware service and warranty need an explicit scope.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Nothing is dated automatically. Verified observations need verified dated sources. Software dates need provider, product and version; hardware service and warranty need an explicit scope."
+    },
+    "ui.0400": {
+      "text": "OK",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "OK"
+    },
+    "ui.0401": {
+      "text": "OS family",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "OS family"
+    },
+    "ui.0402": {
+      "text": "OS name / distribution",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "OS name / distribution"
+    },
+    "ui.0403": {
+      "text": "OS security-support end",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "OS security-support end"
+    },
+    "ui.0404": {
+      "text": "OS version",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "OS version"
+    },
+    "ui.0405": {
+      "text": "Observation",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Observation"
+    },
+    "ui.0406": {
+      "text": "Observation / notes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Observation / notes"
+    },
+    "ui.0407": {
+      "text": "Observed",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Observed"
+    },
+    "ui.0408": {
+      "text": "Observed / accessed on",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Observed / accessed on"
+    },
+    "ui.0409": {
+      "text": "Observed means reported at a date, not currently online. Planned links are not installed links.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Observed means reported at a date, not currently online. Planned links are not installed links."
+    },
+    "ui.0410": {
+      "text": "Observed on",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Observed on"
+    },
+    "ui.0411": {
+      "text": "Observed or planned link rate in Mbit/s, not measured throughput. Describe its meaning in Notes.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Observed or planned link rate in Mbit/s, not measured throughput. Describe its meaning in Notes."
+    },
+    "ui.0412": {
+      "text": "One current OS per device. Unknown is different from not applicable. Firmware can be recorded independently.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "One current OS per device. Unknown is different from not applicable. Firmware can be recorded independently."
+    },
+    "ui.0413": {
+      "text": "One physical device type. Its group follows automatically; role and assembly membership are separate.",
+      "context": "fields.device_type",
+      "source": "One physical device type. Its group follows automatically; role and assembly membership are separate."
+    },
+    "ui.0414": {
+      "text": "One row per interface, for example igc0 or WAN. MAC may be unknown. Enter multiple IPv4/IPv6 addresses separated by commas; optional /prefix is allowed. Same IP on different interfaces is allowed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "One row per interface, for example igc0 or WAN. MAC may be unknown. Enter multiple IPv4/IPv6 addresses separated by commas; optional /prefix is allowed. Same IP on different interfaces is allowed."
+    },
+    "ui.0415": {
+      "text": "Online URL",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Online URL"
+    },
+    "ui.0416": {
+      "text": "Online link",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Online link"
+    },
+    "ui.0417": {
+      "text": "Online link or local PDF. A saved reference keeps its kind; create a new one to change kind.",
+      "context": "tips.manual_kind; buttons.Add reference…",
+      "source": "Online link or local PDF. A saved reference keeps its kind; create a new one to change kind."
+    },
+    "ui.0418": {
+      "text": "Open",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Open"
+    },
+    "ui.0419": {
+      "text": "Open image",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Open image"
+    },
+    "ui.0420": {
+      "text": "Open production client",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Open production client"
+    },
+    "ui.0421": {
+      "text": "Open reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Open reference"
+    },
+    "ui.0422": {
+      "text": "Open source",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Open source"
+    },
+    "ui.0423": {
+      "text": "Open test client",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Open test client"
+    },
+    "ui.0424": {
+      "text": "Open the other client in a separate window. Unsaved edits stay in this window; no data is copied.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Open the other client in a separate window. Unsaved edits stay in this window; no data is copied."
+    },
+    "ui.0425": {
+      "text": "Open the selected original image in the built-in scrollable viewer.",
+      "context": "buttons.Open image",
+      "source": "Open the selected original image in the built-in scrollable viewer."
+    },
+    "ui.0426": {
+      "text": "Open user guide",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Open user guide"
+    },
+    "ui.0427": {
+      "text": "Operating system",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Operating system"
+    },
+    "ui.0428": {
+      "text": "Optional building or site. Reuse a saved place or enter a new one.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Optional building or site. Reuse a saved place or enter a new one."
+    },
+    "ui.0429": {
+      "text": "Optional floor label, for example basement, ground floor or first floor.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Optional floor label, for example basement, ground floor or first floor."
+    },
+    "ui.0430": {
+      "text": "Optional height in metres, from 0 to 10000. Both 1.8 and 1,8 are accepted. State the reference level.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Optional height in metres, from 0 to 10000. Both 1.8 and 1,8 are accepted. State the reference level."
+    },
+    "ui.0431": {
+      "text": "Optional manufacturer or brand, up to 200 printable characters. Leave unknown blank; existing values are not inferred from the name.",
+      "context": "fields.manufacturer",
+      "source": "Optional manufacturer or brand, up to 200 printable characters. Leave unknown blank; existing values are not inferred from the name."
+    },
+    "ui.0432": {
+      "text": "Optional model name or model code, up to 200 printable characters. Capitalization is preserved.",
+      "context": "fields.model",
+      "source": "Optional model name or model code, up to 200 printable characters. Capitalization is preserved."
+    },
+    "ui.0433": {
+      "text": "Optional notes about this document, including applicability or limitations.",
+      "context": "tips.manual_notes",
+      "source": "Optional notes about this document, including applicability or limitations."
+    },
+    "ui.0434": {
+      "text": "Optional physical location, for example building / room / rack / shelf. Unicode allowed; maximum 200 characters. Leave unknown blank. This is not a network address or purchased-at value.",
+      "context": "fields.location",
+      "source": "Optional physical location, for example building / room / rack / shelf. Unicode allowed; maximum 200 characters. Leave unknown blank. This is not a network address or purchased-at value."
+    },
+    "ui.0435": {
+      "text": "Optional placement details. Describe the reference here when choosing Other height reference.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Optional placement details. Describe the reference here when choosing Other height reference."
+    },
+    "ui.0436": {
+      "text": "Optional room. All hierarchy levels can be left out when irrelevant.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Optional room. All hierarchy levels can be left out when irrelevant."
+    },
+    "ui.0437": {
+      "text": "Optional serial number as text, up to 200 printable characters. Leading zeros, case and internal spacing are preserved; surrounding whitespace is trimmed. Not globally unique.",
+      "context": "fields.serial_number",
+      "source": "Optional serial number as text, up to 200 printable characters. Leading zeros, case and internal spacing are preserved; surrounding whitespace is trimmed. Not globally unique."
+    },
+    "ui.0438": {
+      "text": "Optional single-line Unicode text, maximum 200 characters.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Optional single-line Unicode text, maximum 200 characters."
+    },
+    "ui.0439": {
+      "text": "Optional values stay unknown. Network edits save with Save device; previous saved assessments remain in the observation history.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Optional values stay unknown. Network edits save with Save device; previous saved assessments remain in the observation history."
+    },
+    "ui.0440": {
+      "text": "Origin / provenance",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Origin / provenance"
+    },
+    "ui.0441": {
+      "text": "Original image • {0}",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Original image • {0}"
+    },
+    "ui.0442": {
+      "text": "Original photo is missing or changed. Restore it from a full backup.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Original photo is missing or changed. Restore it from a full backup."
+    },
+    "ui.0443": {
+      "text": "Other",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Other"
+    },
+    "ui.0444": {
+      "text": "Other height reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Other height reference"
+    },
+    "ui.0445": {
+      "text": "PDF documents (*.pdf)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "PDF documents (*.pdf)"
+    },
+    "ui.0446": {
+      "text": "Partial date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Partial date"
+    },
+    "ui.0447": {
+      "text": "Photo",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Photo"
+    },
+    "ui.0448": {
+      "text": "Photo copied and attached. Use Full backup to include database and photos in one archive.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Photo copied and attached. Use Full backup to include database and photos in one archive."
+    },
+    "ui.0449": {
+      "text": "Photo detached; files retained for older backups.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Photo detached; files retained for older backups."
+    },
+    "ui.0450": {
+      "text": "Photo details",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Photo details"
+    },
+    "ui.0451": {
+      "text": "Photo folder",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Photo folder"
+    },
+    "ui.0452": {
+      "text": "Photo information source is required.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Photo information source is required."
+    },
+    "ui.0453": {
+      "text": "Photo list unavailable: {0}",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Photo list unavailable: {0}"
+    },
+    "ui.0454": {
+      "text": "Physical condition",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Physical condition"
+    },
+    "ui.0455": {
+      "text": "Placement belongs to this device. Other devices are unchanged. Use location returns to the device form; Save device writes to the database.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Placement belongs to this device. Other devices are unchanged. Use location returns to the device form; Save device writes to the database."
+    },
+    "ui.0456": {
+      "text": "Placement notes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Placement notes"
+    },
+    "ui.0457": {
+      "text": "Planned",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Planned"
+    },
+    "ui.0458": {
+      "text": "Position / wall",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Position / wall"
+    },
+    "ui.0459": {
+      "text": "Position for this device only, for example northwest wall or rack shelf.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Position for this device only, for example northwest wall or rack shelf."
+    },
+    "ui.0460": {
+      "text": "Postal code",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Postal code"
+    },
+    "ui.0461": {
+      "text": "Postpone this update. Keep the current client and all unsaved edits.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Postpone this update. Keep the current client and all unsaved edits."
+    },
+    "ui.0462": {
+      "text": "Preserved source text",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Preserved source text"
+    },
+    "ui.0463": {
+      "text": "Price: use a non-negative amount with a decimal point, for example 129.90.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Price: use a non-negative amount with a decimal point, for example 129.90."
+    },
+    "ui.0464": {
+      "text": "Product / exact model",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Product / exact model"
+    },
+    "ui.0465": {
+      "text": "Production end",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Production end"
+    },
+    "ui.0466": {
+      "text": "Property",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Property"
+    },
+    "ui.0467": {
+      "text": "Provider / manufacturer",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Provider / manufacturer"
+    },
+    "ui.0468": {
+      "text": "Purchase & lifecycle",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Purchase & lifecycle"
+    },
+    "ui.0469": {
+      "text": "Purchase date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Purchase date"
+    },
+    "ui.0470": {
+      "text": "Purchase date is earlier than the confirmed market release minus one calendar year.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Purchase date is earlier than the confirmed market release minus one calendar year."
+    },
+    "ui.0471": {
+      "text": "Purchase price",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Purchase price"
+    },
+    "ui.0472": {
+      "text": "Purchased at",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Purchased at"
+    },
+    "ui.0473": {
+      "text": "Quarter",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Quarter"
+    },
+    "ui.0474": {
+      "text": "Quit HWI4U",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Quit HWI4U"
+    },
+    "ui.0475": {
+      "text": "Recommended evidence source. If missing, a warning is shown but saving is allowed.",
+      "context": "tips.assessment_source",
+      "source": "Recommended evidence source. If missing, a warning is shown but saving is allowed."
+    },
+    "ui.0476": {
+      "text": "Recommended source; missing information warns but does not block saving",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Recommended source; missing information warns but does not block saving"
+    },
+    "ui.0477": {
+      "text": "Recommended: device settings or your observation",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Recommended: device settings or your observation"
+    },
+    "ui.0478": {
+      "text": "Record the installed version exactly as shown by the device. Leave unknown when unavailable; no online update-status check is performed.",
+      "context": "tips.os_version",
+      "source": "Record the installed version exactly as shown by the device. Leave unknown when unavailable; no online update-status check is performed."
+    },
+    "ui.0479": {
+      "text": "Recorded OS needs a family or OS name.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Recorded OS needs a family or OS name."
+    },
+    "ui.0480": {
+      "text": "Recorded firmware needs a version.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Recorded firmware needs a version."
+    },
+    "ui.0481": {
+      "text": "Recorded location",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Recorded location"
+    },
+    "ui.0482": {
+      "text": "Recorded topology, not a live network scan. Save device changes before opening this list. Double-click a connection to edit.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Recorded topology, not a live network scan. Save device changes before opening this list. Double-click a connection to edit."
+    },
+    "ui.0483": {
+      "text": "Reference detached; managed files retained.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Reference detached; managed files retained."
+    },
+    "ui.0484": {
+      "text": "Reference kind",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Reference kind"
+    },
+    "ui.0485": {
+      "text": "References save immediately. Online links are opened only on request; no document is downloaded automatically. Local PDFs are copied into managed storage.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "References save immediately. Online links are opened only on request; no document is downloaded automatically. Local PDFs are copied into managed storage."
+    },
+    "ui.0486": {
+      "text": "Refresh",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Refresh"
+    },
+    "ui.0487": {
+      "text": "Refresh test data",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Refresh test data"
+    },
+    "ui.0488": {
+      "text": "Refresh test data from production? Current test edits will be replaced by a new copy. The previous test copy is retained. Production is unchanged. Finish the TEST session first.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Refresh test data from production? Current test edits will be replaced by a new copy. The previous test copy is retained. Production is unchanged. Finish the TEST session first."
+    },
+    "ui.0489": {
+      "text": "Release date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Release date"
+    },
+    "ui.0490": {
+      "text": "Reload saved devices and shared choice lists.",
+      "context": "buttons.Refresh",
+      "source": "Reload saved devices and shared choice lists."
+    },
+    "ui.0491": {
+      "text": "Remove",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove"
+    },
+    "ui.0492": {
+      "text": "Remove connection",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove connection"
+    },
+    "ui.0493": {
+      "text": "Remove connection…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove connection…"
+    },
+    "ui.0494": {
+      "text": "Remove interface",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove interface"
+    },
+    "ui.0495": {
+      "text": "Remove lifecycle date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove lifecycle date"
+    },
+    "ui.0496": {
+      "text": "Remove the connection records before deleting this device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove the connection records before deleting this device."
+    },
+    "ui.0497": {
+      "text": "Remove the connection records before removing this interface.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove the connection records before removing this interface."
+    },
+    "ui.0498": {
+      "text": "Remove the selected photo association. Files remain for older backups; your source image is never deleted.",
+      "context": "buttons.Detach",
+      "source": "Remove the selected photo association. Files remain for older backups; your source image is never deleted."
+    },
+    "ui.0499": {
+      "text": "Remove this attachment from the device? Files remain on disk to support older backups.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove this attachment from the device? Files remain on disk to support older backups."
+    },
+    "ui.0500": {
+      "text": "Remove this connection record? Devices stay unchanged; connection history is retained.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove this connection record? Devices stay unchanged; connection history is retained."
+    },
+    "ui.0501": {
+      "text": "Remove this reference? Managed local files remain for older backups.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Remove this reference? Managed local files remain for older backups."
+    },
+    "ui.0502": {
+      "text": "Rename or move this type for all devices that use it?",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Rename or move this type for all devices that use it?"
+    },
+    "ui.0503": {
+      "text": "Rename shared choice",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Rename shared choice"
+    },
+    "ui.0504": {
+      "text": "Renaming a shared choice updates every device using it. No interface-to-protocol compatibility is inferred.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Renaming a shared choice updates every device using it. No interface-to-protocol compatibility is inferred."
+    },
+    "ui.0505": {
+      "text": "Required evidence source for this device record, such as a label, invoice or your own report.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Required evidence source for this device record, such as a label, invoice or your own report."
+    },
+    "ui.0506": {
+      "text": "Required source: manufacturer site, original packaging or other actual provenance.",
+      "context": "tips.manual_source",
+      "source": "Required source: manufacturer site, original packaging or other actual provenance."
+    },
+    "ui.0507": {
+      "text": "Required when OS or firmware is recorded or not applicable. Use real device settings, command output, management interface or documented assessment.",
+      "context": "tips.software_source",
+      "source": "Required when OS or firmware is recorded or not applicable. Use real device settings, command output, management interface or documented assessment."
+    },
+    "ui.0508": {
+      "text": "Required, unique descriptive name. Maximum length: 100 characters. Unicode characters, including Hungarian/German accents, are allowed. Capitalization and extra spaces do not distinguish duplicate names. Suggested: backup-server-office-01. This is separate from hostname.",
+      "context": "fields.name",
+      "source": "Required, unique descriptive name. Maximum length: 100 characters. Unicode characters, including Hungarian/German accents, are allowed. Capitalization and extra spaces do not distinguish duplicate names. Suggested: backup-server-office-01. This is separate from hostname."
+    },
+    "ui.0509": {
+      "text": "Required: enter device evidence text above OR choose at least one device source below.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Required: enter device evidence text above OR choose at least one device source below."
+    },
+    "ui.0510": {
+      "text": "Restore defaults",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Restore defaults"
+    },
+    "ui.0511": {
+      "text": "Retired",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Retired"
+    },
+    "ui.0512": {
+      "text": "Return to the form without saving or discarding changes.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Return to the form without saving or discarding changes."
+    },
+    "ui.0513": {
+      "text": "Reuse an existing location",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Reuse an existing location"
+    },
+    "ui.0514": {
+      "text": "Reuse an existing manual or photo",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Reuse an existing manual or photo"
+    },
+    "ui.0515": {
+      "text": "Reuse manual/photo…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Reuse manual/photo…"
+    },
+    "ui.0516": {
+      "text": "Reuse selected reference",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Reuse selected reference"
+    },
+    "ui.0517": {
+      "text": "Reuse the address, building, floor and room. Precise placement is specific to this device. Existing places are never renamed here.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Reuse the address, building, floor and room. Precise placement is specific to this device. Existing places are never renamed here."
+    },
+    "ui.0518": {
+      "text": "Review exact manufacturer/model matches or save a sourced reusable model profile. No classification is changed automatically.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Review exact manufacturer/model matches or save a sourced reusable model profile. No classification is changed automatically."
+    },
+    "ui.0519": {
+      "text": "Revise model profile",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Revise model profile"
+    },
+    "ui.0520": {
+      "text": "Revise source",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Revise source"
+    },
+    "ui.0521": {
+      "text": "Revise source…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Revise source…"
+    },
+    "ui.0522": {
+      "text": "Revision",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Revision"
+    },
+    "ui.0523": {
+      "text": "Role groups can repeat devices.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Role groups can repeat devices."
+    },
+    "ui.0524": {
+      "text": "Role name (catalogue saves immediately)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Role name (catalogue saves immediately)"
+    },
+    "ui.0525": {
+      "text": "Roles",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Roles"
+    },
+    "ui.0526": {
+      "text": "Roles changed outside the form. Cancel and refresh before editing again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Roles changed outside the form. Cancel and refresh before editing again."
+    },
+    "ui.0527": {
+      "text": "Room",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Room"
+    },
+    "ui.0528": {
+      "text": "Save",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save"
+    },
+    "ui.0529": {
+      "text": "Save a device before adding references.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save a device before adding references."
+    },
+    "ui.0530": {
+      "text": "Save a device before attaching photos.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save a device before attaching photos."
+    },
+    "ui.0531": {
+      "text": "Save a new immutable revision? Existing devices will not be changed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save a new immutable revision? Existing devices will not be changed."
+    },
+    "ui.0532": {
+      "text": "Save a shared choice; renaming updates every device assigned to it.",
+      "context": "buttons.Save choice",
+      "source": "Save a shared choice; renaming updates every device assigned to it."
+    },
+    "ui.0533": {
+      "text": "Save actual interfaces in Network identity first. Unknown MAC/IP addresses may remain blank.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save actual interfaces in Network identity first. Unknown MAC/IP addresses may remain blank."
+    },
+    "ui.0534": {
+      "text": "Save changes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save changes"
+    },
+    "ui.0535": {
+      "text": "Save changes first",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save changes first"
+    },
+    "ui.0536": {
+      "text": "Save choice",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save choice"
+    },
+    "ui.0537": {
+      "text": "Save connection",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save connection"
+    },
+    "ui.0538": {
+      "text": "Save connection commits this record immediately. Cancel leaves the record unchanged. Library entries created in the chooser save separately. Missing evidence warns; Verified requires evidence and a date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save connection commits this record immediately. Cancel leaves the record unchanged. Library entries created in the chooser save separately. Missing evidence warns; Verified requires evidence and a date."
+    },
+    "ui.0539": {
+      "text": "Save current values as model profile…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save current values as model profile…"
+    },
+    "ui.0540": {
+      "text": "Save device",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save device"
+    },
+    "ui.0541": {
+      "text": "Save full inventory backup",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save full inventory backup"
+    },
+    "ui.0542": {
+      "text": "Save or cancel device changes before adding a photo.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save or cancel device changes before adding a photo."
+    },
+    "ui.0543": {
+      "text": "Save or cancel device changes before backing up.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save or cancel device changes before backing up."
+    },
+    "ui.0544": {
+      "text": "Save or cancel device changes before detaching a photo.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save or cancel device changes before detaching a photo."
+    },
+    "ui.0545": {
+      "text": "Save or cancel device changes before editing manual references.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save or cancel device changes before editing manual references."
+    },
+    "ui.0546": {
+      "text": "Save or cancel device changes before editing network connections.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save or cancel device changes before editing network connections."
+    },
+    "ui.0547": {
+      "text": "Save or cancel the open dialog before applying the update.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save or cancel the open dialog before applying the update."
+    },
+    "ui.0548": {
+      "text": "Save or discard edits, then restart into the tested update. A database write lock defers migration.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save or discard edits, then restart into the tested update. A database write lock defers migration."
+    },
+    "ui.0549": {
+      "text": "Save source",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save source"
+    },
+    "ui.0550": {
+      "text": "Save the type name and group; changing an existing definition affects all assigned devices.",
+      "context": "buttons.Save type",
+      "source": "Save the type name and group; changing an existing definition affects all assigned devices."
+    },
+    "ui.0551": {
+      "text": "Save type",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save type"
+    },
+    "ui.0552": {
+      "text": "Save writes the form to the database. Discard leaves the saved database record unchanged. Keep editing returns to the form.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save writes the form to the database. Discard leaves the saved database record unchanged. Keep editing returns to the form."
+    },
+    "ui.0553": {
+      "text": "Save your changes before continuing?",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Save your changes before continuing?"
+    },
+    "ui.0554": {
+      "text": "Saved {0}. Pre-save backup: {1}",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Saved {0}. Pre-save backup: {1}"
+    },
+    "ui.0555": {
+      "text": "Scrapped date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Scrapped date"
+    },
+    "ui.0556": {
+      "text": "Search choices…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Search choices…"
+    },
+    "ui.0557": {
+      "text": "Search devices, software, interfaces or protocols…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Search devices, software, interfaces or protocols…"
+    },
+    "ui.0558": {
+      "text": "Search devices, types, interfaces or protocols…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Search devices, types, interfaces or protocols…"
+    },
+    "ui.0559": {
+      "text": "Search source titles, URLs or observations…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Search source titles, URLs or observations…"
+    },
+    "ui.0560": {
+      "text": "Select a saved device first.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Select a saved device first."
+    },
+    "ui.0561": {
+      "text": "Select all",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Select all"
+    },
+    "ui.0562": {
+      "text": "Select several existing sources or add evidence. Source assignments save together with the parent form.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Select several existing sources or add evidence. Source assignments save together with the parent form."
+    },
+    "ui.0563": {
+      "text": "Select several existing sources or add evidence. Source assignments save together with this device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Select several existing sources or add evidence. Source assignments save together with this device."
+    },
+    "ui.0564": {
+      "text": "Select the current OS family, if known. An OS name can be recorded without knowing its family. No family is inferred from device type.",
+      "context": "tips.os_family",
+      "source": "Select the current OS family, if known. An OS name can be recorded without knowing its family. No family is inferred from device type."
+    },
+    "ui.0565": {
+      "text": "Selected sources:",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Selected sources:"
+    },
+    "ui.0566": {
+      "text": "Separate from the descriptive inventory name. DNS labels use letters, digits and hyphens; IDNs are stored as ASCII IDNA. No DNS lookup is performed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Separate from the descriptive inventory name. DNS labels use letters, digits and hyphens; IDNs are stored as ASCII IDNA. No DNS lookup is performed."
+    },
+    "ui.0567": {
+      "text": "Separate release, firmware security, OS security, hardware service, production and individual warranty dates. Unknown values remain blank. Changes save with Save device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Separate release, firmware security, OS security, hardware service, production and individual warranty dates. Unknown values remain blank. Changes save with Save device."
+    },
+    "ui.0568": {
+      "text": "Serial number",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Serial number"
+    },
+    "ui.0569": {
+      "text": "Shared catalogue name; renaming changes every assigned device.",
+      "context": "tips.type_name",
+      "source": "Shared catalogue name; renaming changes every assigned device."
+    },
+    "ui.0570": {
+      "text": "Shared catalogue values and your entries remain unchanged when switching language.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Shared catalogue values and your entries remain unchanged when switching language."
+    },
+    "ui.0571": {
+      "text": "Shop, marketplace or seller. Optional text; spelling suggestions never change it automatically.",
+      "context": "fields.purchased_at",
+      "source": "Shop, marketplace or seller. Optional text; spelling suggestions never change it automatically."
+    },
+    "ui.0572": {
+      "text": "Short ID",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Short ID"
+    },
+    "ui.0573": {
+      "text": "Software",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Software"
+    },
+    "ui.0574": {
+      "text": "Software changed outside the form. Cancel and refresh before editing again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Software changed outside the form. Cancel and refresh before editing again."
+    },
+    "ui.0575": {
+      "text": "Software checked date must be a valid calendar date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Software checked date must be a valid calendar date."
+    },
+    "ui.0576": {
+      "text": "Software support dates need provider, product and version or support track.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Software support dates need provider, product and version or support track."
+    },
+    "ui.0577": {
+      "text": "Source",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source"
+    },
+    "ui.0578": {
+      "text": "Source IDs",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source IDs"
+    },
+    "ui.0579": {
+      "text": "Source assignments changed outside the form. Cancel and refresh before editing again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source assignments changed outside the form. Cancel and refresh before editing again."
+    },
+    "ui.0580": {
+      "text": "Source file changed during import; retry.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source file changed during import; retry."
+    },
+    "ui.0581": {
+      "text": "Source file is missing or changed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source file is missing or changed."
+    },
+    "ui.0582": {
+      "text": "Source image changed while importing; please retry.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source image changed while importing; please retry."
+    },
+    "ui.0583": {
+      "text": "Source kind",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source kind"
+    },
+    "ui.0584": {
+      "text": "Source observation",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source observation"
+    },
+    "ui.0585": {
+      "text": "Source required for known capabilities or known none",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source required for known capabilities or known none"
+    },
+    "ui.0586": {
+      "text": "Source text",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source text"
+    },
+    "ui.0587": {
+      "text": "Source: ",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Source: "
+    },
+    "ui.0588": {
+      "text": "Sources and evidence",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Sources and evidence"
+    },
+    "ui.0589": {
+      "text": "Speed must be a positive number in Mbit/s, or blank.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Speed must be a positive number in Mbit/s, or blank."
+    },
+    "ui.0590": {
+      "text": "Stable short label for this inventory. The full ID remains the permanent reference.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Stable short label for this inventory. The full ID remains the permanent reference."
+    },
+    "ui.0591": {
+      "text": "Start a blank device form. Unsaved edits require confirmation before discarding.",
+      "context": "buttons.New device",
+      "source": "Start a blank device form. Unsaved edits require confirmation before discarding."
+    },
+    "ui.0592": {
+      "text": "Start adding a shared catalogue value.",
+      "context": "buttons.New choice",
+      "source": "Start adding a shared catalogue value."
+    },
+    "ui.0593": {
+      "text": "Start adding a shared device type.",
+      "context": "buttons.New type",
+      "source": "Start adding a shared device type."
+    },
+    "ui.0594": {
+      "text": "State",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "State"
+    },
+    "ui.0595": {
+      "text": "State & condition",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "State & condition"
+    },
+    "ui.0596": {
+      "text": "Stored value: ",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Stored value: "
+    },
+    "ui.0597": {
+      "text": "Street",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Street"
+    },
+    "ui.0598": {
+      "text": "Structured location",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Structured location"
+    },
+    "ui.0599": {
+      "text": "Suggested spelling: ",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Suggested spelling: "
+    },
+    "ui.0600": {
+      "text": "Supported",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Supported"
+    },
+    "ui.0601": {
+      "text": "Supported capabilities",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Supported capabilities"
+    },
+    "ui.0602": {
+      "text": "Supported photo formats: JPEG and PNG.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Supported photo formats: JPEG and PNG."
+    },
+    "ui.0603": {
+      "text": "TEST ENVIRONMENT — changes affect only the test copy.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "TEST ENVIRONMENT — changes affect only the test copy."
+    },
+    "ui.0604": {
+      "text": "That device ID already exists. Choose another ID.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "That device ID already exists. Choose another ID."
+    },
+    "ui.0605": {
+      "text": "That device name already exists. Add a distinguishing location or number.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "That device name already exists. Add a distinguishing location or number."
+    },
+    "ui.0606": {
+      "text": "That model variant already exists; select it to create a revision.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "That model variant already exists; select it to create a revision."
+    },
+    "ui.0607": {
+      "text": "The date must match the selected precision.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "The date must match the selected precision."
+    },
+    "ui.0608": {
+      "text": "The model or models covered by the document; leave unknown blank. No model match is inferred.",
+      "context": "tips.manual_applicable_model",
+      "source": "The model or models covered by the document; leave unknown blank. No model match is inferred."
+    },
+    "ui.0609": {
+      "text": "The other client opened in a separate window. Unsaved changes remain here.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "The other client opened in a separate window. Unsaved changes remain here."
+    },
+    "ui.0610": {
+      "text": "This connection changed. Close and reopen the connection list.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "This connection changed. Close and reopen the connection list."
+    },
+    "ui.0611": {
+      "text": "This device changed in another window. Your unsaved edits are kept. Cancel and refresh before saving.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "This device changed in another window. Your unsaved edits are kept. Cancel and refresh before saving."
+    },
+    "ui.0612": {
+      "text": "This device changed outside the form. Cancel and refresh before editing again.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "This device changed outside the form. Cancel and refresh before editing again."
+    },
+    "ui.0613": {
+      "text": "This device was deleted. Close this editor.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "This device was deleted. Close this editor."
+    },
+    "ui.0614": {
+      "text": "This file does not have a PDF header.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "This file does not have a PDF header."
+    },
+    "ui.0615": {
+      "text": "This pair of interfaces already has a connection record.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "This pair of interfaces already has a connection record."
+    },
+    "ui.0616": {
+      "text": "Tick sources for this section. Untick to remove an assignment. New/revised library entries save immediately; assignments apply only when the parent form is saved.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Tick sources for this section. Untick to remove an assignment. New/revised library entries save immediately; assignments apply only when the parent form is saved."
+    },
+    "ui.0617": {
+      "text": "Tick sources for this section. Untick to remove an assignment. New/revised library entries save immediately; assignments apply only with Save device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Tick sources for this section. Untick to remove an assignment. New/revised library entries save immediately; assignments apply only with Save device."
+    },
+    "ui.0618": {
+      "text": "Tick visible columns. Drag rows to change their order. Hiding never deletes data.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Tick visible columns. Drag rows to change their order. Hiding never deletes data."
+    },
+    "ui.0619": {
+      "text": "Title *",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Title *"
+    },
+    "ui.0620": {
+      "text": "Two-letter code; automatic if blank",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Two-letter code; automatic if blank"
+    },
+    "ui.0621": {
+      "text": "Two-letter type code and five random digits. Reclassification gives a new label; old labels still resolve to this full ID.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Two-letter type code and five random digits. Reclassification gives a new label; old labels still resolve to this full ID."
+    },
+    "ui.0622": {
+      "text": "Type",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Type"
+    },
+    "ui.0623": {
+      "text": "Type changed outside this dialog; reopen it.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Type changed outside this dialog; reopen it."
+    },
+    "ui.0624": {
+      "text": "Type code",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Type code"
+    },
+    "ui.0625": {
+      "text": "Type group",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Type group"
+    },
+    "ui.0626": {
+      "text": "Type name *",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Type name *"
+    },
+    "ui.0627": {
+      "text": "Type part of a name, then choose a matching result. Typing alone does not apply a filter or create a new choice. Choose All groups or All types to reset.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Type part of a name, then choose a matching result. Typing alone does not apply a filter or create a new choice. Choose All groups or All types to reset."
+    },
+    "ui.0628": {
+      "text": "Type to find an existing choice…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Type to find an existing choice…"
+    },
+    "ui.0629": {
+      "text": "Uncertain",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Uncertain"
+    },
+    "ui.0630": {
+      "text": "Uncheck Known to keep a date unknown. No date is saved automatically.\n* Required fields. Group follows the selected type; choose a type to save a classification.\nExisting IDs stay fixed; components and facts use the existing tool.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Uncheck Known to keep a date unknown. No date is saved automatically.\n* Required fields. Group follows the selected type; choose a type to save a classification.\nExisting IDs stay fixed; components and facts use the existing tool."
+    },
+    "ui.0631": {
+      "text": "Ungrouped",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Ungrouped"
+    },
+    "ui.0632": {
+      "text": "Unknown",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown"
+    },
+    "ui.0633": {
+      "text": "Unknown / choose a type",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown / choose a type"
+    },
+    "ui.0634": {
+      "text": "Unknown means not established. Not applicable requires evidence that this category does not apply. Recorded enables details. OS and firmware are independent.",
+      "context": "tips.software_status",
+      "source": "Unknown means not established. Not applicable requires evidence that this category does not apply. Recorded enables details. OS and firmware are independent."
+    },
+    "ui.0635": {
+      "text": "Unknown means not established; none means known absent; recorded below requires at least one checked supported capability.",
+      "context": "tips.supported",
+      "source": "Unknown means not established; none means known absent; recorded below requires at least one checked supported capability."
+    },
+    "ui.0636": {
+      "text": "Unknown or not applicable OS cannot have OS details.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown or not applicable OS cannot have OS details."
+    },
+    "ui.0637": {
+      "text": "Unknown or not applicable firmware cannot have a version.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown or not applicable firmware cannot have a version."
+    },
+    "ui.0638": {
+      "text": "Unknown or not applicable locations must have no structured details.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown or not applicable locations must have no structured details."
+    },
+    "ui.0639": {
+      "text": "Unknown role; refresh the role choices.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown role; refresh the role choices."
+    },
+    "ui.0640": {
+      "text": "Unknown {0} choice; refresh the lists.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown {0} choice; refresh the lists."
+    },
+    "ui.0641": {
+      "text": "Unknown — leave blank",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown — leave blank"
+    },
+    "ui.0642": {
+      "text": "Unknown — or amount such as 129.90",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown — or amount such as 129.90"
+    },
+    "ui.0643": {
+      "text": "Unknown, or actual hostname / FQDN",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unknown, or actual hostname / FQDN"
+    },
+    "ui.0644": {
+      "text": "Unsaved changes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unsaved changes"
+    },
+    "ui.0645": {
+      "text": "Unsaved changes cancelled.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unsaved changes cancelled."
+    },
+    "ui.0646": {
+      "text": "Unsupported schema version",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Unsupported schema version"
+    },
+    "ui.0647": {
+      "text": "Update deferred. Finish open database transactions, then retry Apply update.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Update deferred. Finish open database transactions, then retry Apply update."
+    },
+    "ui.0648": {
+      "text": "Update postponed. Your unsaved changes are kept.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Update postponed. Your unsaved changes are kept."
+    },
+    "ui.0649": {
+      "text": "Update shared type",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Update shared type"
+    },
+    "ui.0650": {
+      "text": "Update this choice for every assigned device?",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Update this choice for every assigned device?"
+    },
+    "ui.0651": {
+      "text": "Use YYYY, YYYY-MM, YYYY-Q1 to YYYY-Q4, or YYYY-MM-DD.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use YYYY, YYYY-MM, YYYY-Q1 to YYYY-Q4, or YYYY-MM-DD."
+    },
+    "ui.0652": {
+      "text": "Use a language code such as en, de, hu or en-GB; leave unknown blank.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use a language code such as en, de, hu or en-GB; leave unknown blank."
+    },
+    "ui.0653": {
+      "text": "Use an HTTP or HTTPS URL with a host and without embedded credentials.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use an HTTP or HTTPS URL with a host and without embedded credentials."
+    },
+    "ui.0654": {
+      "text": "Use launch-desktop.sh for managed updates.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use launch-desktop.sh for managed updates."
+    },
+    "ui.0655": {
+      "text": "Use lifecycle date",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use lifecycle date"
+    },
+    "ui.0656": {
+      "text": "Use location",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use location"
+    },
+    "ui.0657": {
+      "text": "Use printable single-line text within the field limit.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use printable single-line text within the field limit."
+    },
+    "ui.0658": {
+      "text": "Use selected sources",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use selected sources"
+    },
+    "ui.0659": {
+      "text": "Use suggested spelling",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Use suggested spelling"
+    },
+    "ui.0660": {
+      "text": "User reported",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "User reported"
+    },
+    "ui.0661": {
+      "text": "Validate and return these pending details to the device form. Save device is still required.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Validate and return these pending details to the device form. Save device is still required."
+    },
+    "ui.0662": {
+      "text": "Validate and save the form, dates and connectivity together, after a verified pre-save database backup.",
+      "context": "buttons.Save device",
+      "source": "Validate and save the form, dates and connectivity together, after a verified pre-save database backup."
+    },
+    "ui.0663": {
+      "text": "Variant / region / hardware revision",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Variant / region / hardware revision"
+    },
+    "ui.0664": {
+      "text": "Variant / region / service or warranty scope",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Variant / region / service or warranty scope"
+    },
+    "ui.0665": {
+      "text": "Verification status",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Verification status"
+    },
+    "ui.0666": {
+      "text": "Verified",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Verified"
+    },
+    "ui.0667": {
+      "text": "Verified connections need evidence and an observation date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Verified connections need evidence and an observation date."
+    },
+    "ui.0668": {
+      "text": "Verified full backup saved: {0}",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Verified full backup saved: {0}"
+    },
+    "ui.0669": {
+      "text": "Verified lifecycle dates need an observation date and verified dated sources.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Verified lifecycle dates need an observation date and verified dated sources."
+    },
+    "ui.0670": {
+      "text": "Verified means you checked the actual values; it requires a source and observation date. Saving does not independently verify the device.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Verified means you checked the actual values; it requires a source and observation date. Saving does not independently verify the device."
+    },
+    "ui.0671": {
+      "text": "Verified means you checked this source and requires a date. It does not automatically verify linked device assessments.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Verified means you checked this source and requires a date. It does not automatically verify linked device assessments."
+    },
+    "ui.0672": {
+      "text": "Verified network details need an evidence source and observation date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Verified network details need an evidence source and observation date."
+    },
+    "ui.0673": {
+      "text": "Version / support track",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Version / support track"
+    },
+    "ui.0674": {
+      "text": "Warning: conflicting market release observations; review the sources before relying on the purchase-date check.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warning: conflicting market release observations; review the sources before relying on the purchase-date check."
+    },
+    "ui.0675": {
+      "text": "Warning: connectivity source is missing. Saving is allowed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warning: connectivity source is missing. Saving is allowed."
+    },
+    "ui.0676": {
+      "text": "Warning: lifecycle sources are missing. Unverified observations can still be saved.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warning: lifecycle sources are missing. Unverified observations can still be saved."
+    },
+    "ui.0677": {
+      "text": "Warning: market release evidence is unverified; purchase-date plausibility cannot be confirmed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warning: market release evidence is unverified; purchase-date plausibility cannot be confirmed."
+    },
+    "ui.0678": {
+      "text": "Warning: network information source is missing. Saving unverified details is allowed.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warning: network information source is missing. Saving unverified details is allowed."
+    },
+    "ui.0679": {
+      "text": "Warning: no market release date is recorded; purchase-date plausibility cannot be checked.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warning: no market release date is recorded; purchase-date plausibility cannot be checked."
+    },
+    "ui.0680": {
+      "text": "Warning: purchase date falls within the uncertain release-date tolerance boundary.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warning: purchase date falls within the uncertain release-date tolerance boundary."
+    },
+    "ui.0681": {
+      "text": "Warning: release-date applicability does not match the device manufacturer and model.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warning: release-date applicability does not match the device manufacturer and model."
+    },
+    "ui.0682": {
+      "text": "Warranty expiry",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Warranty expiry"
+    },
+    "ui.0683": {
+      "text": "Website",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Website"
+    },
+    "ui.0684": {
+      "text": "Where is this device?",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Where is this device?"
+    },
+    "ui.0685": {
+      "text": "Who supplied this source, or where it came from. A source does not independently verify a device or its installed state.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Who supplied this source, or where it came from. A source does not independently verify a device or its installed state."
+    },
+    "ui.0686": {
+      "text": "Working…",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Working…"
+    },
+    "ui.0687": {
+      "text": "Write the observation or preserved source text.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Write the observation or preserved source text."
+    },
+    "ui.0688": {
+      "text": "Write these device changes to the database, then continue.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Write these device changes to the database, then continue."
+    },
+    "ui.0689": {
+      "text": "Year",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Year"
+    },
+    "ui.0690": {
+      "text": "Yes",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "Yes"
+    },
+    "ui.0691": {
+      "text": "ZIP archive (*.zip)",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "ZIP archive (*.zip)"
+    },
+    "ui.0692": {
+      "text": "awaiting installation",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "awaiting installation"
+    },
+    "ui.0693": {
+      "text": "en, de, hu, fr…; leave blank if unknown",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "en, de, hu, fr…; leave blank if unknown"
+    },
+    "ui.0694": {
+      "text": "faulty",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "faulty"
+    },
+    "ui.0695": {
+      "text": "given away",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "given away"
+    },
+    "ui.0696": {
+      "text": "hardware inventory database client",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "hardware inventory database client"
+    },
+    "ui.0697": {
+      "text": "in storage",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "in storage"
+    },
+    "ui.0698": {
+      "text": "in use",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "in use"
+    },
+    "ui.0699": {
+      "text": "interface",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "interface"
+    },
+    "ui.0700": {
+      "text": "lost",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "lost"
+    },
+    "ui.0701": {
+      "text": "none",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "none"
+    },
+    "ui.0702": {
+      "text": "not applicable",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "not applicable"
+    },
+    "ui.0703": {
+      "text": "partially working",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "partially working"
+    },
+    "ui.0704": {
+      "text": "protocol",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "protocol"
+    },
+    "ui.0705": {
+      "text": "recorded",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "recorded"
+    },
+    "ui.0706": {
+      "text": "recorded below",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "recorded below"
+    },
+    "ui.0707": {
+      "text": "retired",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "retired"
+    },
+    "ui.0708": {
+      "text": "returned",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "returned"
+    },
+    "ui.0709": {
+      "text": "scrapped",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "scrapped"
+    },
+    "ui.0710": {
+      "text": "sold",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "sold"
+    },
+    "ui.0711": {
+      "text": "spare",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "spare"
+    },
+    "ui.0712": {
+      "text": "stolen",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "stolen"
+    },
+    "ui.0713": {
+      "text": "supported",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "supported"
+    },
+    "ui.0714": {
+      "text": "uncertain",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "uncertain"
+    },
+    "ui.0715": {
+      "text": "under assessment",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "under assessment"
+    },
+    "ui.0716": {
+      "text": "under repair",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "under repair"
+    },
+    "ui.0717": {
+      "text": "unique devices",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "unique devices"
+    },
+    "ui.0718": {
+      "text": "unknown",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "unknown"
+    },
+    "ui.0719": {
+      "text": "untested",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "untested"
+    },
+    "ui.0720": {
+      "text": "user_reported",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "user_reported"
+    },
+    "ui.0721": {
+      "text": "verified",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "verified"
+    },
+    "ui.0722": {
+      "text": "working",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "working"
+    },
+    "ui.0723": {
+      "text": "{0} is required.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "{0} is required."
+    },
+    "ui.0724": {
+      "text": "{0}: choose a valid calendar date.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "{0}: choose a valid calendar date."
+    },
+    "ui.0725": {
+      "text": "{0}: recorded needs at least one {1} choice; unknown/none must have no choices.",
+      "context": "UI label, dialog, choice or validation message",
+      "source": "{0}: recorded needs at least one {1} choice; unknown/none must have no choices."
+    }
+  },
+  "help": {
+    "fields": {
+      "device_id": "ui.0264",
+      "name": "ui.0508",
+      "source": "ui.0220",
+      "purchase_date": "ui.0161",
+      "installation_date": "ui.0180",
+      "scrapped_date": "ui.0160",
+      "purchase_price": "ui.0229",
+      "purchase_currency": "ui.0098",
+      "current_state": "ui.0317",
+      "physical_condition": "ui.0262",
+      "device_type": "ui.0413",
+      "purchased_at": "ui.0571",
+      "location": "ui.0434",
+      "manufacturer": "ui.0431",
+      "model": "ui.0432",
+      "serial_number": "ui.0437"
+    },
+    "tips": {
+      "type_group": "ui.0374",
+      "search": "ui.0240",
+      "filter": "ui.0242",
+      "manage_connections": "ui.0209",
+      "supported": "ui.0635",
+      "usage": "ui.0054",
+      "assessment_source": "ui.0475",
+      "date": "ui.0055",
+      "photo_list": "ui.0044",
+      "type_name": "ui.0569",
+      "manage_group": "ui.0086",
+      "software_status": "ui.0634",
+      "os_family": "ui.0564",
+      "os_name": "ui.0297",
+      "os_version": "ui.0478",
+      "firmware_version": "ui.0247",
+      "software_source": "ui.0507",
+      "manual_title": "ui.0172",
+      "manual_url": "ui.0272",
+      "manual_language": "ui.0199",
+      "manual_edition": "ui.0211",
+      "manual_applicable_model": "ui.0608",
+      "manual_source": "ui.0506",
+      "manual_notes": "ui.0433",
+      "manual_file": "ui.0128",
+      "manual_kind": "ui.0417",
+      "manual_list": "ui.0349"
+    },
+    "buttons": {
+      "New device": "ui.0591",
+      "Refresh": "ui.0490",
+      "Full backup": "ui.0148",
+      "Manage types": "ui.0031",
+      "Save device": "ui.0662",
+      "Cancel changes": "ui.0195",
+      "Add photo…": "ui.0127",
+      "Open image": "ui.0425",
+      "Detach": "ui.0498",
+      "Manage connection choices…": "ui.0209",
+      "New choice": "ui.0592",
+      "Save choice": "ui.0532",
+      "New type": "ui.0593",
+      "Save type": "ui.0550",
+      "Close": "ui.0113",
+      "Add reference…": "ui.0417",
+      "Edit reference…": "ui.0349",
+      "Open reference": "ui.0272",
+      "Detach reference": "ui.0128"
+    }
+  }
+}

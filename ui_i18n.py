@@ -9,18 +9,20 @@ from PySide6.QtGui import QAction
 from PySide6.QtWidgets import (QApplication,QWidget,QLabel,QPushButton,QCheckBox,QGroupBox,
     QComboBox,QLineEdit,QTableWidget,QMenu,QDateEdit,QToolButton)
 
-LANGUAGES={'en':'English','de':'Deutsch','hu':'Magyar'}
-APP_VERSION='0.18.0'
-RELEASE_DATE='2026-10-19'
-TRANSLATIONS={}
+from language_catalog import CATALOGUES
+LANGUAGES={code:data['name'] for code,data in CATALOGUES.locales.items()}
+APP_VERSION='0.19.0'
+RELEASE_DATE='2026-10-20'
+
+def locale_name(code):
+    return CATALOGUES.locales.get(code,CATALOGUES.locales['en'])['qt_locale']
 
 def tr(text):
     lang=getattr(QApplication.instance(),'inventory_language','en')
-    if lang=='en':return text
     # Qt mnemonic markers are display-only.
     bare=text.replace('&','')
-    entry=TRANSLATIONS.get(text) or TRANSLATIONS.get(bare)
-    if entry:return entry[0 if lang=='de' else 1]
+    entry=CATALOGUES.translate(text,lang)
+    if entry!=text or lang=='en':return entry
     patterns=(
       (r'^Saved (.+)\. Pre-save backup: (.+)$','Saved {0}. Pre-save backup: {1}'),
       (r'^Verified full backup saved: (.+)$','Verified full backup saved: {0}'),
@@ -35,10 +37,10 @@ def tr(text):
     )
     for pattern,key in patterns:
         match=re.match(pattern,text)
-        if match and key in TRANSLATIONS:
+        if match and key in CATALOGUES.by_source:
             semantic={'{0} is required.','{0}: choose a valid calendar date.','Information source is required for {0} connectivity.','{0}: recorded needs at least one {1} choice; unknown/none must have no choices.','Unknown {0} choice; refresh the lists.'}
             args=[tr(v) if key in semantic else v for v in match.groups()]
-            return TRANSLATIONS[key][0 if lang=='de' else 1].format(*args)
+            return CATALOGUES.translate(key,lang).format(*args)
     return text
 
 class InventoryTranslator(QTranslator):
@@ -88,7 +90,7 @@ def apply(root):
                     item.setData(273,source);item.setData(274,tr(source));item.setText(tr(source))
             if not w.property('_managed_columns'):w.resizeColumnsToContents()
         if isinstance(w,QDateEdit):
-            locale=QLocale({'en':'en_GB','de':'de_DE','hu':'hu_HU'}[getattr(QApplication.instance(),'inventory_language','en')])
+            locale=QLocale(locale_name(getattr(QApplication.instance(),'inventory_language','en')))
             w.setLocale(locale);w.calendarWidget().setLocale(locale)
     for action in root.findChildren(QAction):
         _text(action,'action',action.text(),action.setText)
@@ -105,13 +107,14 @@ class ShowFilter(QObject):
         return False
 
 def install(language):
+    if language not in LANGUAGES:raise ValueError('Unsupported interface language')
     app=QApplication.instance();app.inventory_language=language
     from wheel_guard import install_wheel_guard
     install_wheel_guard(app)
     if not hasattr(app,'inventory_translator'):
         app.inventory_translator=InventoryTranslator(app);app.installTranslator(app.inventory_translator)
         app.inventory_show_filter=ShowFilter(app);app.installEventFilter(app.inventory_show_filter)
-    QLocale.setDefault(QLocale({'en':'en_GB','de':'de_DE','hu':'hu_HU'}[language]))
+    QLocale.setDefault(QLocale(locale_name(language)))
     for widget in app.topLevelWidgets():apply(widget)
 
 def read_language(folder):
@@ -130,8 +133,6 @@ def write_language(folder,language):
     finally:
         Path(name).unlink(missing_ok=True)
 
-from ui_translations import TEXT
-TRANSLATIONS.update(TEXT)
 
 from functools import wraps
 import inspect
@@ -143,52 +144,3 @@ def localized(method):
         apply(self)
         return result
     return wrapped
-
-
-TRANSLATIONS.update({
- 'Roles':('Rollen','Szerepkörök'),
- 'Choose roles…':('Rollen wählen…','Szerepkörök választása…'),
- 'Add role…':('Rolle hinzufügen…','Szerepkör hozzáadása…'),
- 'Add role':('Rolle hinzufügen','Szerepkör hozzáadása'),
- 'Role name (catalogue saves immediately)':('Rollenname (Katalog speichert sofort)','Szerepkör neve (katalógus azonnal mentődik)'),
- 'Search choices…':('Auswahl durchsuchen…','Választék keresése…'),
- 'Select all':('Alle auswählen','Összes kijelölése'),
- 'Clear selection':('Auswahl leeren','Kijelölés törlése'),
- 'No restriction':('Keine Einschränkung','Nincs korlátozás'),
- 'Columns':('Spalten','Oszlopok'),
- 'Columns…':('Spalten…','Oszlopok…'),
- 'Tick visible columns. Drag rows to change their order. Hiding never deletes data.':('Sichtbare Spalten markieren. Zeilen für Reihenfolge ziehen. Ausblenden löscht keine Daten.','Látható oszlopok jelölése. Sorrend húzással módosítható. Elrejtés nem töröl adatot.'),
- 'Move up':('Nach oben','Felfelé'), 'Move down':('Nach unten','Lefelé'),
- 'Restore defaults':('Standard wiederherstellen','Alapértékek visszaállítása'),
- 'Group by':('Gruppieren nach','Csoportosítás'), 'Group by…':('Gruppieren nach…','Csoportosítás…'),
- 'Ungrouped':('Ungruppiert','Csoportosítás nélkül'),
- 'Choose up to two levels. Roles can repeat devices; totals count unique devices.':('Bis zu zwei Ebenen. Rollen können Geräte wiederholen; Gesamtzahl zählt eindeutige Geräte.','Legfeljebb két szint. Szerepek ismételhetik az eszközt; összesítés egyedi eszközöket számol.'),
- 'Filters':('Filter','Szűrők'), 'Filters…':('Filter…','Szűrők…'),
- 'Clear filters':('Filter löschen','Szűrők törlése'), 'Choose a column':('Spalte wählen','Oszlop választása'),
- 'No matches':('Keine Treffer','Nincs találat'), 'unique devices':('eindeutige Geräte','egyedi eszköz'),
- 'Role groups can repeat devices.':('Rollengruppen können Geräte mehrfach zeigen.','Szerepcsoportok ugyanazt az eszközt többször mutathatják.'),
- 'Could not save view preferences: ':('Ansicht konnte nicht gespeichert werden: ','Nézetbeállítás nem menthető: '),
- 'General':('Allgemein','Általános'), 'Location':('Standort','Hely'),
- 'Purchase & lifecycle':('Kauf und Lebenszyklus','Vásárlás és életciklus'),
- 'State & condition':('Status und Zustand','Életciklus és állapot'),
- 'Device':('Gerät','Eszköz'), 'Network & connectivity':('Netzwerk und Verbindungen','Hálózat és kapcsolatok'),
- 'Files & evidence':('Dateien und Nachweise','Fájlok és bizonyítékok'),
- 'MAC addresses':('MAC-Adressen','MAC-címek'), 'IP addresses':('IP-Adressen','IP-címek'),
- 'Expand navigation groups. Select a section to find its tile; other sections remain available.':('Navigationsgruppen aufklappen. Bereich wählen, um seine Kachel zu finden; andere Bereiche bleiben verfügbar.','Navigációs csoportok kinyithatók. Szakaszválasztás a csempéhez ugrik; más szakaszok elérhetők maradnak.'),
- 'Roles changed outside the form. Cancel and refresh before editing again.':('Rollen wurden außerhalb geändert. Verwerfen und vor weiterer Bearbeitung aktualisieren.','Szerepkörök máshol módosultak. Elvetés és frissítés szükséges.'),
- 'Unknown role; refresh the role choices.':('Unbekannte Rolle; Auswahl aktualisieren.','Ismeretlen szerepkör; választék frissítendő.'),
-})
-
-TRANSLATIONS.update({
- 'Filter column: ':('Spalte filtern: ','Oszlop szűrése: '),
- 'Filter active':('Filter aktiv','Aktív szűrő'),
-})
-
-TRANSLATIONS.update({
- 'Manufacturer':('Hersteller','Gyártó'), 'Model':('Modell','Modell'), 'Serial number':('Seriennummer','Sorozatszám'),
- 'Hardware & location':('Hardware und Standort','Hardver és hely'),
- 'Manufacturer, model and serial number must be single-line printable text, up to 200 characters.':('Hersteller, Modell und Seriennummer müssen einzeiliger druckbarer Text mit höchstens 200 Zeichen sein.','Gyártó, modell és sorozatszám egysoros nyomtatható szöveg, legfeljebb 200 karakter lehet.'),
-})
-
-from lifecycle_translations import STRINGS as LIFECYCLE_STRINGS
-TRANSLATIONS.update(LIFECYCLE_STRINGS)

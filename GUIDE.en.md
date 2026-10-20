@@ -1,6 +1,8 @@
 # User guide
 
-Document ID: HWI4U-GUIDE · Version: 7 · 2026-10-19
+Document ID: HWI4U-GUIDE · Version: 8 · 2026-10-20
+
+[FR-043/045/047 · 0.19.0 TEST · Foundations / Grundlagen / Alapok](docs/FOUNDATIONS.en.md)
 
 [FR-037/038/039 · 0.18.0 TEST · Lifecycle / Lebenszyklus / Életciklus](docs/LIFECYCLE.en.md)
 
