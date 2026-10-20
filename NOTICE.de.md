@@ -1,6 +1,8 @@
 # Lizenz, Herkunft und Abhängigkeiten
 
-Document ID: HWI4U-NOTICE · Version: 1 · 2026-10-18
+Document ID: HWI4U-NOTICE · Version: 2 · 2026-10-21
+
+[Windows-Offline-EXE-Installer · 0.21.1 TEST](docs/WINDOWS-INSTALLER.de.md)
 
 Originaler HWI4U-Code/SQL/Werkzeuge/Tests/öffentliche Doku unter MIT in LICENSE, Copyright erhalten. LICENSE-desktop.txt kompatibel erweitert auf Originalquellen/Schema/Migration/Tests/Dokumentation. Inventardaten/Fremdabhängigkeiten nicht umlizenziert.
 

@@ -1,0 +1,54 @@
+name: Windows installer
+on:
+  push:
+    branches: ['feature/windows-installer']
+  pull_request:
+    paths:
+      - windows_start.py
+      - tools/build_windows_installer.py
+      - tools/windows_installer_smoke.py
+      - .github/workflows/windows-installer.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: windows-installer-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  installer:
+    runs-on: windows-2025
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.8'
+          architecture: x64
+      - name: Install build dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          choco install nsis --version=3.13 -y --no-progress
+      - name: Review source distribution
+        run: python tools/check_distribution.py
+      - name: Build offline per-user installer
+        run: python tools/build_windows_installer.py --output dist/windows-installer --makensis "C:/Program Files (x86)/NSIS/makensis.exe"
+      - name: Actual install, bundled full suite, native TEST and uninstall
+        run: |
+          $installer = Get-ChildItem dist/windows-installer/*setup.exe | Select-Object -First 1
+          python tools/windows_installer_smoke.py --installer $installer.FullName --output dist/installer-verification
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: hwi4u-windows-x64-installer
+          path: |
+            dist/windows-installer/*setup.exe
+            dist/windows-installer/SHA256SUMS.txt
+            dist/windows-installer/installer.nsi
+            dist/windows-installer/payload/INSTALL-MANIFEST.json
+            dist/installer-verification/
+          retention-days: 14

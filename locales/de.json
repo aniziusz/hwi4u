@@ -3023,6 +3023,62 @@
     "ui.0755": {
       "text": "Optionale wiederverwendbare Tags mit bis zu 50 Unicode-Zeichen. Zusätzliche Leerzeichen und Groß-/Kleinschreibung unterscheiden Tags nicht. Neue Tags und Zuordnungen werden mit diesem Gerät gespeichert; Abbrechen verwirft sie. Das Entfernen einer Auswahl betrifft nur dieses Gerät.",
       "source_sha256": "dca89a4b3f0e742205320b37bf1fb146f8360a5047a88754267f7e44f1eda921"
+    },
+    "installer.001": {
+      "text": "HWI4U — Start",
+      "source_sha256": "c1d35d4b99aad91ee77ed74dcd68e650e6378619562937f07ed76e558c3d9f4a"
+    },
+    "installer.002": {
+      "text": "Vorhandenes Inventar öffnen…",
+      "source_sha256": "dc41fa0c02b41f63e6fbf80818d0a95a0410322603433b95f14b4bd07d426726"
+    },
+    "installer.003": {
+      "text": "Neues Inventar…",
+      "source_sha256": "6fd4bb251e171f44332f69f89af45266692d70718a31ebd02503edf10ddf947b"
+    },
+    "installer.004": {
+      "text": "Update in TEST vorbereiten",
+      "source_sha256": "50facb886ae7a39d0e6d61d927ec13b25c6684610146c0fbd12f231219561c86"
+    },
+    "installer.005": {
+      "text": "HWI4U TEST starten",
+      "source_sha256": "67e32011162fce567c779f5799289d64278ac275cab79b4341cfb44996b60e5c"
+    },
+    "installer.006": {
+      "text": "HWI4U starten",
+      "source_sha256": "1e0d28f066a8521063ee49c416ec3a69726f6761af04352169b47664b7f06218"
+    },
+    "installer.007": {
+      "text": "Bereit. Produktiv und TEST behalten getrennte Datenbanken.",
+      "source_sha256": "6d700d5e12df2ad86e107947615cfa76b98ef8768fc52447a48b52f7c4ac04ad"
+    },
+    "installer.008": {
+      "text": "Der erste Start erstellt ein leeres Inventar und führt alle Prüfungen aus. Dies kann einige Minuten dauern.",
+      "source_sha256": "c700765bf2b149f7703976235edb2c428435631b54c750385143f7ec957239fb"
+    },
+    "installer.009": {
+      "text": "Ein unvollständiger oder unbekannter Ordner existiert bereits. Er wird nicht verändert. Wählen Sie einen neuen Ordner oder einen vollständig eingerichteten Arbeitsbereich.",
+      "source_sha256": "f52a18dcc9f17fd9acf03b7f92926345734ce386b6f3d59d327b56fdfed74c22"
+    },
+    "installer.010": {
+      "text": "Diese installierte Version als TEST-Update vorbereiten? Produktiv bleibt gebunden und TEST-Daten bleiben erhalten. TEST vor ausdrücklicher Produktivfreigabe prüfen.",
+      "source_sha256": "ae6c749c5b223025de95cc265121709ebfbad66c5301d12b0955830e0aeba36c"
+    },
+    "installer.011": {
+      "text": "Vollständigen HWI4U-Arbeitsbereich öffnen",
+      "source_sha256": "5e4505b0b3ce277abc344d26db06363e934008e5d0713018ed45a1fd39236b37"
+    },
+    "installer.012": {
+      "text": "Neuer Inventarordner",
+      "source_sha256": "484bd860a5ee20eba5146014ba8cf8faf3c20177619bcc84dcce6e212d301d5c"
+    },
+    "installer.013": {
+      "text": "Neuer Datenordnerpfad:",
+      "source_sha256": "9324eef1c93e158fde2c4131db33b6f3bada8a661f00499db2a2dfeacb3ca521"
+    },
+    "installer.014": {
+      "text": "Start angehalten. Daten und Diagnose bleiben erhalten. Das Startprotokoll liegt neben dem gewählten Datenordner. Nach fehlgeschlagener Ersteinrichtung neuen Ordner wählen; den fehlgeschlagenen Ordner nicht löschen.",
+      "source_sha256": "87672402f7f503484182de02405ef3bf5de882ea59a0b43d0004703f170c0944"
     }
   }
 }

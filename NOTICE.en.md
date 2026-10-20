@@ -1,6 +1,8 @@
 # License, provenance and dependencies
 
-Document ID: HWI4U-NOTICE · Version: 1 · 2026-10-18
+Document ID: HWI4U-NOTICE · Version: 2 · 2026-10-21
+
+[Windows offline EXE installer · 0.21.1 TEST](docs/WINDOWS-INSTALLER.en.md)
 
 Original HWI4U Python/SQL/tools/tests and public documentation are distributed under the MIT license in LICENSE, retaining the contributor copyright notice. The earlier component-specific LICENSE-desktop.txt is retained as a compatible notice explicitly covering original source, schema, migrations, tests and documentation. No inventory data or third-party dependency is relicensed.
 

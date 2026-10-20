@@ -1,6 +1,8 @@
 # Licenc, eredet és függőségek
 
-Document ID: HWI4U-NOTICE · Version: 1 · 2026-10-18
+Document ID: HWI4U-NOTICE · Version: 2 · 2026-10-21
+
+[Windows offline EXE-telepítő · 0.21.1 TEST](docs/WINDOWS-INSTALLER.hu.md)
 
 Eredeti HWI4U Python/SQL/eszköz/teszt/nyilvános dokumentáció MIT alatt a LICENSE szerint, copyright megőrzésével. LICENSE-desktop.txt kompatibilis megjelölés eredeti forrás/séma/migráció/teszt/dokumentáció lefedésével. Leltáradat/külső függőség nem kap új licencet.
 
