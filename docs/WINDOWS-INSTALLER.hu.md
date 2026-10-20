@@ -19,3 +19,5 @@ Ellenőrzés: tools/windows_installer_smoke.py valódi EXE-t telepít izolált U
 Licencek: HWI4U MIT, CPython LICENSE és Essentials/shiboken wheel értesítések mellékelve; dinamikus Qt-könyvtárak cserélhetők. Felesleges Qt Addons kimarad. Változatlan források/licencek: https://www.python.org/downloads/source/ , https://code.qt.io/cgit/pyside/pyside-setup.git/?h=v6.11.2 , https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/ , https://doc.qt.io/qtforpython-6/licenses.html . FOSS NSIS buildeszköz: https://nsis.sourceforge.io/License . Windows és esetleges fordítói futtatókörnyezet saját platformfeltételei megmaradnak, a célplatform kompatibilitási feltételei. Forráshivatkozásokhoz internet kell; teljes offline függőségforrás-archívum nincs állítva.
 
 [Desktop](DESKTOP.hu.md) · [Recovery](RECOVERY.hu.md)
+
+[Dependency licenses and exact corresponding sources](DEPENDENCY-SOURCES.hu.md)

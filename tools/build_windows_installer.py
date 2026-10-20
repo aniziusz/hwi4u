@@ -32,6 +32,8 @@ def build_payload(source,output):
     for name,content in files.items():
         if content.startswith(b'SQLite format 3\0'):raise ValueError('Database found in source allowlist')
         p=app/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(content)
+    for license_name in ('LICENSE-LGPL-3.0.md','LICENSE-GPL-3.0.md','DEPENDENCY-SOURCES.en.md'):
+        if not (app/'docs'/license_name).is_file():raise ValueError('Required dependency notice missing: '+license_name)
     runtime=output/'python';base=Path(sys.base_prefix).resolve()
     # Full Windows CPython layout keeps subprocess -m unittest and managed releases
     # portable without frozen-executable dispatch or external Python/registry state.

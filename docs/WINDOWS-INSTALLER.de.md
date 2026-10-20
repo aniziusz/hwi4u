@@ -19,3 +19,5 @@ Prüfung: tools/windows_installer_smoke.py installiert echte EXE in isolierten U
 Lizenzen: HWI4U MIT, CPython LICENSE und Hinweise der Essentials-/shiboken-Wheels bleiben enthalten; dynamische Qt-Bibliotheken austauschbar. Nicht benötigte Qt-Addons entfallen. Unveränderte Quellen/Lizenzen: https://www.python.org/downloads/source/ , https://code.qt.io/cgit/pyside/pyside-setup.git/?h=v6.11.2 , https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/ , https://doc.qt.io/qtforpython-6/licenses.html . FOSS-Buildwerkzeug NSIS: https://nsis.sourceforge.io/License . Windows und etwaige Compilerlaufzeiten behalten Plattformbedingungen und sind Kompatibilitätsanforderungen. Quelllinks benötigen Internet; kein vollständiges Offline-Abhängigkeitsquellarchiv zugesagt.
 
 [Desktop](DESKTOP.de.md) · [Recovery](RECOVERY.de.md)
+
+[Dependency licenses and exact corresponding sources](DEPENDENCY-SOURCES.de.md)

@@ -19,3 +19,5 @@ Validation: tools/windows_installer_smoke.py installs the real EXE into a dispos
 Dependency notices: HWI4U MIT and CPython LICENSE are included; PySide6-Essentials/shiboken wheel notices and dynamic Qt libraries remain replaceable. The bundle omits unnecessary Qt Addons. Unmodified upstream sources and license information: https://www.python.org/downloads/source/ , https://code.qt.io/cgit/pyside/pyside-setup.git/?h=v6.11.2 , https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/ , https://doc.qt.io/qtforpython-6/licenses.html . NSIS is a FOSS build tool: https://nsis.sourceforge.io/License . Windows and any compiler runtime retain their own platform terms; they are compatibility requirements of the requested Windows target. Source links require network; no claim of a complete offline dependency-source archive.
 
 [Desktop](DESKTOP.en.md) · [Recovery](RECOVERY.en.md)
+
+[Dependency licenses and exact corresponding sources](DEPENDENCY-SOURCES.en.md)
