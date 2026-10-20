@@ -136,6 +136,16 @@ class ValidationEvidence(unittest.TestCase):
             for _ in range(2):
                 with self.assertRaises(RuntimeError): run_full(self.root, self.evidence)
 
+    def test_fresh_interpreter_first_import_reuses_identical_result(self):
+        import sys
+        code = ("import sys;from pathlib import Path;"
+                "sys.path.insert(0,sys.argv[1]);from validation import run_full;"
+                "a=run_full(Path(sys.argv[2]),Path(sys.argv[3]));"
+                "b=run_full(Path(sys.argv[2]),Path(sys.argv[3]));"
+                "assert not a['reused'] and b['reused'], 'First Qt import changed cache inputs'")
+        result=subprocess.run([sys.executable,'-c',code,str(test_desktop.BASE),str(self.root),str(self.evidence)],capture_output=True,text=True)
+        self.assertEqual(result.returncode,0,result.stderr)
+
     def test_dependency_fingerprint_present_and_private(self):
         from validation import fingerprint
         result = fingerprint(self.root, {'EXAMPLE_SECRET': 'not-to-be-stored'})

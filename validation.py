@@ -103,6 +103,9 @@ def run_full(root, evidence, reuse=True):
     root = Path(root).resolve(); evidence = Path(evidence)
     if not list((root / 'tests').rglob('test_*.py')):
         raise ValueError('Candidate has no automated test suite')
+    # Qt initializes its enum policy in os.environ on first import. Capture the
+    # effective environment after that one-time setup, not a pre-import snapshot.
+    importlib.import_module('PySide6.QtCore')
     env = {**os.environ, 'QT_QPA_PLATFORM': 'offscreen', 'PYTHONDONTWRITEBYTECODE': '1'}
     started = time.perf_counter()
     inputs = fingerprint(root, env)

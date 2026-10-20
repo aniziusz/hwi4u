@@ -564,6 +564,7 @@ class Window(QMainWindow):
     def open_guide(self):
         code=QApplication.instance().inventory_language
         path=Path(os.environ.get('INVENTORY_PROJECT_ROOT',Path(__file__).resolve().parent))/f'GUIDE.{code}.md'
+        if not path.is_file():path=path.with_name('GUIDE.en.md')
         if not QDesktopServices.openUrl(QUrl.fromLocalFile(str(path))):QMessageBox.warning(self,'Could not open guide',str(path))
     def install_help(self):
         for key,widget in self.inputs.items():
