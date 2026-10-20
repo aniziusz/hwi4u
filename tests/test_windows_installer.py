@@ -55,7 +55,7 @@ class WindowsInstaller(unittest.TestCase):
         result=child_environment(env)
         self.assertEqual(env['PYTHONHOME'],'external')
         for key in ('PYTHONHOME','PYTHONPATH','QT_PLUGIN_PATH','QT_QPA_PLATFORM'):self.assertNotIn(key,result)
-        self.assertEqual(result['PATH'],'keep');self.assertEqual(result['PYTHONDONTWRITEBYTECODE'],'1')
+        self.assertEqual(result['PYTHONNOUSERSITE'],'1');self.assertEqual(result['PATH'],'keep');self.assertEqual(result['PYTHONDONTWRITEBYTECODE'],'1')
 
     def test_uninstaller_deletes_manifest_files_only(self):
         with tempfile.TemporaryDirectory() as d:

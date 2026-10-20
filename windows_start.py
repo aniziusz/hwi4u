@@ -44,7 +44,10 @@ def child_environment(base=None):
     # An external Python/Qt configuration must not redirect the installed runtime.
     for key in ('PYTHONHOME','PYTHONPATH','QT_PLUGIN_PATH','QT_QPA_PLATFORM_PLUGIN_PATH','QT_QPA_PLATFORM','QT_QPA_FONTDIR'):
         env.pop(key,None)
-    env.update(PYTHONUTF8='1',PYTHONDONTWRITEBYTECODE='1')
+    env.update(PYTHONUTF8='1',PYTHONDONTWRITEBYTECODE='1',PYTHONNOUSERSITE='1')
+    if sys.platform=='win32' and env.get('WINDIR'):
+        fonts=Path(env['WINDIR'])/'Fonts'
+        if fonts.is_dir():env['QT_QPA_FONTDIR']=str(fonts)
     return env
 
 

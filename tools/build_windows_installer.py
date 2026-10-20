@@ -36,7 +36,7 @@ def build_payload(source,output):
     # Full Windows CPython layout keeps subprocess -m unittest and managed releases
     # portable without frozen-executable dispatch or external Python/registry state.
     def omit(directory,names):
-        ignored={'__pycache__','site-packages','test','tests','idlelib','turtledemo','ensurepip'}
+        ignored={'__pycache__','site-packages','test','tests','idlelib','turtledemo','ensurepip','sitecustomize.py','usercustomize.py'}
         return [x for x in names if x in ignored or x.endswith(('.pyc','.pyo'))]
     runtime.mkdir()
     for name in ('python.exe','pythonw.exe','python3.dll','python314.dll','vcruntime140.dll','vcruntime140_1.dll','LICENSE.txt'):

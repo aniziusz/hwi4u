@@ -13,7 +13,7 @@ def main():
         root=Path(temp).resolve();installed=root/'installed HWI4U Ω';data=root/'fictional inventory';sentinel=root/'failed installation';sentinel.mkdir();(sentinel/'original.png').write_bytes(b'fictional retained diagnostic')
         env={k:v for k,v in os.environ.items() if k not in ('PYTHONHOME','PYTHONPATH','QT_PLUGIN_PATH','QT_QPA_PLATFORM_PLUGIN_PATH','QT_QPA_PLATFORM')}
         # Runtime launch must not find development Python/pip on PATH.
-        env.update(PATH=str(Path(os.environ['WINDIR'])/'System32')+os.pathsep+os.environ['WINDIR'],PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1',PIP_NO_INDEX='1')
+        env.update(PATH=str(Path(os.environ['WINDIR'])/'System32')+os.pathsep+os.environ['WINDIR'],PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1',PYTHONNOUSERSITE='1',PIP_NO_INDEX='1')
         command='"'+str(args.installer.resolve())+'" /S /D='+str(installed)
         subprocess.run(command,env=env,check=True,timeout=120)
         manifest=json.loads((installed/'INSTALL-MANIFEST.json').read_text())
