@@ -122,16 +122,25 @@ class SourceStore:
                     name='document.pdf'
                 else:
                     from PySide6.QtGui import QImageReader
+                    from PySide6.QtCore import QFile,QIODevice
                     if source.stat().st_size>25*1024*1024:raise ValueError('Choose a JPEG or PNG file up to 25 MiB.')
-                    reader=QImageReader(str(source));size=reader.size();fmt=bytes(reader.format()).lower()
-                    if fmt not in (b'jpg',b'jpeg',b'png') or size.width()<=0 or size.height()<=0 or size.width()*size.height()>16_000_000 or reader.read().isNull():raise ValueError('Choose a valid JPEG/PNG photo up to 16 megapixels.')
+                    source_device=QFile(str(source))
+                    if not source_device.open(QIODevice.ReadOnly):raise OSError(source_device.errorString())
+                    try:
+                        reader=QImageReader(source_device);size=reader.size();fmt=bytes(reader.format()).lower()
+                        if fmt not in (b'jpg',b'jpeg',b'png') or size.width()<=0 or size.height()<=0 or size.width()*size.height()>16_000_000 or reader.read().isNull():raise ValueError('Choose a valid JPEG/PNG photo up to 16 megapixels.')
+                    finally:source_device.close()
                     name='image.png' if fmt==b'png' else 'image.jpg'
                 values['relative_path']=f'sources/{ident}/{name}';destination=asset_path(self.db.parent,values['relative_path']);destination.parent.parent.mkdir(exist_ok=True);destination.parent.mkdir(mode=0o700);folder=destination.parent
                 shutil.copyfile(source,destination);destination.chmod(0o600)
                 if sha256(source)!=sha256(destination):raise ValueError('Source file changed during import; retry.')
                 if values['kind']=='photo':
-                    copied=QImageReader(str(destination));copied_size=copied.size()
-                    if copied_size!=size or bytes(copied.format()).lower()!=fmt or copied.read().isNull():raise ValueError('Source photo changed during import; retry.')
+                    copy_device=QFile(str(destination))
+                    if not copy_device.open(QIODevice.ReadOnly):raise OSError(copy_device.errorString())
+                    try:
+                        copied=QImageReader(copy_device);copied_size=copied.size()
+                        if copied_size!=size or bytes(copied.format()).lower()!=fmt or copied.read().isNull():raise ValueError('Source photo changed during import; retry.')
+                    finally:copy_device.close()
                 else:
                     with destination.open('rb') as f:
                         if not f.read(1024).startswith(b'%PDF-'):raise ValueError('Source document changed during import; retry.')

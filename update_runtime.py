@@ -54,7 +54,7 @@ def publish_pointer(root,ident,channel='production'):
     atomic_json(path,value)
 
 def published(root,channel='production'):
-    root=Path(root);pointer=channel_pointer(root,channel)
+    root=Path(root).resolve();pointer=channel_pointer(root,channel)
     if not pointer.exists():return None
     ident=json.loads(pointer.read_text())['release_id']
     if not re.fullmatch('[0-9a-f]{64}',ident):raise ValueError('Invalid published release identity')
@@ -78,7 +78,8 @@ def publish(root,run_tests=True,channel='test'):
         meta={'release_id':ident,'version':versions['APP_VERSION'],'date':versions['RELEASE_DATE'],'schema_version':schema,'sha256':hashes}
         (stage/'release.json').write_text(json.dumps(meta,indent=2)+'\n')
         if run_tests:
-            env={**os.environ,'QT_QPA_PLATFORM':'offscreen','PYTHONDONTWRITEBYTECODE':'1'}
+            from qt_test_environment import test_environment
+            env=test_environment()
             result=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(stage/'tests')],cwd=stage,env=env,capture_output=True,text=True)
             if result.returncode:raise RuntimeError('Release tests failed:\n'+result.stdout+result.stderr)
         if source_files(root)!=files:raise RuntimeError('Source changed during validation; publish again after edits finish.')

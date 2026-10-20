@@ -128,7 +128,8 @@ def promote_test(root,release_id,accepted=False):
     if receipt.get('release_id')!=release_id or receipt.get('dataset')!=current_dataset(root).name:
         raise ValueError('Launch and review this candidate with the current test dataset first')
     if not list((release/'tests').rglob('test_*.py')):raise ValueError('Candidate has no automated test suite')
-    env={**os.environ,'QT_QPA_PLATFORM':'offscreen','PYTHONDONTWRITEBYTECODE':'1'}
+    from qt_test_environment import test_environment
+    env=test_environment()
     result=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(release/'tests')],cwd=release,env=env,capture_output=True,text=True)
     if result.returncode:raise ValueError('Promotion tests failed: '+result.stdout+result.stderr)
     verify_release(release)

@@ -6,28 +6,45 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: tests-${{ github.workflow }}-${{ github.ref }}
+  group: tests-${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref_name }}
   cancel-in-progress: true
 jobs:
-  linux:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2025]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
     env:
-      QT_QPA_PLATFORM: offscreen
       PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
     steps:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: actions/setup-python@v7
         with:
-          python-version-file: .python-version
+          python-version: '3.14.8'
+          architecture: x64
           cache: pip
       - name: Install Qt system libraries
+        if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libegl1 libopengl0 libxkbcommon0
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
       - name: Verify source-only distribution
         run: python tools/check_distribution.py
-      - name: Test
-        run: python -m unittest discover -s tests
+      - name: Reported regressions and resource lifetime checks
+        run: python tools/windows_regressions.py --phase targeted --output dist/checks
+      - name: Full suite with resource and Qt diagnostics
+        run: python tools/windows_regressions.py --phase full --output dist/checks
+      - name: Fresh full initialization and TEST startup
+        run: python tools/windows_startup_smoke.py --output dist/startup
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: windows-fix-${{ matrix.os }}
+          path: dist/
+          if-no-files-found: ignore
+          retention-days: 14
