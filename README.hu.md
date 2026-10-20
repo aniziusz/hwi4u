@@ -1,6 +1,12 @@
 # HWI4U
 
-Document ID: HWI4U-README · Version: 2 · 2026-10-18
+Document ID: HWI4U-README · Version: 3 · 2026-10-20
+
+## Dokumentáció és funkciókövetés
+
+[Wiki](https://github.com/aniziusz/hwi4u/wiki/Home-hu) · [Feature requests](https://github.com/aniziusz/hwi4u/wiki/Feature-requests-hu) · [Projects table/board](https://github.com/users/aniziusz/projects/1) · [Offline tracking guide](docs/TRACKING.hu.md)
+
+Wiki és nyilvános funkciókövetés. A wiki a 0.18.0 forrást dokumentálja; ez az ág régebbi kódot tartalmazhat. A hivatkozott forrásverziót használja; dokumentáció nem frissíti a kódot.
 
 **Hardware inventory database client** — helyi Python/Qt alkalmazás SQLite-tal, EN/DE/HU-felülettel. Forrásverzió **0.13.0**, séma **21**. Használatához felhőfiók nem szükséges.
 

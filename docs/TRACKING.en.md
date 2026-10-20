@@ -1,0 +1,11 @@
+# Feature tracking and documentation maintenance
+
+Document ID: HWI4U-WIKI-TRACKING · Version: 1 · 2026-10-20
+
+Use **Feature list** for the searchable table of all FRs and **Work board** for open work. Fields are FR ID, title, status, kind (Feature/Bug/Process), optional priority, optional target release, assignees and labels. No priority/assignee/release commitment was invented. Statuses: Backlog, Ready, In progress, Review, Done, Duplicate. Issue numbers differ from stable FR IDs. Completed functionality is marked Done even when its source review branch has not merged into main; inspect source/CI links before selecting code.
+
+Each FR has one issue. Reuse it when refining scope. Keep the FR ID in its title/body, discuss scope in the issue, link implementation PRs, move to Review after checks, and mark Done after the agreed review/delivery milestone. Duplicate requests retain their own ID and explanation; do not renumber historical IDs. Preserve original scope/history when updating an existing issue. Export tracking metadata and keep local English/German/Hungarian documents aligned during related work; there is no background synchronisation job.
+
+Wiki pages are public mirrors of reviewed software guidance, with source revision links. Editable Markdown sources and local Git copies are retained for offline use; the private project files remain separate. Do not copy a populated database, invoices, private plans/photos, addresses, credentials or local paths into an issue/wiki page. New documentation should use aligned EN/DE/HU document IDs, versions and dates. Future wiki/source updates need an explicit reviewed publication, not an automatic overwrite of somebody else's changes. Fetch/pull first, preserve collaborators' changes and resolve conflicts. Website references require network unless saved separately; no complete offline-assets claim.
+
+For portable recovery clone the source and wiki Git repositories and export Projects items/fields plus issue bodies as JSON. Ordinary Markdown/JSON can be read without GitHub or an AI account. A local checkout alone is not an independent backup: include it in a separate backup location. The tracker is metadata, not a backup of private device files. Do not store secrets in issue fields.
