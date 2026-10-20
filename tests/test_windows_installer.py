@@ -64,7 +64,7 @@ class WindowsInstaller(unittest.TestCase):
             self.assertIn('RequestExecutionLevel user',script)
             self.assertIn('Delete "$INSTDIR\\app\\main.py"',script)
             self.assertNotIn('RMDir /r',script);self.assertNotIn('Delete "$LOCALAPPDATA',script)
-            self.assertIn('pythonw.exe',script);self.assertIn('-E -s -B',script)
+            self.assertIn('pythonw.exe',script);self.assertIn('-E -s -X utf8 -B',script)
             self.assertNotIn('ExecWait',script)
 
     def test_nsis_injection_and_platform_guard(self):

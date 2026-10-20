@@ -52,7 +52,7 @@ def build_payload(source,output):
     # Use normal Windows Lib/os.py landmark discovery, then prove paths at runtime.
     code='import json,sys,sqlite3,PySide6;from PySide6.QtCore import qVersion;print(json.dumps(dict(prefix=sys.prefix,python=sys.version,qt=qVersion(),pyside=PySide6.__file__)))'
     env={k:v for k,v in os.environ.items() if k not in ('PYTHONHOME','PYTHONPATH')};env['PYTHONDONTWRITEBYTECODE']='1'
-    proof=json.loads(subprocess.check_output([str(runtime/'python.exe'),'-I','-c',code],env=env,text=True))
+    proof=json.loads(subprocess.check_output([str(runtime/'python.exe'),'-I','-X','utf8','-c',code],env=env,text=True))
     if Path(proof['prefix']).resolve()!=runtime or not Path(proof['pyside']).resolve().is_relative_to(runtime):raise ValueError('Bundled Python escaped its installation')
     version=next(ast.literal_eval(x.value) for x in ast.parse((app/'ui_i18n.py').read_text()).body if isinstance(x,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='APP_VERSION' for t in x.targets))
     manifest={p.relative_to(output).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in output.rglob('*') if p.is_file()}
@@ -105,9 +105,9 @@ Section "HWI4U" SEC_APP
   WriteUninstaller "$INSTDIR\Uninstall.exe"
   CreateDirectory "$SMPROGRAMS\HWI4U @VERSION@"
   SetOutPath "$INSTDIR\app"
-  CreateShortcut "$SMPROGRAMS\HWI4U @VERSION@\HWI4U.lnk" "$INSTDIR\python\pythonw.exe" '-E -s -B "$INSTDIR\app\windows_start.py" production'
-  CreateShortcut "$SMPROGRAMS\HWI4U @VERSION@\HWI4U TEST.lnk" "$INSTDIR\python\pythonw.exe" '-E -s -B "$INSTDIR\app\windows_start.py" test'
-  CreateShortcut "$SMPROGRAMS\HWI4U @VERSION@\Prepare update in TEST.lnk" "$INSTDIR\python\pythonw.exe" '-E -s -B "$INSTDIR\app\windows_start.py" update'
+  CreateShortcut "$SMPROGRAMS\HWI4U @VERSION@\HWI4U.lnk" "$INSTDIR\python\pythonw.exe" '-E -s -X utf8 -B "$INSTDIR\app\windows_start.py" production'
+  CreateShortcut "$SMPROGRAMS\HWI4U @VERSION@\HWI4U TEST.lnk" "$INSTDIR\python\pythonw.exe" '-E -s -X utf8 -B "$INSTDIR\app\windows_start.py" test'
+  CreateShortcut "$SMPROGRAMS\HWI4U @VERSION@\Prepare update in TEST.lnk" "$INSTDIR\python\pythonw.exe" '-E -s -X utf8 -B "$INSTDIR\app\windows_start.py" update'
   CreateShortcut "$SMPROGRAMS\HWI4U @VERSION@\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\HWI4U-@VERSION@" "DisplayName" "HWI4U @VERSION@ (TEST installer)"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\HWI4U-@VERSION@" "DisplayVersion" "@VERSION@"

@@ -108,7 +108,7 @@ def main(argv=None):
             data=bytes(process.readAllStandardOutput())+bytes(process.readAllStandardError());log.write(data);log.flush()
     def launch_next():
         if not queue:return
-        command=queue.pop(0);process.start(str(interpreter),['-B',str(source/'manage.py'),*command])
+        command=queue.pop(0);process.start(str(interpreter),['-X','utf8','-B',str(source/'manage.py'),*command])
     def finished(code,status):
         nonlocal exit_code
         collect()
