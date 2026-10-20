@@ -20,7 +20,7 @@ BASE=Path(__file__).resolve().parents[1]
 class Localization(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
-        self.root=Path(self.tmp.name);self.db=self.root/'hardware.sqlite3'
+        self.root=Path(self.tmp.name).resolve();self.db=self.root/'hardware.sqlite3'
         with contextlib.closing(sqlite3.connect(self.db)) as c:c.executescript((BASE/'schema.sql').read_text())
         self.store=DeviceStore(self.db);self.w=Window(self.store,language='en');self.addCleanup(self.w.deleteLater)
     def test_switch_preserves_unsaved_data(self):

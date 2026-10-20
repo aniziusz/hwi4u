@@ -58,3 +58,15 @@ class ResourceLifetimes(unittest.TestCase):
             result=test_environment(base);self.assertEqual(result['QT_QPA_FONTDIR'],str(fonts))
             custom=test_environment({**base,'QT_QPA_FONTDIR':'chosen/fonts'});self.assertEqual(custom['QT_QPA_FONTDIR'],'chosen/fonts')
         self.assertEqual(base,{'WINDIR':str(self.root),'KEEP':'unchanged'})
+
+    def test_published_release_uses_canonical_root_for_relative_lookup(self):
+        import shutil
+        from update_runtime import publish,published
+        source=self.root/'source';source.mkdir()
+        for name in ('schema.sql','ui_i18n.py'):shutil.copyfile(test_desktop.BASE/name,source/name)
+        release=publish(source,run_tests=False)
+        with contextlib.chdir(source.parent):
+            selection=published(source.name,'test')
+        self.assertEqual(selection[0],release)
+        self.assertTrue(selection[0].is_absolute())
+        self.assertEqual(selection[0],selection[0].resolve())
