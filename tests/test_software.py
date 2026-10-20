@@ -86,7 +86,7 @@ class Software(unittest.TestCase):
         self.store.save({**self.data,'software':self.known()});bundle=backup_bundle(self.db,self.root/'bundle.zip')
         with zipfile.ZipFile(bundle) as z:
             restored=self.root/'restored.sqlite3';restored.write_bytes(z.read('hardware.sqlite3'))
-            self.assertEqual(json.loads(z.read('MANIFEST.json'))['schema_version'],25)
+            self.assertEqual(json.loads(z.read('MANIFEST.json'))['schema_version'],26)
         self.assertEqual(DeviceStore(restored).devices()[0]['_software'],self.known())
         import subprocess
         r=subprocess.run([sys.executable,str(BASE/'inventory.py'),'--db',str(self.db),'export','--directory',str(self.root/'export')],capture_output=True,text=True)

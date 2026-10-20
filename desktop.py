@@ -362,6 +362,14 @@ class Window(QMainWindow):
         for key,label in [('device_id','Device ID *'),('name','Name *'),('manufacturer','Manufacturer'),('model','Model'),('serial_number','Serial number'),('location','Location text / additional description'),('source','Information source / notes (or selected sources) *')]:
             widget=QLineEdit();self.inputs[key]=widget;form.addRow(label,widget)
             if key=='name':self.name_feedback=QLabel();self.name_feedback.setWordWrap(True);form.addRow(self.name_feedback)
+        self.name_suggestion_panel=QWidget();suggestion_row=QHBoxLayout(self.name_suggestion_panel);suggestion_row.setContentsMargins(0,0,0,0)
+        self.name_preview=QLineEdit();self.name_preview.setReadOnly(True);self.name_preview.setPlaceholderText('Enter manufacturer, model or device type for a suggestion.')
+        self.name_use=QPushButton('Use suggestion');self.name_use.clicked.connect(self.use_name_suggestion);suggestion_row.addWidget(self.name_preview,1);suggestion_row.addWidget(self.name_use)
+        self.name_suggestion_panel.setToolTip('Optional editable name: manufacturer model — device type. Missing parts are omitted; duplicate names get (2), (3). Only Use suggestion changes Name. IDs and hostname stay unchanged.')
+        form.insertRow(form.getWidgetPosition(self.inputs['name'])[0]+2,'Name suggestion',self.name_suggestion_panel)
+        for key in ('manufacturer','model'):self.inputs[key].textChanged.connect(self.refresh_name_suggestion)
+        self.tag_values=[];self.tag_button=QPushButton();self.tag_button.setProperty('_literal_text',True);self.tag_button.clicked.connect(self.choose_tags);form.addRow('Tags',self.tag_button)
+        self.tag_button.setToolTip('Optional reusable labels, up to 50 Unicode characters. Extra spaces and capitalization do not distinguish tags. New tags and assignments save with this device; Cancel discards them. Removing a selection affects only this device.')
         self.location_panel=LocationPanel(store);form.addRow(self.location_panel)
         sources_group=QGroupBox('Device evidence * — text above or sources below');sources_layout=QVBoxLayout(sources_group)
         self.source_selectors['device']=SourceSelector(self.source_store,OptionalDate);sources_layout.addWidget(self.source_selectors['device']);form.addRow(sources_group)
@@ -380,6 +388,7 @@ class Window(QMainWindow):
         self.inputs['device_type']=QComboBox();form.addRow('Device type',self.inputs['device_type'])
         self.type_group.currentIndexChanged.connect(self.group_changed)
         self.inputs['device_type'].currentIndexChanged.connect(self.type_changed)
+        self.inputs['device_type'].currentIndexChanged.connect(self.refresh_name_suggestion)
         self.fill_types(None)
         for key,label in [('purchase_date','Purchase date'),('installation_date','Installation date'),('scrapped_date','Scrapped date')]:
             self.inputs[key]=OptionalDate();form.addRow(label,self.inputs[key])
@@ -545,6 +554,35 @@ class Window(QMainWindow):
             view.refresh_photos();view.refresh_manuals();view.set_editing(view.editing);view.translate_state_cells();view.filter_rows();view.location_panel.refresh_text();view.lifecycle_panel.render();apply(view)
         try:write_language(self.store.path.parent,code)
         except OSError as exc:QMessageBox.warning(self,'Could not save language preference',str(exc))
+    def refresh_name_suggestion(self):
+        if not hasattr(self,'name_preview'):return
+        try:
+            suggestion=self.store.suggest_name(self.inputs['manufacturer'].text(),self.inputs['model'].text(),self.inputs.get('device_type').currentData() if 'device_type' in self.inputs else None,self.original['device_id'] if self.original else None)
+        except (ValueError,OSError,sqlite3.Error):suggestion=None
+        self.name_preview.setText(suggestion or '');self.name_use.setEnabled(self.editing and bool(suggestion))
+    def use_name_suggestion(self):
+        if not self.editing:return False
+        self.refresh_name_suggestion()
+        if self.name_preview.text():self.inputs['name'].setText(self.name_preview.text());self.check_name()
+    def refresh_tags(self):
+        self.tag_button.setText(', '.join(self.tag_values) or tr('Choose tags…'))
+    def choose_tags(self):
+        if not self.editing:return False
+        from tags import tag_label
+        from names import name_key
+        from PySide6.QtWidgets import QInputDialog
+        options=sorted(set(self.store.tags()+self.tag_values),key=name_key)
+        def add_choice():
+            value,ok=QInputDialog.getText(self,tr('Add tag'),tr('Tag label (saved with this device)'))
+            if not ok:return None
+            try:
+                value=tag_label(value)
+                canonical=next((v for v in options if name_key(v)==name_key(value)),value)
+                if canonical not in options:options.append(canonical)
+                return canonical
+            except ValueError as exc:self.error(exc);return None
+        dialog=ChoiceDialog('Tags',[(v,v) for v in options],self.tag_values,self,add_choice=add_choice,add_label='Add tag…')
+        if dialog.exec()==QDialog.Accepted:self.tag_values=sorted(dialog.selected(),key=name_key);self.refresh_tags()
     def refresh_roles(self):
         self.role_button.setText(', '.join(self.role_values) or tr('Choose roles…'))
     def choose_roles(self):
@@ -559,7 +597,7 @@ class Window(QMainWindow):
         dialog=ChoiceDialog('Roles',[(v,v) for v in self.store.roles()],self.role_values,self,add_choice=add_choice)
         if dialog.exec()==QDialog.Accepted:self.role_values=sorted(dialog.selected());self.refresh_roles()
     def translate_state_cells(self):
-        self.list_controller.render();self.refresh_roles()
+        self.list_controller.render();self.refresh_roles();self.refresh_tags()
         if hasattr(self,'workspace'):self.workspace.translate()
 
     def about_text(self):
@@ -608,6 +646,7 @@ class Window(QMainWindow):
             else:data[key]=w.text().strip() if key in ('device_id','name','source') else (w.text().strip() or None)
         data['lifecycle']=self.lifecycle_panel.value()
         data['roles']=list(self.role_values)
+        data['tags']=list(self.tag_values)
         data['location_details']=self.location_panel.value()
         data['sources']={scope:selector.value() for scope,selector in self.source_selectors.items()}
         data['network']=self.network_panel.value()
@@ -691,6 +730,7 @@ class Window(QMainWindow):
         self.inputs['device_id'].setReadOnly(True)
         self.short_id.setText(row.get('short_id','') if row else '')
         self.lifecycle_panel.load(row.get('_lifecycle',[]) if row else [],row['device_id'] if row else None)
+        self.tag_values=list(row.get('_tags',[]) if row else []);self.refresh_tags()
         self.role_values=list(row.get('_roles',[]) if row else []);self.refresh_roles()
         self.location_panel.load(row.get('_location',empty_location()) if row else empty_location())
         self.network_panel.load(row.get('_network',empty_network()) if row else empty_network())
@@ -700,7 +740,7 @@ class Window(QMainWindow):
         for scope,selector in self.source_selectors.items():selector.load(row.get('_sources',{}).get(scope,[]) if row else [],row['device_id'] if row else None)
         self.network_panel.update_warning()
         for panel in self.connection_panels.values():panel.update_warning()
-        self.baseline=self.values();self.refresh_photos();self.refresh_manuals();self.check_name();self.check_device_evidence();self.set_editing(row is None);self.set_details(self.details_mode)
+        self.baseline=self.values();self.refresh_photos();self.refresh_manuals();self.check_name();self.check_device_evidence();self.set_editing(row is None);self.set_details(self.details_mode);self.refresh_name_suggestion()
     @localized
     def reload(self):
         self.loading=True

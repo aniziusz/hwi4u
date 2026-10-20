@@ -43,6 +43,6 @@ class TypeLabels(unittest.TestCase):
             c.executescript((BASE/'migrations/018-hwi4u.sql').read_text())
             c.executescript((BASE/'migrations/019-source-library.sql').read_text())
             c.executescript((BASE/'migrations/020-network-links.sql').read_text())
-            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text());c.executescript((BASE/'migrations/024-device-identification.sql').read_text());c.executescript((test_desktop.BASE/'migrations/025-model-lifecycle.sql').read_text())
+            c.executescript((BASE/'migrations/021-location.sql').read_text());c.executescript((BASE/'migrations/022-guided-locations.sql').read_text());c.executescript((BASE/'migrations/023-device-roles.sql').read_text());c.executescript((BASE/'migrations/024-device-identification.sql').read_text());c.executescript((test_desktop.BASE/'migrations/025-model-lifecycle.sql').read_text());c.executescript((test_desktop.BASE/'migrations/026-device-tags.sql').read_text())
             self.assertEqual(c.execute('SELECT count(DISTINCT prefix) FROM device_type_codes').fetchone()[0],57)
         self.assertEqual(len(DeviceStore(db).devices()),2)

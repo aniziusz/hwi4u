@@ -1,6 +1,8 @@
 # Entwicklungsplan
 
-Document ID: HWI4U-FEATURES · Version: 9 · 2026-10-20
+Document ID: HWI4U-FEATURES · Version: 10 · 2026-10-20
+
+[Namensvorschläge und wiederverwendbare Tags — 0.21.0 TEST](docs/NAMES-TAGS.de.md)
 
 [FR-050/053/052/044/046 · 0.20.0 TEST · Basic/Details · View/Edit](docs/EDITOR-MODES.de.md)
 

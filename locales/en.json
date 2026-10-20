@@ -3713,6 +3713,71 @@
       "text": "Lifecycle details need attention.",
       "source": "Lifecycle details need attention.",
       "context": "Editor mode, classic menu or lifecycle disclosure"
+    },
+    "ui.0743": {
+      "text": "Tags",
+      "source": "Tags",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0744": {
+      "text": "Choose tags…",
+      "source": "Choose tags…",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0745": {
+      "text": "Add tag",
+      "source": "Add tag",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0746": {
+      "text": "Add tag…",
+      "source": "Add tag…",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0747": {
+      "text": "Tag label (saved with this device)",
+      "source": "Tag label (saved with this device)",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0748": {
+      "text": "Tags need 1–50 printable characters on one line.",
+      "source": "Tags need 1–50 printable characters on one line.",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0749": {
+      "text": "Choose tags or add a tag label.",
+      "source": "Choose tags or add a tag label.",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0750": {
+      "text": "Tags changed outside the form. Cancel and refresh before editing again.",
+      "source": "Tags changed outside the form. Cancel and refresh before editing again.",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0751": {
+      "text": "Name suggestion",
+      "source": "Name suggestion",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0752": {
+      "text": "Use suggestion",
+      "source": "Use suggestion",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0753": {
+      "text": "Enter manufacturer, model or device type for a suggestion.",
+      "source": "Enter manufacturer, model or device type for a suggestion.",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0754": {
+      "text": "Optional editable name: manufacturer model — device type. Missing parts are omitted; duplicate names get (2), (3). Only Use suggestion changes Name. IDs and hostname stay unchanged.",
+      "source": "Optional editable name: manufacturer model — device type. Missing parts are omitted; duplicate names get (2), (3). Only Use suggestion changes Name. IDs and hostname stay unchanged.",
+      "context": "Name suggestion and reusable device tags"
+    },
+    "ui.0755": {
+      "text": "Optional reusable labels, up to 50 Unicode characters. Extra spaces and capitalization do not distinguish tags. New tags and assignments save with this device; Cancel discards them. Removing a selection affects only this device.",
+      "source": "Optional reusable labels, up to 50 Unicode characters. Extra spaces and capitalization do not distinguish tags. New tags and assignments save with this device; Cancel discards them. Removing a selection affects only this device.",
+      "context": "Name suggestion and reusable device tags"
     }
   },
   "help": {

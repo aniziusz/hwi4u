@@ -2971,6 +2971,58 @@
     "ui.0742": {
       "text": "Az életciklus részleteit ellenőrizni kell.",
       "source_sha256": "6bcb2154a9057fef7c5d07c1b4767441b96bea100cff62b93936de74c2b25d3e"
+    },
+    "ui.0743": {
+      "text": "Címkék",
+      "source_sha256": "1331275bc537b4c2bf1e46f7275677967515342e30b572e6852fa6f51b831fe8"
+    },
+    "ui.0744": {
+      "text": "Címkék kiválasztása…",
+      "source_sha256": "7e77b8e4b77b69b55962c6e5e01ba3797e48a381467f6e5e9ad728e905ffe7c6"
+    },
+    "ui.0745": {
+      "text": "Címke hozzáadása",
+      "source_sha256": "3e10b08cc874514175b51ba372ff955b27e2817963bc53ab489344968d5a472d"
+    },
+    "ui.0746": {
+      "text": "Címke hozzáadása…",
+      "source_sha256": "80d8b18e593c7d8693ec165d61aadc38231a204fb936f89a6fc57837abf8b885"
+    },
+    "ui.0747": {
+      "text": "Címke neve (az eszközzel együtt mentődik)",
+      "source_sha256": "5d88aff719620fceab0333461f6856da83adede5057848fb960daf58cc4428c0"
+    },
+    "ui.0748": {
+      "text": "A címke egy sorban 1–50 nyomtatható karakterből állhat.",
+      "source_sha256": "2a26dc1dfe3431e142ead061183c0c3dc8e9c32ea88eaccdb7269a36c00b3362"
+    },
+    "ui.0749": {
+      "text": "Válasszon címkéket, vagy adjon hozzá új címkét.",
+      "source_sha256": "2a21daa80cd4583d030188278a85113e73f57caff11b488e1d06f525745bc900"
+    },
+    "ui.0750": {
+      "text": "A címkék az űrlapon kívül megváltoztak. Szakítsa meg a szerkesztést, és frissítsen.",
+      "source_sha256": "8f9458c6b5faec0b56656b8485fafa887e1e728829ac0dbf20f0e9a312e698d3"
+    },
+    "ui.0751": {
+      "text": "Névjavaslat",
+      "source_sha256": "985a869d0fa6af2fd9cf9587f90e3cbe1babf99603229a2cd20e1abfe4d6fdb4"
+    },
+    "ui.0752": {
+      "text": "Javaslat alkalmazása",
+      "source_sha256": "4c363f056aaf6d63041aed2580ff83d98db588a9ef2e532b82c3a5f8f648d57c"
+    },
+    "ui.0753": {
+      "text": "A javaslathoz adja meg a gyártót, a modellt vagy az eszköztípust.",
+      "source_sha256": "10d353829552d16c3d812f0104e5dd66145ff7f8c82e1193379911d40142ffec"
+    },
+    "ui.0754": {
+      "text": "Választható, szerkeszthető név: gyártó modell — eszköztípus. A hiányzó részek kimaradnak; az ismétlődő nevek (2), (3) utótagot kapnak. Csak a Javaslat alkalmazása módosítja a nevet. Az azonosítók és a gépnév nem változnak.",
+      "source_sha256": "c07bd858f45cd122515797e6e39e72db1d2742ffbe586e1a6d6d57d729f54970"
+    },
+    "ui.0755": {
+      "text": "Választható, újrahasználható címkék, legfeljebb 50 Unicode-karakterrel. A többletszóközök és a kis-/nagybetűk nem különböztetik meg a címkéket. Az új címkék és hozzárendelések az eszközzel együtt mentődnek; a Mégse elveti őket. A kijelölés megszüntetése csak ezt az eszközt érinti.",
+      "source_sha256": "dca89a4b3f0e742205320b37bf1fb146f8360a5047a88754267f7e44f1eda921"
     }
   }
 }
